@@ -10,7 +10,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import ShareIcon from "@mui/icons-material/Share";
@@ -22,6 +22,26 @@ const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
 }));
+export const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) setTargetReached(true);
+    else setTargetReached(false);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener("change", updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) setTargetReached(true);
+
+    return () => media.removeEventListener("change", updateTarget);
+  }, []);
+
+  return targetReached;
+};
 export default function OurNews() {
   const data = [
     {
@@ -49,13 +69,16 @@ export default function OurNews() {
       time: "13.01.2024",
     },
   ];
+  const lgDown = useMediaQuery(1300);
+  console.log("lgDown", lgDown);
   return (
     <Box
       sx={{
         backgroundColor: "#222D55",
         position: "relative",
-        borderRadius: "20px",
+        borderRadius: "20px 20px 0 0",
         // height: "100vh",
+        overflow: "hidden",
         mt: 10,
         pb: 10,
       }}
@@ -65,44 +88,61 @@ export default function OurNews() {
           position: "absolute",
           top: 0,
           right: 0,
-          height: "80px",
-          width: "80px",
-          borderLeft: "1px solid #222D55",
-          borderBottom: "1px solid #222D55",
-          borderRadius: "0 0 0% 30%",
-          zIndex: 0,
-          backgroundColor: "#fff",
+          width: "50px",
+          height: "50px",
+          bgcolor: "#ffffff",
+          borderBottomLeftRadius: "1rem",
+          zIndex: 5,
+          "::before": {
+            content: "''",
+            position: "absolute",
+            width: "20px",
+            height: "20px",
+            top: "10px",
+            left: "-10px",
+            transform: "translateX(-100%)",
+            boxShadow: "5px -5px 0 5px #222D55",
+            borderTopRightRadius: "0.75rem",
+          },
+          "::after": {
+            content: "''",
+            position: "absolute",
+            width: "20px",
+            height: "20px",
+            bottom: "-10px",
+            right: "10px",
+            transform: "translateY(100%)",
+            boxShadow: "5px -5px 0 5px #222D55",
+            borderTopRightRadius: "0.75rem",
+          },
         }}
-      />
-      {/* <Box
+      ></Box>
+      <Box
         sx={{
+          content: "''",
           position: "absolute",
           top: 0,
-          right : 60,
-          height: "80px",
-          width: "80px",
-          borderTop: "1px solid #7DB1FF",
-          borderRight: "1px solid #7DB1FF",
-          borderRadius: "0 30% 0% 0%",
-        //   backgroundColor: "red",
-          // transform: "translate(50%, -50%)",
-          zIndex: 0,
-          backgroundColor: "#222D55",
-          // boxShadow: "0px 0px 0px 1000px #fff",
+          right: 0,
+          width: "25px",
+          height: "100px",
+          bgcolor: "#ffffff",
+          transform: "rotateZ(-45deg)",
+          transformOrigin: "-25px 50px",
         }}
-      /> */}
-      <Box sx={{ padding: "0 30px" }}>
+      ></Box>
+      <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }}>
         <Box
           sx={{
-            display: "flex",
+            display: { md: "flex", xs: "block" },
+            flexDirection: { xs: "column-reverse", md: "row" },
             justifyContent: "space-between",
-            pt: 15,
+            pt: { md: 15, xs: 10 },
           }}
         >
           <Typography
             sx={{
               fontWeight: 400,
-              fontSize: { md: "75px", xs: "50px", lineHeight: "50px" },
+              fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
               color: "#7DB1FF",
             }}
           >
@@ -139,6 +179,7 @@ export default function OurNews() {
               />
             }
             sx={{
+              mt: { md: 0, xs: 2 },
               color: "#222D55",
               backgroundColor: "#FFFFFF",
               border: "1px solid #FFFFFF",
@@ -163,8 +204,8 @@ export default function OurNews() {
             borderBottomWidth: "1px",
           }}
         />
-        <Grid container columnSpacing={10} px={"50px"} pt={5}>
-          <Grid item xs={12} md={6}>
+        <Grid container columnSpacing={10} px={!lgDown ? "50px" : "0px"} pt={5}>
+          <Grid item xs={12} md={12} lg={6} mt={2}>
             <Img src={Annousment} width={900} height={900} alt="img" />
             <Typography
               sx={{
@@ -244,24 +285,21 @@ export default function OurNews() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
             {data?.map((ele, idx) => {
               return (
                 <>
                   <Box
                     key={idx}
                     sx={{
-                      display: "flex",
+                      display: { md: "flex", xs: "block" },
+                      flexDirection: { md: "row", xs: "column" },
                       gap: 3,
+                      alignItems: "center",
                     }}
                   >
                     <Box>
-                      <Image
-                        src={ele?.img}
-                        alt="img2"
-                        width={295}
-                        height={220}
-                      />
+                      <Img src={ele?.img} alt="img2" width={295} height={220} />
                     </Box>
                     <Box
                       sx={{
@@ -290,70 +328,65 @@ export default function OurNews() {
                           sx={{
                             fontWeight: 600,
                             fontSize: "18px",
+                            maxWidth: { lg: "230px", md: "100%" },
                             color: "#FFFFFF",
                           }}
                         >
                           {ele?.heading}
                         </Typography>
                         <Typography
-                          variant="subtitle1"
-                          component="div"
                           mt={2}
-                          sx={{ color: "#FFFFFF" }}
+                          sx={{
+                            color: "#FFFFFF",
+                            fontSize: "14px",
+                            maxWidth: "280px",
+                          }}
                         >
                           {ele?.description}
                         </Typography>
-                      </CardContent>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "row",
-                          borderRadius: "16px",
-                          alignContent: "center",
-                          alignItems: "center",
-                          margin: "16px",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            borderRadius: "16px",
-                            marginTop: "2px",
-                          }}
-                        >
-                          <Typography
+                        <Box>
+                          <Box
                             sx={{
-                              fontSize: 14,
-                              fontWeight: 600,
-                              color: "#FFFFFF",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              mt: 1,
                             }}
                           >
-                            {ele?.time}
-                          </Typography>
+                            <Box>
+                              <Typography
+                                sx={{
+                                  fontSize: 14,
+                                  fontWeight: 600,
+                                  color: "#FFFFFF",
+                                }}
+                              >
+                                {ele?.time}
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                border: "1px solid #FFFFFF",
+                                width: "36px",
+                                height: "36px",
+                                borderRadius: "50%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center", // This centers the icon vertically
+                              }}
+                            >
+                              <ShareIcon
+                                sx={{
+                                  height: "16px",
+                                  width: "16px",
+                                  color: "#FFFFFF",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            </Box>
+                          </Box>
                         </Box>
-                        <Box
-                          sx={{
-                            border: "1px solid #FFFFFF",
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center", // This centers the icon vertically
-                          }}
-                        >
-                          <ShareIcon
-                            sx={{
-                              height: "20px",
-                              width: "20px",
-                              color: "#FFFFFF",
-                              cursor: "pointer",
-                            }}
-                          />
-                        </Box>
-                      </Box>
+                      </CardContent>
                     </Box>
                   </Box>
                   {idx !== data.length - 1 ? (

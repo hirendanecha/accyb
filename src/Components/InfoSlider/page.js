@@ -62,7 +62,7 @@ export default function InfoSlider() {
             slidesPerView: 1,
           },
           450: {
-            slidesPerView: 2,
+            slidesPerView: 1,
           },
           900: {
             slidesPerView: 2,
@@ -91,6 +91,7 @@ export default function InfoSlider() {
                         gap: 3,
                         position: "relative",
                         backgroundColor: "#222D55",
+                        alignItems: "center",
                         // Other styles...
                         "&::after": {
                           content: '""',
@@ -135,10 +136,12 @@ export default function InfoSlider() {
                           sx={{
                             fontSize: "16px",
                             fontWeight: 500,
+                            lineHeight: "20px",
                             color: "#FFFFFF",
                             textTransform: "uppercase",
                             display: "flex",
                             textAlign: "start",
+                            maxWidth: "150px",
                           }}
                         >
                           {ele?.description}

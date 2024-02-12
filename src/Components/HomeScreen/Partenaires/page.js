@@ -123,7 +123,7 @@ export default function Partenaires() {
                     justifyContent: { md: "start", xs: "center" },
                   }}
                 >
-                  <Image src={ele.img} width={139} height={100} />
+                  <Image src={ele.img} width={100} height={100} />
                 </Grid>
               );
             })}

@@ -44,7 +44,6 @@ export const useMediaQuery = (width) => {
 };
 export default function MajorActivity() {
   const mdDown = useMediaQuery(1200);
-  console.log("mdDown", mdDown);
   const activites = [
     {
       img: Stack,
@@ -84,7 +83,9 @@ export default function MajorActivity() {
     },
   ];
   return (
-    <Box sx={{ padding: { md: "0 30px", xs: "0 10px" }, mt: {md : 20 , xs : 10} }}>
+    <Box
+      sx={{ padding: { md: "0 30px", xs: "0 10px" }, mt: { md: 20, xs: 10 } }}
+    >
       <Typography
         sx={{
           fontWeight: 400,
