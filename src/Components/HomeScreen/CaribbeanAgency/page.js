@@ -1,9 +1,38 @@
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Typography,
+  keyframes,
+} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 export default function CaribbeanAgency() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const upAnimation = keyframes`
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
   return (
     <Box
       sx={{
@@ -16,7 +45,7 @@ export default function CaribbeanAgency() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: { md: "900px", xs: "700px" },
+          height: { md: "900px", xs: "650px" },
           width: "100%",
         }}
       >
@@ -25,6 +54,9 @@ export default function CaribbeanAgency() {
             <Grid item xs={12} lg={6}>
               <Box
                 sx={{
+                  animation: `${
+                    scrollPosition >= 0 ? upAnimation : ""
+                  } 1.5s ease-out`,
                   fontSize: { lg: "85px", md: "75px", sm: "60px", xs: "35px" },
                   color: "#FFFFFF",
                   fontWeight: 400,
@@ -35,7 +67,7 @@ export default function CaribbeanAgency() {
                     xs: "50px",
                   },
                   maxWidth: "750px !important",
-                  paddingTop: { md: 20, xs: 10 },
+                  paddingTop: { md: 30, xs: 20 },
                 }}
               >
                 Agence{" "}
@@ -51,12 +83,15 @@ export default function CaribbeanAgency() {
               </Box>
               <Typography
                 sx={{
+                  animation: `${
+                    scrollPosition >= 0 ? upAnimation : ""
+                  } 1.5s ease-out`,
                   fontSize: { lg: "22px", md: "20px", xs: "18px" },
                   color: "#FFFFFF",
                   fontWeight: 400,
                   lineHeight: { md: "40px", xs: "25px" },
                   maxWidth: "550px !important",
-                  mt: { md: 3, xs: 2 },
+                  mt: 3,
                 }}
               >
                 L’ACCYB, l’autorité de référence dans le domaine de la
@@ -68,7 +103,7 @@ export default function CaribbeanAgency() {
                   display: "flex",
                   flexDirection: { md: "row", xs: "column" },
                   gap: { md: 5, xs: 1 },
-                  mt: { md: 5, xs: 3 },
+                  mt: 5,
                   maxWidth: { md: "unset", xs: "320px" },
                 }}
               >
@@ -187,6 +222,7 @@ export default function CaribbeanAgency() {
           <Divider
             variant="middle"
             sx={{
+              display: { md: "block", xs: "none" },
               bgcolor: "#8E9BBF",
               mt: { md: 12, xs: 5 },
               borderBottomWidth: "1px",

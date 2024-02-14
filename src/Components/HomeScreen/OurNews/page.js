@@ -8,6 +8,7 @@ import {
   Divider,
   Grid,
   Typography,
+  keyframes,
   styled,
 } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
@@ -43,6 +44,27 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function OurNews() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const upAnimation = keyframes`
+    from {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  `;
   const data = [
     {
       img: Image1,
@@ -70,7 +92,6 @@ export default function OurNews() {
     },
   ];
   const lgDown = useMediaQuery(1300);
-  console.log("lgDown", lgDown);
   return (
     <Box
       sx={{
@@ -225,9 +246,12 @@ export default function OurNews() {
               sx={{
                 fontSize: "24px",
                 mt: 1,
-                width: "450px",
+                width: { md: "450px", xs: "100%" },
                 lineHeight: "36px",
                 color: "#FFFFFF",
+                animation: `${
+                  scrollPosition >= 0 ? upAnimation : ""
+                } 1.5s ease-out`,
               }}
             >
               24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet
@@ -236,9 +260,12 @@ export default function OurNews() {
               sx={{
                 fontSize: "14px",
                 mt: 1,
-                width: "450px",
+                width: { md: "450px", xs: "100%" },
                 lineHeight: "22px",
                 color: "#FFFFFF",
+                animation: `${
+                  scrollPosition >= 0 ? upAnimation : ""
+                } 1.5s ease-out`,
               }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -288,9 +315,8 @@ export default function OurNews() {
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
             {data?.map((ele, idx) => {
               return (
-                <>
+                <Box key={idx}>
                   <Box
-                    key={idx}
                     sx={{
                       display: { md: "flex", xs: "block" },
                       flexDirection: { md: "row", xs: "column" },
@@ -402,7 +428,7 @@ export default function OurNews() {
                   ) : (
                     ""
                   )}
-                </>
+                </Box>
               );
             })}
           </Grid>

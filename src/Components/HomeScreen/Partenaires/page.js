@@ -45,7 +45,7 @@ export default function Partenaires() {
     },
   ];
   return (
-    <Box sx={{ padding: "0 30px" }}>
+    <Box sx={{ padding: { md: "0 30px", xs: "0 10px" } }}>
       <Grid container mt={8}>
         <Grid item xs={12} lg={5.5}>
           <Typography
@@ -63,9 +63,10 @@ export default function Partenaires() {
             spacing={2}
             sx={{ display: "flex", justifyContent: "center", mt: 3 }}
           >
-            {partners?.map((ele) => {
+            {partners?.map((ele, idx) => {
               return (
                 <Grid
+                  key={idx}
                   item
                   md={2.5}
                   xs={6}
@@ -74,7 +75,7 @@ export default function Partenaires() {
                     justifyContent: { md: "start", xs: "center" },
                   }}
                 >
-                  <Image src={ele.img} width={100} height={100} />
+                  <Image src={ele.img} width={100} height={100} alt="img" />
                 </Grid>
               );
             })}
@@ -112,9 +113,10 @@ export default function Partenaires() {
             spacing={2}
             sx={{ display: "flex", justifyContent: "center", mt: 3 }}
           >
-            {supported?.map((ele) => {
+            {supported?.map((ele, idx) => {
               return (
                 <Grid
+                  key={idx}
                   item
                   md={2.4}
                   xs={6}
@@ -123,7 +125,7 @@ export default function Partenaires() {
                     justifyContent: { md: "start", xs: "center" },
                   }}
                 >
-                  <Image src={ele.img} width={100} height={100} />
+                  <Image src={ele.img} width={100} height={100} alt="img" />
                 </Grid>
               );
             })}

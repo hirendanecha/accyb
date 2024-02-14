@@ -16,6 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Logo from "@/Icons/Frame.svg";
+import { deepOrange } from "@mui/material/colors";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
@@ -49,7 +50,7 @@ export default function Header() {
     setAnchorElUser(null);
   };
   return (
-    <Box>
+    <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
       <AppBar
         position="static"
         sx={{
@@ -60,7 +61,7 @@ export default function Header() {
         <Box
           sx={{
             display: "flex",
-            padding: "0 3px 0 20px",
+            padding: "0 0 0 20px",
             justifyContent: "space-between",
           }}
         >
@@ -159,10 +160,18 @@ export default function Header() {
           </Box>
         </Box>
       </AppBar>
-      <AppBar position="static" sx={{ backgroundColor: "transparent" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#FFFFFF" }}>
         <Toolbar disableGutters sx={{ padding: "0 15px" }}>
-          <Img src={Logo} sx={{ display: { xs: "none", md: "flex" } }} />
-          <Img src={Logo} sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Img
+            src={Logo}
+            alt="img"
+            sx={{ display: { xs: "none", md: "flex" } }}
+          />
+          <Img
+            src={Logo}
+            alt="img"
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Box
             sx={{
               flexGrow: 1,
@@ -176,7 +185,14 @@ export default function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              sx={{ backgroundColor: "#222D55", color: "white" }}
+              sx={{
+                backgroundColor: "#222D55",
+                color: "white",
+                "&:hover": {
+                  // Remove hover effect
+                  backgroundColor: "#222D55", // Keep the same background color when hovered
+                },
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -195,20 +211,161 @@ export default function Header() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                top: 10,
+                display: { xs: "block", lg: "none" },
+              }}
+              PaperProps={{
+                style: {
+                  width: "100%",
+                  backgroundColor: "#222D55",
+                },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pages.map((page, idx) => (
+                <MenuItem
+                  key={idx}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    backgroundColor: "#222D55",
+                    textTransform: "uppercase",
+                    color: "#fff",
+                    fontSize: "30px",
+                  }}
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
+              <Divider
+                orientation="horizontal"
+                variant="middle"
+                sx={{ bgcolor: "#8E9BBF" }}
+              />
+              {link.map((page, idx) => (
+                <MenuItem
+                  key={idx}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    backgroundColor: "#222D55",
+                    color: "#fff",
+                    textTransform: "uppercase",
+                    fontSize: "30px",
+                  }}
+                >
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+              <Divider
+                orientation="horizontal"
+                variant="middle"
+                sx={{ bgcolor: "#8E9BBF" }}
+              />
+              <MenuItem sx={{ gap: 1 }}>
+                <Avatar
+                  sx={{
+                    background:
+                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    fontSize: "16px",
+                    padding: 3,
+                  }}
+                >
+                  FR
+                </Avatar>
+                <Avatar
+                  sx={{
+                    bgcolor: "transparent",
+                    border: "1px solid #7DB1FF",
+                    fontSize: "16px",
+                    color: "#7DB1FF",
+                    padding: 3,
+                  }}
+                >
+                  EN
+                </Avatar>
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  mt: 3,
+                  display: "flex",
+                  justifyContent: "space-around",
+                  backgroundColor: "#FFFFFF",
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: "#222D55",
+                    textTransform: "uppercase",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                  }}
+                >
+                  actualités
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#222D55",
+                    textTransform: "uppercase",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                  }}
+                >
+                  Devenir Bénévole Cyber
+                </Typography>
+              </MenuItem>
+
+              <MenuItem
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  backgroundColor: "#BE0011",
+                  gap: 1,
+                  padding: "8px 15px",
+                }}
+              >
+                <NotificationsNoneIcon sx={{ color: "#fff" }} />
+                <Typography
+                  variant="h7"
+                  color="inherit"
+                  component="div"
+                  sx={{
+                    textTransform: "uppercase",
+                    height: "100%",
+                    fontSize: "13px",
+                    color: "#fff",
+                  }}
+                >
+                  Déclarer un incident
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  backgroundColor: "#007A47",
+                  gap: 1,
+                  padding: "8px 15px",
+                }}
+              >
+                <PersonOutlineIcon sx={{ color: "#fff" }} />
+                <Typography
+                  variant="h7"
+                  color="inherit"
+                  component="div"
+                  sx={{
+                    textTransform: "uppercase",
+                    height: "100%",
+                    fontSize: "13px",
+                    color: "#fff",
+                  }}
+                >
+                  adhérer à l’ACCYB
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}>
-            {pages.map((page) => (
+            {pages.map((page , idx) => (
               <Button
-                key={page}
+                key={idx}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 3,
@@ -223,9 +380,9 @@ export default function Header() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" }, ml: 3 }}>
-            {link.map((page) => (
+            {link.map((page , idx) => (
               <Button
-                key={page}
+                key={idx}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 3,

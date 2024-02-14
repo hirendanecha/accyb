@@ -1,5 +1,12 @@
 "use client";
-import { Box, Divider, Grid, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  Typography,
+  keyframes,
+  styled,
+} from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import Light from "@/Icons/Light.svg";
 import Image from "next/image";
@@ -43,6 +50,27 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function MajorActivity() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const upAnimation = keyframes`
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
   const mdDown = useMediaQuery(1200);
   const activites = [
     {
@@ -88,8 +116,9 @@ export default function MajorActivity() {
     >
       <Typography
         sx={{
+          animation: `${scrollPosition >= 200 ? upAnimation : ""} 2s ease-out`,
           fontWeight: 400,
-          fontSize: { md: "70px", xs: "50px", lineHeight: "50px" },
+          fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
           color: "#222D55",
         }}
       >
@@ -106,43 +135,40 @@ export default function MajorActivity() {
       <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
         {activites?.map((ele, index) => {
           return (
-            <>
-              <Grid item xs={12} md={6}>
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
-                    backgroundColor: "transparent",
-                    border:
-                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                    position: "relative",
-                    borderRadius: "20px",
-                    // overflow: "hidden",
-                    height: "100%",
-                  }}
-                >
-                  {index !== 0 && !mdDown ? (
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: -3,
-                        right: -3,
-                        height: "80px",
-                        width: "80px",
-                        borderLeft:
-                          index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                        borderBottom:
-                          index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                        borderRadius: "0 0 0% 30%",
-                        zIndex: 0,
-                        backgroundColor: "#fff",
-                      }}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  {/* <Box
+            <Grid item xs={12} md={6} key={index}>
+              <Box
+                sx={{
+                  display: "flex",
+                  padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                  backgroundColor: "transparent",
+                  border: index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                  position: "relative",
+                  borderRadius: "20px",
+                  // overflow: "hidden",
+                  height: "100%",
+                }}
+              >
+                {index !== 0 && !mdDown ? (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: -3,
+                      right: -3,
+                      height: "80px",
+                      width: "80px",
+                      borderLeft:
+                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                      borderBottom:
+                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                      borderRadius: "0 0 0% 30%",
+                      zIndex: 0,
+                      backgroundColor: "#fff",
+                    }}
+                  />
+                ) : (
+                  ""
+                )}
+                {/* <Box
                     sx={{
                       position: "absolute",
                       top: -2,
@@ -159,69 +185,71 @@ export default function MajorActivity() {
                       // boxShadow: "0px 0px 0px 1000px #fff",
                     }}
                   /> */}
-                  <Grid
-                    container
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
+                <Grid
+                  container
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
 
-                      height: "100%",
-                      position: "relative",
-                      zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 2 },
-                    }}
-                  >
-                    <Grid item xs={3} sm={4}>
-                      <Box
+                    height: "100%",
+                    position: "relative",
+                    zIndex: 1,
+                    gap: { lg: 3, md: 2, xs: 2 },
+                  }}
+                >
+                  <Grid item xs={3} sm={4}>
+                    <Box
+                      sx={{
+                        borderRadius: "50%",
+                        backgroundColor: "#1B2341",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        border: "1px solid #8E9BBF",
+                        height: { lg: "160px", sm: "120px", xs: "80px" },
+                        width: { lg: "160px", sm: "120px", xs: "80px" },
+                      }}
+                    >
+                      <Img src={ele?.img} height={900} width={900} alt="img" />
+                    </Box>
+                  </Grid>
+                  <Grid item xs={8} sm={7}>
+                    <Box>
+                      <Typography
                         sx={{
-                          borderRadius: "50%",
-                          backgroundColor: "#1B2341",
+                          fontSize: { lg: "36px", md: "30px", xs: "18px" },
+                          fontWeight: { lg: 500, xs: 600 },
+                          lineHeight: { md: "42px", xs: "25px" },
+                          color: "#222D55",
                           display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          border: "1px solid #8E9BBF",
-                          height: { lg: "160px", sm: "120px", xs: "80px" },
-                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                          textAlign: "start",
+                          maxWidth: { lg: "320px", xs: "250px" },
+                          animation: `${
+                            scrollPosition >= 200 ? upAnimation : ""
+                          } 2s ease-out`,
                         }}
                       >
-                        <Img src={ele?.img} height={900} width={900} />
-                      </Box>
-                    </Grid>
-                    <Grid item xs={8} sm={7}>
-                      <Box>
-                        <Typography
-                          sx={{
-                            fontSize: { lg: "36px", md: "30px", xs: "20px" },
-                            fontWeight: { lg: 500, xs: 600 },
-                            lineHeight: { md: "42px", xs: "30px" },
-                            color: "#222D55",
-                            display: "flex",
-                            textAlign: "start",
-                            maxWidth: { lg: "320px", xs: "250px" },
-                          }}
-                        >
-                          {ele?.title}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            mt: 1,
-                            fontSize: { lg: "18px", md: "16px" },
-                            fontWeight: 500,
-                            lineHeight: { lg: "28px", md: "22px", xs: "20px" },
-                            color: "#222D55",
-                            display: "flex",
-                            textAlign: "start",
-                            width: { lg: "350px", md: "250px", xs: "250px" },
-                          }}
-                        >
-                          {ele?.description}
-                        </Typography>
-                      </Box>
-                    </Grid>
+                        {ele?.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          mt: 1,
+                          fontSize: { lg: "18px", md: "16px", xs: "14px" },
+                          fontWeight: 500,
+                          lineHeight: { lg: "28px", md: "22px", xs: "20px" },
+                          color: "#222D55",
+                          display: "flex",
+                          textAlign: "start",
+                          width: { lg: "350px", md: "250px", xs: "230px" },
+                        }}
+                      >
+                        {ele?.description}
+                      </Typography>
+                    </Box>
                   </Grid>
-                </Box>
-              </Grid>
-            </>
+                </Grid>
+              </Box>
+            </Grid>
           );
         })}
       </Grid>

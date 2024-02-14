@@ -1,6 +1,14 @@
-import { Box, Grid, Rating, Stack, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Rating,
+  Stack,
+  Typography,
+  keyframes,
+  styled,
+} from "@mui/material";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,6 +19,7 @@ import Light from "@/Icons/Light.svg";
 import Key from "@/Icons/Key.svg";
 import Dna from "@/Icons/Dna.svg";
 import Bell from "@/Icons/Bell.svg";
+import CountUp from "react-countup";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "34px !important",
@@ -18,6 +27,27 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 
 export default function InfoSlider() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const upAnimation = keyframes`
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
   const infoslider = [
     {
       img: Personnes,
@@ -59,13 +89,13 @@ export default function InfoSlider() {
         modules={[Pagination, Navigation]}
         breakpoints={{
           0: {
-            slidesPerView: 1,
+            slidesPerView: 1.1,
           },
           450: {
-            slidesPerView: 1,
+            slidesPerView: 2.2,
           },
           900: {
-            slidesPerView: 2,
+            slidesPerView: 2.5,
           },
           1200: {
             slidesPerView: 3,
@@ -79,78 +109,84 @@ export default function InfoSlider() {
         }}
       >
         <Grid container pb={10}>
-          {infoslider?.map((ele) => {
+          {infoslider?.map((ele, idx) => {
             return (
-              <>
-                <SwiperSlide>
-                  <Grid item md={3} xs={6}>
+              <SwiperSlide key={idx}>
+                <Grid item md={3} xs={6}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      padding: 3,
+                      gap: 3,
+                      position: "relative",
+                      backgroundColor: "#222D55",
+                      alignItems: "center",
+                      // Other styles...
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "3px",
+                        background:
+                          "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      },
+                    }}
+                  >
                     <Box
                       sx={{
+                        height: "98px",
+                        width: "98px",
+                        borderRadius: "50%",
+                        backgroundColor: "#1B2341",
+                        padding: 4,
                         display: "flex",
-                        padding: 3,
-                        gap: 3,
-                        position: "relative",
-                        backgroundColor: "#222D55",
+                        justifyContent: "center",
                         alignItems: "center",
-                        // Other styles...
-                        "&::after": {
-                          content: '""',
-                          position: "absolute",
-                          bottom: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "3px",
-                          background:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                        },
+                        border: "1px solid #8E9BBF",
                       }}
                     >
-                      <Box
+                      <Img src={ele?.img} height={900} width={900} alt="img" />
+                    </Box>
+
+                    <Box>
+                      <Typography
                         sx={{
-                          height: "98px",
-                          width: "98px",
-                          borderRadius: "50%",
-                          backgroundColor: "#1B2341",
-                          padding: 4,
+                          fontSize: "50px",
+                          fontWeight: 600,
+                          color: "#FFFFFF",
                           display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          border: "1px solid #8E9BBF",
+                          textAlign: "start",
+                          // animation: `${
+                          //   scrollPosition >= 500 ? upAnimation : ""
+                          // } 2s ease-out`,
                         }}
                       >
-                        <Img src={ele?.img} height={900} width={900} />
-                      </Box>
-                      <Box>
-                        <Typography
-                          sx={{
-                            fontSize: "50px",
-                            fontWeight: 600,
-                            color: "#FFFFFF",
-                            display: "flex",
-                            textAlign: "start",
-                          }}
-                        >
-                          {ele?.title}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontSize: "16px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                            color: "#FFFFFF",
-                            textTransform: "uppercase",
-                            display: "flex",
-                            textAlign: "start",
-                            maxWidth: "150px",
-                          }}
-                        >
-                          {ele?.description}
-                        </Typography>
-                      </Box>
+                        {scrollPosition >= 300 ? (
+                          <CountUp start={0} end={ele?.title} duration={3} />
+                        ) : (
+                          <>{ele?.title}</>
+                        )}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "16px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                          color: "#FFFFFF",
+                          textTransform: "uppercase",
+                          display: "flex",
+                          textAlign: "start",
+                          maxWidth: "150px",
+                        }}
+                      >
+                        {ele?.description}
+                      </Typography>
                     </Box>
-                  </Grid>
-                </SwiperSlide>
-              </>
+                  </Box>
+                </Grid>
+              </SwiperSlide>
             );
           })}
         </Grid>
