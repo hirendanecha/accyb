@@ -7,8 +7,7 @@ import {
   keyframes,
   styled,
 } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
-import Light from "@/Icons/Light.svg";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Stack from "@/Icons/MajorActivity/Stack.svg";
 import Doctor from "@/Icons/MajorActivity/Doctor.svg";
@@ -16,6 +15,8 @@ import Annousment from "@/Icons/MajorActivity/Annousment.svg";
 import Adviser from "@/Icons/MajorActivity/Adviser.svg";
 import Eye from "@/Icons/MajorActivity/Eye.svg";
 import Tower from "@/Icons/MajorActivity/Tower.svg";
+import { motion, useAnimation } from "framer-motion";
+
 const Img = styled(Image)(({ theme }) => ({
   width: "60px !important",
   height: "auto !important",
@@ -50,27 +51,40 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function MajorActivity() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
   }, []);
-  const upAnimation = keyframes`
-  from {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      });
+    }
+  }, [isVisible, controls]);
   const mdDown = useMediaQuery(1200);
   const activites = [
     {
@@ -112,18 +126,23 @@ export default function MajorActivity() {
   ];
   return (
     <Box
-      sx={{ padding: { md: "0 30px", xs: "0 10px" }, mt: { md: 20, xs: 10 } }}
+      ref={ref}
+      sx={{
+        padding: { md: "0 30px", xs: "0 10px" },
+        mt: { md: 20, xs: 10 },
+      }}
     >
-      <Typography
-        sx={{
-          animation: `${scrollPosition >= 200 ? upAnimation : ""} 2s ease-out`,
-          fontWeight: 400,
-          fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-          color: "#222D55",
-        }}
-      >
-        Nos activités majeurs
-      </Typography>
+      <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+        <Typography
+          sx={{
+            fontWeight: 400,
+            fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+            color: "#222D55",
+          }}
+        >
+          Nos activités majeurs
+        </Typography>
+      </motion.div>
       <Divider
         variant="middle"
         sx={{
@@ -148,7 +167,7 @@ export default function MajorActivity() {
                   height: "100%",
                 }}
               >
-                {index !== 0 && !mdDown ? (
+                {/* {index !== 0 && !mdDown ? (
                   <Box
                     sx={{
                       position: "absolute",
@@ -167,7 +186,7 @@ export default function MajorActivity() {
                   />
                 ) : (
                   ""
-                )}
+                )} */}
                 {/* <Box
                     sx={{
                       position: "absolute",
@@ -214,37 +233,39 @@ export default function MajorActivity() {
                     </Box>
                   </Grid>
                   <Grid item xs={8} sm={7}>
-                    <Box>
-                      <Typography
-                        sx={{
-                          fontSize: { lg: "36px", md: "30px", xs: "18px" },
-                          fontWeight: { lg: 500, xs: 600 },
-                          lineHeight: { md: "42px", xs: "25px" },
-                          color: "#222D55",
-                          display: "flex",
-                          textAlign: "start",
-                          maxWidth: { lg: "320px", xs: "250px" },
-                          animation: `${
-                            scrollPosition >= 200 ? upAnimation : ""
-                          } 2s ease-out`,
-                        }}
+                    <Box ref={ref}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={controls}
                       >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          mt: 1,
-                          fontSize: { lg: "18px", md: "16px", xs: "14px" },
-                          fontWeight: 500,
-                          lineHeight: { lg: "28px", md: "22px", xs: "20px" },
-                          color: "#222D55",
-                          display: "flex",
-                          textAlign: "start",
-                          width: { lg: "350px", md: "250px", xs: "230px" },
-                        }}
-                      >
-                        {ele?.description}
-                      </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: { lg: "36px", md: "30px", xs: "18px" },
+                            fontWeight: { lg: 500, xs: 600 },
+                            lineHeight: { md: "42px", xs: "25px" },
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                            maxWidth: { lg: "320px", xs: "250px" },
+                          }}
+                        >
+                          {ele?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            mt: 1,
+                            fontSize: { lg: "18px", md: "16px", xs: "14px" },
+                            fontWeight: 500,
+                            lineHeight: { lg: "28px", md: "22px", xs: "20px" },
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                            width: { lg: "350px", md: "250px", xs: "230px" },
+                          }}
+                        >
+                          {ele?.description}
+                        </Typography>
+                      </motion.div>
                     </Box>
                   </Grid>
                 </Grid>

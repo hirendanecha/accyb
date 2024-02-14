@@ -10,7 +10,7 @@ import partner2 from "../../Icons/Footer/partner2.svg";
 export default function Footer() {
   return (
     <>
-      <Box sx={{ padding: "0 30px", mt: 8 }}>
+      <Box id="footer" sx={{ padding: "0 30px", mt: 8 }}>
         <Typography
           sx={{
             color: "#222D55",

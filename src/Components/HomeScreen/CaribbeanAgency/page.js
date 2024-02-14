@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -11,28 +11,51 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { motion, useAnimation } from "framer-motion";
 export default function CaribbeanAgency() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
   }, []);
-  const upAnimation = keyframes`
-  from {
-    transform: translateY(-40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      });
+    }
+  }, [isVisible, controls]);
+
+  const handleContactUsClick = (event) => {
+    event.preventDefault();
+    const footerElement = document.getElementById("footer");
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -45,58 +68,59 @@ export default function CaribbeanAgency() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: { md: "900px", xs: "650px" },
+          height: { md: "900px", xs: "690px" },
           width: "100%",
         }}
       >
         <Box sx={{ padding: "0 30px" }}>
           <Grid container>
-            <Grid item xs={12} lg={6}>
-              <Box
-                sx={{
-                  animation: `${
-                    scrollPosition >= 0 ? upAnimation : ""
-                  } 1.5s ease-out`,
-                  fontSize: { lg: "85px", md: "75px", sm: "60px", xs: "35px" },
-                  color: "#FFFFFF",
-                  fontWeight: 400,
-                  lineHeight: {
-                    lg: "90px",
-                    md: "85px",
-                    sm: "75px",
-                    xs: "50px",
-                  },
-                  maxWidth: "750px !important",
-                  paddingTop: { md: 30, xs: 20 },
-                }}
-              >
-                Agence{" "}
-                <u
-                  style={{
-                    "text-decoration-thickness": "3px",
-                    "text-underline-offset": "10px",
+            <Grid item xs={12} lg={6} ref={ref}>
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+                <Box
+                  sx={{
+                    fontSize: {
+                      lg: "85px",
+                      md: "75px",
+                      sm: "60px",
+                      xs: "35px",
+                    },
+                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    lineHeight: {
+                      lg: "90px",
+                      md: "85px",
+                      sm: "75px",
+                      xs: "50px",
+                    },
+                    maxWidth: "750px !important",
+                    paddingTop: { md: 30, xs: 20 },
                   }}
                 >
-                  Caribéenne
-                </u>{" "}
-                pour la Cybersécurité
-              </Box>
-              <Typography
-                sx={{
-                  animation: `${
-                    scrollPosition >= 0 ? upAnimation : ""
-                  } 1.5s ease-out`,
-                  fontSize: { lg: "22px", md: "20px", xs: "18px" },
-                  color: "#FFFFFF",
-                  fontWeight: 400,
-                  lineHeight: { md: "40px", xs: "25px" },
-                  maxWidth: "550px !important",
-                  mt: 3,
-                }}
-              >
-                L’ACCYB, l’autorité de référence dans le domaine de la
-                cybersécurité sur les territoires français d’Amérique.
-              </Typography>
+                  Agence{" "}
+                  <u
+                    style={{
+                      "text-decoration-thickness": "3px",
+                      "text-underline-offset": "10px",
+                    }}
+                  >
+                    Caribéenne
+                  </u>{" "}
+                  pour la Cybersécurité
+                </Box>
+                <Typography
+                  sx={{
+                    fontSize: { lg: "22px", md: "20px", xs: "18px" },
+                    color: "#FFFFFF",
+                    fontWeight: 400,
+                    lineHeight: { md: "40px", xs: "25px" },
+                    maxWidth: "550px !important",
+                    mt: 3,
+                  }}
+                >
+                  L’ACCYB, l’autorité de référence dans le domaine de la
+                  cybersécurité sur les territoires français d’Amérique.
+                </Typography>
+              </motion.div>
 
               <Box
                 sx={{
@@ -206,7 +230,7 @@ export default function CaribbeanAgency() {
                   bottom: -50,
                 }}
               >
-                <Box>
+                <Box onClick={handleContactUsClick}>
                   <Typography
                     sx={{ color: "#FFFFFF", fontSize: "20px", fontWeight: 400 }}
                   >

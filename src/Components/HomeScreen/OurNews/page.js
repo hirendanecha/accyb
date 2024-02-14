@@ -8,17 +8,18 @@ import {
   Divider,
   Grid,
   Typography,
-  keyframes,
   styled,
 } from "@mui/material";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import ShareIcon from "@mui/icons-material/Share";
 import Annousment from "@/Icons/Anounsment.svg";
-import Image1 from "@/Icons/Image1.svg";
-import Image2 from "@/Icons/Image2.svg";
-import Image3 from "@/Icons/Image3.svg";
+import Image1 from "@/Icons/Image1.png";
+import Image2 from "@/Icons/Image2.png";
+import Image3 from "@/Icons/Image3.png";
+import { motion, useAnimation } from "framer-motion";
+
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -44,27 +45,40 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function OurNews() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
   }, []);
-  const upAnimation = keyframes`
-    from {
-      transform: translateY(-40px);
-      opacity: 0;
+
+  useEffect(() => {
+    if (isVisible) {
+      controls.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      });
     }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  `;
+  }, [isVisible, controls]);
   const data = [
     {
       img: Image1,
@@ -228,88 +242,86 @@ export default function OurNews() {
         <Grid container columnSpacing={10} px={!lgDown ? "50px" : "0px"} pt={5}>
           <Grid item xs={12} md={12} lg={6} mt={2}>
             <Img src={Annousment} width={900} height={900} alt="img" />
-            <Typography
-              sx={{
-                backgroundColor: "#007A47",
-                width: "max-content",
-                padding: "8px 15px 8px 15px",
-                fontSize: "12px",
-                mt: 3,
-                color: "#FFFFFF",
-                textTransform: "uppercase",
-                cursor: "pointer",
-              }}
-            >
-              Événement
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "24px",
-                mt: 1,
-                width: { md: "450px", xs: "100%" },
-                lineHeight: "36px",
-                color: "#FFFFFF",
-                animation: `${
-                  scrollPosition >= 0 ? upAnimation : ""
-                } 1.5s ease-out`,
-              }}
-            >
-              24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "14px",
-                mt: 1,
-                width: { md: "450px", xs: "100%" },
-                lineHeight: "22px",
-                color: "#FFFFFF",
-                animation: `${
-                  scrollPosition >= 0 ? upAnimation : ""
-                } 1.5s ease-out`,
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea.
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  mt: 2,
-                  fontSize: "14px",
-                  color: "#FFFFFF",
-                }}
-              >
-                13.01.2024
-              </Typography>
-              <Box
-                sx={{
-                  border: "1px solid #FFFFFF",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center", // This centers the icon vertically
-                }}
-              >
-                <ShareIcon
+            <Box ref={ref}>
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+                <Typography
                   sx={{
-                    height: "20px",
-                    width: "20px",
+                    backgroundColor: "#007A47",
+                    width: "max-content",
+                    padding: "8px 15px 8px 15px",
+                    fontSize: "12px",
+                    mt: 3,
                     color: "#FFFFFF",
+                    textTransform: "uppercase",
                     cursor: "pointer",
                   }}
-                />
-              </Box>
+                >
+                  Événement
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "24px",
+                    mt: 1,
+                    width: { md: "450px", xs: "100%" },
+                    lineHeight: "36px",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    mt: 1,
+                    width: { md: "450px", xs: "100%" },
+                    lineHeight: "22px",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea.
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontWeight: 500,
+                      mt: 2,
+                      fontSize: "14px",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    13.01.2024
+                  </Typography>
+                  <Box
+                    sx={{
+                      border: "1px solid #FFFFFF",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center", // This centers the icon vertically
+                    }}
+                  >
+                    <ShareIcon
+                      sx={{
+                        height: "20px",
+                        width: "20px",
+                        color: "#FFFFFF",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </motion.div>
             </Box>
           </Grid>
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
@@ -325,7 +337,7 @@ export default function OurNews() {
                     }}
                   >
                     <Box>
-                      <Img src={ele?.img} alt="img2" width={295} height={220} />
+                      <Img src={ele?.img} alt="img2" width={900} height={900} />
                     </Box>
                     <Box
                       sx={{

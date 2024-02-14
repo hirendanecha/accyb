@@ -5,19 +5,16 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { Divider, Toolbar, styled } from "@mui/material";
+import { Divider, InputBase, Toolbar, alpha, styled } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Logo from "@/Icons/Frame.svg";
-import { deepOrange } from "@mui/material/colors";
-
+import SearchIcon from "@mui/icons-material/Search";
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
   height: "64px !important",
@@ -49,6 +46,44 @@ export default function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(1),
+      width: "auto",
+    },
+    color: "#222D55",
+  }));
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    width: "100%",
+    cursor: "pointer",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      [theme.breakpoints.up("sm")]: {
+        width: "1ch",
+        "&:focus": {
+          width: "20ch",
+        },
+      },
+    },
+  }));
   return (
     <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
       <AppBar
@@ -221,6 +256,13 @@ export default function Header() {
                 },
               }}
             >
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Image
+                  src={Logo}
+                  alt="img"
+                  sx={{ display: { xs: "none", md: "flex" } }}
+                />
+              </Box>
               {pages.map((page, idx) => (
                 <MenuItem
                   key={idx}
@@ -229,10 +271,15 @@ export default function Header() {
                     backgroundColor: "#222D55",
                     textTransform: "uppercase",
                     color: "#fff",
-                    fontSize: "30px",
                   }}
                 >
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" sx={{ fontSize: "20px" }}>
+                    {`${page?.split(" ")?.[0]} `}
+                    <span style={{ color: "#7DB1FF" }}>{` ${page
+                      ?.split(" ")
+                      ?.slice(1)
+                      .join(" ")} `}</span>
+                  </Typography>
                 </MenuItem>
               ))}
               <Divider
@@ -311,7 +358,6 @@ export default function Header() {
                   Devenir Bénévole Cyber
                 </Typography>
               </MenuItem>
-
               <MenuItem
                 sx={{
                   display: "flex",
@@ -362,8 +408,9 @@ export default function Header() {
               </MenuItem>
             </Menu>
           </Box>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}>
-            {pages.map((page , idx) => (
+            {pages.map((page, idx) => (
               <Button
                 key={idx}
                 onClick={handleCloseNavMenu}
@@ -380,7 +427,7 @@ export default function Header() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" }, ml: 3 }}>
-            {link.map((page , idx) => (
+            {link.map((page, idx) => (
               <Button
                 key={idx}
                 onClick={handleCloseNavMenu}
@@ -400,6 +447,23 @@ export default function Header() {
               variant="middle"
               sx={{ bgcolor: "red" }}
             />
+          </Box>
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{
+              borderBottomWidth: "30px",
+              marginLeft: "15px",
+              display: { md: "block", xs: "none" },
+            }}
+          />
+          <Box sx={{ display: { md: "block", xs: "none" } }}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon sx={{ color: "#222D55" }} />
+              </SearchIconWrapper>
+              <StyledInputBase inputProps={{ "aria-label": "search" }} />
+            </Search>
           </Box>
         </Toolbar>
       </AppBar>
