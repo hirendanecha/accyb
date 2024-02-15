@@ -9,12 +9,12 @@ import {
 } from "@mui/material";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Stack from "@/Icons/MajorActivity/Stack.svg";
-import Doctor from "@/Icons/MajorActivity/Doctor.svg";
-import Annousment from "@/Icons/MajorActivity/Annousment.svg";
-import Adviser from "@/Icons/MajorActivity/Adviser.svg";
-import Eye from "@/Icons/MajorActivity/Eye.svg";
-import Tower from "@/Icons/MajorActivity/Tower.svg";
+import Stack from "../../../Icons/MajorActivity/Stack.svg";
+import Doctor from "../../../Icons/MajorActivity/Doctor.svg";
+import Annousment from "../../../Icons/MajorActivity/Annousment.svg";
+import Adviser from "../../../Icons/MajorActivity/Adviser.svg";
+import Eye from "../../../Icons/MajorActivity/Eye.svg";
+import Tower from "../../../Icons/MajorActivity/Tower.svg";
 import { motion, useAnimation } from "framer-motion";
 
 const Img = styled(Image)(({ theme }) => ({

@@ -68,7 +68,7 @@ export default function CaribbeanAgency() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: { md: "900px", xs: "690px" },
+          height: { md: "970px", xs: "690px" },
           width: "100%",
         }}
       >
@@ -172,7 +172,7 @@ export default function CaribbeanAgency() {
                     },
                   }}
                 >
-                  Découvrir nos missions
+                  Découvrir nos missionsss
                 </Button>
                 <Button
                   variant="outlined"

@@ -1,17 +1,17 @@
 "use client";
 import { Box, Divider, Grid, Typography, styled } from "@mui/material";
 import React from "react";
-import Logo1 from "@/Icons/Partners/Logo1.svg";
-import Logo2 from "@/Icons/Partners/Logo2.svg";
-import Logo3 from "@/Icons/Partners/Logo3.svg";
-import Logo4 from "@/Icons/Partners/Logo4.svg";
-import Logo5 from "@/Icons/Supported/Logo1.svg";
-import Logo6 from "@/Icons/Supported/Logo2.svg";
-import Logo7 from "@/Icons/Supported/Logo3.svg";
-import Logo8 from "@/Icons/Supported/Logo4.svg";
-import Logo9 from "@/Icons/Supported/Logo5.svg";
+import Logo1 from "../../../Icons/Partners/Logo1.svg";
+import Logo2 from "../../../Icons/Partners/Logo2.svg";
+import Logo3 from "../../../Icons/Partners/Logo3.svg";
+import Logo4 from "../../../Icons/Partners/Logo4.svg";
+import Logo5 from "../../../Icons/Supported/Logo1.svg";
+import Logo6 from "../../../Icons/Supported/Logo2.svg";
+import Logo7 from "../../../Icons/Supported/Logo3.svg";
+import Logo8 from "../../../Icons/Supported/Logo4.svg";
+import Logo9 from "../../../Icons/Supported/Logo5.svg";
 import Image from "next/image";
-import InfoSlider from "@/Components/InfoSlider/page";
+import InfoSlider from "../../../Components/InfoSlider/page";
 export default function Partenaires() {
   const partners = [
     {

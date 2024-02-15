@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
-import Logo from "@/Icons/Frame.svg";
+import Logo from "../../Icons/Frame.svg";
 import SearchIcon from "@mui/icons-material/Search";
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
@@ -195,7 +195,13 @@ export default function Header() {
           </Box>
         </Box>
       </AppBar>
-      <AppBar position="static" sx={{ backgroundColor: "#FFFFFF" }}>
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "#FFFFFF",
+          padding: { md: "0 0px", xs: "5px 0" },
+        }}
+      >
         <Toolbar disableGutters sx={{ padding: "0 15px" }}>
           <Img
             src={Logo}
@@ -426,7 +432,13 @@ export default function Header() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" }, ml: 3 }}>
+          <Box
+            sx={{
+              flexGrow: 0,
+              display: { xs: "none", md: "none", lg: "flex" },
+              ml: 3,
+            }}
+          >
             {link.map((page, idx) => (
               <Button
                 key={idx}

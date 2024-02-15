@@ -13,12 +13,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination } from "swiper/modules";
-import Personnes from "@/Icons/personnes.svg";
-import Calque from "@/Icons/Calque.svg";
-import Light from "@/Icons/Light.svg";
-import Key from "@/Icons/Key.svg";
-import Dna from "@/Icons/Dna.svg";
-import Bell from "@/Icons/Bell.svg";
+import Personnes from "../../Icons/personnes.svg";
+import Calque from "../../Icons/Calque.svg";
+import Light from "../../Icons/Light.svg";
+import Key from "../../Icons/Key.svg";
+import Dna from "../../Icons/Dna.svg";
+import Bell from "../../Icons/Bell.svg";
 import CountUp from "react-countup";
 
 const Img = styled(Image)(({ theme }) => ({

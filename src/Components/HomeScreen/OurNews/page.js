@@ -14,10 +14,10 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import ShareIcon from "@mui/icons-material/Share";
-import Annousment from "@/Icons/Anounsment.svg";
-import Image1 from "@/Icons/Image1.png";
-import Image2 from "@/Icons/Image2.png";
-import Image3 from "@/Icons/Image3.png";
+import Annousment from "../../../Icons/Anounsment.svg";
+import Image1 from "../../../Icons/Image1.png";
+import Image2 from "../../../Icons/Image2.png";
+import Image3 from "../../../Icons/Image3.png";
 import { motion, useAnimation } from "framer-motion";
 
 const Img = styled(Image)(({ theme }) => ({
