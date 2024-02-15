@@ -234,18 +234,18 @@ export default function DiscoverTheACCYB() {
             mt: { md: 20, xs: 10 },
           }}
         >
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-            <Typography
-              className={inter.className}
-              sx={{
-                fontWeight: 400,
-                fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-                color: "#222D55",
-              }}
-            >
-              Nos dates clés
-            </Typography>
-          </motion.div>
+          {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+          <Typography
+            className={inter.className}
+            sx={{
+              fontWeight: 400,
+              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+              color: "#222D55",
+            }}
+          >
+            Nos dates clés
+          </Typography>
+          {/* </motion.div> */}
           <Divider
             variant="middle"
             sx={{
@@ -1088,18 +1088,18 @@ export default function DiscoverTheACCYB() {
             mt: { md: 20, xs: 10 },
           }}
         >
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-            <Typography
-              className={inter.className}
-              sx={{
-                fontWeight: 400,
-                fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-                color: "#222D55",
-              }}
-            >
-              Quelles sont nos missions ?
-            </Typography>
-          </motion.div>
+          {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+          <Typography
+            className={inter.className}
+            sx={{
+              fontWeight: 400,
+              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+              color: "#222D55",
+            }}
+          >
+            Quelles sont nos missions ?
+          </Typography>
+          {/* </motion.div> */}
           <Divider
             variant="middle"
             sx={{
@@ -1201,25 +1201,25 @@ export default function DiscoverTheACCYB() {
                     </Grid>
                     <Grid item xs={8} sm={7}>
                       <Box ref={ref}>
-                        <motion.div
+                        {/* <motion.div
                           initial={{ opacity: 0, y: 50 }}
                           animate={controls}
+                        > */}
+                        <Typography
+                          className={inter.className}
+                          sx={{
+                            fontSize: { lg: "38px", md: "30px", xs: "18px" },
+                            fontWeight: 400,
+                            lineHeight: { md: "42px", xs: "25px" },
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                            maxWidth: { lg: "350px", xs: "250px" },
+                          }}
                         >
-                          <Typography
-                            className={inter.className}
-                            sx={{
-                              fontSize: { lg: "38px", md: "30px", xs: "18px" },
-                              fontWeight: 400,
-                              lineHeight: { md: "42px", xs: "25px" },
-                              color: "#222D55",
-                              display: "flex",
-                              textAlign: "start",
-                              maxWidth: { lg: "350px", xs: "250px" },
-                            }}
-                          >
-                            {ele?.title}
-                          </Typography>
-                        </motion.div>
+                          {ele?.title}
+                        </Typography>
+                        {/* </motion.div> */}
                       </Box>
                     </Grid>
                   </Grid>
@@ -1319,39 +1319,39 @@ export default function DiscoverTheACCYB() {
                     {/* <Grid item sm={1}></Grid> */}
                     <Grid item xs={8} sm={8}>
                       <Box ref={ref}>
-                        <motion.div
+                        {/* <motion.div
                           initial={{ opacity: 0, y: 50 }}
                           animate={controls}
+                        > */}
+                        <Typography
+                          className={inter.className}
+                          sx={{
+                            fontSize: { md: "14px", xs: "12px" },
+                            fontWeight: 400,
+                            lineHeight: "22px",
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                            textTransform: "uppercase",
+                          }}
                         >
-                          <Typography
-                            className={inter.className}
-                            sx={{
-                              fontSize: { md: "14px", xs: "12px" },
-                              fontWeight: 400,
-                              lineHeight: "22px",
-                              color: "#222D55",
-                              display: "flex",
-                              textAlign: "start",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            {ele?.title}
-                          </Typography>
-                          <Typography
-                            className={inter.className}
-                            sx={{
-                              mt: { md: 1, xs: 0.1 },
-                              fontSize: { md: "16px", xs: "12px" },
-                              fontWeight: 400,
-                              lineHeight: { md: "24px", xs: "18px" },
-                              color: "#222D55",
-                              display: "flex",
-                              textAlign: "start",
-                            }}
-                          >
-                            {ele?.description}
-                          </Typography>
-                        </motion.div>
+                          {ele?.title}
+                        </Typography>
+                        <Typography
+                          className={inter.className}
+                          sx={{
+                            mt: { md: 1, xs: 0.1 },
+                            fontSize: { md: "16px", xs: "12px" },
+                            fontWeight: 400,
+                            lineHeight: { md: "24px", xs: "18px" },
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                          }}
+                        >
+                          {ele?.description}
+                        </Typography>
+                        {/* </motion.div> */}
                       </Box>
                     </Grid>
                   </Grid>

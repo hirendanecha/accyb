@@ -226,14 +226,20 @@ export default function Header() {
       >
         <Toolbar disableGutters sx={{ padding: "0 15px" }}>
           <Img
+            onClick={() => router.push("/")}
             src={Logo}
             alt="img"
-            sx={{ display: { xs: "none", md: "flex" } }}
+            sx={{ display: { xs: "none", md: "flex" }, cursor: "pointer" }}
           />
           <Img
+            onClick={() => router.push("/")}
             src={Logo}
             alt="img"
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+            sx={{
+              display: { xs: "flex", md: "none" },
+              mr: 1,
+              cursor: "pointer",
+            }}
           />
           <Box
             sx={{

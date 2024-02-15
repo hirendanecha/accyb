@@ -185,7 +185,7 @@ export default function InfoSlider() {
                           textTransform: "uppercase",
                           display: "flex",
                           textAlign: "start",
-                          maxWidth: "150px",
+                          maxWidth: "130px",
                         }}
                       >
                         {ele?.description}
