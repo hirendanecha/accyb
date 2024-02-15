@@ -20,6 +20,7 @@ import Key from "../../Icons/Key.svg";
 import Dna from "../../Icons/Dna.svg";
 import Bell from "../../Icons/Bell.svg";
 import CountUp from "react-countup";
+import { inter } from "../../app/fonts/fonts";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "34px !important",
@@ -164,12 +165,18 @@ export default function InfoSlider() {
                         }}
                       >
                         {scrollPosition >= 300 ? (
-                          <CountUp start={0} end={ele?.title} duration={3} />
+                          <CountUp
+                            className={inter.className}
+                            start={0}
+                            end={ele?.title}
+                            duration={3}
+                          />
                         ) : (
-                          <>{ele?.title}</>
+                          <span className={inter.className}>{ele?.title}</span>
                         )}
                       </Typography>
                       <Typography
+                        className={inter.className}
                         sx={{
                           fontSize: "16px",
                           fontWeight: 500,

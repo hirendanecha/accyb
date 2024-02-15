@@ -19,6 +19,7 @@ import Image1 from "../../../Icons/Image1.png";
 import Image2 from "../../../Icons/Image2.png";
 import Image3 from "../../../Icons/Image3.png";
 import { motion, useAnimation } from "framer-motion";
+import { inter } from "../../../app/fonts/fonts";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -175,6 +176,7 @@ export default function OurNews() {
           }}
         >
           <Typography
+            className={inter.className}
             sx={{
               fontWeight: 400,
               fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
@@ -184,6 +186,7 @@ export default function OurNews() {
             Nos actualités
           </Typography>
           <Button
+            className={inter.className}
             variant="outlined"
             endIcon={
               <ArrowForwardIcon
@@ -245,6 +248,7 @@ export default function OurNews() {
             <Box ref={ref}>
               <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                 <Typography
+                  className={inter.className}
                   sx={{
                     backgroundColor: "#007A47",
                     width: "max-content",
@@ -259,6 +263,7 @@ export default function OurNews() {
                   Événement
                 </Typography>
                 <Typography
+                  className={inter.className}
                   sx={{
                     fontSize: "24px",
                     mt: 1,
@@ -270,6 +275,7 @@ export default function OurNews() {
                   24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet
                 </Typography>
                 <Typography
+                  className={inter.className}
                   sx={{
                     fontSize: "14px",
                     mt: 1,
@@ -291,6 +297,7 @@ export default function OurNews() {
                   }}
                 >
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontWeight: 500,
                       mt: 2,
@@ -348,6 +355,7 @@ export default function OurNews() {
                     >
                       <CardContent sx={{ flex: "1 0 auto" }}>
                         <Typography
+                          className={inter.className}
                           sx={{
                             backgroundColor: "#007A47",
                             width: "max-content",
@@ -363,6 +371,7 @@ export default function OurNews() {
                           {ele?.title}
                         </Typography>
                         <Typography
+                          className={inter.className}
                           sx={{
                             fontWeight: 600,
                             fontSize: "18px",
@@ -373,6 +382,7 @@ export default function OurNews() {
                           {ele?.heading}
                         </Typography>
                         <Typography
+                          className={inter.className}
                           mt={2}
                           sx={{
                             color: "#FFFFFF",
@@ -393,6 +403,7 @@ export default function OurNews() {
                           >
                             <Box>
                               <Typography
+                                className={inter.className}
                                 sx={{
                                   fontSize: 14,
                                   fontWeight: 600,

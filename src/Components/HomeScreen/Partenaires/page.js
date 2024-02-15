@@ -12,6 +12,7 @@ import Logo8 from "../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../Icons/Supported/Logo5.svg";
 import Image from "next/image";
 import InfoSlider from "../../../Components/InfoSlider/page";
+import { inter } from "../../../app/fonts/fonts";
 export default function Partenaires() {
   const partners = [
     {
@@ -55,6 +56,7 @@ export default function Partenaires() {
               fontWeight: 500,
               color: "#222D55",
             }}
+            className={inter.className}
           >
             partenaires
           </Typography>
@@ -105,6 +107,7 @@ export default function Partenaires() {
               fontWeight: 500,
               color: "#222D55",
             }}
+            className={inter.className}
           >
             Soutenu par
           </Typography>

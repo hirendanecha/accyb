@@ -6,12 +6,14 @@ import React from "react";
 import Logo from "../../Icons/Footer/Logo.svg";
 import partner1 from "../../Icons/Footer/partner1.svg";
 import partner2 from "../../Icons/Footer/partner2.svg";
+import { inter } from "../../app/fonts/fonts";
 
 export default function Footer() {
   return (
     <>
       <Box id="footer" sx={{ padding: "0 30px", mt: 8 }}>
         <Typography
+          className={inter.className}
           sx={{
             color: "#222D55",
             fontWeight: 500,
@@ -59,6 +61,7 @@ export default function Footer() {
               >
                 <Box>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 600,
@@ -101,6 +104,7 @@ export default function Footer() {
                 textAlign={{ md: "unset", xs: "center" }}
               >
                 <Typography
+                  className={inter.className}
                   sx={{
                     fontSize: "14px",
                     fontWeight: 600,
@@ -112,6 +116,7 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -121,6 +126,7 @@ export default function Footer() {
                     Nos dates clefs
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -130,6 +136,7 @@ export default function Footer() {
                     Quelles sont nos missions ?
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -139,6 +146,7 @@ export default function Footer() {
                     Découvrir les services de l’ACCYB
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -159,6 +167,7 @@ export default function Footer() {
                 textAlign={{ md: "unset", xs: "center" }}
               >
                 <Typography
+                  className={inter.className}
                   sx={{
                     fontSize: "14px",
                     fontWeight: 600,
@@ -170,6 +179,7 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -179,6 +189,7 @@ export default function Footer() {
                     Quelles sont nos missions ?
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -188,6 +199,7 @@ export default function Footer() {
                     Découvrez les services du C-SIRT-ATLANTIC
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -197,6 +209,7 @@ export default function Footer() {
                     Lorem ipsum
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -228,6 +241,7 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -237,6 +251,7 @@ export default function Footer() {
                     Quelles sont nos missions ?
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -246,6 +261,7 @@ export default function Footer() {
                     Découvrez les services de l’Observatoire
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -255,6 +271,7 @@ export default function Footer() {
                     Lorem ipsum
                   </Typography>
                   <Typography
+                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 400,
@@ -282,6 +299,7 @@ export default function Footer() {
         }}
       >
         <Typography
+          className={inter.className}
           sx={{
             color: "#FFFFFF",
             textTransform: "uppercase",
@@ -292,6 +310,7 @@ export default function Footer() {
           mentions légales
         </Typography>
         <Typography
+          className={inter.className}
           sx={{
             color: "#FFFFFF",
             textTransform: "uppercase",
@@ -302,6 +321,7 @@ export default function Footer() {
           politique de confidentialité
         </Typography>
         <Typography
+          className={inter.className}
           sx={{
             color: "#FFFFFF",
             textTransform: "uppercase",
@@ -312,6 +332,7 @@ export default function Footer() {
           protection des données personnelles
         </Typography>
         <Typography
+          className={inter.className}
           sx={{
             color: "#FFFFFF",
             textTransform: "uppercase",

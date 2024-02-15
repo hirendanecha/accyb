@@ -16,6 +16,7 @@ import Adviser from "../../../Icons/MajorActivity/Adviser.svg";
 import Eye from "../../../Icons/MajorActivity/Eye.svg";
 import Tower from "../../../Icons/MajorActivity/Tower.svg";
 import { motion, useAnimation } from "framer-motion";
+import { inter } from "../../../app/fonts/fonts";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "60px !important",
@@ -134,6 +135,7 @@ export default function MajorActivity() {
     >
       <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
         <Typography
+          className={inter.className}
           sx={{
             fontWeight: 400,
             fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
@@ -239,6 +241,7 @@ export default function MajorActivity() {
                         animate={controls}
                       >
                         <Typography
+                          className={inter.className}
                           sx={{
                             fontSize: { lg: "36px", md: "30px", xs: "18px" },
                             fontWeight: { lg: 500, xs: 600 },
@@ -252,6 +255,7 @@ export default function MajorActivity() {
                           {ele?.title}
                         </Typography>
                         <Typography
+                          className={inter.className}
                           sx={{
                             mt: 1,
                             fontSize: { lg: "18px", md: "16px", xs: "14px" },

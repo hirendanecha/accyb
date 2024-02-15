@@ -12,6 +12,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { motion, useAnimation } from "framer-motion";
+import { inter } from "../../../app/fonts/fonts";
 export default function CaribbeanAgency() {
   const controls = useAnimation();
   const ref = useRef(null);
@@ -64,7 +65,7 @@ export default function CaribbeanAgency() {
     >
       <Box
         sx={{
-          backgroundImage: "url('/Images/BackgroundImg1.png')",
+          backgroundImage: "url('/Images/BackgroundImg.png')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -77,6 +78,7 @@ export default function CaribbeanAgency() {
             <Grid item xs={12} lg={6} ref={ref}>
               <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                 <Box
+                  className={inter.className}
                   sx={{
                     fontSize: {
                       lg: "85px",
@@ -116,6 +118,7 @@ export default function CaribbeanAgency() {
                     maxWidth: "550px !important",
                     mt: 3,
                   }}
+                  className={inter.className}
                 >
                   L’ACCYB, l’autorité de référence dans le domaine de la
                   cybersécurité sur les territoires français d’Amérique.
@@ -132,6 +135,7 @@ export default function CaribbeanAgency() {
                 }}
               >
                 <Button
+                  className={inter.className}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
@@ -175,6 +179,7 @@ export default function CaribbeanAgency() {
                   Découvrir nos missionsss
                 </Button>
                 <Button
+                  className={inter.className}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
@@ -233,6 +238,7 @@ export default function CaribbeanAgency() {
                 <Box onClick={handleContactUsClick}>
                   <Typography
                     sx={{ color: "#FFFFFF", fontSize: "20px", fontWeight: 400 }}
+                    className={inter.className}
                   >
                     Scroll
                   </Typography>

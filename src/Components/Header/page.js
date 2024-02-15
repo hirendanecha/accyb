@@ -15,20 +15,32 @@ import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Logo from "../../Icons/Frame.svg";
 import SearchIcon from "@mui/icons-material/Search";
+import { inter } from "../../app/fonts/fonts";
+import { useRouter } from "next/navigation";
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
   height: "64px !important",
 }));
 
 const pages = [
-  "Découvrir l’ACCYB",
-  "Découvrir le CSIRT-ATLANTIC",
-  "Découvrir l’Observatoire",
+  {
+    name: "Découvrir l’ACCYB",
+    path: "/discoverTheACCYB",
+  },
+  {
+    name: "Découvrir le CSIRT-ATLANTIC",
+    path: "/DiscoverTheACCYB",
+  },
+  {
+    name: "Découvrir l’ACCYB",
+    path: "/DiscoverTheACCYB",
+  },
 ];
 const link = ["se sécuriser", "se former", "s’informer"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Header() {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -108,7 +120,12 @@ export default function Header() {
               alignItems: "center",
             }}
           >
-            <Typography variant="h7" color="inherit" component="div">
+            <Typography
+              variant="h7"
+              color="inherit"
+              component="div"
+              className={inter.className}
+            >
               FR
             </Typography>
             <Divider
@@ -121,6 +138,7 @@ export default function Header() {
               color="inherit"
               component="div"
               sx={{ color: "#646C88" }}
+              className={inter.className}
             >
               EN
             </Typography>
@@ -131,6 +149,7 @@ export default function Header() {
               color="inherit"
               component="div"
               sx={{ textTransform: "uppercase", fontSize: "13px" }}
+              className={inter.className}
             >
               actualités
             </Typography>
@@ -139,6 +158,7 @@ export default function Header() {
               color="inherit"
               component="div"
               sx={{ textTransform: "uppercase", fontSize: "13px" }}
+              className={inter.className}
             >
               Devenir Bénévole Cyber
             </Typography>
@@ -163,6 +183,7 @@ export default function Header() {
                     height: "100%",
                     fontSize: "13px",
                   }}
+                  className={inter.className}
                 >
                   adhérer à l’ACCYB
                 </Typography>
@@ -187,6 +208,7 @@ export default function Header() {
                     height: "100%",
                     fontSize: "13px",
                   }}
+                  className={inter.className}
                 >
                   Déclarer un incident
                 </Typography>
@@ -279,9 +301,13 @@ export default function Header() {
                     color: "#fff",
                   }}
                 >
-                  <Typography textAlign="center" sx={{ fontSize: "20px" }}>
-                    {`${page?.split(" ")?.[0]} `}
-                    <span style={{ color: "#7DB1FF" }}>{` ${page
+                  <Typography
+                    className={inter.className}
+                    textAlign="center"
+                    sx={{ fontSize: "20px" }}
+                  >
+                    {`${page?.name?.split(" ")?.[0]} `}
+                    <span style={{ color: "#7DB1FF" }}>{` ${page?.name
                       ?.split(" ")
                       ?.slice(1)
                       .join(" ")} `}</span>
@@ -304,7 +330,9 @@ export default function Header() {
                     fontSize: "30px",
                   }}
                 >
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" className={inter.className}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
               <Divider
@@ -418,8 +446,9 @@ export default function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}>
             {pages.map((page, idx) => (
               <Button
+                className={inter.className}
                 key={idx}
-                onClick={handleCloseNavMenu}
+                onClick={() => router?.push(page?.path)}
                 sx={{
                   my: 3,
                   color: "#222D55",
@@ -428,7 +457,7 @@ export default function Header() {
                   fontSize: { lg: "15px", md: "12px" },
                 }}
               >
-                {page}
+                {page?.name}
               </Button>
             ))}
           </Box>
@@ -441,6 +470,7 @@ export default function Header() {
           >
             {link.map((page, idx) => (
               <Button
+                className={inter.className}
                 key={idx}
                 onClick={handleCloseNavMenu}
                 sx={{
