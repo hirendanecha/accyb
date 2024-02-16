@@ -54,7 +54,7 @@ export default function InfoSlider() {
       img: Personnes,
       title: "175",
       description: "personnes sensibilisées",
-    },
+    },  
     {
       img: Calque,
       title: "73",
@@ -185,7 +185,7 @@ export default function InfoSlider() {
                           textTransform: "uppercase",
                           display: "flex",
                           textAlign: "start",
-                          maxWidth: "130px",
+                          maxWidth: "140px",
                         }}
                       >
                         {ele?.description}

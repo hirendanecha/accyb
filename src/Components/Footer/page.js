@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -11,55 +11,101 @@ import { inter } from "../../app/fonts/fonts";
 export default function Footer() {
   return (
     <>
-      <Box id="footer" sx={{ padding: "0 30px", mt: 8 }}>
-        <Typography
-          className={inter.className}
-          sx={{
-            color: "#222D55",
-            fontWeight: 500,
-            fontSize: "24px",
-            lineHeight: "36px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          Retrouvez-nous sur les réseaux
-        </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}>
-          <LinkedInIcon />
-          <XIcon />
-        </Box>
-        <Divider
-          variant="middle"
-          sx={{
-            bgcolor: "#8E9BBF",
-            mt: { md: 6, xs: 2 },
-            borderBottomWidth: "1px",
-          }}
-        />
-        <Grid container mt={8}>
-          <Grid item md={12}>
-            <Grid container>
-              <Grid
-                item
-                lg={2.4}
-                md={12}
-                xs={12}
-                justifyContent={{ lg: "unset", xs: "center" }}
-                display={"flex"}
-                pb={{ lg: 0, xs: 10 }}
-              >
-                <Image src={Logo} height={138} width={138} alt="logo" />
-              </Grid>
-              <Grid
-                item
-                lg={2.4}
-                md={3}
-                sm={6}
-                xs={12}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
-                <Box>
+      <Container disableGutters maxWidth={"xl"}>
+        <Box id="footer" sx={{ padding: "0 16px", mt: 8 }}>
+          <Typography
+            className={inter.className}
+            sx={{
+              color: "#222D55",
+              fontWeight: 500,
+              fontSize: "24px",
+              lineHeight: "36px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            Retrouvez-nous sur les réseaux
+          </Typography>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}
+          >
+            <LinkedInIcon />
+            <XIcon />
+          </Box>
+          <Divider
+            variant="middle"
+            sx={{
+              bgcolor: "#8E9BBF",
+              mt: { md: 6, xs: 2 },
+              borderBottomWidth: "1px",
+            }}
+          />
+          <Grid container mt={8}>
+            <Grid item md={12}>
+              <Grid container>
+                <Grid
+                  item
+                  lg={2.4}
+                  md={12}
+                  xs={12}
+                  justifyContent={{ lg: "unset", xs: "center" }}
+                  display={"flex"}
+                  pb={{ lg: 0, xs: 10 }}
+                >
+                  <Image src={Logo} height={138} width={138} alt="logo" />
+                </Grid>
+                <Grid
+                  item
+                  lg={2.4}
+                  md={3}
+                  sm={6}
+                  xs={12}
+                  textAlign={{ md: "unset", xs: "center" }}
+                >
+                  <Box>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        pb: 2,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      financé par
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        gap: "20px",
+                        mt: 2,
+                        justifyContent: { md: "unset", xs: "center" },
+                      }}
+                    >
+                      <Image
+                        src={partner1}
+                        height={81}
+                        width={73}
+                        alt="partner1"
+                      />
+                      <Image
+                        src={partner2}
+                        height={81}
+                        width={73}
+                        alt="partner2"
+                      />
+                    </Box>
+                  </Box>
+                </Grid>
+                <Grid
+                  item
+                  lg={2.4}
+                  md={3}
+                  sm={6}
+                  xs={12}
+                  mt={{ md: 0, xs: 5 }}
+                  textAlign={{ md: "unset", xs: "center" }}
+                >
                   <Typography
                     className={inter.className}
                     sx={{
@@ -69,279 +115,244 @@ export default function Footer() {
                       textTransform: "uppercase",
                     }}
                   >
-                    financé par
+                    Découvrir l’ACCYB
                   </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: "20px",
-                      mt: 2,
-                      justifyContent: { md: "unset", xs: "center" },
-                    }}
-                  >
-                    <Image
-                      src={partner1}
-                      height={81}
-                      width={73}
-                      alt="partner1"
-                    />
-                    <Image
-                      src={partner2}
-                      height={81}
-                      width={73}
-                      alt="partner2"
-                    />
+                  <Box>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Nos dates clefs
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Quelles sont nos missions ?
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Découvrir les services de l’ACCYB
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Les conseils
+                    </Typography>
                   </Box>
-                </Box>
-              </Grid>
-              <Grid
-                item
-                lg={2.4}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
-                <Typography
-                  className={inter.className}
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    pb: 2,
-                    textTransform: "uppercase",
-                  }}
+                </Grid>
+                <Grid
+                  item
+                  lg={2.4}
+                  md={3}
+                  sm={6}
+                  xs={12}
+                  mt={{ md: 0, xs: 5 }}
+                  textAlign={{ md: "unset", xs: "center" }}
                 >
-                  Découvrir l’ACCYB
-                </Typography>
-                <Box>
                   <Typography
                     className={inter.className}
                     sx={{
                       fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
+                      fontWeight: 600,
+                      pb: 2,
+                      textTransform: "uppercase",
                     }}
                   >
-                    Nos dates clefs
+                    Découvrir le CSIRT-ATLANTIC
                   </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Quelles sont nos missions ?
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Découvrir les services de l’ACCYB
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Les conseils
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid
-                item
-                lg={2.4}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
-                <Typography
-                  className={inter.className}
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    pb: 2,
-                    textTransform: "uppercase",
-                  }}
+                  <Box>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Quelles sont nos missions ?
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Découvrez les services du C-SIRT-ATLANTIC
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Lorem ipsum
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Lorem ipsum
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid
+                  item
+                  lg={2.4}
+                  md={3}
+                  sm={6}
+                  xs={12}
+                  mt={{ md: 0, xs: 5 }}
+                  textAlign={{ md: "unset", xs: "center" }}
                 >
-                  Découvrir le CSIRT-ATLANTIC
-                </Typography>
-                <Box>
                   <Typography
-                    className={inter.className}
                     sx={{
                       fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
+                      fontWeight: 600,
+                      pb: 2,
+                      textTransform: "uppercase",
                     }}
                   >
-                    Quelles sont nos missions ?
+                    Découvrir l’Observatoire
                   </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Découvrez les services du C-SIRT-ATLANTIC
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Lorem ipsum
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Lorem ipsum
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid
-                item
-                lg={2.4}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    pb: 2,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Découvrir l’Observatoire
-                </Typography>
-                <Box>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Quelles sont nos missions ?
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Découvrez les services de l’Observatoire
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Lorem ipsum
-                  </Typography>
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      mt: 1,
-                    }}
-                  >
-                    Lorem ipsum
-                  </Typography>
-                </Box>
+                  <Box>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Quelles sont nos missions ?
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Découvrez les services de l’Observatoire
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Lorem ipsum
+                    </Typography>
+                    <Typography
+                      className={inter.className}
+                      sx={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        mt: 1,
+                      }}
+                    >
+                      Lorem ipsum
+                    </Typography>
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      </Container>
       <Box
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 5,
           backgroundColor: "#222D55",
-          padding: 2,
-          mt: 5,
         }}
       >
-        <Typography
-          className={inter.className}
-          sx={{
-            color: "#FFFFFF",
-            textTransform: "uppercase",
-            fontSize: { md: "13px", xs: "11px" },
-            fontWeight: 500,
-          }}
-        >
-          mentions légales
-        </Typography>
-        <Typography
-          className={inter.className}
-          sx={{
-            color: "#FFFFFF",
-            textTransform: "uppercase",
-            fontSize: { md: "13px", xs: "11px" },
-            fontWeight: 500,
-          }}
-        >
-          politique de confidentialité
-        </Typography>
-        <Typography
-          className={inter.className}
-          sx={{
-            color: "#FFFFFF",
-            textTransform: "uppercase",
-            fontSize: { md: "13px", xs: "11px" },
-            fontWeight: 500,
-          }}
-        >
-          protection des données personnelles
-        </Typography>
-        <Typography
-          className={inter.className}
-          sx={{
-            color: "#FFFFFF",
-            textTransform: "uppercase",
-            fontSize: { md: "13px", xs: "11px" },
-            fontWeight: 500,
-          }}
-        >
-          plan du site
-        </Typography>
+        <Container disableGutters maxWidth={"xl"}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 5,
+              padding: 2,
+              mt: 5,
+            }}
+          >
+            <Typography
+              className={inter.className}
+              sx={{
+                color: "#FFFFFF",
+                textTransform: "uppercase",
+                fontSize: { md: "13px", xs: "11px" },
+                fontWeight: 500,
+              }}
+            >
+              mentions légales
+            </Typography>
+            <Typography
+              className={inter.className}
+              sx={{
+                color: "#FFFFFF",
+                textTransform: "uppercase",
+                fontSize: { md: "13px", xs: "11px" },
+                fontWeight: 500,
+              }}
+            >
+              politique de confidentialité
+            </Typography>
+            <Typography
+              className={inter.className}
+              sx={{
+                color: "#FFFFFF",
+                textTransform: "uppercase",
+                fontSize: { md: "13px", xs: "11px" },
+                fontWeight: 500,
+              }}
+            >
+              protection des données personnelles
+            </Typography>
+            <Typography
+              className={inter.className}
+              sx={{
+                color: "#FFFFFF",
+                textTransform: "uppercase",
+                fontSize: { md: "13px", xs: "11px" },
+                fontWeight: 500,
+              }}
+            >
+              plan du site
+            </Typography>
+          </Box>
+        </Container>
       </Box>
     </>
   );

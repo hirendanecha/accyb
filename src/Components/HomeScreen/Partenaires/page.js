@@ -1,5 +1,12 @@
 "use client";
-import { Box, Divider, Grid, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import React from "react";
 import Logo1 from "../../../Icons/Partners/Logo1.svg";
 import Logo2 from "../../../Icons/Partners/Logo2.svg";
@@ -46,103 +53,105 @@ export default function Partenaires() {
     },
   ];
   return (
-    <Box sx={{ padding: { md: "0 30px", xs: "0 10px" } }}>
-      <Grid container mt={8}>
-        <Grid item xs={12} lg={5.5}>
-          <Typography
-            sx={{
-              textTransform: "uppercase",
-              fontSize: "18px",
-              fontWeight: 500,
-              color: "#222D55",
-            }}
-            className={inter.className}
-          >
-            partenaires
-          </Typography>
+    <Box sx={{ padding: "0 16px" }}>
+      <Container disableGutters maxWidth={"xl"}>
+        <Grid container mt={8}>
+          <Grid item xs={12} lg={5.5}>
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                fontSize: "18px",
+                fontWeight: 500,
+                color: "#222D55",
+              }}
+              className={inter.className}
+            >
+              partenaires
+            </Typography>
+            <Grid
+              container
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "center", mt: 3 }}
+            >
+              {partners?.map((ele, idx) => {
+                return (
+                  <Grid
+                    key={idx}
+                    item
+                    md={2.5}
+                    xs={6}
+                    sx={{
+                      display: "flex",
+                      justifyContent: { md: "start", xs: "center" },
+                    }}
+                  >
+                    <Image src={ele.img} width={100} height={100} alt="img" />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
           <Grid
-            container
-            spacing={2}
-            sx={{ display: "flex", justifyContent: "center", mt: 3 }}
+            item
+            lg={1}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
-            {partners?.map((ele, idx) => {
-              return (
-                <Grid
-                  key={idx}
-                  item
-                  md={2.5}
-                  xs={6}
-                  sx={{
-                    display: "flex",
-                    justifyContent: { md: "start", xs: "center" },
-                  }}
-                >
-                  <Image src={ele.img} width={100} height={100} alt="img" />
-                </Grid>
-              );
-            })}
+            {" "}
+            <Divider
+              orientation="vertical"
+              variant="middle"
+              sx={{
+                borderBottomWidth: "1px",
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} lg={5.5} mt={{ md: "unset", xs: 5 }}>
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                fontSize: "18px",
+                fontWeight: 500,
+                color: "#222D55",
+              }}
+              className={inter.className}
+            >
+              Soutenu par
+            </Typography>
+            <Grid
+              container
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "center", mt: 3 }}
+            >
+              {supported?.map((ele, idx) => {
+                return (
+                  <Grid
+                    key={idx}
+                    item
+                    md={2.4}
+                    xs={6}
+                    sx={{
+                      display: "flex",
+                      justifyContent: { md: "start", xs: "center" },
+                    }}
+                  >
+                    <Image src={ele.img} width={100} height={100} alt="img" />
+                  </Grid>
+                );
+              })}
+            </Grid>
           </Grid>
         </Grid>
-        <Grid
-          item
-          lg={1}
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          {" "}
-          <Divider
-            orientation="vertical"
-            variant="middle"
-            sx={{
-              borderBottomWidth: "1px",
-            }}
-          />
-        </Grid>
-        <Grid item xs={12} lg={5.5} mt={{ md: "unset", xs: 5 }}>
-          <Typography
-            sx={{
-              textTransform: "uppercase",
-              fontSize: "18px",
-              fontWeight: 500,
-              color: "#222D55",
-            }}
-            className={inter.className}
-          >
-            Soutenu par
-          </Typography>
-          <Grid
-            container
-            spacing={2}
-            sx={{ display: "flex", justifyContent: "center", mt: 3 }}
-          >
-            {supported?.map((ele, idx) => {
-              return (
-                <Grid
-                  key={idx}
-                  item
-                  md={2.4}
-                  xs={6}
-                  sx={{
-                    display: "flex",
-                    justifyContent: { md: "start", xs: "center" },
-                  }}
-                >
-                  <Image src={ele.img} width={100} height={100} alt="img" />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Grid>
-      </Grid>
-      <Divider
-        variant="middle"
-        sx={{
-          bgcolor: "#8E9BBF",
-          mt: { md: 8, xs: 5 },
-          borderBottomWidth: "1px",
-        }}
-      />
+        <Divider
+          variant="middle"
+          sx={{
+            bgcolor: "#8E9BBF",
+            mt: { md: 8, xs: 5 },
+            borderBottomWidth: "1px",
+          }}
+        />
+      </Container>
       <Box mt={8}>
         <InfoSlider />
       </Box>

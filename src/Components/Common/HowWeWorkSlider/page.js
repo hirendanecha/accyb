@@ -131,20 +131,95 @@ export default function HowToWorkSlider() {
     <Box
       component="section"
       sx={{
-        padding : "0 30px",
+        padding: "0 30px",
         pt: { xs: 28, sm: 28, lg: 32, xl: 30 },
       }}
     >
-      <Grid
-        container
-        columnSpacing={2}
-        rowSpacing={6}
-        sx={{ display: "flex", alignItems: "center" }}
-      >
-        <Grid item xs={12} md={2.5}>
+      <Container disableGutters maxWidth={"xl"}>
+        <Grid
+          container
+          columnSpacing={2}
+          rowSpacing={6}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
+          <Grid item xs={12} md={2.5}>
+            <Box
+              sx={{
+                display: { md: "flex", xs: "none" },
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                className="swiper-button-prev-testimonials"
+                aria-label="Next Slide"
+                title="Next Slide"
+                sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
+              >
+                <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
+              </IconButton>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={7}>
+            <Typography
+              className={inter.className}
+              sx={{ justifyContent: "center", display: "flex" }}
+            >
+              Notre fonctionnement
+            </Typography>
+            <Typography
+              className={inter.className}
+              variant="h2"
+              color="#007A47"
+              sx={{
+                textTransform: "capitalize",
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+                mt: 3,
+                fontSize: { lg: "64px", md: "50px", xs: "40px" },
+              }}
+            >
+              Conseil d’administration
+            </Typography>
+            <Typography
+              className={inter.className}
+              sx={{
+                justifyContent: "center",
+                display: "flex",
+                textAlign: "center",
+                mt: 3,
+              }}
+            >
+              Le conseil d’administration détermine les axes stratégiques et les
+              orientations de l’activité de l’association ainsi que les grands
+              principes de fonctionnement de l’Association et veille à leur mise
+              en œuvre.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={2.5}>
+            <Box
+              className="swiper-button-next-testimonials"
+              sx={{
+                display: { md: "flex", xs: "none" },
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                aria-label="Next Slide"
+                title="Next Slide"
+                sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
+              >
+                <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
+              </IconButton>
+            </Box>
+          </Grid>
+        </Grid>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
           <Box
             sx={{
-              display: { md: "flex", xs: "none" },
+              display: { md: "none", xs: "block" },
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -158,49 +233,10 @@ export default function HowToWorkSlider() {
               <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
             </IconButton>
           </Box>
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <Typography
-            className={inter.className}
-            sx={{ justifyContent: "center", display: "flex" }}
-          >
-            Notre fonctionnement
-          </Typography>
-          <Typography
-            className={inter.className}
-            variant="h2"
-            color="#007A47"
-            sx={{
-              textTransform: "capitalize",
-              display: "flex",
-              justifyContent: "center",
-              textAlign: "center",
-              mt: 3,
-              fontSize: { lg: "64px", md: "50px", xs: "40px" },
-            }}
-          >
-            Conseil d’administration
-          </Typography>
-          <Typography
-            className={inter.className}
-            sx={{
-              justifyContent: "center",
-              display: "flex",
-              textAlign: "center",
-              mt: 3,
-            }}
-          >
-            Le conseil d’administration détermine les axes stratégiques et les
-            orientations de l’activité de l’association ainsi que les grands
-            principes de fonctionnement de l’Association et veille à leur mise
-            en œuvre.
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={2.5}>
           <Box
             className="swiper-button-next-testimonials"
             sx={{
-              display: { md: "flex", xs: "none" },
+              display: { md: "none", xs: "block" },
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -213,92 +249,58 @@ export default function HowToWorkSlider() {
               <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
             </IconButton>
           </Box>
-        </Grid>
-      </Grid>
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
-        <Box
-          sx={{
-            display: { md: "none", xs: "block" },
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
-            className="swiper-button-prev-testimonials"
-            aria-label="Next Slide"
-            title="Next Slide"
-            sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
-          >
-            <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
-          </IconButton>
+          <Box></Box>
         </Box>
         <Box
-          className="swiper-button-next-testimonials"
+          component={Swiper}
+          keyboard={true}
+          pagination={{ clickable: true }}
+          modules={[Navigation, Keyboard, Pagination]}
+          slidesPerView={1}
+          spaceBetween={24}
+          navigation={{
+            nextEl: ".swiper-button-next-testimonials",
+            prevEl: ".swiper-button-prev-testimonials",
+            enabled: true,
+          }}
+          breakpoints={{
+            600: { slidesPerView: 2 },
+            1200: { slidesPerView: 5 },
+          }}
+          mt={12}
           sx={{
-            display: { md: "none", xs: "block" },
-            justifyContent: "center",
-            alignItems: "center",
+            "& .swiper-pagination": { position: "static", mt: 16 },
+            "& .swiper-pagination-bullet": {
+              bgcolor: "#5314A9",
+              width: 4,
+              height: 4,
+              mx: "0.5rem !important",
+            },
           }}
         >
-          <IconButton
-            aria-label="Next Slide"
-            title="Next Slide"
-            sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
-          >
-            <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
-          </IconButton>
+          {list?.map((chunks, i) => (
+            <SwiperSlide key={150 + i}>
+              <Grid container spacing={3}>
+                {chunks.map((review, j) => (
+                  <Grid item xs={12} sm={6} md={12} key={j + 256}>
+                    <Box
+                      sx={{
+                        bgcolor: "#fff",
+                        border: "1px solid black",
+                        padding: 5,
+                        borderRadius: "10px",
+                      }}
+                    >
+                      <Typography>ALTEN</Typography>
+                      <Typography>EN FRANCE</Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </SwiperSlide>
+          ))}
         </Box>
-        <Box></Box>
-      </Box>
-      <Box
-        component={Swiper}
-        keyboard={true}
-        pagination={{ clickable: true }}
-        modules={[Navigation, Keyboard, Pagination]}
-        slidesPerView={1}
-        spaceBetween={24}
-        navigation={{
-          nextEl: ".swiper-button-next-testimonials",
-          prevEl: ".swiper-button-prev-testimonials",
-          enabled: true,
-        }}
-        breakpoints={{
-          600: { slidesPerView: 2 },
-          1200: { slidesPerView: 5 },
-        }}
-        mt={12}
-        sx={{
-          "& .swiper-pagination": { position: "static", mt: 16 },
-          "& .swiper-pagination-bullet": {
-            bgcolor: "#5314A9",
-            width: 4,
-            height: 4,
-            mx: "0.5rem !important",
-          },
-        }}
-      >
-        {list?.map((chunks, i) => (
-          <SwiperSlide key={150 + i}>
-            <Grid container spacing={3}>
-              {chunks.map((review, j) => (
-                <Grid item xs={12} sm={6} md={12} key={j + 256}>
-                  <Box
-                    sx={{
-                      bgcolor: "#fff",
-                      border: "1px solid black",
-                      padding: 5,
-                      borderRadius: "10px",
-                    }}
-                  >
-                    <Typography>ALTEN</Typography>
-                    <Typography>EN FRANCE</Typography>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-          </SwiperSlide>
-        ))}
-      </Box>
+      </Container>
     </Box>
   );
 }

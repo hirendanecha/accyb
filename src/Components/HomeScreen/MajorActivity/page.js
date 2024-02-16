@@ -1,6 +1,7 @@
 "use client";
 import {
   Box,
+  Container,
   Divider,
   Grid,
   Typography,
@@ -126,50 +127,52 @@ export default function MajorActivity() {
     },
   ];
   return (
-    <Box
-      ref={ref}
-      sx={{
-        padding: { md: "0 30px", xs: "0 10px" },
-        mt: { md: 20, xs: 10 },
-      }}
-    >
-      <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-        <Typography
-          className={inter.className}
-          sx={{
-            fontWeight: 400,
-            fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-            color: "#222D55",
-          }}
-        >
-          Nos activités majeurs
-        </Typography>
-      </motion.div>
-      <Divider
-        variant="middle"
+    <Container disableGutters maxWidth={"xl"}>
+      <Box
+        ref={ref}
         sx={{
-          bgcolor: "#8E9BBF",
-          mt: { md: 3, xs: 5 },
-          borderBottomWidth: "1px",
+          mt: { md: 20, xs: 10 },
+          padding: "0 16px",
         }}
-      />
-      <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
-        {activites?.map((ele, index) => {
-          return (
-            <Grid item xs={12} md={6} key={index}>
-              <Box
-                sx={{
-                  display: "flex",
-                  padding: { lg: 6, md: 3, sm: 3, xs: 2 },
-                  backgroundColor: "transparent",
-                  border: index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                  position: "relative",
-                  borderRadius: "20px",
-                  // overflow: "hidden",
-                  height: "100%",
-                }}
-              >
-                {/* {index !== 0 && !mdDown ? (
+      >
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+          <Typography
+            className={inter.className}
+            sx={{
+              fontWeight: 400,
+              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+              color: "#222D55",
+            }}
+          >
+            Nos activités majeurs
+          </Typography>
+        </motion.div>
+        <Divider
+          variant="middle"
+          sx={{
+            bgcolor: "#8E9BBF",
+            mt: { md: 3, xs: 5 },
+            borderBottomWidth: "1px",
+          }}
+        />
+        <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
+          {activites?.map((ele, index) => {
+            return (
+              <Grid item xs={12} md={6} key={index}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                    backgroundColor: "transparent",
+                    border:
+                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                    position: "relative",
+                    borderRadius: "20px",
+                    // overflow: "hidden",
+                    height: "100%",
+                  }}
+                >
+                  {/* {index !== 0 && !mdDown ? (
                   <Box
                     sx={{
                       position: "absolute",
@@ -189,7 +192,7 @@ export default function MajorActivity() {
                 ) : (
                   ""
                 )} */}
-                {/* <Box
+                  {/* <Box
                     sx={{
                       position: "absolute",
                       top: -2,
@@ -206,78 +209,88 @@ export default function MajorActivity() {
                       // boxShadow: "0px 0px 0px 1000px #fff",
                     }}
                   /> */}
-                <Grid
-                  container
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
+                  <Grid
+                    container
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
 
-                    height: "100%",
-                    position: "relative",
-                    zIndex: 1,
-                    gap: { lg: 3, md: 2, xs: 2 },
-                  }}
-                >
-                  <Grid item xs={3} sm={4}>
-                    <Box
-                      sx={{
-                        borderRadius: "50%",
-                        backgroundColor: "#1B2341",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        border: "1px solid #8E9BBF",
-                        height: { lg: "160px", sm: "120px", xs: "80px" },
-                        width: { lg: "160px", sm: "120px", xs: "80px" },
-                      }}
-                    >
-                      <Img src={ele?.img} height={900} width={900} alt="img" />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={8} sm={7}>
-                    <Box ref={ref}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={controls}
+                      height: "100%",
+                      position: "relative",
+                      zIndex: 1,
+                      gap: { lg: 3, md: 2, xs: 2 },
+                    }}
+                  >
+                    <Grid item xs={3} sm={4}>
+                      <Box
+                        sx={{
+                          borderRadius: "50%",
+                          backgroundColor: "#1B2341",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          border: "1px solid #8E9BBF",
+                          height: { lg: "160px", sm: "120px", xs: "80px" },
+                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                        }}
                       >
-                        <Typography
-                          className={inter.className}
-                          sx={{
-                            fontSize: { lg: "36px", md: "30px", xs: "18px" },
-                            fontWeight: { lg: 500, xs: 600 },
-                            lineHeight: { md: "42px", xs: "25px" },
-                            color: "#222D55",
-                            display: "flex",
-                            textAlign: "start",
-                            maxWidth: { lg: "320px", xs: "250px" },
-                          }}
+                        <Img
+                          src={ele?.img}
+                          height={900}
+                          width={900}
+                          alt="img"
+                        />
+                      </Box>
+                    </Grid>
+                    <Grid item xs={8} sm={7}>
+                      <Box ref={ref}>
+                        <motion.div
+                          initial={{ opacity: 0, y: 50 }}
+                          animate={controls}
                         >
-                          {ele?.title}
-                        </Typography>
-                        <Typography
-                          className={inter.className}
-                          sx={{
-                            mt: 1,
-                            fontSize: { lg: "18px", md: "16px", xs: "14px" },
-                            fontWeight: 500,
-                            lineHeight: { lg: "28px", md: "22px", xs: "20px" },
-                            color: "#222D55",
-                            display: "flex",
-                            textAlign: "start",
-                            width: { lg: "350px", md: "250px", xs: "230px" },
-                          }}
-                        >
-                          {ele?.description}
-                        </Typography>
-                      </motion.div>
-                    </Box>
+                          <Typography
+                            className={inter.className}
+                            sx={{
+                              fontSize: { lg: "36px", md: "30px", xs: "18px" },
+                              fontWeight: { lg: 500, xs: 600 },
+                              lineHeight: { md: "42px", xs: "25px" },
+                              color: "#222D55",
+                              display: "flex",
+                              textAlign: "start",
+                              maxWidth: { lg: "320px", xs: "250px" },
+                            }}
+                          >
+                            {ele?.title}
+                          </Typography>
+                          <Typography
+                            className={inter.className}
+                            sx={{
+                              mt: 1,
+                              fontSize: { lg: "18px", md: "16px", xs: "14px" },
+                              fontWeight: 500,
+                              lineHeight: {
+                                lg: "28px",
+                                md: "22px",
+                                xs: "20px",
+                              },
+                              color: "#222D55",
+                              display: "flex",
+                              textAlign: "start",
+                              width: { lg: "350px", md: "250px", xs: "230px" },
+                            }}
+                          >
+                            {ele?.description}
+                          </Typography>
+                        </motion.div>
+                      </Box>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Box>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Box>
+                </Box>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
+    </Container>
   );
 }

@@ -5,7 +5,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { Divider, InputBase, Toolbar, alpha, styled } from "@mui/material";
+import {
+  Container,
+  Divider,
+  InputBase,
+  Toolbar,
+  alpha,
+  styled,
+} from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
@@ -29,7 +36,7 @@ const pages = [
   },
   {
     name: "Découvrir le CSIRT-ATLANTIC",
-    path: "/DiscoverTheACCYB",
+    path: "/FindOutAtlantic",
   },
   {
     name: "Découvrir l’ACCYB",
@@ -97,7 +104,15 @@ export default function Header() {
     },
   }));
   return (
-    <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
+    <Box
+      sx={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+      }}
+    >
       <AppBar
         position="static"
         sx={{
@@ -105,117 +120,119 @@ export default function Header() {
           display: { md: "block", xs: "none" },
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            padding: "0 0 0 20px",
-            justifyContent: "space-between",
-          }}
-        >
+        <Container disableGutters maxWidth={"xl"}>
           <Box
             sx={{
               display: "flex",
-              gap: 2,
-              padding: "8px 0",
-              alignItems: "center",
+              padding: "0 0 0 20px",
+              justifyContent: "space-between",
             }}
           >
-            <Typography
-              variant="h7"
-              color="inherit"
-              component="div"
-              className={inter.className}
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                padding: "8px 0",
+                alignItems: "center",
+              }}
             >
-              FR
-            </Typography>
-            <Divider
-              orientation="vertical"
-              variant="middle"
-              sx={{ bgcolor: "#646C88" }}
-            />
-            <Typography
-              variant="h7"
-              color="inherit"
-              component="div"
-              sx={{ color: "#646C88" }}
-              className={inter.className}
-            >
-              EN
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
-            <Typography
-              variant="h7"
-              color="inherit"
-              component="div"
-              sx={{ textTransform: "uppercase", fontSize: "13px" }}
-              className={inter.className}
-            >
-              actualités
-            </Typography>
-            <Typography
-              variant="h7"
-              color="inherit"
-              component="div"
-              sx={{ textTransform: "uppercase", fontSize: "13px" }}
-              className={inter.className}
-            >
-              Devenir Bénévole Cyber
-            </Typography>
-            <Box sx={{ display: "flex" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "auto",
-                  backgroundColor: "#007A47",
-                  gap: 1,
-                  padding: "8px 15px",
-                }}
+              <Typography
+                variant="h7"
+                color="inherit"
+                component="div"
+                className={inter.className}
               >
-                <PersonOutlineIcon />
-                <Typography
-                  variant="h7"
-                  color="inherit"
-                  component="div"
-                  sx={{
-                    textTransform: "uppercase",
-                    height: "100%",
-                    fontSize: "13px",
-                  }}
-                  className={inter.className}
-                >
-                  adhérer à l’ACCYB
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "auto",
-                  backgroundColor: "#BE0011",
-                  gap: 1,
-                  padding: "8px 15px",
-                }}
+                FR
+              </Typography>
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                sx={{ bgcolor: "#646C88" }}
+              />
+              <Typography
+                variant="h7"
+                color="inherit"
+                component="div"
+                sx={{ color: "#646C88" }}
+                className={inter.className}
               >
-                <NotificationsNoneIcon />
-                <Typography
-                  variant="h7"
-                  color="inherit"
-                  component="div"
+                EN
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
+              <Typography
+                variant="h7"
+                color="inherit"
+                component="div"
+                sx={{ textTransform: "uppercase", fontSize: "13px" }}
+                className={inter.className}
+              >
+                actualités
+              </Typography>
+              <Typography
+                variant="h7"
+                color="inherit"
+                component="div"
+                sx={{ textTransform: "uppercase", fontSize: "13px" }}
+                className={inter.className}
+              >
+                Devenir Bénévole Cyber
+              </Typography>
+              <Box sx={{ display: "flex" }}>
+                <Box
                   sx={{
-                    textTransform: "uppercase",
-                    height: "100%",
-                    fontSize: "13px",
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "auto",
+                    backgroundColor: "#007A47",
+                    gap: 1,
+                    padding: "8px 15px",
                   }}
-                  className={inter.className}
                 >
-                  Déclarer un incident
-                </Typography>
+                  <PersonOutlineIcon />
+                  <Typography
+                    variant="h7"
+                    color="inherit"
+                    component="div"
+                    sx={{
+                      textTransform: "uppercase",
+                      height: "100%",
+                      fontSize: "13px",
+                    }}
+                    className={inter.className}
+                  >
+                    adhérer à l’ACCYB
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "auto",
+                    backgroundColor: "#BE0011",
+                    gap: 1,
+                    padding: "8px 15px",
+                  }}
+                >
+                  <NotificationsNoneIcon />
+                  <Typography
+                    variant="h7"
+                    color="inherit"
+                    component="div"
+                    sx={{
+                      textTransform: "uppercase",
+                      height: "100%",
+                      fontSize: "13px",
+                    }}
+                    className={inter.className}
+                  >
+                    Déclarer un incident
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
+        </Container>
       </AppBar>
       <AppBar
         position="static"
@@ -224,296 +241,300 @@ export default function Header() {
           padding: { md: "0 0px", xs: "5px 0" },
         }}
       >
-        <Toolbar disableGutters sx={{ padding: "0 15px" }}>
-          <Img
-            onClick={() => router.push("/")}
-            src={Logo}
-            alt="img"
-            sx={{ display: { xs: "none", md: "flex" }, cursor: "pointer" }}
-          />
-          <Img
-            onClick={() => router.push("/")}
-            src={Logo}
-            alt="img"
-            sx={{
-              display: { xs: "flex", md: "none" },
-              mr: 1,
-              cursor: "pointer",
-            }}
-          />
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              justifyContent: "end",
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+        <Container disableGutters maxWidth={"xl"}>
+          <Toolbar disableGutters sx={{ padding: "0 15px" }}>
+            <Img
+              onClick={() => router.push("/")}
+              src={Logo}
+              alt="img"
+              sx={{ display: { xs: "none", md: "flex" }, cursor: "pointer" }}
+            />
+            <Img
+              onClick={() => router.push("/")}
+              src={Logo}
+              alt="img"
               sx={{
-                backgroundColor: "#222D55",
-                color: "white",
-                "&:hover": {
-                  // Remove hover effect
-                  backgroundColor: "#222D55", // Keep the same background color when hovered
-                },
+                display: { xs: "flex", md: "none" },
+                mr: 1,
+                cursor: "pointer",
+              }}
+            />
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                justifyContent: "end",
               }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                top: 10,
-                display: { xs: "block", lg: "none" },
-              }}
-              PaperProps={{
-                style: {
-                  width: "100%",
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                sx={{
                   backgroundColor: "#222D55",
-                },
-              }}
-            >
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Image
-                  src={Logo}
-                  alt="img"
-                  sx={{ display: { xs: "none", md: "flex" } }}
-                />
-              </Box>
-              {pages.map((page, idx) => (
-                <MenuItem
-                  key={idx}
-                  onClick={handleCloseNavMenu}
-                  sx={{
+                  color: "white",
+                  "&:hover": {
+                    // Remove hover effect
+                    backgroundColor: "#222D55", // Keep the same background color when hovered
+                  },
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  top: 10,
+                  display: { xs: "block", lg: "none" },
+                }}
+                PaperProps={{
+                  style: {
+                    width: "100%",
                     backgroundColor: "#222D55",
-                    textTransform: "uppercase",
-                    color: "#fff",
+                  },
+                }}
+              >
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Image
+                    src={Logo}
+                    alt="img"
+                    sx={{ display: { xs: "none", md: "flex" } }}
+                  />
+                </Box>
+                {pages.map((page, idx) => (
+                  <MenuItem
+                    key={idx}
+                    onClick={() => router?.push(page?.path)}
+                    sx={{
+                      backgroundColor: "#222D55",
+                      textTransform: "uppercase",
+                      color: "#fff",
+                    }}
+                  >
+                    <Typography
+                      className={inter.className}
+                      textAlign="center"
+                      sx={{ fontSize: "20px" }}
+                    >
+                      {`${page?.name?.split(" ")?.[0]} `}
+                      <span style={{ color: "#7DB1FF" }}>{` ${page?.name
+                        ?.split(" ")
+                        ?.slice(1)
+                        .join(" ")} `}</span>
+                    </Typography>
+                  </MenuItem>
+                ))}
+                <Divider
+                  orientation="horizontal"
+                  variant="middle"
+                  sx={{ bgcolor: "#8E9BBF" }}
+                />
+                {link.map((page, idx) => (
+                  <MenuItem
+                    key={idx}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      backgroundColor: "#222D55",
+                      color: "#fff",
+                      textTransform: "uppercase",
+                      fontSize: "30px",
+                    }}
+                  >
+                    <Typography textAlign="center" className={inter.className}>
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                ))}
+                <Divider
+                  orientation="horizontal"
+                  variant="middle"
+                  sx={{ bgcolor: "#8E9BBF" }}
+                />
+                <MenuItem sx={{ gap: 1 }}>
+                  <Avatar
+                    sx={{
+                      background:
+                        "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      fontSize: "16px",
+                      padding: 3,
+                    }}
+                  >
+                    FR
+                  </Avatar>
+                  <Avatar
+                    sx={{
+                      bgcolor: "transparent",
+                      border: "1px solid #7DB1FF",
+                      fontSize: "16px",
+                      color: "#7DB1FF",
+                      padding: 3,
+                    }}
+                  >
+                    EN
+                  </Avatar>
+                </MenuItem>
+                <MenuItem
+                  sx={{
+                    mt: 3,
+                    display: "flex",
+                    justifyContent: "space-around",
+                    backgroundColor: "#FFFFFF",
                   }}
                 >
                   <Typography
-                    className={inter.className}
-                    textAlign="center"
-                    sx={{ fontSize: "20px" }}
+                    sx={{
+                      color: "#222D55",
+                      textTransform: "uppercase",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                    }}
                   >
-                    {`${page?.name?.split(" ")?.[0]} `}
-                    <span style={{ color: "#7DB1FF" }}>{` ${page?.name
-                      ?.split(" ")
-                      ?.slice(1)
-                      .join(" ")} `}</span>
+                    actualités
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#222D55",
+                      textTransform: "uppercase",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Devenir Bénévole Cyber
                   </Typography>
                 </MenuItem>
-              ))}
-              <Divider
-                orientation="horizontal"
-                variant="middle"
-                sx={{ bgcolor: "#8E9BBF" }}
-              />
-              {link.map((page, idx) => (
                 <MenuItem
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    backgroundColor: "#BE0011",
+                    gap: 1,
+                    padding: "8px 15px",
+                  }}
+                >
+                  <NotificationsNoneIcon sx={{ color: "#fff" }} />
+                  <Typography
+                    variant="h7"
+                    color="inherit"
+                    component="div"
+                    sx={{
+                      textTransform: "uppercase",
+                      height: "100%",
+                      fontSize: "13px",
+                      color: "#fff",
+                    }}
+                  >
+                    Déclarer un incident
+                  </Typography>
+                </MenuItem>
+                <MenuItem
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    backgroundColor: "#007A47",
+                    gap: 1,
+                    padding: "8px 15px",
+                  }}
+                >
+                  <PersonOutlineIcon sx={{ color: "#fff" }} />
+                  <Typography
+                    variant="h7"
+                    color="inherit"
+                    component="div"
+                    sx={{
+                      textTransform: "uppercase",
+                      height: "100%",
+                      fontSize: "13px",
+                      color: "#fff",
+                    }}
+                  >
+                    adhérer à l’ACCYB
+                  </Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+
+            <Box
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}
+            >
+              {pages.map((page, idx) => (
+                <Button
+                  className={inter.className}
+                  key={idx}
+                  onClick={() => router?.push(page?.path)}
+                  sx={{
+                    my: 3,
+                    color: "#222D55",
+                    display: "block",
+                    fontWeight: 600,
+                    fontSize: { lg: "15px", md: "12px" },
+                  }}
+                >
+                  {page?.name}
+                </Button>
+              ))}
+            </Box>
+            <Box
+              sx={{
+                flexGrow: 0,
+                display: { xs: "none", md: "none", lg: "flex" },
+                ml: 3,
+              }}
+            >
+              {link.map((page, idx) => (
+                <Button
+                  className={inter.className}
                   key={idx}
                   onClick={handleCloseNavMenu}
                   sx={{
-                    backgroundColor: "#222D55",
-                    color: "#fff",
-                    textTransform: "uppercase",
-                    fontSize: "30px",
+                    my: 3,
+                    color: "#222D55",
+                    display: "block",
+                    fontWeight: 600,
+                    fontSize: { lg: "15px", md: "12px" },
                   }}
                 >
-                  <Typography textAlign="center" className={inter.className}>
-                    {page}
-                  </Typography>
-                </MenuItem>
+                  {page}
+                </Button>
               ))}
               <Divider
-                orientation="horizontal"
+                orientation="vertical"
                 variant="middle"
-                sx={{ bgcolor: "#8E9BBF" }}
+                sx={{ bgcolor: "red" }}
               />
-              <MenuItem sx={{ gap: 1 }}>
-                <Avatar
-                  sx={{
-                    background:
-                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                    fontSize: "16px",
-                    padding: 3,
-                  }}
-                >
-                  FR
-                </Avatar>
-                <Avatar
-                  sx={{
-                    bgcolor: "transparent",
-                    border: "1px solid #7DB1FF",
-                    fontSize: "16px",
-                    color: "#7DB1FF",
-                    padding: 3,
-                  }}
-                >
-                  EN
-                </Avatar>
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  mt: 3,
-                  display: "flex",
-                  justifyContent: "space-around",
-                  backgroundColor: "#FFFFFF",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "#222D55",
-                    textTransform: "uppercase",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                  }}
-                >
-                  actualités
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#222D55",
-                    textTransform: "uppercase",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Devenir Bénévole Cyber
-                </Typography>
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  backgroundColor: "#BE0011",
-                  gap: 1,
-                  padding: "8px 15px",
-                }}
-              >
-                <NotificationsNoneIcon sx={{ color: "#fff" }} />
-                <Typography
-                  variant="h7"
-                  color="inherit"
-                  component="div"
-                  sx={{
-                    textTransform: "uppercase",
-                    height: "100%",
-                    fontSize: "13px",
-                    color: "#fff",
-                  }}
-                >
-                  Déclarer un incident
-                </Typography>
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  backgroundColor: "#007A47",
-                  gap: 1,
-                  padding: "8px 15px",
-                }}
-              >
-                <PersonOutlineIcon sx={{ color: "#fff" }} />
-                <Typography
-                  variant="h7"
-                  color="inherit"
-                  component="div"
-                  sx={{
-                    textTransform: "uppercase",
-                    height: "100%",
-                    fontSize: "13px",
-                    color: "#fff",
-                  }}
-                >
-                  adhérer à l’ACCYB
-                </Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}>
-            {pages.map((page, idx) => (
-              <Button
-                className={inter.className}
-                key={idx}
-                onClick={() => router?.push(page?.path)}
-                sx={{
-                  my: 3,
-                  color: "#222D55",
-                  display: "block",
-                  fontWeight: 600,
-                  fontSize: { lg: "15px", md: "12px" },
-                }}
-              >
-                {page?.name}
-              </Button>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 0,
-              display: { xs: "none", md: "none", lg: "flex" },
-              ml: 3,
-            }}
-          >
-            {link.map((page, idx) => (
-              <Button
-                className={inter.className}
-                key={idx}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 3,
-                  color: "#222D55",
-                  display: "block",
-                  fontWeight: 600,
-                  fontSize: { lg: "15px", md: "12px" },
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+            </Box>
             <Divider
               orientation="vertical"
               variant="middle"
-              sx={{ bgcolor: "red" }}
+              sx={{
+                borderBottomWidth: "30px",
+                marginLeft: "15px",
+                display: { md: "block", xs: "none" },
+              }}
             />
-          </Box>
-          <Divider
-            orientation="vertical"
-            variant="middle"
-            sx={{
-              borderBottomWidth: "30px",
-              marginLeft: "15px",
-              display: { md: "block", xs: "none" },
-            }}
-          />
-          <Box sx={{ display: { md: "block", xs: "none" } }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon sx={{ color: "#222D55" }} />
-              </SearchIconWrapper>
-              <StyledInputBase inputProps={{ "aria-label": "search" }} />
-            </Search>
-          </Box>
-        </Toolbar>
+            <Box sx={{ display: { md: "block", xs: "none" } }}>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon sx={{ color: "#222D55" }} />
+                </SearchIconWrapper>
+                <StyledInputBase inputProps={{ "aria-label": "search" }} />
+              </Search>
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
     </Box>
   );

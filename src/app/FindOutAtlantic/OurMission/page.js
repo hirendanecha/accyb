@@ -63,27 +63,19 @@ export default function OurMission() {
   const activites = [
     {
       img: Tech,
-      title: "Actions de sensibilisations des bénéficiaires et du grand public",
+      title: "Alertes de sécurité",
     },
     {
       img: Adviser,
-      title: "Centre de réponses à incident via le CSIRT-ATLANTIC",
+      title: "réponses à incident",
     },
     {
       img: Scan,
-      title: "Scan de vulnérabilités pour les membres adhérents",
+      title: "Veille exposition à incident",
     },
     {
       img: Doctor,
-      title: "Diagnostique via mon aide cyber",
-    },
-    {
-      img: Key,
-      title: "Suivi de l’état cyber des bénéficiaires",
-    },
-    {
-      img: Tower,
-      title: "Diffusion d’alertes de sécurité",
+      title: "Alerte avancée",
     },
   ];
   return (
@@ -92,8 +84,8 @@ export default function OurMission() {
         <Box
           ref={ref}
           sx={{
-            mt: { md: 20, xs: 10 },
             padding: "0 16px",
+            mt: { md: 20, xs: 10 },
           }}
         >
           {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
@@ -114,7 +106,7 @@ export default function OurMission() {
               bgcolor: "#8E9BBF",
               mt: { md: 3, xs: 5 },
               borderBottomWidth: "1px",
-              mb: { md: 10, xs: 4 },
+              mb: 10,
             }}
           />
         </Box>
@@ -133,9 +125,7 @@ export default function OurMission() {
                     display: "flex",
                     padding: { lg: 6, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
-                    border: "2px solid",
-                    borderImageSource:
-                      "linear-gradient(46.93deg, #228A2C -9.61%, #2FD7B9 78.14%)",
+                    border: "2px solid #BE0011",
                     borderImageSlice: 1,
                     position: "relative",
                     borderRadius: "20px",
@@ -196,21 +186,15 @@ export default function OurMission() {
                       <Box
                         sx={{
                           borderRadius: "50%",
-                          backgroundColor: "#007A47",
+                          backgroundColor: "#BE0011",
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          border: "1px solid #8E9BBF",
                           height: { lg: "160px", sm: "120px", xs: "80px" },
                           width: { lg: "160px", sm: "120px", xs: "80px" },
                         }}
                       >
-                        <Img
-                          src={ele?.img}
-                          height={900}
-                          width={900}
-                          alt="img"
-                        />
+                        {/* <Img src={ele?.img} height={900} width={900} alt="img" /> */}
                       </Box>
                     </Grid>
                     <Grid item xs={8} sm={7}>
