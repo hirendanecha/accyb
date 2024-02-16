@@ -131,6 +131,7 @@ export default function HowToWorkSlider() {
     <Box
       component="section"
       sx={{
+        padding : "0 30px",
         pt: { xs: 28, sm: 28, lg: 32, xl: 30 },
       }}
     >
