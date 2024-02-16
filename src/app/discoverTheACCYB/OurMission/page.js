@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import Tech from "../../../Icons/Discover/Img1.svg";
 import Doctor from "../../../Icons/Discover/Img4.svg";

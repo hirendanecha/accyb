@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import Tech from "../../../Icons/Discover/Img1.svg";
 import Doctor from "../../../Icons/Discover/Img4.svg";
 import Adviser from "../../../Icons/MajorActivity/Adviser.svg";
@@ -6,9 +7,6 @@ import Scan from "../../../Icons/Discover/Img3.svg";
 import Key from "../../../Icons/Discover/Img5.svg";
 import { Box, Divider, Grid, Typography, styled } from "@mui/material";
 import { useAnimation, motion } from "framer-motion";
-import { useRef } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
 import { inter } from "../../fonts/fonts";
 import Image from "next/image";
 

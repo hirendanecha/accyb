@@ -1,3 +1,4 @@
+"use client";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { inter } from "../../fonts/fonts";
