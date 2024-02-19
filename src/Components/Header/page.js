@@ -40,7 +40,7 @@ const pages = [
   },
   {
     name: "Découvrir l’ACCYB",
-    path: "/DiscoverTheACCYB",
+    path: "/discoverTheObservatory",
   },
 ];
 const link = ["se sécuriser", "se former", "s’informer"];

@@ -17,7 +17,7 @@ export default function DiscoverTheACCYB() {
       {/* {"Our Service"} */}
       <OurService />
       {/* {"our operation"} */}
-      <Box mt={30}>
+      <Box mt={{md : 30 , xs : 10}}>
         <OurOperationSlider />
       </Box>
       <OurPartners />
