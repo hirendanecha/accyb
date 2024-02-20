@@ -18,6 +18,7 @@ export default function InformationSystems() {
       <Container disableGutters maxWidth={"xl"}>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
+            sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
@@ -98,6 +99,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
+            sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
           >
@@ -178,6 +180,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
+            sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -258,6 +261,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
+            sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
@@ -338,6 +342,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
+            sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
