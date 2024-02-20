@@ -8,7 +8,7 @@ export const metadata = {
   title: "ACCYB",
   description: "Caribbean Cybersecurity Agency (CCYBA)",
   icons: {
-    icon: `${FavIcon}`,
+    icon: "../../public/FavIcon.png",
   },
 };
 

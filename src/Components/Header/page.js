@@ -43,7 +43,20 @@ const pages = [
     path: "/discoverTheObservatory",
   },
 ];
-const link = ["se sécuriser", "se former", "s’informer"];
+const link = [
+  {
+    name: "se sécuriser",
+    path: "/discoverTheACCYB",
+  },
+  {
+    name: "se former",
+    path: "/seFormer",
+  },
+  {
+    name: "s’informer",
+    path: "/discoverTheObservatory",
+  },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Header() {
@@ -346,7 +359,7 @@ export default function Header() {
                 {link.map((page, idx) => (
                   <MenuItem
                     key={idx}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => router?.push(page?.path)}
                     sx={{
                       backgroundColor: "#222D55",
                       color: "#fff",
@@ -355,7 +368,7 @@ export default function Header() {
                     }}
                   >
                     <Typography textAlign="center" className={inter.className}>
-                      {page}
+                      {page.name}
                     </Typography>
                   </MenuItem>
                 ))}
@@ -498,7 +511,7 @@ export default function Header() {
                 <Button
                   className={inter.className}
                   key={idx}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => router?.push(page?.path)}
                   sx={{
                     my: 3,
                     color: "#222D55",
@@ -507,7 +520,7 @@ export default function Header() {
                     fontSize: { lg: "15px", md: "12px" },
                   }}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               ))}
               <Divider

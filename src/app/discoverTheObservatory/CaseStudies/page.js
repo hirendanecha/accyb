@@ -117,7 +117,7 @@ export default function CaseStudies() {
             transformOrigin: "-25px 50px",
           }}
         ></Box>
-        <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 20px 0 20px" } }}>
+        <Box sx={{ padding: { md: "0 20px 0 20px", xs: "0 20px 0 20px" } }}>
           <Grid
             container
             columnSpacing={2}
