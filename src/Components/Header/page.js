@@ -54,7 +54,7 @@ const link = [
   },
   {
     name: "s’informer",
-    path: "/discoverTheObservatory",
+    path: "/sInformer",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
