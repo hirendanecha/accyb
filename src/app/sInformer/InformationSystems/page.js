@@ -8,27 +8,27 @@ import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { inter } from "../../fonts/fonts";
-// import { makeStyles } from "@material-ui/styles";
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     boxShadow: "none", // Remove box shadow
-//     border: "none", // Remove border
-//     "& .MuiAccordionSummary-root": {
-//       borderBottom: "none", // Add border bottom to the summary if needed
-//     },
-//     "& .MuiAccordionSummary-content": {
-//       margin: 0, // Remove margin if needed
-//     },
-//   },
-//   accordionIcon: {
-//     transition: "transform 0.2s",
-//   },
-//   accordionIconOpen: {
-//     transform: "rotate(180deg)",
-//   },
-// }));
+import { makeStyles } from "@material-ui/styles";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    boxShadow: "none", // Remove box shadow
+    border: "none", // Remove border
+    "& .MuiAccordionSummary-root": {
+      borderBottom: "none", // Add border bottom to the summary if needed
+    },
+    "& .MuiAccordionSummary-content": {
+      margin: 0, // Remove margin if needed
+    },
+  },
+  accordionIcon: {
+    transition: "transform 0.2s",
+  },
+  accordionIconOpen: {
+    transform: "rotate(180deg)",
+  },
+}));
 export default function InformationSystems() {
-  // const classes = useStyles();
+  const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -38,7 +38,7 @@ export default function InformationSystems() {
       <Container disableGutters maxWidth={"xl"}>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
-            // className={classes.root}
+            className={classes.root}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
@@ -119,7 +119,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
-            // className={classes.root}
+            className={classes.root}
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
           >
@@ -200,7 +200,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
-            // className={classes.root}
+            className={classes.root}
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
@@ -281,7 +281,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
-            // className={classes.root}
+            className={classes.root}
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
@@ -362,7 +362,7 @@ export default function InformationSystems() {
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
           <Accordion
-            // className={classes.root}
+            className={classes.root}
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
