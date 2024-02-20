@@ -28,36 +28,43 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../app/fonts/fonts";
 import Image from "next/image";
-// const data = [
-//   {
-//     img: Image1,
-//     title: "ACTUALITÉ",
-//     heading: "Calendrier de l’Avent Cyber 2023",
-//     description:
-//       "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-//     time: "13.01.2024",
-//   },
-//   {
-//     img: Image1,
-//     title: "ACTUALITÉ",
-//     heading: "Calendrier de l’Avent Cyber 2023",
-//     description:
-//       "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-//     time: "13.01.2024",
-//   },
-//   {
-//     img: Image1,
-//     title: "ACTUALITÉ",
-//     heading: "Calendrier de l’Avent Cyber 2023",
-//     description:
-//       "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-//     time: "13.01.2024",
-//   },
-// ];
-const Img = styled(Image)(({ theme }) => ({
-  width: "100% !important",
-  height: "auto !important",
-}));
+const data = [
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+  {
+    img: VideoTraning,
+    title: "TAG",
+    heading: "Calendrier de l’Avent Cyber 2023",
+  },
+];
 export default function CaseStudies() {
   return (
     <Box
@@ -228,207 +235,54 @@ export default function CaseStudies() {
               },
             }}
           >
-            <SwiperSlide>
-              <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}>
-                <Box>
-                  <Image
-                    src={VideoTraning}
-                    width={423}
-                    height={233}
-                    alt="video-traning"
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    mt: 1.5,
-                  }}
-                >
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: "max-content",
-                      fontSize: "12px",
-                      mb: 1,
-                      padding: "10px 20px 10px 20px",
-                      cursor: "pointer",
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    tag
-                  </Typography>
-                  <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
-                    Calendrier de l’Avent Cyber 2023
-                  </Typography>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}>
-                <Box>
-                  <Image
-                    src={VideoTraning}
-                    width={423}
-                    height={233}
-                    alt="video-traning"
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    mt: 1.5,
-                  }}
-                >
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: "max-content",
-                      fontSize: "12px",
-                      mb: 1,
-                      padding: "10px 20px 10px 20px",
-                      cursor: "pointer",
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    tag
-                  </Typography>
-                  <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
-                    Calendrier de l’Avent Cyber 2023
-                  </Typography>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}>
-                <Box>
-                  <Image
-                    src={VideoTraning}
-                    width={423}
-                    height={233}
-                    alt="video-traning"
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    mt: 1.5,
-                  }}
-                >
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: "max-content",
-                      fontSize: "12px",
-                      mb: 1,
-                      padding: "10px 20px 10px 20px",
-                      cursor: "pointer",
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    tag
-                  </Typography>
-                  <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
-                    Calendrier de l’Avent Cyber 2023
-                  </Typography>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}>
-                <Box>
-                  <Image
-                    src={VideoTraning}
-                    width={423}
-                    height={233}
-                    alt="video-traning"
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    mt: 1.5,
-                  }}
-                >
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: "max-content",
-                      fontSize: "12px",
-                      mb: 1,
-                      padding: "10px 20px 10px 20px",
-                      cursor: "pointer",
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    tag
-                  </Typography>
-                  <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
-                    Calendrier de l’Avent Cyber 2023
-                  </Typography>
-                </Box>
-              </Box>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Box sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}>
-                <Box>
-                  <Image
-                    src={VideoTraning}
-                    width={423}
-                    height={233}
-                    alt="video-traning"
-                  />
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    mt: 1.5,
-                  }}
-                >
-                  <Typography
-                    className={inter.className}
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: "max-content",
-                      fontSize: "12px",
-                      mb: 1,
-                      padding: "10px 20px 10px 20px",
-                      cursor: "pointer",
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    tag
-                  </Typography>
-                  <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
-                    Calendrier de l’Avent Cyber 2023
-                  </Typography>
-                </Box>
-              </Box>
-            </SwiperSlide>
-          
+            {data?.map((ele) => {
+              return (
+                <>
+                  <SwiperSlide>
+                    <Box
+                      sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}
+                    >
+                      <Box>
+                        <Image
+                          src={ele?.img}
+                          width={423}
+                          height={233}
+                          alt="video-traning"
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 2,
+                          mt: 1.5,
+                        }}
+                      >
+                        <Typography
+                          className={inter.className}
+                          sx={{
+                            backgroundImage:
+                              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                            width: "max-content",
+                            fontSize: "12px",
+                            mb: 1,
+                            padding: "10px 20px 10px 20px",
+                            cursor: "pointer",
+                            color: "#FFFFFF",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          {ele?.title}
+                        </Typography>
+                        <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
+                          {ele?.heading}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </SwiperSlide>
+                </>
+              );
+            })}
           </Box>
           <Box
             sx={{

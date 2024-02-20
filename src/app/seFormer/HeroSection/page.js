@@ -6,7 +6,7 @@ import { inter } from "../../fonts/fonts";
 export default function HeroSection() {
   return (
     <Box sx={{ position: "relative" }}>
-      <div style={{ position: "absolute", right: 0 , top : 100}}>
+      <div style={{ position: "absolute", right: 0 , top : {md : 100 , xs : 0}}}>
         <svg
           width="597"
           height="499"
@@ -55,7 +55,7 @@ export default function HeroSection() {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          paddingTop: { md: 50, xs: 0 },
+          paddingTop: { md: 50, xs: 20 },
         }}
       >
         <Container disableGutters maxWidth={"xl"}>

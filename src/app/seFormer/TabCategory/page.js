@@ -6,11 +6,17 @@ import {
   Divider,
   Grid,
   Typography,
+  styled,
 } from "@mui/material";
 import React, { useState } from "react";
 import { inter } from "../../fonts/fonts";
 import Image from "next/image";
 import Image1 from "../../../Icons/Image1.png";
+
+const Img = styled(Image)(({ theme }) => ({
+  width: "100% !important",
+  height: "auto !important",
+}));
 
 export default function TabCategory() {
   const subCategory = [
@@ -143,6 +149,9 @@ export default function TabCategory() {
             overflowX: "auto",
             width: "100%",
             display: "flex",
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
           }}
         >
           <Box
@@ -151,8 +160,6 @@ export default function TabCategory() {
               gap: 1,
               mt: { md: 5, xs: 2 },
               minWidth: "900px",
-              WebkitOverflowScrolling: "touch",
-              scrollbarWidth: "none",
             }}
           >
             {category?.map((ele, idx) => {
@@ -202,7 +209,7 @@ export default function TabCategory() {
                     }}
                   >
                     <Box>
-                      <Image
+                      <Img
                         src={ele?.img}
                         width={295}
                         height={220}
