@@ -37,10 +37,10 @@ export default function Partenaires() {
   ];
   const supported = [
     {
-      img: Logo5,
+      img: Logo6,
     },
     {
-      img: Logo6,
+      img: Logo5,
     },
     {
       img: Logo7,
@@ -60,7 +60,7 @@ export default function Partenaires() {
             <Typography
               sx={{
                 textTransform: "uppercase",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: 500,
                 color: "#222D55",
                 fontFamily: inter.style.fontFamily,
@@ -111,7 +111,7 @@ export default function Partenaires() {
             <Typography
               sx={{
                 textTransform: "uppercase",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: 500,
                 fontFamily: inter.style.fontFamily,
                 color: "#222D55",

@@ -12,7 +12,7 @@ import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation, Pagination } from "swiper/modules";
+import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import Personnes from "../../Icons/personnes.svg";
 import Calque from "../../Icons/Calque.svg";
 import Light from "../../Icons/Light.svg";
@@ -84,16 +84,28 @@ export default function InfoSlider() {
   return (
     <>
       <Box
+        grabCursor={true}
+        a11y={false}
+        freeMode={true}
+        speed={12000}
+        loop={true}
         component={Swiper}
         slidesPerView={4}
+        autoplay={{
+          delay: 0.5,
+          disableOnInteraction: false,
+        }}
         spaceBetween={20}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay, A11y]}
         breakpoints={{
           0: {
-            slidesPerView: 1.1,
+            slidesPerView: 1.2,
           },
           450: {
-            slidesPerView: 2.2,
+            slidesPerView: 1.2,
+          },
+          600: {
+            slidesPerView: 2.1,
           },
           900: {
             slidesPerView: 2.5,
@@ -154,7 +166,7 @@ export default function InfoSlider() {
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: "50px",
+                          fontSize: { lg: "50px", md: "40px", xs: "35px" },
                           fontWeight: 600,
                           color: "#FFFFFF",
                           display: "flex",
@@ -185,7 +197,7 @@ export default function InfoSlider() {
                       </Typography>
                       <Typography
                         sx={{
-                          fontSize: "16px",
+                          fontSize: { lg: "16px", md: "15px", xs: "13px" },
                           fontWeight: 500,
                           lineHeight: "20px",
                           color: "#FFFFFF",

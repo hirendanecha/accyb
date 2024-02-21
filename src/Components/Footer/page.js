@@ -45,7 +45,7 @@ export default function Footer() {
               <Grid container>
                 <Grid
                   item
-                  lg={2.4}
+                  lg={1.8}
                   md={12}
                   xs={12}
                   justifyContent={{ lg: "unset", xs: "center" }}
@@ -56,7 +56,7 @@ export default function Footer() {
                 </Grid>
                 <Grid
                   item
-                  lg={2.4}
+                  lg={1.8}
                   md={3}
                   sm={6}
                   xs={12}
@@ -65,7 +65,7 @@ export default function Footer() {
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 600,
                         pb: 2,
                         fontFamily: inter.style.fontFamily,
@@ -97,9 +97,10 @@ export default function Footer() {
                     </Box>
                   </Box>
                 </Grid>
+                <Grid item lg={0.5}></Grid>
                 <Grid
                   item
-                  lg={2.4}
+                  lg={2.6}
                   md={3}
                   sm={6}
                   xs={12}
@@ -108,7 +109,7 @@ export default function Footer() {
                 >
                   <Typography
                     sx={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 600,
                       fontFamily: inter.style.fontFamily,
                       pb: 2,
@@ -120,7 +121,7 @@ export default function Footer() {
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -130,7 +131,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -140,7 +141,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -150,7 +151,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -162,7 +163,7 @@ export default function Footer() {
                 </Grid>
                 <Grid
                   item
-                  lg={2.4}
+                  lg={2.6}
                   md={3}
                   sm={6}
                   xs={12}
@@ -171,7 +172,7 @@ export default function Footer() {
                 >
                   <Typography
                     sx={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 600,
                       pb: 2,
                       fontFamily: inter.style.fontFamily,
@@ -183,7 +184,7 @@ export default function Footer() {
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontFamily: inter.style.fontFamily,
                         fontWeight: 400,
                         mt: 1,
@@ -194,7 +195,7 @@ export default function Footer() {
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                       }}
@@ -203,7 +204,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -214,7 +215,7 @@ export default function Footer() {
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                       }}
@@ -225,7 +226,7 @@ export default function Footer() {
                 </Grid>
                 <Grid
                   item
-                  lg={2.4}
+                  lg={2.6}
                   md={3}
                   sm={6}
                   xs={12}
@@ -234,7 +235,7 @@ export default function Footer() {
                 >
                   <Typography
                     sx={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 600,
                       pb: 2,
                       textTransform: "uppercase",
@@ -246,7 +247,7 @@ export default function Footer() {
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                       }}
@@ -255,7 +256,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -265,7 +266,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -275,7 +276,7 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: 400,
                         mt: 1,
                         fontFamily: inter.style.fontFamily,
@@ -312,7 +313,7 @@ export default function Footer() {
                 fontFamily: inter.style.fontFamily,
                 color: "#FFFFFF",
                 textTransform: "uppercase",
-                fontSize: { md: "13px", xs: "11px" },
+                fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
               }}
             >
@@ -324,7 +325,7 @@ export default function Footer() {
 
                 color: "#FFFFFF",
                 textTransform: "uppercase",
-                fontSize: { md: "13px", xs: "11px" },
+                fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
               }}
             >
@@ -335,7 +336,7 @@ export default function Footer() {
                 color: "#FFFFFF",
                 fontFamily: inter.style.fontFamily,
                 textTransform: "uppercase",
-                fontSize: { md: "13px", xs: "11px" },
+                fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
               }}
             >
@@ -346,7 +347,7 @@ export default function Footer() {
                 fontFamily: inter.style.fontFamily,
                 color: "#FFFFFF",
                 textTransform: "uppercase",
-                fontSize: { md: "13px", xs: "11px" },
+                fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
               }}
             >

@@ -77,13 +77,13 @@ export default function CaribbeanAgency() {
         <Container disableGutters maxWidth={"xl"}>
           <Box sx={{ padding: "0 16px" }}>
             <Grid container>
-              <Grid item xs={12} lg={6} ref={ref}>
+              <Grid item xs={12} md={12} lg={12} ref={ref}>
                 <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                   <Box
                     sx={{
                       fontSize: {
                         lg: "85px",
-                        md: "75px",
+                        md: "80px",
                         sm: "60px",
                         xs: "35px",
                       },
@@ -92,10 +92,10 @@ export default function CaribbeanAgency() {
                       lineHeight: {
                         lg: "90px",
                         md: "85px",
-                        sm: "75px",
+                        sm: "85px",
                         xs: "50px",
                       },
-                      maxWidth: "750px !important",
+                      maxWidth: { md: "750px !important", xs: "550px" },
                       paddingTop: { md: 30, xs: 20 },
                       fontFamily: inter.style.fontFamily,
                     }}
@@ -167,18 +167,19 @@ export default function CaribbeanAgency() {
                     }
                     sx={{
                       color: "#FFFFFF",
-                      border: "1px solid #FFFFFF",
+                      border: "1px solid rgba(142, 155, 191, 0.3)",
                       borderRadius: "61px",
                       padding: "8px 30px",
                       fontSize: "12px",
                       fontWeight: 600,
+                      background: "rgba(255, 255, 255, 0.1)",
                       ":hover": {
-                        borderColor: "white",
+                        borderColor: "#8E9BBF",
                       },
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Découvrir nos missionsss
+                    Découvrir nos missions
                   </Button>
                   <Button
                     variant="outlined"
@@ -210,14 +211,15 @@ export default function CaribbeanAgency() {
                     }
                     sx={{
                       color: "#FFFFFF",
-                      border: "1px solid #FFFFFF",
+                      border: "1px solid rgba(142, 155, 191, 0.3)",
                       borderRadius: "61px",
                       fontSize: "12px",
                       padding: "8px 30px",
                       fontWeight: 600,
+                      background: "rgba(255, 255, 255, 0.1)",
                       fontFamily: inter.style.fontFamily,
                       ":hover": {
-                        borderColor: "white",
+                        borderColor: "#8E9BBF",
                       },
                     }}
                   >
@@ -225,7 +227,7 @@ export default function CaribbeanAgency() {
                   </Button>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6} position={"relative"}>
+              <Grid item xs={12} md={12} position={"relative"}>
                 <Box
                   sx={{
                     display: { lg: "flex", xs: "none" },

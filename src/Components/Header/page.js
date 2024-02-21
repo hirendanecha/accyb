@@ -21,6 +21,7 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Logo from "../../Icons/Frame.svg";
+import Logo2 from "../../Icons/Frame2.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { inter } from "../../app/fonts/fonts";
 import { useRouter } from "next/navigation";
@@ -46,7 +47,7 @@ const pages = [
 const link = [
   {
     name: "se sécuriser",
-    path: "/discoverTheACCYB",
+    path: "/",
   },
   {
     name: "se former",
@@ -262,6 +263,8 @@ export default function Header() {
         sx={{
           backgroundColor: "#FFFFFF",
           padding: { md: "0 0px", xs: "5px 0" },
+          boxShadow: "none",
+          borderBottom: "1px solid #222D55",
         }}
       >
         <Container disableGutters maxWidth={"xl"}>
@@ -331,18 +334,25 @@ export default function Header() {
                   },
                 }}
               >
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Box sx={{ display: "flex", justifyContent: "center", pb: 2 }}>
                   <Image
-                    src={Logo}
+                    src={Logo2}
                     alt="img"
                     sx={{ display: { xs: "none", md: "flex" } }}
                   />
                 </Box>
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon sx={{ color: "#222D55" }} />
+                  </SearchIconWrapper>
+                  <StyledInputBase inputProps={{ "aria-label": "search" }} />
+                </Search>
                 {pages.map((page, idx) => (
                   <MenuItem
                     key={idx}
                     onClick={() => router?.push(page?.path)}
                     sx={{
+                      fontSize: "13px",
                       backgroundColor: "#222D55",
                       textTransform: "uppercase",
                       color: "#fff",
@@ -424,6 +434,9 @@ export default function Header() {
                     display: "flex",
                     justifyContent: "space-around",
                     backgroundColor: "#FFFFFF",
+                    ": hover": {
+                      backgroundColor: "#FFFFFF",
+                    },
                   }}
                 >
                   <Typography
@@ -499,7 +512,12 @@ export default function Header() {
             </Box>
 
             <Box
-              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 3 }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                ml: 3,
+                gap: 2,
+              }}
             >
               {pages.map((page, idx) => (
                 <Button
@@ -509,8 +527,8 @@ export default function Header() {
                     my: 3,
                     color: "#222D55",
                     display: "block",
-                    fontWeight: 600,
-                    fontSize: { lg: "15px", md: "12px" },
+                    fontWeight: 500,
+                    fontSize: { lg: "13px", md: "12px" },
                     fontFamily: inter.style.fontFamily,
                   }}
                 >
@@ -522,7 +540,8 @@ export default function Header() {
               sx={{
                 flexGrow: 0,
                 display: { xs: "none", md: "none", lg: "flex" },
-                ml: 3,
+                // ml: 3,
+                gap: 2,
               }}
             >
               {link.map((page, idx) => (
@@ -534,8 +553,8 @@ export default function Header() {
                     color: "#222D55",
                     display: "block",
                     fontFamily: inter.style.fontFamily,
-                    fontWeight: 600,
-                    fontSize: { lg: "15px", md: "12px" },
+                    fontWeight: 500,
+                    fontSize: { lg: "13px", md: "12px" },
                   }}
                 >
                   {page.name}
@@ -559,7 +578,7 @@ export default function Header() {
             <Box sx={{ display: { md: "block", xs: "none" } }}>
               <Search>
                 <SearchIconWrapper>
-                  <SearchIcon sx={{ color: "#222D55" }} />
+                  <SearchIcon sx={{ color: "#222D55", opacity: 0.5 }} />
                 </SearchIconWrapper>
                 <StyledInputBase inputProps={{ "aria-label": "search" }} />
               </Search>

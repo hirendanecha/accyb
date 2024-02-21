@@ -151,7 +151,9 @@ export default function MajorActivity() {
           variant="middle"
           sx={{
             bgcolor: "#8E9BBF",
-            mt: { md: 3, xs: 5 },
+            mt: 5,
+            maxWidth: "100%",
+            mx: 0,
             borderBottomWidth: "1px",
           }}
         />
@@ -167,7 +169,7 @@ export default function MajorActivity() {
                     border:
                       index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
                     position: "relative",
-                    borderRadius: "20px",
+                    borderRadius: index == 0 ? "0px" : "20px",
                     // overflow: "hidden",
                     height: "100%",
                   }}

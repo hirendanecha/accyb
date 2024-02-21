@@ -168,7 +168,7 @@ export default function OurNews() {
             transformOrigin: "-25px 50px",
           }}
         ></Box>
-        <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }}>
+        <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }} ref={ref}>
           <Box
             sx={{
               display: { md: "flex", xs: "block" },
@@ -177,16 +177,18 @@ export default function OurNews() {
               pt: { md: 15, xs: 10 },
             }}
           >
-            <Typography
-              sx={{
-                fontFamily: inter.style.fontFamily,
-                fontWeight: 400,
-                fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
-                color: "#7DB1FF",
-              }}
-            >
-              Nos actualités
-            </Typography>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontWeight: 400,
+                  fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
+                  color: "#7DB1FF",
+                }}
+              >
+                Nos actualités
+              </Typography>
+            </motion.div>
             <Button
               variant="outlined"
               endIcon={
@@ -355,6 +357,7 @@ export default function OurNews() {
                         <Img
                           src={ele?.img}
                           alt="img2"
+                          style={{ height: "auto", width: "100%" }}
                           width={900}
                           height={900}
                         />
