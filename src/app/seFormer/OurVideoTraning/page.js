@@ -139,8 +139,8 @@ export default function CaseStudies() {
           >
             <Grid item xs={12} md={8}>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   justifyContent: "start",
                   display: "flex",
                   fontSize: { lg: "75px", md: "65px", sm: "40px", xs: "30px" },
@@ -259,8 +259,8 @@ export default function CaseStudies() {
                         }}
                       >
                         <Typography
-                          className={inter.className}
                           sx={{
+                            fontFamily: inter.style.fontFamily,
                             backgroundImage:
                               "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                             width: "max-content",
@@ -270,11 +270,18 @@ export default function CaseStudies() {
                             cursor: "pointer",
                             color: "#FFFFFF",
                             textTransform: "uppercase",
+                            fontFamily: inter.style.fontFamily,
                           }}
                         >
                           {ele?.title}
                         </Typography>
-                        <Typography sx={{ fontSize: "18px", color: "#FFFFFF" }}>
+                        <Typography
+                          sx={{
+                            fontSize: "18px",
+                            color: "#FFFFFF",
+                            fontFamily: inter.style.fontFamily,
+                          }}
+                        >
                           {ele?.heading}
                         </Typography>
                       </Box>

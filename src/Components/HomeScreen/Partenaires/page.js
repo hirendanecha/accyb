@@ -63,8 +63,8 @@ export default function Partenaires() {
                 fontSize: "18px",
                 fontWeight: 500,
                 color: "#222D55",
+                fontFamily: inter.style.fontFamily,
               }}
-              className={inter.className}
             >
               partenaires
             </Typography>
@@ -113,9 +113,9 @@ export default function Partenaires() {
                 textTransform: "uppercase",
                 fontSize: "18px",
                 fontWeight: 500,
+                fontFamily: inter.style.fontFamily,
                 color: "#222D55",
               }}
-              className={inter.className}
             >
               Soutenu par
             </Typography>

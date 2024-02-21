@@ -58,8 +58,8 @@ export default function OurKeyDates() {
         >
           {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
           <Typography
-            className={inter.className}
             sx={{
+              fontFamily: inter.style.fontFamily,
               fontWeight: 400,
               fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
@@ -104,8 +104,8 @@ export default function OurKeyDates() {
               }}
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -122,8 +122,8 @@ export default function OurKeyDates() {
                 04 juin 2021
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -137,8 +137,8 @@ export default function OurKeyDates() {
                 Délibération
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -152,8 +152,8 @@ export default function OurKeyDates() {
                 de la Région
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -181,8 +181,8 @@ export default function OurKeyDates() {
               }}
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -199,8 +199,8 @@ export default function OurKeyDates() {
                 04 juin 2021
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -214,8 +214,8 @@ export default function OurKeyDates() {
                 Délibération
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -229,8 +229,8 @@ export default function OurKeyDates() {
                 de la Région
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -258,8 +258,8 @@ export default function OurKeyDates() {
               }}
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -276,8 +276,8 @@ export default function OurKeyDates() {
                 04 juin 2021
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -291,8 +291,8 @@ export default function OurKeyDates() {
                 Délibération
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -306,8 +306,8 @@ export default function OurKeyDates() {
                 de la Région
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -335,8 +335,8 @@ export default function OurKeyDates() {
               }}
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -353,8 +353,8 @@ export default function OurKeyDates() {
                 04 juin 2021
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -368,8 +368,8 @@ export default function OurKeyDates() {
                 Délibération
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -383,8 +383,8 @@ export default function OurKeyDates() {
                 de la Région
               </Typography>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   display: "flex",
                   justifyContent: "center",
                   mt: 0.5,
@@ -419,8 +419,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -437,8 +437,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -452,8 +452,8 @@ export default function OurKeyDates() {
                   Délibération
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -467,8 +467,8 @@ export default function OurKeyDates() {
                   de la Région
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -494,8 +494,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -512,8 +512,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -527,8 +527,8 @@ export default function OurKeyDates() {
                   Délibération
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -542,8 +542,8 @@ export default function OurKeyDates() {
                   de la Région
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -569,8 +569,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -587,8 +587,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -602,8 +602,8 @@ export default function OurKeyDates() {
                   Délibération
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -617,8 +617,8 @@ export default function OurKeyDates() {
                   de la Région
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -644,8 +644,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -662,8 +662,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -677,8 +677,8 @@ export default function OurKeyDates() {
                   Délibération
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -692,8 +692,8 @@ export default function OurKeyDates() {
                   de la Région
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     justifyContent: "center",
                     mt: 0.5,
@@ -734,8 +734,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: "16px",
                     width: "100px",
@@ -748,8 +748,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     mt: 1,
                     color: "#222D55",
@@ -779,8 +779,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: "16px",
                     width: "100px",
@@ -793,8 +793,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     mt: 1,
                     color: "#222D55",
@@ -824,8 +824,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: "16px",
                     width: "100px",
@@ -838,8 +838,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     mt: 1,
                     color: "#222D55",
@@ -869,8 +869,8 @@ export default function OurKeyDates() {
                 }}
               >
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: "16px",
                     width: "100px",
@@ -883,8 +883,8 @@ export default function OurKeyDates() {
                   04 juin 2021
                 </Typography>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     display: "flex",
                     mt: 1,
                     color: "#222D55",

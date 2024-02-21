@@ -162,13 +162,15 @@ export default function HowToWorkSlider() {
           </Grid>
           <Grid item xs={12} md={7}>
             <Typography
-              className={inter.className}
-              sx={{ justifyContent: "center", display: "flex" }}
+              sx={{
+                justifyContent: "center",
+                display: "flex",
+                fontFamily: inter.style.fontFamily,
+              }}
             >
               Notre fonctionnement
             </Typography>
             <Typography
-              className={inter.className}
               variant="h2"
               color="#007A47"
               sx={{
@@ -177,14 +179,15 @@ export default function HowToWorkSlider() {
                 justifyContent: "center",
                 textAlign: "center",
                 mt: 3,
+                fontFamily: inter.style.fontFamily,
                 fontSize: { lg: "64px", md: "50px", xs: "40px" },
               }}
             >
               Conseil d’administration
             </Typography>
             <Typography
-              className={inter.className}
               sx={{
+                fontFamily: inter.style.fontFamily,
                 justifyContent: "center",
                 display: "flex",
                 textAlign: "center",
@@ -254,7 +257,6 @@ export default function HowToWorkSlider() {
         <Box
           component={Swiper}
           keyboard={true}
-          pagination={{ clickable: true }}
           modules={[Navigation, Keyboard, Pagination]}
           slidesPerView={1}
           spaceBetween={24}
@@ -291,8 +293,20 @@ export default function HowToWorkSlider() {
                         borderRadius: "10px",
                       }}
                     >
-                      <Typography>ALTEN</Typography>
-                      <Typography>EN FRANCE</Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        ALTEN
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        EN FRANCE
+                      </Typography>
                     </Box>
                   </Grid>
                 ))}

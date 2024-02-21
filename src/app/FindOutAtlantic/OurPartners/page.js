@@ -8,8 +8,8 @@ export default function OurPartners() {
       <Container disableGutters maxWidth={"xl"}>
         <Box mt={10}>
           <Typography
-            className={inter.className}
             sx={{
+              fontFamily: inter.style.fontFamily,
               display: "flex",
               justifyContent: "center",
               textAlign: "center",
@@ -21,8 +21,8 @@ export default function OurPartners() {
             Notre fonctionnement
           </Typography>
           <Typography
-            className={inter.className}
             sx={{
+              fontFamily: inter.style.fontFamily,
               display: "flex",
               justifyContent: "center",
               fontWeight: 400,
@@ -47,8 +47,20 @@ export default function OurPartners() {
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} lg={2} md={4}>
@@ -62,8 +74,20 @@ export default function OurPartners() {
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} lg={2} md={4}>
@@ -77,8 +101,20 @@ export default function OurPartners() {
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} lg={2} md={4}>
@@ -92,8 +128,20 @@ export default function OurPartners() {
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
           <Grid item lg={2}></Grid>

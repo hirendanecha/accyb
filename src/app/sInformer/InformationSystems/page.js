@@ -54,8 +54,8 @@ export default function InformationSystems() {
               id="panel1-header"
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: { lg: "39px", md: "30px", xs: "14px" },
                   color: "#222D55",
                 }}
@@ -67,8 +67,8 @@ export default function InformationSystems() {
               <Grid container>
                 <Grid item md={6} xs={12}>
                   <Typography
-                    className={inter.className}
                     sx={{
+                      fontFamily: inter.style.fontFamily,
                       fontSize: {
                         md: "14px",
                         xs: "12px",
@@ -135,8 +135,8 @@ export default function InformationSystems() {
               id="panel2-header"
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: { lg: "39px", md: "30px", xs: "14px" },
                   color: "#222D55",
                 }}
@@ -148,8 +148,8 @@ export default function InformationSystems() {
               <Grid container>
                 <Grid item md={6} xs={12}>
                   <Typography
-                    className={inter.className}
                     sx={{
+                      fontFamily: inter.style.fontFamily,
                       fontSize: {
                         md: "14px",
                         xs: "12px",
@@ -216,8 +216,8 @@ export default function InformationSystems() {
               id="panel3-header"
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: { lg: "39px", md: "30px", xs: "14px" },
                   color: "#222D55",
                 }}
@@ -229,8 +229,8 @@ export default function InformationSystems() {
               <Grid container>
                 <Grid item md={6} xs={12}>
                   <Typography
-                    className={inter.className}
                     sx={{
+                      fontFamily: inter.style.fontFamily,
                       fontSize: {
                         md: "14px",
                         xs: "12px",
@@ -297,8 +297,8 @@ export default function InformationSystems() {
               id="panel4-header"
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: { lg: "39px", md: "30px", xs: "14px" },
                   color: "#222D55",
                 }}
@@ -310,8 +310,8 @@ export default function InformationSystems() {
               <Grid container>
                 <Grid item md={6} xs={12}>
                   <Typography
-                    className={inter.className}
                     sx={{
+                      fontFamily: inter.style.fontFamily,
                       fontSize: {
                         md: "14px",
                         xs: "12px",
@@ -378,8 +378,8 @@ export default function InformationSystems() {
               id="panel5-header"
             >
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: { lg: "39px", md: "30px", xs: "14px" },
                   color: "#222D55",
                 }}
@@ -391,8 +391,8 @@ export default function InformationSystems() {
               <Grid container>
                 <Grid item md={6} xs={12}>
                   <Typography
-                    className={inter.className}
                     sx={{
+                      fontFamily: inter.style.fontFamily,
                       fontSize: {
                         md: "14px",
                         xs: "12px",

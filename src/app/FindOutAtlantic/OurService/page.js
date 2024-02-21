@@ -185,8 +185,8 @@ export default function OurService() {
       <Container disableGutters maxWidth={"xl"}>
         <Box pt={{ md: 30, xs: 10 }}>
           <Typography
-            className={inter.className}
             sx={{
+              fontFamily: inter.style.fontFamily,
               color: "#222D55",
               padding: "0 16px",
             }}
@@ -195,8 +195,8 @@ export default function OurService() {
           </Typography>
           <Box
             mt={1}
-            className={inter.className}
             sx={{
+              fontFamily: inter.style.fontFamily,
               fontSize: {
                 md: "75px",
                 sm: "60px",
@@ -286,8 +286,8 @@ export default function OurService() {
                       animate={controls}
                     > */}
                           <Typography
-                            className={inter.className}
                             sx={{
+                              fontFamily: inter.style.fontFamily,
                               fontSize: { md: "14px", xs: "12px" },
                               fontWeight: 400,
                               lineHeight: "22px",
@@ -300,8 +300,8 @@ export default function OurService() {
                             {ele?.title}
                           </Typography>
                           <Typography
-                            className={inter.className}
                             sx={{
+                              fontFamily: inter.style.fontFamily,
                               mt: { md: 1, xs: 0.1 },
                               fontSize: { md: "16px", xs: "12px" },
                               fontWeight: 400,

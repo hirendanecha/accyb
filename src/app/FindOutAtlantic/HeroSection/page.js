@@ -29,8 +29,8 @@ export default function HeroSection() {
           <Grid container>
             <Grid item xs={12} md={6} sx={{ padding: "0 16px" }}>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   color: "#FFFFFF",
                 }}
               >
@@ -38,8 +38,8 @@ export default function HeroSection() {
               </Typography>
               <Box
                 mt={1}
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: {
                     md: "75px",
                     sm: "60px",
@@ -66,9 +66,9 @@ export default function HeroSection() {
                 </u>{" "}
               </Box>
               <Button
-                className={inter.className}
                 variant="outlined"
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   mt: 4,
                   color: "#FFFFFF",
                   border: "1px solid #D3D5DD",
@@ -98,8 +98,8 @@ export default function HeroSection() {
             >
               <Box mt={5}>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#FFFFFF",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },
@@ -109,7 +109,6 @@ export default function HeroSection() {
                   réponse aux incidents de sécurité.
                 </Typography>
                 <Button
-                  className={inter.className}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
@@ -143,6 +142,7 @@ export default function HeroSection() {
                     borderRadius: "61px",
                     padding: "6px 40px",
                     fontSize: "12px",
+                    fontFamily: inter.style.fontFamily,
                     fontWeight: 600,
                     ":hover": {
                       borderColor: "white",

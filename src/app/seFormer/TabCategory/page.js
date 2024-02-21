@@ -132,14 +132,20 @@ export default function TabCategory() {
       <Container disableGutters maxWidth={"xl"}>
         <Box sx={{ display: "flex", gap: 3 }}>
           <Typography
-            className={inter.className}
-            sx={{ color: "#222D55", fontWeight: 600 }}
+            sx={{
+              color: "#222D55",
+              fontWeight: 600,
+              fontFamily: inter.style.fontFamily,
+            }}
           >
             Scrollez pour dévouvrir
           </Typography>
           <Typography
-            className={inter.className}
-            sx={{ color: "#222D55", fontWeight: 600 }}
+            sx={{
+              color: "#222D55",
+              fontWeight: 600,
+              fontFamily: inter.style.fontFamily,
+            }}
           >
             Scrollez
           </Typography>
@@ -168,6 +174,7 @@ export default function TabCategory() {
                   onClick={() => handleClick(ele)}
                   key={idx}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     backgroundImage:
                       currentCategory == ele
                         ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
@@ -223,8 +230,8 @@ export default function TabCategory() {
                       }}
                     >
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           backgroundImage:
                             "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
@@ -240,8 +247,8 @@ export default function TabCategory() {
                         {ele?.title}
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           fontWeight: 600,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
@@ -251,9 +258,9 @@ export default function TabCategory() {
                         {ele?.heading}
                       </Typography>
                       <Typography
-                        className={inter.className}
                         mt={1}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           color: "#222D55",
                           fontSize: "14px",
                           maxWidth: "350px",
@@ -272,8 +279,8 @@ export default function TabCategory() {
                         >
                           <Box>
                             <Typography
-                              className={inter.className}
                               sx={{
+                                fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
                                 color: "3000€",

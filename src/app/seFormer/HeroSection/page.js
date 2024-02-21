@@ -6,7 +6,7 @@ import { inter } from "../../fonts/fonts";
 export default function HeroSection() {
   return (
     <Box sx={{ position: "relative" }}>
-      <div style={{ position: "absolute", right: 0 , top : {md : 100 , xs : 0}}}>
+      <div style={{ position: "absolute", right: 0, top: { md: 100, xs: 0 } }}>
         <svg
           width="597"
           height="499"
@@ -62,8 +62,8 @@ export default function HeroSection() {
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   color: "#222D55",
                 }}
               >
@@ -71,8 +71,8 @@ export default function HeroSection() {
               </Typography>
               <Box
                 mt={1}
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: {
                     md: "75px",
                     sm: "60px",
@@ -105,8 +105,8 @@ export default function HeroSection() {
             >
               <Box mt={{ md: 5, xs: 2 }}>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },
@@ -119,8 +119,8 @@ export default function HeroSection() {
                 </Typography>
                 <Typography
                   mt={{ md: 5, xs: 1.5 }}
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#FFFFFF",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },

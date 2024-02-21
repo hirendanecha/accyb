@@ -14,7 +14,6 @@ export default function Footer() {
       <Container disableGutters maxWidth={"xl"}>
         <Box id="footer" sx={{ padding: "0 16px", mt: 8 }}>
           <Typography
-            className={inter.className}
             sx={{
               color: "#222D55",
               fontWeight: 500,
@@ -22,6 +21,7 @@ export default function Footer() {
               lineHeight: "36px",
               display: "flex",
               justifyContent: "center",
+              fontFamily: inter.style.fontFamily,
             }}
           >
             Retrouvez-nous sur les réseaux
@@ -64,11 +64,11 @@ export default function Footer() {
                 >
                   <Box>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 600,
                         pb: 2,
+                        fontFamily: inter.style.fontFamily,
                         textTransform: "uppercase",
                       }}
                     >
@@ -107,10 +107,10 @@ export default function Footer() {
                   textAlign={{ md: "unset", xs: "center" }}
                 >
                   <Typography
-                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 600,
+                      fontFamily: inter.style.fontFamily,
                       pb: 2,
                       textTransform: "uppercase",
                     }}
@@ -119,41 +119,41 @@ export default function Footer() {
                   </Typography>
                   <Box>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Nos dates clefs
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Quelles sont nos missions ?
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Découvrir les services de l’ACCYB
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Les conseils
@@ -170,11 +170,11 @@ export default function Footer() {
                   textAlign={{ md: "unset", xs: "center" }}
                 >
                   <Typography
-                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       fontWeight: 600,
                       pb: 2,
+                      fontFamily: inter.style.fontFamily,
                       textTransform: "uppercase",
                     }}
                   >
@@ -182,9 +182,9 @@ export default function Footer() {
                   </Typography>
                   <Box>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
+                        fontFamily: inter.style.fontFamily,
                         fontWeight: 400,
                         mt: 1,
                       }}
@@ -192,8 +192,8 @@ export default function Footer() {
                       Quelles sont nos missions ?
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
+                        fontFamily: inter.style.fontFamily,
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
@@ -202,18 +202,18 @@ export default function Footer() {
                       Découvrez les services du C-SIRT-ATLANTIC
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Lorem ipsum
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
+                        fontFamily: inter.style.fontFamily,
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
@@ -244,8 +244,8 @@ export default function Footer() {
                   </Typography>
                   <Box>
                     <Typography
-                      className={inter.className}
                       sx={{
+                        fontFamily: inter.style.fontFamily,
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
@@ -254,31 +254,31 @@ export default function Footer() {
                       Quelles sont nos missions ?
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Découvrez les services de l’Observatoire
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Lorem ipsum
                     </Typography>
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontSize: "14px",
                         fontWeight: 400,
                         mt: 1,
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       Lorem ipsum
@@ -308,8 +308,8 @@ export default function Footer() {
             }}
           >
             <Typography
-              className={inter.className}
               sx={{
+                fontFamily: inter.style.fontFamily,
                 color: "#FFFFFF",
                 textTransform: "uppercase",
                 fontSize: { md: "13px", xs: "11px" },
@@ -319,8 +319,9 @@ export default function Footer() {
               mentions légales
             </Typography>
             <Typography
-              className={inter.className}
               sx={{
+                fontFamily: inter.style.fontFamily,
+
                 color: "#FFFFFF",
                 textTransform: "uppercase",
                 fontSize: { md: "13px", xs: "11px" },
@@ -330,9 +331,9 @@ export default function Footer() {
               politique de confidentialité
             </Typography>
             <Typography
-              className={inter.className}
               sx={{
                 color: "#FFFFFF",
+                fontFamily: inter.style.fontFamily,
                 textTransform: "uppercase",
                 fontSize: { md: "13px", xs: "11px" },
                 fontWeight: 500,
@@ -341,8 +342,8 @@ export default function Footer() {
               protection des données personnelles
             </Typography>
             <Typography
-              className={inter.className}
               sx={{
+                fontFamily: inter.style.fontFamily,
                 color: "#FFFFFF",
                 textTransform: "uppercase",
                 fontSize: { md: "13px", xs: "11px" },

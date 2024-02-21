@@ -54,7 +54,7 @@ export default function InfoSlider() {
       img: Personnes,
       title: "175",
       description: "personnes sensibilisées",
-    },  
+    },
     {
       img: Calque,
       title: "73",
@@ -166,17 +166,24 @@ export default function InfoSlider() {
                       >
                         {scrollPosition >= 300 ? (
                           <CountUp
-                            className={inter.className}
+                            style={{
+                              fontFamily: inter.style.fontFamily,
+                            }}
                             start={0}
                             end={ele?.title}
                             duration={3}
                           />
                         ) : (
-                          <span className={inter.className}>{ele?.title}</span>
+                          <span
+                            style={{
+                              fontFamily: inter.style.fontFamily,
+                            }}
+                          >
+                            {ele?.title}
+                          </span>
                         )}
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
                           fontSize: "16px",
                           fontWeight: 500,
@@ -186,6 +193,7 @@ export default function InfoSlider() {
                           display: "flex",
                           textAlign: "start",
                           maxWidth: "140px",
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         {ele?.description}

@@ -98,11 +98,11 @@ export default function OurMission() {
         >
           {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
           <Typography
-            className={inter.className}
             sx={{
               fontWeight: 400,
               fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
+              fontFamily: inter.style.fontFamily,
             }}
           >
             Quelles sont nos missions ?
@@ -220,11 +220,11 @@ export default function OurMission() {
                           animate={controls}
                         > */}
                         <Typography
-                          className={inter.className}
                           sx={{
                             fontSize: { lg: "38px", md: "30px", xs: "18px" },
                             fontWeight: 400,
                             lineHeight: { md: "42px", xs: "25px" },
+                            fontFamily: inter.style.fontFamily,
                             color: "#222D55",
                             display: "flex",
                             textAlign: "start",

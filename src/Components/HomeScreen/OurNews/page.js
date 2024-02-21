@@ -178,8 +178,8 @@ export default function OurNews() {
             }}
           >
             <Typography
-              className={inter.className}
               sx={{
+                fontFamily: inter.style.fontFamily,
                 fontWeight: 400,
                 fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
                 color: "#7DB1FF",
@@ -188,7 +188,6 @@ export default function OurNews() {
               Nos actualités
             </Typography>
             <Button
-              className={inter.className}
               variant="outlined"
               endIcon={
                 <ArrowForwardIcon
@@ -226,6 +225,7 @@ export default function OurNews() {
                 borderRadius: "61px",
                 padding: "8px 30px",
                 fontSize: "12px",
+                fontFamily: inter.style.fontFamily,
                 fontWeight: 600,
                 ":hover": {
                   color: "white",
@@ -255,7 +255,6 @@ export default function OurNews() {
               <Box ref={ref}>
                 <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                   <Typography
-                    className={inter.className}
                     sx={{
                       backgroundColor: "#007A47",
                       width: "max-content",
@@ -265,31 +264,32 @@ export default function OurNews() {
                       color: "#FFFFFF",
                       textTransform: "uppercase",
                       cursor: "pointer",
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
                     Événement
                   </Typography>
                   <Typography
-                    className={inter.className}
                     sx={{
                       fontSize: "24px",
                       mt: 1,
                       width: { md: "450px", xs: "100%" },
                       lineHeight: "36px",
                       color: "#FFFFFF",
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
                     24e Panorama de la cybercriminalité Lorem ipsum dolor sit
                     amet
                   </Typography>
                   <Typography
-                    className={inter.className}
                     sx={{
                       fontSize: "14px",
                       mt: 1,
                       width: { md: "450px", xs: "100%" },
                       lineHeight: "22px",
                       color: "#FFFFFF",
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -305,12 +305,12 @@ export default function OurNews() {
                     }}
                   >
                     <Typography
-                      className={inter.className}
                       sx={{
                         fontWeight: 500,
                         mt: 2,
                         fontSize: "14px",
                         color: "#FFFFFF",
+                        fontFamily: inter.style.fontFamily,
                       }}
                     >
                       13.01.2024
@@ -368,7 +368,6 @@ export default function OurNews() {
                       >
                         <CardContent sx={{ flex: "1 0 auto" }}>
                           <Typography
-                            className={inter.className}
                             sx={{
                               backgroundColor: "#007A47",
                               width: "max-content",
@@ -379,14 +378,15 @@ export default function OurNews() {
                               cursor: "pointer",
                               color: "#FFFFFF",
                               textTransform: "uppercase",
+                              fontFamily: inter.style.fontFamily,
                             }}
                           >
                             {ele?.title}
                           </Typography>
                           <Typography
-                            className={inter.className}
                             sx={{
                               fontWeight: 600,
+                              fontFamily: inter.style.fontFamily,
                               fontSize: "18px",
                               maxWidth: { lg: "230px", md: "100%" },
                               color: "#FFFFFF",
@@ -395,12 +395,12 @@ export default function OurNews() {
                             {ele?.heading}
                           </Typography>
                           <Typography
-                            className={inter.className}
                             mt={2}
                             sx={{
                               color: "#FFFFFF",
                               fontSize: "14px",
                               maxWidth: "280px",
+                              fontFamily: inter.style.fontFamily,
                             }}
                           >
                             {ele?.description}
@@ -416,11 +416,11 @@ export default function OurNews() {
                             >
                               <Box>
                                 <Typography
-                                  className={inter.className}
                                   sx={{
                                     fontSize: 14,
                                     fontWeight: 600,
                                     color: "#FFFFFF",
+                                    fontFamily: inter.style.fontFamily,
                                   }}
                                 >
                                   {ele?.time}

@@ -137,11 +137,11 @@ export default function MajorActivity() {
       >
         <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
           <Typography
-            className={inter.className}
             sx={{
               fontWeight: 400,
               fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
+              fontFamily: inter.style.fontFamily,
             }}
           >
             Nos activités majeurs
@@ -249,8 +249,8 @@ export default function MajorActivity() {
                           animate={controls}
                         >
                           <Typography
-                            className={inter.className}
                             sx={{
+                              fontFamily: inter.style.fontFamily,
                               fontSize: { lg: "36px", md: "30px", xs: "18px" },
                               fontWeight: { lg: 500, xs: 600 },
                               lineHeight: { md: "42px", xs: "25px" },
@@ -263,7 +263,6 @@ export default function MajorActivity() {
                             {ele?.title}
                           </Typography>
                           <Typography
-                            className={inter.className}
                             sx={{
                               mt: 1,
                               fontSize: { lg: "18px", md: "16px", xs: "14px" },
@@ -273,6 +272,7 @@ export default function MajorActivity() {
                                 md: "22px",
                                 xs: "20px",
                               },
+                              fontFamily: inter.style.fontFamily,
                               color: "#222D55",
                               display: "flex",
                               textAlign: "start",

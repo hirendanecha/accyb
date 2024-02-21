@@ -19,7 +19,6 @@ export default function HowToWorkSlider() {
     <Box component="section">
       <Box>
         <Typography
-          className={inter.className}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -27,13 +26,14 @@ export default function HowToWorkSlider() {
             color: "#222D55",
             fontSize: "18px",
             textTransform: "uppercase",
+            fontFamily: inter.style.fontFamily,
           }}
         >
           Notre fonctionnement
         </Typography>
         <Typography
-          className={inter.className}
           sx={{
+            fontFamily: inter.style.fontFamily,
             display: "flex",
             justifyContent: "center",
             textAlign: "center",
@@ -123,6 +123,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           lineHeight: "30px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Cybermalveillance
@@ -136,6 +137,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           display: "flex",
                           textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Le conseil d’administration détermine les axes
@@ -163,6 +165,7 @@ export default function HowToWorkSlider() {
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
@@ -178,6 +181,7 @@ export default function HowToWorkSlider() {
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
@@ -195,7 +199,7 @@ export default function HowToWorkSlider() {
                           border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -233,6 +237,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           lineHeight: "30px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Cybermalveillance
@@ -246,6 +251,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           display: "flex",
                           textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Le conseil d’administration détermine les axes
@@ -273,6 +279,7 @@ export default function HowToWorkSlider() {
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
@@ -288,6 +295,7 @@ export default function HowToWorkSlider() {
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
@@ -305,7 +313,7 @@ export default function HowToWorkSlider() {
                           border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -343,6 +351,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           lineHeight: "30px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Cybermalveillance
@@ -356,6 +365,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           display: "flex",
                           textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Le conseil d’administration détermine les axes
@@ -383,6 +393,7 @@ export default function HowToWorkSlider() {
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
@@ -398,6 +409,7 @@ export default function HowToWorkSlider() {
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
@@ -415,7 +427,7 @@ export default function HowToWorkSlider() {
                           border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -453,6 +465,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           lineHeight: "30px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Cybermalveillance
@@ -466,6 +479,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           display: "flex",
                           textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Le conseil d’administration détermine les axes
@@ -493,6 +507,7 @@ export default function HowToWorkSlider() {
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
@@ -508,6 +523,7 @@ export default function HowToWorkSlider() {
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
@@ -525,7 +541,7 @@ export default function HowToWorkSlider() {
                           border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -563,6 +579,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           lineHeight: "30px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Cybermalveillance
@@ -576,6 +593,7 @@ export default function HowToWorkSlider() {
                           justifyContent: { md: "start", xs: "center" },
                           display: "flex",
                           textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Le conseil d’administration détermine les axes
@@ -603,6 +621,7 @@ export default function HowToWorkSlider() {
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
@@ -618,6 +637,7 @@ export default function HowToWorkSlider() {
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
@@ -635,7 +655,349 @@ export default function HowToWorkSlider() {
                           border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          color: "#7DB1FF",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Association locale
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid container>
+                <Grid item xs={12} md={12} lg={12}>
+                  <Box
+                    sx={{
+                      bgcolor: "#fff",
+                      padding: 5,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#060760",
+                          fontSize: "29px",
+                          display: "flex",
+                          justifyContent: { md: "start", xs: "center" },
+                          lineHeight: "30px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Cybermalveillance
+                      </Typography>
+                      <Typography
+                        sx={{
+                          mt: 3,
+                          color: "#060760",
+                          fontSize: "14px",
+                          lineHeight: { md: "25px", xs: "22px" },
+                          justifyContent: { md: "start", xs: "center" },
+                          display: "flex",
+                          textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Le conseil d’administration détermine les axes
+                        stratégiques et les orientations de l’activité de
+                        l’association ainsi que les grands principes de
+                        fonctionnement de l’Association et veille à leur mise en
+                        œuvre.
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        gap: { md: 1.5, xs: 0.8 },
+                        flexWrap: "wrap",
+                        justifyContent: { md: "start", xs: "center" },
+                        mt: 4,
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          borderImageSlice: 1,
+                          textTransform: "uppercase",
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#7DB1FF",
+                        }}
+                      >
+                        Particulier
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          color: "#7DB1FF",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        TPE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          fontFamily: inter.style.fontFamily,
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          color: "#7DB1FF",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Association locale
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid container>
+                <Grid item xs={12} md={12} lg={12}>
+                  <Box
+                    sx={{
+                      bgcolor: "#fff",
+                      padding: 5,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#060760",
+                          fontSize: "29px",
+                          display: "flex",
+                          justifyContent: { md: "start", xs: "center" },
+                          lineHeight: "30px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Cybermalveillance
+                      </Typography>
+                      <Typography
+                        sx={{
+                          mt: 3,
+                          color: "#060760",
+                          fontSize: "14px",
+                          lineHeight: { md: "25px", xs: "22px" },
+                          justifyContent: { md: "start", xs: "center" },
+                          display: "flex",
+                          textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Le conseil d’administration détermine les axes
+                        stratégiques et les orientations de l’activité de
+                        l’association ainsi que les grands principes de
+                        fonctionnement de l’Association et veille à leur mise en
+                        œuvre.
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        gap: { md: 1.5, xs: 0.8 },
+                        flexWrap: "wrap",
+                        justifyContent: { md: "start", xs: "center" },
+                        mt: 4,
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          borderImageSlice: 1,
+                          textTransform: "uppercase",
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#7DB1FF",
+                        }}
+                      >
+                        Particulier
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          color: "#7DB1FF",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        TPE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          fontFamily: inter.style.fontFamily,
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          color: "#7DB1FF",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Association locale
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Grid container>
+                <Grid item xs={12} md={12} lg={12}>
+                  <Box
+                    sx={{
+                      bgcolor: "#fff",
+                      padding: 5,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#060760",
+                          fontSize: "29px",
+                          display: "flex",
+                          justifyContent: { md: "start", xs: "center" },
+                          lineHeight: "30px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Cybermalveillance
+                      </Typography>
+                      <Typography
+                        sx={{
+                          mt: 3,
+                          color: "#060760",
+                          fontSize: "14px",
+                          lineHeight: { md: "25px", xs: "22px" },
+                          justifyContent: { md: "start", xs: "center" },
+                          display: "flex",
+                          textAlign: { md: "start", xs: "center" },
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        Le conseil d’administration détermine les axes
+                        stratégiques et les orientations de l’activité de
+                        l’association ainsi que les grands principes de
+                        fonctionnement de l’Association et veille à leur mise en
+                        œuvre.
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        gap: { md: 1.5, xs: 0.8 },
+                        flexWrap: "wrap",
+                        justifyContent: { md: "start", xs: "center" },
+                        mt: 4,
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          borderImageSlice: 1,
+                          textTransform: "uppercase",
+                          borderRadius: "50px",
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
+                          height: "60px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#7DB1FF",
+                        }}
+                      >
+                        Particulier
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
+                          width: "193px",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          height: "60px",
+                          display: "flex",
+                          color: "#7DB1FF",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        TPE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          border: "2px solid #7DB1FF",
+                          textTransform: "uppercase",
+                          borderImageSlice: 1,
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",

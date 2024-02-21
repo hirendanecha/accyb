@@ -28,8 +28,8 @@ export default function HeroSection() {
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   color: "#FFFFFF",
                 }}
               >
@@ -37,8 +37,8 @@ export default function HeroSection() {
               </Typography>
               <Box
                 mt={1}
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: {
                     md: "75px",
                     sm: "60px",
@@ -78,8 +78,8 @@ export default function HeroSection() {
             >
               <Box mt={{ md: 5, xs: 2 }}>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#FFFFFF",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },

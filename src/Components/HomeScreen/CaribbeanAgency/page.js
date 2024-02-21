@@ -80,7 +80,6 @@ export default function CaribbeanAgency() {
               <Grid item xs={12} lg={6} ref={ref}>
                 <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                   <Box
-                    className={inter.className}
                     sx={{
                       fontSize: {
                         lg: "85px",
@@ -98,6 +97,7 @@ export default function CaribbeanAgency() {
                       },
                       maxWidth: "750px !important",
                       paddingTop: { md: 30, xs: 20 },
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
                     Agence{" "}
@@ -119,8 +119,8 @@ export default function CaribbeanAgency() {
                       lineHeight: { md: "40px", xs: "25px" },
                       maxWidth: "550px !important",
                       mt: 3,
+                      fontFamily: inter.style.fontFamily,
                     }}
-                    className={inter.className}
                   >
                     L’ACCYB, l’autorité de référence dans le domaine de la
                     cybersécurité sur les territoires français d’Amérique.
@@ -137,7 +137,6 @@ export default function CaribbeanAgency() {
                   }}
                 >
                   <Button
-                    className={inter.className}
                     variant="outlined"
                     endIcon={
                       <ArrowForwardIcon
@@ -176,12 +175,12 @@ export default function CaribbeanAgency() {
                       ":hover": {
                         borderColor: "white",
                       },
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
                     Découvrir nos missionsss
                   </Button>
                   <Button
-                    className={inter.className}
                     variant="outlined"
                     endIcon={
                       <ArrowForwardIcon
@@ -216,6 +215,7 @@ export default function CaribbeanAgency() {
                       fontSize: "12px",
                       padding: "8px 30px",
                       fontWeight: 600,
+                      fontFamily: inter.style.fontFamily,
                       ":hover": {
                         borderColor: "white",
                       },
@@ -243,8 +243,8 @@ export default function CaribbeanAgency() {
                         color: "#FFFFFF",
                         fontSize: "20px",
                         fontWeight: 400,
+                        fontFamily: inter.style.fontFamily,
                       }}
-                      className={inter.className}
                     >
                       Scroll
                     </Typography>

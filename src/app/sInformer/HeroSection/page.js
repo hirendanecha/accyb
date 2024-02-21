@@ -63,8 +63,8 @@ export default function HeroSection() {
             <Grid item xs={12} md={6}>
               <Box
                 mt={1}
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   fontSize: {
                     md: "75px",
                     sm: "60px",
@@ -100,8 +100,8 @@ export default function HeroSection() {
             >
               <Box mt={{ md: 5, xs: 2 }}>
                 <Typography
-                  className={inter.className}
                   sx={{
+                    fontFamily: inter.style.fontFamily,
                     color: "#222D55",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },
@@ -132,14 +132,20 @@ export default function HeroSection() {
             }}
           >
             <Typography
-              className={inter.className}
-              sx={{ color: "#222D55", fontWeight: 600 }}
+              sx={{
+                color: "#222D55",
+                fontWeight: 600,
+                fontFamily: inter.style.fontFamily,
+              }}
             >
               Scrollez pour dévouvrir
             </Typography>
             <Typography
-              className={inter.className}
-              sx={{ color: "#222D55", fontWeight: 600 }}
+              sx={{
+                color: "#222D55",
+                fontWeight: 600,
+                fontFamily: inter.style.fontFamily,
+              }}
             >
               Scrollez
             </Typography>

@@ -153,7 +153,9 @@ export default function Header() {
                 variant="h7"
                 color="inherit"
                 component="div"
-                className={inter.className}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                }}
               >
                 FR
               </Typography>
@@ -166,8 +168,10 @@ export default function Header() {
                 variant="h7"
                 color="inherit"
                 component="div"
-                sx={{ color: "#646C88" }}
-                className={inter.className}
+                sx={{
+                  color: "#646C88",
+                  fontFamily: inter.style.fontFamily,
+                }}
               >
                 EN
               </Typography>
@@ -177,8 +181,11 @@ export default function Header() {
                 variant="h7"
                 color="inherit"
                 component="div"
-                sx={{ textTransform: "uppercase", fontSize: "13px" }}
-                className={inter.className}
+                sx={{
+                  textTransform: "uppercase",
+                  fontSize: "13px",
+                  fontFamily: inter.style.fontFamily,
+                }}
               >
                 actualités
               </Typography>
@@ -186,8 +193,11 @@ export default function Header() {
                 variant="h7"
                 color="inherit"
                 component="div"
-                sx={{ textTransform: "uppercase", fontSize: "13px" }}
-                className={inter.className}
+                sx={{
+                  textTransform: "uppercase",
+                  fontSize: "13px",
+                  fontFamily: inter.style.fontFamily,
+                }}
               >
                 Devenir Bénévole Cyber
               </Typography>
@@ -211,8 +221,8 @@ export default function Header() {
                       textTransform: "uppercase",
                       height: "100%",
                       fontSize: "13px",
+                      fontFamily: inter.style.fontFamily,
                     }}
-                    className={inter.className}
                   >
                     adhérer à l’ACCYB
                   </Typography>
@@ -236,8 +246,8 @@ export default function Header() {
                       textTransform: "uppercase",
                       height: "100%",
                       fontSize: "13px",
+                      fontFamily: inter.style.fontFamily,
                     }}
-                    className={inter.className}
                   >
                     Déclarer un incident
                   </Typography>
@@ -339,9 +349,11 @@ export default function Header() {
                     }}
                   >
                     <Typography
-                      className={inter.className}
                       textAlign="center"
-                      sx={{ fontSize: "20px" }}
+                      sx={{
+                        fontSize: "20px",
+                        fontFamily: inter.style.fontFamily,
+                      }}
                     >
                       {`${page?.name?.split(" ")?.[0]} `}
                       <span style={{ color: "#7DB1FF" }}>{` ${page?.name
@@ -365,9 +377,15 @@ export default function Header() {
                       color: "#fff",
                       textTransform: "uppercase",
                       fontSize: "30px",
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    <Typography textAlign="center" className={inter.className}>
+                    <Typography
+                      textAlign="center"
+                      sx={{
+                        fontFamily: inter.style.fontFamily,
+                      }}
+                    >
                       {page.name}
                     </Typography>
                   </MenuItem>
@@ -485,7 +503,6 @@ export default function Header() {
             >
               {pages.map((page, idx) => (
                 <Button
-                  className={inter.className}
                   key={idx}
                   onClick={() => router?.push(page?.path)}
                   sx={{
@@ -494,6 +511,7 @@ export default function Header() {
                     display: "block",
                     fontWeight: 600,
                     fontSize: { lg: "15px", md: "12px" },
+                    fontFamily: inter.style.fontFamily,
                   }}
                 >
                   {page?.name}
@@ -509,13 +527,13 @@ export default function Header() {
             >
               {link.map((page, idx) => (
                 <Button
-                  className={inter.className}
                   key={idx}
                   onClick={() => router?.push(page?.path)}
                   sx={{
                     my: 3,
                     color: "#222D55",
                     display: "block",
+                    fontFamily: inter.style.fontFamily,
                     fontWeight: 600,
                     fontSize: { lg: "15px", md: "12px" },
                   }}

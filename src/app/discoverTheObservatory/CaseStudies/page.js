@@ -131,8 +131,8 @@ export default function CaseStudies() {
           >
             <Grid item xs={12} md={6}>
               <Typography
-                className={inter.className}
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   justifyContent: "start",
                   display: "flex",
                   color: "#FFFFFF",
@@ -141,10 +141,10 @@ export default function CaseStudies() {
                 Nos projets
               </Typography>
               <Typography
-                className={inter.className}
                 variant="h2"
                 color="#007A47"
                 sx={{
+                  fontFamily: inter.style.fontFamily,
                   textTransform: "capitalize",
                   display: "flex",
                   justifyContent: "start",
@@ -264,8 +264,8 @@ export default function CaseStudies() {
                       }}
                     >
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           backgroundImage:
                             "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
@@ -281,9 +281,9 @@ export default function CaseStudies() {
                         tag
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
                           fontWeight: 600,
+                          fontFamily: inter.style.fontFamily,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
                           color: "#FFFFFF",
@@ -292,9 +292,9 @@ export default function CaseStudies() {
                         Calendrier de l’Avent Cyber 2023
                       </Typography>
                       <Typography
-                        className={inter.className}
                         mt={1}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           color: "#FFFFFF",
                           fontSize: "14px",
                           maxWidth: "350px",
@@ -314,8 +314,8 @@ export default function CaseStudies() {
                         >
                           <Box>
                             <Typography
-                              className={inter.className}
                               sx={{
+                                fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
                                 color: "#FFFFFF",
@@ -357,8 +357,8 @@ export default function CaseStudies() {
                       }}
                     >
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           backgroundImage:
                             "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
@@ -374,8 +374,8 @@ export default function CaseStudies() {
                         tag
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           fontWeight: 600,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
@@ -385,9 +385,9 @@ export default function CaseStudies() {
                         Calendrier de l’Avent Cyber 2023
                       </Typography>
                       <Typography
-                        className={inter.className}
                         mt={1}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           color: "#FFFFFF",
                           fontSize: "14px",
                           maxWidth: "350px",
@@ -407,8 +407,8 @@ export default function CaseStudies() {
                         >
                           <Box>
                             <Typography
-                              className={inter.className}
                               sx={{
+                                fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
                                 color: "#FFFFFF",
@@ -450,8 +450,8 @@ export default function CaseStudies() {
                       }}
                     >
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           backgroundImage:
                             "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
@@ -467,8 +467,8 @@ export default function CaseStudies() {
                         tag
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           fontWeight: 600,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
@@ -478,9 +478,9 @@ export default function CaseStudies() {
                         Calendrier de l’Avent Cyber 2023
                       </Typography>
                       <Typography
-                        className={inter.className}
                         mt={1}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           color: "#FFFFFF",
                           fontSize: "14px",
                           maxWidth: "350px",
@@ -500,8 +500,8 @@ export default function CaseStudies() {
                         >
                           <Box>
                             <Typography
-                              className={inter.className}
                               sx={{
+                                fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
                                 color: "#FFFFFF",
@@ -543,8 +543,8 @@ export default function CaseStudies() {
                       }}
                     >
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           backgroundImage:
                             "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
@@ -560,8 +560,8 @@ export default function CaseStudies() {
                         tag
                       </Typography>
                       <Typography
-                        className={inter.className}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           fontWeight: 600,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
@@ -571,9 +571,9 @@ export default function CaseStudies() {
                         Calendrier de l’Avent Cyber 2023
                       </Typography>
                       <Typography
-                        className={inter.className}
                         mt={1}
                         sx={{
+                          fontFamily: inter.style.fontFamily,
                           color: "#FFFFFF",
                           fontSize: "14px",
                           maxWidth: "350px",
@@ -593,8 +593,8 @@ export default function CaseStudies() {
                         >
                           <Box>
                             <Typography
-                              className={inter.className}
                               sx={{
+                                fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
                                 color: "#FFFFFF",
