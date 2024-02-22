@@ -7,7 +7,7 @@ import OurPartners from "../../Components/findOutAtlantic/OurPartners/page";
 import OurOperationSlider from "../../Components/Common/OurOperationSlider/page";
 import { Box } from "@mui/material";
 
-export default function DiscoverTheACCYB() {
+export default function FindOutAtlantic() {
   return (
     <>
       {/* {"hero section"} */}
