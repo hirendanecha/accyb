@@ -37,7 +37,7 @@ const pages = [
   },
   {
     name: "Découvrir le CSIRT-ATLANTIC",
-    path: "/findOutAtlantic",
+    path: "/FindOutAtlantic",
   },
   {
     name: "Découvrir l’ACCYB",
