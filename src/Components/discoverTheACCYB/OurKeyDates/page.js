@@ -2,7 +2,7 @@
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { inter } from "../../fonts/fonts";
+import { inter } from "../../../app/fonts/fonts";
 
 export default function OurKeyDates() {
   const controls = useAnimation();

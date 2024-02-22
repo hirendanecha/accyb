@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { useAnimation } from "framer-motion";
-import { inter } from "../../fonts/fonts";
+import { inter } from "../../../app/fonts/fonts";
 const Img = styled(Image)(({ theme }) => ({
   width: "39px !important",
   height: "auto !important",

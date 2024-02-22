@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { useAnimation } from "framer-motion";
-import { inter } from "../../fonts/fonts";
+import { inter } from "../../../app/fonts/fonts";
 const Img = styled(Image)(({ theme }) => ({
   width: "39px !important",
   height: "auto !important",
@@ -67,14 +67,14 @@ export default function OurMission() {
     },
     {
       img: Adviser,
-      title: "Réponses à incident",
+      title: "réponses à incident",
     },
     {
       img: Scan,
       title: "Veille exposition à incident",
     },
     {
-      img: Scan,
+      img: Doctor,
       title: "Alerte avancée",
     },
   ];
@@ -84,8 +84,8 @@ export default function OurMission() {
         <Box
           ref={ref}
           sx={{
-            mt: { md: 20, xs: 10 },
             padding: "0 16px",
+            mt: { md: 20, xs: 10 },
           }}
         >
           {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
@@ -106,7 +106,7 @@ export default function OurMission() {
               bgcolor: "#8E9BBF",
               mt: { md: 3, xs: 5 },
               borderBottomWidth: "1px",
-              mb: { md: 10, xs: 4 },
+              mb: 10,
             }}
           />
         </Box>
@@ -125,9 +125,7 @@ export default function OurMission() {
                     display: "flex",
                     padding: { lg: 6, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
-                    border: "2px solid",
-                    borderImageSource:
-                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    border: "2px solid #BE0011",
                     borderImageSlice: 1,
                     position: "relative",
                     borderRadius: "20px",
@@ -188,21 +186,15 @@ export default function OurMission() {
                       <Box
                         sx={{
                           borderRadius: "50%",
-                          backgroundColor: "#222D55",
+                          backgroundColor: "#BE0011",
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          border: "1px solid #7DB1FF",
                           height: { lg: "160px", sm: "120px", xs: "80px" },
                           width: { lg: "160px", sm: "120px", xs: "80px" },
                         }}
                       >
-                        {/* <Img
-                          src={ele?.img}
-                          height={900}
-                          width={900}
-                          alt="img"
-                        /> */}
+                        {/* <Img src={ele?.img} height={900} width={900} alt="img" /> */}
                       </Box>
                     </Grid>
                     <Grid item xs={8} sm={7}>

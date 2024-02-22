@@ -1,6 +1,6 @@
 import React from "react";
-import HeroSection from "../sInformer/HeroSection/page";
-import InformationSystems from "../sInformer/InformationSystems/page";
+import HeroSection from "../../Components/sInformer/HeroSection/page";
+import InformationSystems from "../../Components/sInformer/InformationSystems/page";
 
 export default function SInformer() {
   return (

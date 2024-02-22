@@ -1,13 +1,13 @@
 "use client";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import { inter } from "../../fonts/fonts";
+import { inter } from "../../../app/fonts/fonts";
 
 export default function HeroSection() {
   return (
     <Box
       sx={{
-        backgroundImage: "url('/Images/BackgroundImg1.svg')",
+        backgroundImage: "url('/Images/BackgroundImg4.svg')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -29,8 +29,8 @@ export default function HeroSection() {
             <Grid item xs={12} md={6}>
               <Typography
                 sx={{
-                  color: "#FFFFFF",
                   fontFamily: inter.style.fontFamily,
+                  color: "#FFFFFF",
                 }}
               >
                 Découvrir l’ACCYB
@@ -54,16 +54,15 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                L’agence{" "}
+                Découvrir{" "}
                 <u
                   style={{
                     "text-decoration-thickness": "3px",
                     "text-underline-offset": "10px",
                   }}
                 >
-                  Caribéenne
+                  l’Observatoire
                 </u>{" "}
-                pour la Cybersécurité
               </Box>
             </Grid>
             <Grid item md={2}></Grid>
@@ -86,23 +85,11 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  L’Agence Caribéenne pour la Cybersécurité est une initiative
-                  fondée par les collectivités territoriales de Guadeloupe,
-                  Guyane et Saint-Barthélemy
-                </Typography>
-                <Typography
-                  mt={{ md: 5, xs: 1.5 }}
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    color: "#FFFFFF",
-                    fontSize: { md: "15px", xs: "13px" },
-                    lineHeight: { md: "25px", xs: "22px" },
-                  }}
-                >
-                  Après 2 ans de réflexion, le constat était indéniable du
-                  besoin de cohérence et de cohésion des territoires en faveur
-                  d’une stratégie de Cybersécurité adaptée aux territoires
-                  français d’Amérique.
+                  L’observatoire cyber des territoires français d’Amérique vise
+                  à établir et suivre le niveau de maturité des acteurs privés
+                  et publics sur la cybersécurité, la protection des données et
+                  les bonnes pratiques associées pour la conformité et la
+                  maitrise des risques.
                 </Typography>
               </Box>
             </Grid>
