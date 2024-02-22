@@ -33,15 +33,15 @@ const Img = styled(Image)(({ theme }) => ({
 const pages = [
   {
     name: "Découvrir l’ACCYB",
-    path: "/DiscoverTheACCYB",
+    path: "/discoverTheACCYB",
   },
   {
     name: "Découvrir le CSIRT-ATLANTIC",
-    path: "/FindOutAtlantic",
+    path: "/findOutAtlantic",
   },
   {
     name: "Découvrir l’ACCYB",
-    path: "/DiscoverTheObservatory",
+    path: "/discoverTheObservatory",
   },
 ];
 const link = [
@@ -51,11 +51,11 @@ const link = [
   },
   {
     name: "se former",
-    path: "/SeFormer",
+    path: "/seFormer",
   },
   {
     name: "s’informer",
-    path: "/SInformer",
+    path: "/sInformer",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
