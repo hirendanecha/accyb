@@ -9,7 +9,7 @@ import {
   styled,
 } from "@mui/material";
 import React, { useState } from "react";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../fonts/fonts";
 import Image from "next/image";
 import Image1 from "../../../Icons/Image1.png";
 

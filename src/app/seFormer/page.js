@@ -1,9 +1,9 @@
 import React from "react";
-import HeroSection from "../../Components/seFormer/HeroSection/page";
-import TabCategory from "../../Components/seFormer/TabCategory/page";
-import OurVideoTraning from "../../Components/seFormer/OurVideoTraning/page";
+import HeroSection from "../seFormer/HeroSection/page";
+import TabCategory from "../seFormer/TabCategory/page";
+import OurVideoTraning from "../seFormer/OurVideoTraning/page";
 
-export default function SeFormer() {
+export default function seFormer() {
   return (
     <>
       <HeroSection />

@@ -1,7 +1,7 @@
 "use client";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function HeroSection() {
