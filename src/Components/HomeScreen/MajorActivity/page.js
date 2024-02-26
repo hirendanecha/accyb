@@ -21,7 +21,7 @@ import { inter } from "../../../fonts/fonts";
 import { useTranslations } from "next-intl";
 
 const Img = styled(Image)(({ theme }) => ({
-  width: "60px !important",
+  width: "50px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
     width: "40px !important",
@@ -228,8 +228,8 @@ export default function MajorActivity() {
                           justifyContent: "center",
                           alignItems: "center",
                           border: "1px solid #8E9BBF",
-                          height: { lg: "160px", sm: "120px", xs: "80px" },
-                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                          height: { lg: "140px", sm: "120px", xs: "80px" },
+                          width: { lg: "140px", sm: "120px", xs: "80px" },
                         }}
                       >
                         <Img
@@ -249,7 +249,7 @@ export default function MajorActivity() {
                           <Typography
                             sx={{
                               fontFamily: inter.style.fontFamily,
-                              fontSize: { lg: "36px", md: "30px", xs: "18px" },
+                              fontSize: { lg: "32px", md: "30px", xs: "18px" },
                               fontWeight: { lg: 500, xs: 600 },
                               lineHeight: { md: "42px", xs: "25px" },
                               color: "#222D55",
@@ -263,10 +263,10 @@ export default function MajorActivity() {
                           <Typography
                             sx={{
                               mt: 1,
-                              fontSize: { lg: "18px", md: "16px", xs: "14px" },
-                              fontWeight: 500,
+                              fontSize: { lg: "16px", md: "16px", xs: "14px" },
+                              fontWeight: 400,
                               lineHeight: {
-                                lg: "28px",
+                                lg: "25px",
                                 md: "22px",
                                 xs: "20px",
                               },

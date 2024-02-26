@@ -26,6 +26,7 @@ import { useTranslations } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
+  resize: "cover",
 }));
 export const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -93,17 +94,17 @@ export default function OurNews() {
     },
     {
       img: Image2,
-      title: t("event2"),
-      heading: t("heading2"),
-      description: t("description2"),
-      time: t("date2"),
+      title: t("event3"),
+      heading: t("heading3"),
+      description: t("description3"),
+      time: t("date3"),
     },
     {
       img: Image3,
-      title: t("event2"),
-      heading: t("heading2"),
-      description: t("description2"),
-      time: t("date2"),
+      title: t("event4"),
+      heading: t("heading4"),
+      description: t("description4"),
+      time: t("date4"),
     },
   ];
   const lgDown = useMediaQuery(1300);
@@ -371,7 +372,7 @@ export default function OurNews() {
                               width: "max-content",
                               padding: 1,
                               fontSize: "12px",
-                              mb: 2,
+                              mb: 1,
                               padding: "8px 15px 8px 15px",
                               cursor: "pointer",
                               color: "#FFFFFF",
@@ -386,14 +387,15 @@ export default function OurNews() {
                               fontWeight: 600,
                               fontFamily: inter.style.fontFamily,
                               fontSize: "18px",
-                              maxWidth: { lg: "230px", md: "100%" },
+                              lineHeight: "22px",
+                              maxWidth: { lg: "360px", md: "100%" },
                               color: "#FFFFFF",
                             }}
                           >
                             {ele?.heading}
                           </Typography>
                           <Typography
-                            mt={2}
+                            mt={1}
                             sx={{
                               color: "#FFFFFF",
                               fontSize: "14px",
@@ -409,7 +411,7 @@ export default function OurNews() {
                                 display: "flex",
                                 justifyContent: "space-between",
                                 alignItems: "center",
-                                mt: 1,
+                                // mt: 1,
                               }}
                             >
                               <Box>
