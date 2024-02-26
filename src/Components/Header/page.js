@@ -23,48 +23,51 @@ import Image from "next/image";
 import Logo from "../../Icons/Frame.svg";
 import Logo2 from "../../Icons/Frame2.svg";
 import SearchIcon from "@mui/icons-material/Search";
-import { inter } from "../../app/fonts/fonts";
-import { useRouter } from "next/navigation";
+import { inter } from "../../fonts/fonts";
+import { useParams, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
   height: "64px !important",
 }));
 
-const pages = [
-  {
-    name: "Découvrir l’ACCYB",
-    path: "/discoverTheACCYB",
-  },
-  {
-    name: "Découvrir le CSIRT-ATLANTIC",
-    path: "/FindOutAtlantic",
-  },
-  {
-    name: "Découvrir l’ACCYB",
-    path: "/discoverTheObservatory",
-  },
-];
-const link = [
-  {
-    name: "se sécuriser",
-    path: "/",
-  },
-  {
-    name: "se former",
-    path: "/seFormer",
-  },
-  {
-    name: "s’informer",
-    path: "/sInformer",
-  },
-];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Header() {
+  const t = useTranslations("HeaderLink");
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
+  const pages = [
+    {
+      name: t("title"),
+      path: "/fr/discoverTheACCYB",
+    },
+    {
+      name: t("title2"),
+      path: "/fr/FindOutAtlantic",
+    },
+    {
+      name: t("title3"),
+      path: "/fr/discoverTheObservatory",
+    },
+  ];
+  const link = [
+    {
+      name: t("title4"),
+      path: "/",
+    },
+    {
+      name: t("title5"),
+      path: "/fr/seFormer",
+    },
+    {
+      name: t("title6"),
+      path: "/fr/sInformer",
+    },
+  ];
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -117,6 +120,9 @@ export default function Header() {
       },
     },
   }));
+
+  const params = useParams();
+  const locale = params?.locale;
   return (
     <Box
       sx={{
@@ -150,32 +156,37 @@ export default function Header() {
                 alignItems: "center",
               }}
             >
-              <Typography
+              <Box
+                component={Link}
                 variant="h7"
+                href="/fr"
+                locale="fr"
                 color="inherit"
-                component="div"
                 sx={{
+                  color: locale === "fr" ? "#FFFFFF" : "#646C88",
                   fontFamily: inter.style.fontFamily,
                 }}
               >
                 FR
-              </Typography>
+              </Box>
               <Divider
                 orientation="vertical"
                 variant="middle"
                 sx={{ bgcolor: "#646C88" }}
               />
-              <Typography
+              <Box
+                href="/en"
+                component={Link}
+                locale="en"
                 variant="h7"
                 color="inherit"
-                component="div"
                 sx={{
-                  color: "#646C88",
+                  color: locale === "en" ? "#FFFFFF" : "#646C88",
                   fontFamily: inter.style.fontFamily,
                 }}
               >
                 EN
-              </Typography>
+              </Box>
             </Box>
             <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
               <Typography
@@ -188,7 +199,7 @@ export default function Header() {
                   fontFamily: inter.style.fontFamily,
                 }}
               >
-                actualités
+                {t("nav1")}
               </Typography>
               <Typography
                 variant="h7"
@@ -200,7 +211,7 @@ export default function Header() {
                   fontFamily: inter.style.fontFamily,
                 }}
               >
-                Devenir Bénévole Cyber
+                {t("nav2")}
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Box
@@ -225,7 +236,7 @@ export default function Header() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    adhérer à l’ACCYB
+                    {t("nav3")}
                   </Typography>
                 </Box>
                 <Box
@@ -250,7 +261,7 @@ export default function Header() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Déclarer un incident
+                    {t("nav4")}
                   </Typography>
                 </Box>
               </Box>

@@ -1,0 +1,84 @@
+{
+  "HeaderLink": {
+    "title": "Découvrir l’ACCYB",
+    "title2": "Découvrir le CSIRT-ATLANTIC",
+    "title3": "Découvrir l’Observatoire",
+    "title4": "se sécuriser",
+    "title5": "se former",
+    "title6": "s’informer",
+    "nav1": "ACTUALITÉS",
+    "nav2": "DEVENIR BÉNÉVOLE CYBER",
+    "nav3": "ADHÉRER À L’ACCYB",
+    "nav4": "DÉCLARER UN INCIDENT"
+  },
+  "HeroSection": {
+    "title1": "Agence ",
+    "title2": "Caribéenne",
+    "title3": " pour la Cybersécurité",
+    "description": "L’ACCYB, l’autorité de référence dans le domaine de la cybersécurité sur les territoires français d’Amérique.",
+    "button1": "Découvrir nos missions",
+    "button2": "Découvrir notre écosystème"
+  },
+  "partners": {
+    "partner": "partenaires",
+    "support": "Soutenu par"
+  },
+  "infoSlider": {
+    "slider1": "personnes sensibilisées",
+    "slider2": "Ambassadeurs embarqués",
+    "slider3": "Alertes diffusées",
+    "slider4": "Diagnostics cyber réalisés",
+    "slider5": "Bénéficiaires embarqués",
+    "slider6": "Vulnérabilités détectées"
+  },
+  "majorActivities": {
+    "title": "Nos activités majeurs",
+    "title1": "Statistique des territoires",
+    "description1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "title2": "Diagnostic Cybersécurité",
+    "description2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "title3": "Sensibilisation du grand public",
+    "description3": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "title4": "Réponse à incident",
+    "description4": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "title5": "Veille d'exposition internet",
+    "description5": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "title6": "Alerte avancée",
+    "description6": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+  },
+  "OurNews": {
+    "title": "Nos actualités",
+    "button": "Voir toutes NOS PUBLICATIONS",
+    "events1": "ÉVÉNEMENT",
+    "heading1": "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
+    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+    "date1": "13.01.2024 ",
+    "event2": "ACTUALITÉ",
+    "heading2": "Calendrier de l'Avent Cyber 2023",
+    "description2": "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    "date2": "13.01.2024 "
+  },
+  "Footer": {
+    "heading": "Retrouvez-nous sur les réseaux sociaux",
+    "title1": "FINANCÉ PAR",
+    "title2": "DÉCOUVREZ L'ACCYB",
+    "t2sub1": "Nos dates clés",
+    "t2sub2": "Quelles sont nos missions ?",
+    "t2sub3": "Découvrez les services de l'ACCYB",
+    "t2sub4": "Les conseils",
+    "title3": "DÉCOUVREZ LE CSIRT-ATLANTIC",
+    "t3sub1": "Quelles sont nos missions ?",
+    "t3sub2": "Découvrez les services du CSIRT-ATLANTIC",
+    "t3sub3": "Lorem ipsum",
+    "t3sub4": "Lorem ipsum",
+    "title4": "DÉCOUVREZ L'OBSERVATOIRE",
+    "t4sub1": "Quelles sont nos missions ?",
+    "t4sub2": "Découvrez les services de l'Observatoire",
+    "t4sub3": "Lorem ipsum",
+    "t4sub4": "Lorem ipsum",
+    "footerT1": "MENTIONS LÉGALES",
+    "footerT2": "POLITIQUE DE CONFIDENTIALITÉ",
+    "footerT3": "PROTECTION DES DONNÉES PERSONNELLES",
+    "footerT4": "PLAN DU SITE"
+  }
+}

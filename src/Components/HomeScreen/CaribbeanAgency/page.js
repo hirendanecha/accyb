@@ -13,8 +13,11 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { motion, useAnimation } from "framer-motion";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../../fonts/fonts";
+import { useTranslations } from "next-intl";
+import { title } from "process";
 export default function CaribbeanAgency() {
+  const t = useTranslations("HeroSection");
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -100,16 +103,16 @@ export default function CaribbeanAgency() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Agence{" "}
+                    {t("title1")}{" "}
                     <u
                       style={{
-                        "text-decoration-thickness": "3px",
-                        "text-underline-offset": "10px",
+                        textDecorationThickness: "3px",
+                        textUnderlineOffset: "10px",
                       }}
                     >
-                      Caribéenne
+                      {t("title2")}
                     </u>{" "}
-                    pour la Cybersécurité
+                    {t("title3")}
                   </Box>
                   <Typography
                     sx={{
@@ -122,8 +125,7 @@ export default function CaribbeanAgency() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    L’ACCYB, l’autorité de référence dans le domaine de la
-                    cybersécurité sur les territoires français d’Amérique.
+                    {t("description")}
                   </Typography>
                 </motion.div>
 
@@ -179,7 +181,7 @@ export default function CaribbeanAgency() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Découvrir nos missions
+                    {t("button1")}
                   </Button>
                   <Button
                     variant="outlined"
@@ -223,7 +225,7 @@ export default function CaribbeanAgency() {
                       },
                     }}
                   >
-                    Découvrir notre écosystème
+                    {t("button2")}
                   </Button>
                 </Box>
               </Grid>

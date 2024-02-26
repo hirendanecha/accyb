@@ -1,0 +1,84 @@
+{
+  "HeaderLink": {
+    "title": "Discover the ACCYB",
+    "title2": "Discover the CSIRT-ATLANTIC",
+    "title3": "Discover the Observatory",
+    "title4": "secure oneself",
+    "title5": "form",
+    "title6": "get informed",
+    "nav1": "NEWS",
+    "nav2": "BECOME A CYBER ​​VOLUNTEER",
+    "nav3": "JOIN THE ACCYB",
+    "nav4": "REPORT AN INCIDENT"
+  },
+  "HeroSection": {
+    "title3": "Caribbean ",
+    "title2": "Cybersecurity",
+    "title1": "Agency",
+    "description": "The ACCYB, the reference authority in the field of cybersecurity in the French territories of America.",
+    "button1": "Discover our missions",
+    "button2": "Discover our ecosystem"
+  },
+  "partners": {
+    "partner": "PARTNERS",
+    "support": "SUPPORTED BY"
+  },
+  "infoSlider": {
+    "slider1": "people sensitized",
+    "slider2": "Ambassadors on board",
+    "slider3": "Alerts broadcast",
+    "slider4": "Cyber ​​diagnostics carried out",
+    "slider5": "Onboard beneficiaries",
+    "slider6": "Vulnerabilities detected"
+  },
+  "majorActivities": {
+    "title": "Our major activities",
+    "title1": "Territorial Statistics",
+    "description1": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    "title2": "Cybersecurity Diagnosis",
+    "description2": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    "title3": "Public Awareness",
+    "description3": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    "title4": "Incident Response",
+    "description4": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    "title5": "Internet Exposure Monitoring",
+    "description5": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.",
+    "title6": "Advanced Alert",
+    "description6": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain."
+  },
+  "OurNews": {
+    "title": "Our news",
+    "button": "see all OUR PUBLICATIONS",
+    "events1": "EVENT",
+    "heading1": "24th Panorama of cybercrime Lorem ipsum dolor sit amet",
+    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+    "date1": "13.01.2024 ",
+    "event2": "NEWS",
+    "heading2": "Cyber ​​Advent Calendar 2023",
+    "description2": "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    "date2": "13.01.2024 "
+  },
+  "Footer": {
+    "heading": "Find us on the networks",
+    "title1": "FINANCED BY",
+    "title2": "DISCOVER THE ACCYB",
+    "t2sub1": "Our key dates",
+    "t2sub2": "What are our missions?",
+    "t2sub3": "Discover the ACCYB services",
+    "t2sub4": "Advice",
+    "title3": "DISCOVER THE CSIRT-ATLANTIC",
+    "t3sub1": "What are our missions?",
+    "t3sub2": "Discover the services of C-SIRT-ATLANTIC",
+    "t3sub3": "Lorem ipsum",
+    "t3sub4": "Lorem ipsum",
+    "title4": "DISCOVER THE OBSERVATORY",
+    "t4sub1": "What are our missions?",
+    "t4sub2": "Discover the Observatory’s services",
+    "t4sub3": "Lorem ipsum",
+    "t4sub4": "Lorem ipsum",
+    "footerT1": "LEGAL NOTICE",
+    "footerT2": "PRIVACY POLICY",
+    "footerT3": "PROTECTION OF PERSONAL DATA",
+    "footerT4": "SITEMAP"
+  }
+}

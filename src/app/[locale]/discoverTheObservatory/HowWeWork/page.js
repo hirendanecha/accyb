@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
-import { inter } from "../../../fonts/fonts";
+import { inter } from "../../../../fonts/fonts";
 
 export default function HowToWorkSlider() {
   return (
@@ -20,13 +20,13 @@ export default function HowToWorkSlider() {
       <Box>
         <Typography
           sx={{
-            fontFamily: inter.style.fontFamily,
             display: "flex",
             justifyContent: "center",
             textAlign: "center",
             color: "#222D55",
             fontSize: "18px",
             textTransform: "uppercase",
+            fontFamily: inter.style.fontFamily,
           }}
         >
           Notre fonctionnement
@@ -63,7 +63,8 @@ export default function HowToWorkSlider() {
             aria-label="Next Slide"
             title="Next Slide"
             sx={{
-              bgcolor: "#FC0029",
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
               width: 45,
               height: 45,
             }}
@@ -157,48 +158,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -206,8 +207,7 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                           justifyContent: "center",
                         }}
                       >
@@ -272,48 +272,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -321,9 +321,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -387,48 +386,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -436,9 +435,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -502,48 +500,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -551,9 +549,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -617,48 +614,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -666,9 +663,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -732,48 +728,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -781,9 +777,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -847,48 +842,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -896,9 +891,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -962,48 +956,48 @@ export default function HowToWorkSlider() {
                     >
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           borderImageSlice: 1,
                           textTransform: "uppercase",
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
+                          fontFamily: inter.style.fontFamily,
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
+                          color: "#7DB1FF",
                         }}
                       >
                         Particulier
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
                           borderRadius: "50px",
+                          fontFamily: inter.style.fontFamily,
                           width: "193px",
                           fontSize: "13px",
                           fontWeight: 500,
                           height: "60px",
                           display: "flex",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         TPE
                       </Typography>
                       <Typography
                         sx={{
-                          border: "2px solid #FC0029",
+                          border: "2px solid #7DB1FF",
                           textTransform: "uppercase",
                           borderImageSlice: 1,
-
+                          fontFamily: inter.style.fontFamily,
                           borderRadius: "50px",
                           width: "193px",
                           fontSize: "13px",
@@ -1011,124 +1005,8 @@ export default function HowToWorkSlider() {
                           height: "60px",
                           display: "flex",
                           alignItems: "center",
-                          color: "#FC0029",
+                          color: "#7DB1FF",
                           justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        Association locale
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-              </Grid>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Grid container>
-                <Grid item xs={12} md={12} lg={12}>
-                  <Box
-                    sx={{
-                      bgcolor: "#fff",
-                      padding: 5,
-                      borderRadius: "10px",
-                    }}
-                  >
-                    <Box>
-                      <Typography
-                        sx={{
-                          color: "#060760",
-                          fontSize: "29px",
-                          display: "flex",
-                          justifyContent: { md: "start", xs: "center" },
-                          lineHeight: "30px",
-                          fontWeight: 500,
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        Cybermalveillance
-                      </Typography>
-                      <Typography
-                        sx={{
-                          mt: 3,
-                          color: "#060760",
-                          fontSize: "14px",
-                          lineHeight: { md: "25px", xs: "22px" },
-                          justifyContent: { md: "start", xs: "center" },
-                          display: "flex",
-                          textAlign: { md: "start", xs: "center" },
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        Le conseil d’administration détermine les axes
-                        stratégiques et les orientations de l’activité de
-                        l’association ainsi que les grands principes de
-                        fonctionnement de l’Association et veille à leur mise en
-                        œuvre.
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        gap: { md: 1.5, xs: 0.8 },
-                        flexWrap: "wrap",
-                        justifyContent: { md: "start", xs: "center" },
-                        mt: 4,
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          border: "2px solid #FC0029",
-                          borderImageSlice: 1,
-                          textTransform: "uppercase",
-                          borderRadius: "50px",
-                          width: "193px",
-                          fontSize: "13px",
-                          fontWeight: 500,
-                          height: "60px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "#FC0029",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        Particulier
-                      </Typography>
-                      <Typography
-                        sx={{
-                          border: "2px solid #FC0029",
-                          textTransform: "uppercase",
-                          borderImageSlice: 1,
-                          borderRadius: "50px",
-                          width: "193px",
-                          fontSize: "13px",
-                          fontWeight: 500,
-                          height: "60px",
-                          display: "flex",
-                          color: "#FC0029",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        TPE
-                      </Typography>
-                      <Typography
-                        sx={{
-                          border: "2px solid #FC0029",
-                          textTransform: "uppercase",
-                          borderImageSlice: 1,
-
-                          borderRadius: "50px",
-                          width: "193px",
-                          fontSize: "13px",
-                          fontWeight: 500,
-                          height: "60px",
-                          display: "flex",
-                          alignItems: "center",
-                          color: "#FC0029",
-                          justifyContent: "center",
-                          fontFamily: inter.style.fontFamily,
                         }}
                       >
                         Association locale
@@ -1155,7 +1033,8 @@ export default function HowToWorkSlider() {
             aria-label="Next Slide"
             title="Next Slide"
             sx={{
-              bgcolor: "#FC0029",
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
               width: 45,
               height: 45,
             }}
@@ -1185,7 +1064,8 @@ export default function HowToWorkSlider() {
             aria-label="Next Slide"
             title="Next Slide"
             sx={{
-              bgcolor: "#FC0029",
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
               width: 45,
               height: 45,
             }}
@@ -1205,7 +1085,8 @@ export default function HowToWorkSlider() {
             aria-label="Next Slide"
             title="Next Slide"
             sx={{
-              bgcolor: "#FC0029",
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
               width: 45,
               height: 45,
             }}

@@ -19,8 +19,10 @@ import Logo8 from "../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../Icons/Supported/Logo5.svg";
 import Image from "next/image";
 import InfoSlider from "../../../Components/InfoSlider/page";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 export default function Partenaires() {
+  const t = useTranslations("partners");
   const partners = [
     {
       img: Logo1,
@@ -66,7 +68,7 @@ export default function Partenaires() {
                 fontFamily: inter.style.fontFamily,
               }}
             >
-              partenaires
+              {t("partner")}
             </Typography>
             <Grid
               container
@@ -117,7 +119,7 @@ export default function Partenaires() {
                 color: "#222D55",
               }}
             >
-              Soutenu par
+              {t("support")}
             </Typography>
             <Grid
               container

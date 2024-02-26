@@ -20,7 +20,8 @@ import Image1 from "../../../Icons/Image1.png";
 import Image2 from "../../../Icons/Image2.png";
 import Image3 from "../../../Icons/Image3.png";
 import { motion, useAnimation } from "framer-motion";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -47,6 +48,7 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function OurNews() {
+  const t = useTranslations("OurNews");
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -84,27 +86,24 @@ export default function OurNews() {
   const data = [
     {
       img: Image1,
-      title: "ACTUALITÉ",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
+      title: t("event2"),
+      heading: t("heading2"),
+      description: t("description2"),
+      time: t("date2"),
     },
     {
       img: Image2,
-      title: "ACTUALITÉ",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
+      title: t("event2"),
+      heading: t("heading2"),
+      description: t("description2"),
+      time: t("date2"),
     },
     {
       img: Image3,
-      title: "ACTUALITÉ",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
+      title: t("event2"),
+      heading: t("heading2"),
+      description: t("description2"),
+      time: t("date2"),
     },
   ];
   const lgDown = useMediaQuery(1300);
@@ -186,7 +185,7 @@ export default function OurNews() {
                   color: "#7DB1FF",
                 }}
               >
-                Nos actualités
+                {t("title")}
               </Typography>
             </motion.div>
             <Button
@@ -235,7 +234,7 @@ export default function OurNews() {
                 },
               }}
             >
-              voir toute NOS PUBLICATIONS
+              {t("button")}
             </Button>
           </Box>
           <Divider
@@ -269,7 +268,7 @@ export default function OurNews() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Événement
+                    {t("events1")}
                   </Typography>
                   <Typography
                     sx={{
@@ -281,8 +280,7 @@ export default function OurNews() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    24e Panorama de la cybercriminalité Lorem ipsum dolor sit
-                    amet
+                    {t("heading1")}
                   </Typography>
                   <Typography
                     sx={{
@@ -294,10 +292,7 @@ export default function OurNews() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea.
+                    {t("description1")}
                   </Typography>
                   <Box
                     sx={{
@@ -315,7 +310,7 @@ export default function OurNews() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      13.01.2024
+                      {t("date1")}
                     </Typography>
                     <Box
                       sx={{

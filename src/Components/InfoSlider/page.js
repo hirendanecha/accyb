@@ -20,7 +20,8 @@ import Key from "../../Icons/Key.svg";
 import Dna from "../../Icons/Dna.svg";
 import Bell from "../../Icons/Bell.svg";
 import CountUp from "react-countup";
-import { inter } from "../../app/fonts/fonts";
+import { inter } from "../../fonts/fonts";
+import { useTranslations } from "next-intl";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "34px !important",
@@ -28,6 +29,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 
 export default function InfoSlider() {
+  const t = useTranslations("infoSlider");
   const [scrollPosition, setScrollPosition] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
@@ -53,32 +55,32 @@ export default function InfoSlider() {
     {
       img: Personnes,
       title: "175",
-      description: "personnes sensibilisées",
+      description: t("slider1"),
     },
     {
       img: Calque,
       title: "73",
-      description: "Ambassadeurs embarqués",
+      description: t("slider2"),
     },
     {
       img: Light,
       title: "32",
-      description: "Alertes diffusées",
+      description: t("slider3"),
     },
     {
       img: Key,
       title: "96",
-      description: "Diagnostics cyber réalisés",
+      description: t("slider4"),
     },
     {
       img: Dna,
       title: "85",
-      description: "Bénéficiaires embarqués",
+      description: t("slider5"),
     },
     {
       img: Bell,
       title: "59",
-      description: "Vulnérabilités détectées",
+      description: t("slider6"),
     },
   ];
   return (

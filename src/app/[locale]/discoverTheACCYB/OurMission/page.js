@@ -1,60 +1,31 @@
 "use client";
+import React, { useEffect, useRef, useState } from "react";
+import Tech from "../../../../Icons/Discover/Img1.svg";
+import Doctor from "../../../../Icons/Discover/Img4.svg";
+import Adviser from "../../../../Icons/MajorActivity/Adviser.svg";
+import Scan from "../../../../Icons/Discover/Img3.svg";
+import Key from "../../../../Icons/Discover/Img5.svg";
+import Tower from "../../../../Icons/Discover/Img6.svg";
 import {
   Box,
   Container,
   Divider,
   Grid,
   Typography,
-  keyframes,
   styled,
 } from "@mui/material";
-import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Stack from "../../../Icons/MajorActivity/Stack.svg";
-import Doctor from "../../../Icons/MajorActivity/Doctor.svg";
-import Annousment from "../../../Icons/MajorActivity/Annousment.svg";
-import Adviser from "../../../Icons/MajorActivity/Adviser.svg";
-import Eye from "../../../Icons/MajorActivity/Eye.svg";
-import Tower from "../../../Icons/MajorActivity/Tower.svg";
-import { motion, useAnimation } from "framer-motion";
-import { inter } from "../../../fonts/fonts";
-import { useTranslations } from "next-intl";
-
+import { useAnimation } from "framer-motion";
+import { inter } from "../../../../fonts/fonts";
 const Img = styled(Image)(({ theme }) => ({
-  width: "60px !important",
+  width: "39px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
-    width: "40px !important",
-    height: "auto !important",
-  },
-  [theme.breakpoints.down("xs")]: {
-    width: "0px !important",
+    width: "30px !important",
     height: "auto !important",
   },
 }));
-
-export const useMediaQuery = (width) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((e) => {
-    if (e.matches) setTargetReached(true);
-    else setTargetReached(false);
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener("change", updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) setTargetReached(true);
-
-    return () => media.removeEventListener("change", updateTarget);
-  }, []);
-
-  return targetReached;
-};
-export default function MajorActivity() {
-  const t = useTranslations("majorActivities");
+export default function OurMission() {
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -89,49 +60,43 @@ export default function MajorActivity() {
       });
     }
   }, [isVisible, controls]);
-  const mdDown = useMediaQuery(1200);
   const activites = [
     {
-      img: Stack,
-      title: t("title1"),
-      description: t("description1"),
-    },
-    {
-      img: Doctor,
-      title: t("title2"),
-      description: t("description2"),
-    },
-    {
-      img: Annousment,
-      title: t("title3"),
-      description: t("description3"),
+      img: Tech,
+      title: "Actions de sensibilisations des bénéficiaires et du grand public",
     },
     {
       img: Adviser,
-      title: t("title4"),
-      description: t("description4"),
+      title: "Centre de réponses à incident via le CSIRT-ATLANTIC",
     },
     {
-      img: Eye,
-      title: t("title5"),
-      description: t("description5"),
+      img: Scan,
+      title: "Scan de vulnérabilités pour les membres adhérents",
+    },
+    {
+      img: Doctor,
+      title: "Diagnostique via mon aide cyber",
+    },
+    {
+      img: Key,
+      title: "Suivi de l’état cyber des bénéficiaires",
     },
     {
       img: Tower,
-      title: t("title6"),
-      description: t("description6"),
+      title: "Diffusion d’alertes de sécurité",
     },
   ];
   return (
-    <Container disableGutters maxWidth={"xl"}>
-      <Box
-        ref={ref}
-        sx={{
-          mt: { md: 20, xs: 10 },
-          padding: "0 16px",
-        }}
-      >
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+    <Box>
+      <Container disableGutters maxWidth={"xl"}>
+        <Box
+          ref={ref}
+          sx={{
+            mt: { md: 20, xs: 10 },
+            padding: "0 16px",
+          }}
+        >
+          {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
           <Typography
             sx={{
               fontWeight: 400,
@@ -140,20 +105,26 @@ export default function MajorActivity() {
               fontFamily: inter.style.fontFamily,
             }}
           >
-            {t("title")}
+            Quelles sont nos missions ?
           </Typography>
-        </motion.div>
-        <Divider
-          variant="middle"
-          sx={{
-            bgcolor: "#8E9BBF",
-            mt: 5,
-            maxWidth: "100%",
-            mx: 0,
-            borderBottomWidth: "1px",
-          }}
-        />
-        <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
+          {/* </motion.div> */}
+          <Divider
+            variant="middle"
+            sx={{
+              bgcolor: "#8E9BBF",
+              mt: { md: 3, xs: 5 },
+              borderBottomWidth: "1px",
+              mb: { md: 10, xs: 4 },
+            }}
+          />
+        </Box>
+        <Grid
+          container
+          mt={5}
+          columnSpacing={2}
+          rowSpacing={2}
+          sx={{ padding: "0 16px" }}
+        >
           {activites?.map((ele, index) => {
             return (
               <Grid item xs={12} md={6} key={index}>
@@ -162,11 +133,13 @@ export default function MajorActivity() {
                     display: "flex",
                     padding: { lg: 6, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
-                    border:
-                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                    border: "2px solid",
+                    borderImageSource:
+                      "linear-gradient(46.93deg, #228A2C -9.61%, #2FD7B9 78.14%)",
+                    borderImageSlice: 1,
                     position: "relative",
-                    borderRadius: index == 0 ? "0px" : "20px",
-                    // overflow: "hidden",
+                    borderRadius: "20px",
+                    overflow: "hidden",
                     height: "100%",
                   }}
                 >
@@ -223,7 +196,7 @@ export default function MajorActivity() {
                       <Box
                         sx={{
                           borderRadius: "50%",
-                          backgroundColor: "#1B2341",
+                          backgroundColor: "#007A47",
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
@@ -242,44 +215,25 @@ export default function MajorActivity() {
                     </Grid>
                     <Grid item xs={8} sm={7}>
                       <Box ref={ref}>
-                        <motion.div
+                        {/* <motion.div
                           initial={{ opacity: 0, y: 50 }}
                           animate={controls}
+                        > */}
+                        <Typography
+                          sx={{
+                            fontSize: { lg: "38px", md: "30px", xs: "18px" },
+                            fontWeight: 400,
+                            lineHeight: { md: "42px", xs: "25px" },
+                            fontFamily: inter.style.fontFamily,
+                            color: "#222D55",
+                            display: "flex",
+                            textAlign: "start",
+                            maxWidth: { lg: "350px", xs: "250px" },
+                          }}
                         >
-                          <Typography
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              fontSize: { lg: "36px", md: "30px", xs: "18px" },
-                              fontWeight: { lg: 500, xs: 600 },
-                              lineHeight: { md: "42px", xs: "25px" },
-                              color: "#222D55",
-                              display: "flex",
-                              textAlign: "start",
-                              maxWidth: { lg: "320px", xs: "250px" },
-                            }}
-                          >
-                            {ele?.title}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              mt: 1,
-                              fontSize: { lg: "18px", md: "16px", xs: "14px" },
-                              fontWeight: 500,
-                              lineHeight: {
-                                lg: "28px",
-                                md: "22px",
-                                xs: "20px",
-                              },
-                              fontFamily: inter.style.fontFamily,
-                              color: "#222D55",
-                              display: "flex",
-                              textAlign: "start",
-                              width: { lg: "350px", md: "250px", xs: "230px" },
-                            }}
-                          >
-                            {ele?.description}
-                          </Typography>
-                        </motion.div>
+                          {ele?.title}
+                        </Typography>
+                        {/* </motion.div> */}
                       </Box>
                     </Grid>
                   </Grid>
@@ -288,7 +242,7 @@ export default function MajorActivity() {
             );
           })}
         </Grid>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }

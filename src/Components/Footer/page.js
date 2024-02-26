@@ -6,9 +6,11 @@ import React from "react";
 import Logo from "../../Icons/Footer/Logo.svg";
 import partner1 from "../../Icons/Footer/partner1.svg";
 import partner2 from "../../Icons/Footer/partner2.svg";
-import { inter } from "../../app/fonts/fonts";
+import { inter } from "../../fonts/fonts";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   return (
     <>
       <Container disableGutters maxWidth={"xl"}>
@@ -24,7 +26,7 @@ export default function Footer() {
               fontFamily: inter.style.fontFamily,
             }}
           >
-            Retrouvez-nous sur les réseaux
+            {t("heading")}
           </Typography>
           <Box
             sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}
@@ -72,7 +74,7 @@ export default function Footer() {
                         textTransform: "uppercase",
                       }}
                     >
-                      financé par
+                      {t("title1")}
                     </Typography>
                     <Box
                       sx={{
@@ -116,7 +118,7 @@ export default function Footer() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Découvrir l’ACCYB
+                    {t("title2")}
                   </Typography>
                   <Box>
                     <Typography
@@ -127,7 +129,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Nos dates clefs
+                      {t("t2sub1")}
                     </Typography>
                     <Typography
                       sx={{
@@ -137,7 +139,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Quelles sont nos missions ?
+                      {t("t2sub2")}
                     </Typography>
                     <Typography
                       sx={{
@@ -147,7 +149,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Découvrir les services de l’ACCYB
+                      {t("t2sub3")}
                     </Typography>
                     <Typography
                       sx={{
@@ -157,7 +159,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Les conseils
+                      {t("t2sub4")}
                     </Typography>
                   </Box>
                 </Grid>
@@ -179,7 +181,7 @@ export default function Footer() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Découvrir le CSIRT-ATLANTIC
+                    {t("title3")}
                   </Typography>
                   <Box>
                     <Typography
@@ -190,7 +192,7 @@ export default function Footer() {
                         mt: 1,
                       }}
                     >
-                      Quelles sont nos missions ?
+                      {t("t3sub1")}
                     </Typography>
                     <Typography
                       sx={{
@@ -200,7 +202,7 @@ export default function Footer() {
                         mt: 1,
                       }}
                     >
-                      Découvrez les services du C-SIRT-ATLANTIC
+                      {t("t3sub2")}
                     </Typography>
                     <Typography
                       sx={{
@@ -210,7 +212,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Lorem ipsum
+                      {t("t3sub3")}
                     </Typography>
                     <Typography
                       sx={{
@@ -220,7 +222,7 @@ export default function Footer() {
                         mt: 1,
                       }}
                     >
-                      Lorem ipsum
+                      {t("t3sub4")}
                     </Typography>
                   </Box>
                 </Grid>
@@ -241,7 +243,7 @@ export default function Footer() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Découvrir l’Observatoire
+                    {t("title4")}
                   </Typography>
                   <Box>
                     <Typography
@@ -252,7 +254,7 @@ export default function Footer() {
                         mt: 1,
                       }}
                     >
-                      Quelles sont nos missions ?
+                      {t("t4sub1")}
                     </Typography>
                     <Typography
                       sx={{
@@ -262,7 +264,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Découvrez les services de l’Observatoire
+                      {t("t4sub2")}
                     </Typography>
                     <Typography
                       sx={{
@@ -272,7 +274,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Lorem ipsum
+                      {t("t4sub3")}
                     </Typography>
                     <Typography
                       sx={{
@@ -282,7 +284,7 @@ export default function Footer() {
                         fontFamily: inter.style.fontFamily,
                       }}
                     >
-                      Lorem ipsum
+                      {t("t4sub4")}
                     </Typography>
                   </Box>
                 </Grid>
@@ -317,7 +319,7 @@ export default function Footer() {
                 fontWeight: 500,
               }}
             >
-              mentions légales
+              {t("footerT1")}
             </Typography>
             <Typography
               sx={{
@@ -329,7 +331,7 @@ export default function Footer() {
                 fontWeight: 500,
               }}
             >
-              politique de confidentialité
+              {t("footerT2")}
             </Typography>
             <Typography
               sx={{
@@ -340,7 +342,7 @@ export default function Footer() {
                 fontWeight: 500,
               }}
             >
-              protection des données personnelles
+              {t("footerT3")}
             </Typography>
             <Typography
               sx={{
@@ -351,7 +353,7 @@ export default function Footer() {
                 fontWeight: 500,
               }}
             >
-              plan du site
+              {t("footerT4")}
             </Typography>
           </Box>
         </Container>

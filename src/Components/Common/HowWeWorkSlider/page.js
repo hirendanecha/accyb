@@ -21,7 +21,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
-import { inter } from "../../../app/fonts/fonts";
+import { inter } from "../../../fonts/fonts";
 const reviews = [
   {
     rating: 5,
