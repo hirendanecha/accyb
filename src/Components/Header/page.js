@@ -190,6 +190,7 @@ export default function Header() {
             </Box>
             <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
               <Typography
+                onClick={() => router.push(`/${locale}/news`)}
                 variant="h7"
                 color="inherit"
                 component="div"
@@ -197,6 +198,7 @@ export default function Header() {
                   textTransform: "uppercase",
                   fontSize: "13px",
                   fontFamily: inter.style.fontFamily,
+                  cursor: "pointer",
                 }}
               >
                 {t("nav1")}
