@@ -204,7 +204,7 @@ export default function Header() {
                 {t("nav1")}
               </Typography>
               <Typography
-                // onClick={() => router.push(`/${locale}/devenirCyber`)}
+                onClick={() => router.push(`/${locale}/devenirCyber`)}
                 variant="h7"
                 color="inherit"
                 component="div"

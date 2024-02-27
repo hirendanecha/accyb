@@ -2,7 +2,7 @@ import React from "react";
 import HeroSection from "./HeroSection/page";
 import OurVolunteers from "./OurVolunteers/page";
 import OurCommunity from "./OurCommunity/page";
-import HarumQuidem from "./HarumQuidem/page";
+import HarumQuidem from "./harumQuidem/page";
 
 export default function DevenirCyber() {
   return (
