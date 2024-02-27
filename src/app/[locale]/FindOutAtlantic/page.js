@@ -8,7 +8,6 @@ import OurOperationSlider from "../../../Components/Common/OurOperationSlider/pa
 import { Box } from "@mui/material";
 
 export default function FindOutAtlantic() {
-  console.log("my new commit");
   return (
     <>
       {/* {"hero section"} */}

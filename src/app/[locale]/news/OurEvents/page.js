@@ -62,7 +62,6 @@ export default function OurEvents() {
   ];
 
   const handleClick = (id) => {
-    // console.log("id", id);
     setCurrentCategory(id);
     const aa = subCategory?.filter((ele) => ele?.title == id);
     setContent(aa);
