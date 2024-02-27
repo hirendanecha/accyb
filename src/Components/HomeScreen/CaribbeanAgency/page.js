@@ -69,7 +69,7 @@ export default function CaribbeanAgency() {
     >
       <Box
         sx={{
-          backgroundImage: "url('/Images/BackgroundImg.png')",
+          backgroundImage: "url('/Images/BackgroundImg.jpg')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",

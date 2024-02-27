@@ -39,7 +39,7 @@ export default function Header() {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-
+  const [activeLink, setActiveLink] = useState("/");
   const pages = [
     {
       name: t("title"),
@@ -123,6 +123,10 @@ export default function Header() {
 
   const params = useParams();
   const locale = params?.locale;
+  const handleClick = (page) => {
+    router?.push(page?.path);
+    setActiveLink(page?.name);
+  };
   return (
     <Box
       sx={{
@@ -537,12 +541,12 @@ export default function Header() {
               {pages.map((page, idx) => (
                 <Button
                   key={idx}
-                  onClick={() => router?.push(page?.path)}
+                  onClick={() => handleClick(page)}
                   sx={{
                     my: 3,
-                    color: "#222D55",
+                    color: activeLink === page?.name ? "#20388F" : "#222D55",
                     display: "block",
-                    fontWeight: 500,
+                    fontWeight: activeLink === page?.name ? 600 : 500,
                     fontSize: { lg: "13px", md: "12px" },
                     fontFamily: inter.style.fontFamily,
                   }}
@@ -562,13 +566,13 @@ export default function Header() {
               {link.map((page, idx) => (
                 <Button
                   key={idx}
-                  onClick={() => router?.push(page?.path)}
+                  onClick={() => handleClick(page)}
                   sx={{
                     my: 3,
-                    color: "#222D55",
+                    color: activeLink === page?.name ? "#20388F" : "#222D55",
                     display: "block",
                     fontFamily: inter.style.fontFamily,
-                    fontWeight: 500,
+                    fontWeight: activeLink === page?.name ? 600 : 500,
                     fontSize: { lg: "13px", md: "12px" },
                   }}
                 >
