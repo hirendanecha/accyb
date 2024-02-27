@@ -204,6 +204,7 @@ export default function Header() {
                 {t("nav1")}
               </Typography>
               <Typography
+                // onClick={() => router.push(`/${locale}/devenirCyber`)}
                 variant="h7"
                 color="inherit"
                 component="div"
@@ -211,6 +212,7 @@ export default function Header() {
                   textTransform: "uppercase",
                   fontSize: "13px",
                   fontFamily: inter.style.fontFamily,
+                  cursor: "pointer",
                 }}
               >
                 {t("nav2")}

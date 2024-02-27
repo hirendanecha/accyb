@@ -11,8 +11,11 @@ import {
 import React, { useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
-import Image2 from "../../../../Icons/Event2.svg";
-import Image1 from "../../../../Icons/Event1.svg";
+import Event1 from "../../../../Icons/Event1.svg";
+import Event2 from "../../../../Icons/Event2.svg";
+import Image1 from "../../../../Icons/Image1.png";
+import Image2 from "../../../../Icons/Image2.png";
+import Image3 from "../../../../Icons/Image3.png";
 import ShareIcon from "@mui/icons-material/Share";
 
 const Img = styled(Image)(({ theme }) => ({
@@ -23,19 +26,19 @@ const Img = styled(Image)(({ theme }) => ({
 export default function OurEvents() {
   const subCategory = [
     {
-      img: Image1,
+      img: Event1,
       title: "Janvier",
       heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
       time: "13.01.2024",
     },
     {
-      img: Image2,
+      img: Event2,
       title: "Janvier",
       heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
       time: "13.01.2024",
     },
   ];
@@ -67,51 +70,51 @@ export default function OurEvents() {
   const articles = [
     {
       img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
+    },
+    {
+      img: Image2,
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
+    },
+    {
+      img: Image3,
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
     },
     {
       img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
     },
     {
-      img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
+      img: Image2,
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
     },
     {
-      img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
+      img: Image3,
+      title: "Actualité",
+      heading: "Calendrier de l’Avent Cyber 2023",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
-    },
-    {
-      img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
-    },
-    {
-      img: Image1,
-      title: "CATÉGORIE 1",
-      heading: "Formation Scan & Cybersécurité",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      time: "3000€",
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      time: "13.01.2024",
     },
   ];
   return (
@@ -306,7 +309,7 @@ export default function OurEvents() {
           {articles?.map((ele, idx) => {
             return (
               <>
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} md={6}>
                   <Box
                     sx={{
                       display: "flex",
@@ -373,7 +376,7 @@ export default function OurEvents() {
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
-                            mt: 1,
+                            mt: {md : 3 , xs : 2},
                           }}
                         >
                           <Box>
@@ -382,11 +385,31 @@ export default function OurEvents() {
                                 fontFamily: inter.style.fontFamily,
                                 fontSize: 14,
                                 fontWeight: 600,
-                                color: "3000€",
+                                color: "13.01.2024",
                               }}
                             >
                               {ele?.time}
                             </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              border: "1px solid #222D55",
+                              width: "36px",
+                              height: "36px",
+                              borderRadius: "50%",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center", // This centers the icon vertically
+                            }}
+                          >
+                            <ShareIcon
+                              sx={{
+                                height: "16px",
+                                width: "16px",
+                                color: "#222D55",
+                                cursor: "pointer",
+                              }}
+                            />
                           </Box>
                         </Box>
                       </Box>
