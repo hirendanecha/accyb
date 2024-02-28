@@ -98,16 +98,20 @@ export default function OurMission() {
             Quelles sont nos missions ?
           </Typography>
           {/* </motion.div> */}
-          <Divider
-            variant="middle"
-            sx={{
-              bgcolor: "#8E9BBF",
-              mt: { md: 3, xs: 5 },
-              borderBottomWidth: "1px",
-              mb: { md: 10, xs: 4 },
-            }}
-          />
         </Box>
+      </Container>
+
+      <Divider
+        variant="middle"
+        sx={{
+          bgcolor: "#222D55",
+          mt: { md: 3, xs: 5 },
+          mb: { md: 10, xs: 4 },
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
         <Grid
           container
           mt={5}

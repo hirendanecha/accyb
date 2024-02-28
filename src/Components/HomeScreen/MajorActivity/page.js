@@ -123,37 +123,48 @@ export default function MajorActivity() {
     },
   ];
   return (
-    <Container disableGutters maxWidth={"xl"}>
-      <Box
-        ref={ref}
-        sx={{
-          mt: { md: 20, xs: 10 },
-          padding: "0 16px",
-        }}
-      >
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-          <Typography
-            sx={{
-              fontWeight: 400,
-              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-              color: "#222D55",
-              fontFamily: inter.style.fontFamily,
-            }}
-          >
-            {t("title")}
-          </Typography>
-        </motion.div>
-        <Divider
-          variant="middle"
+    <>
+      <Container disableGutters maxWidth={"xl"}>
+        <Box
+          ref={ref}
           sx={{
-            bgcolor: "#8E9BBF",
-            mt: 5,
-            maxWidth: "100%",
-            mx: 0,
-            borderBottomWidth: "1px",
+            mt: { md: 20, xs: 10 },
+            padding: "0 16px",
           }}
-        />
-        <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
+        >
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+            <Typography
+              sx={{
+                fontWeight: 400,
+                fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+                color: "#222D55",
+                fontFamily: inter.style.fontFamily,
+              }}
+            >
+              {t("title")}
+            </Typography>
+          </motion.div>
+        </Box>
+      </Container>
+
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: 5,
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
+        <Grid
+          container
+          mt={5}
+          columnSpacing={2}
+          rowSpacing={2}
+          sx={{ padding: "0 16px" }}
+        >
           {activites?.map((ele, index) => {
             return (
               <Grid item xs={12} md={6} key={index}>
@@ -288,7 +299,7 @@ export default function MajorActivity() {
             );
           })}
         </Grid>
-      </Box>
-    </Container>
+      </Container>
+    </>
   );
 }

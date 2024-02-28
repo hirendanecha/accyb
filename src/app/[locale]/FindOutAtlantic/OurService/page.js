@@ -223,106 +223,109 @@ export default function OurService() {
             </span>{" "}
             de l’ACCYB
           </Box>
-          <Divider
-            variant="middle"
-            sx={{
-              display: { md: "block", xs: "none" },
-              bgcolor: "#D3D5DD",
-              mt: 5,
-              borderBottomWidth: "1px",
-            }}
-          />
-          <Grid
-            container
-            mt={5}
-            columnSpacing={2}
-            rowSpacing={2}
-            sx={{
-              padding: "0 16px",
-            }}
-          >
-            {ourservice?.map((ele, index) => {
-              return (
-                <Grid item xs={12} lg={4} md={6} key={index}>
-                  <Box sx={{ height: "100%" }}>
-                    <Grid
-                      container
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
+        </Box>
+      </Container>
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: 5,
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
+        <Grid
+          container
+          mt={5}
+          columnSpacing={2}
+          rowSpacing={2}
+          sx={{
+            padding: "0 16px",
+          }}
+        >
+          {ourservice?.map((ele, index) => {
+            return (
+              <Grid item xs={12} lg={4} md={6} key={index}>
+                <Box sx={{ height: "100%" }}>
+                  <Grid
+                    container
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
 
-                        height: "100%",
-                        position: "relative",
-                        zIndex: 1,
-                        gap: { lg: 3, md: 2, xs: 2 },
-                        mt: { md: 0, xs: 1.5 },
-                      }}
-                    >
-                      <Grid item xs={3} sm={3}>
-                        <Box
-                          sx={{
-                            borderRadius: "50%",
-                            backgroundColor: "#BE0011",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            height: { lg: "119px", sm: "120px", xs: "80px" },
-                            width: { lg: "119px", sm: "120px", xs: "80px" },
-                          }}
-                        >
-                          <Img
-                            src={ele?.img}
-                            height={900}
-                            width={900}
-                            alt="img"
-                          />
-                        </Box>
-                      </Grid>
-                      {/* <Grid item sm={1}></Grid> */}
-                      <Grid item xs={8} sm={8}>
-                        <Box ref={ref}>
-                          {/* <motion.div
+                      height: "100%",
+                      position: "relative",
+                      zIndex: 1,
+                      gap: { lg: 3, md: 2, xs: 2 },
+                      mt: { md: 0, xs: 1.5 },
+                    }}
+                  >
+                    <Grid item xs={3} sm={3}>
+                      <Box
+                        sx={{
+                          borderRadius: "50%",
+                          backgroundColor: "#BE0011",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: { lg: "119px", sm: "120px", xs: "80px" },
+                          width: { lg: "119px", sm: "120px", xs: "80px" },
+                        }}
+                      >
+                        <Img
+                          src={ele?.img}
+                          height={900}
+                          width={900}
+                          alt="img"
+                        />
+                      </Box>
+                    </Grid>
+                    {/* <Grid item sm={1}></Grid> */}
+                    <Grid item xs={8} sm={8}>
+                      <Box ref={ref}>
+                        {/* <motion.div
                       initial={{ opacity: 0, y: 50 }}
                       animate={controls}
                     > */}
-                          <Typography
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              fontSize: { md: "14px", xs: "12px" },
-                              fontWeight: 400,
-                              lineHeight: "22px",
-                              color: "#20388F",
-                              display: "flex",
-                              textAlign: "start",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            {ele?.title}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              mt: { md: 1, xs: 0.1 },
-                              fontSize: { md: "16px", xs: "12px" },
-                              fontWeight: 400,
-                              lineHeight: { md: "24px", xs: "18px" },
-                              color: "#20388F",
-                              display: "flex",
-                              textAlign: "start",
-                            }}
-                          >
-                            {ele?.description}
-                          </Typography>
-                          {/* </motion.div> */}
-                        </Box>
-                      </Grid>
+                        <Typography
+                          sx={{
+                            fontFamily: inter.style.fontFamily,
+                            fontSize: { md: "14px", xs: "12px" },
+                            fontWeight: 400,
+                            lineHeight: "22px",
+                            color: "#20388F",
+                            display: "flex",
+                            textAlign: "start",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          {ele?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontFamily: inter.style.fontFamily,
+                            mt: { md: 1, xs: 0.1 },
+                            fontSize: { md: "16px", xs: "12px" },
+                            fontWeight: 400,
+                            lineHeight: { md: "24px", xs: "18px" },
+                            color: "#20388F",
+                            display: "flex",
+                            textAlign: "start",
+                          }}
+                        >
+                          {ele?.description}
+                        </Typography>
+                        {/* </motion.div> */}
+                      </Box>
                     </Grid>
-                  </Box>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Box>
+                  </Grid>
+                </Box>
+              </Grid>
+            );
+          })}
+        </Grid>
       </Container>
     </Box>
   );

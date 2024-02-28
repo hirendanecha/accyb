@@ -68,16 +68,20 @@ export default function OurKeyDates() {
             Nos dates clés
           </Typography>
           {/* </motion.div> */}
-          <Divider
-            variant="middle"
-            sx={{
-              bgcolor: "#8E9BBF",
-              mt: { md: 3, xs: 5 },
-              borderBottomWidth: "1px",
-              mb: 10,
-            }}
-          />
         </Box>
+      </Container>
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: { md: 3, xs: 5 },
+          opacity: "20%",
+          borderBottomWidth: "1px",
+          mb: 10,
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
         <Box
           sx={{
             paddingLeft: { md: "50px", xs: "0px" },

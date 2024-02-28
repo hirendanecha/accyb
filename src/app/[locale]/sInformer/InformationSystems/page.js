@@ -91,8 +91,10 @@ export default function InformationSystems() {
           <Divider
             variant="middle"
             sx={{
-              bgcolor: "#CDD1DD",
+              display: { md: "block", xs: "none" },
+              bgcolor: "#222D55",
               mt: { md: 6, xs: 2 },
+              opacity: "20%",
               borderBottomWidth: "1px",
             }}
           />
@@ -172,8 +174,10 @@ export default function InformationSystems() {
           <Divider
             variant="middle"
             sx={{
-              bgcolor: "#CDD1DD",
+              display: { md: "block", xs: "none" },
+              bgcolor: "#222D55",
               mt: { md: 6, xs: 2 },
+              opacity: "20%",
               borderBottomWidth: "1px",
             }}
           />
@@ -253,8 +257,10 @@ export default function InformationSystems() {
           <Divider
             variant="middle"
             sx={{
-              bgcolor: "#CDD1DD",
+              display: { md: "block", xs: "none" },
+              bgcolor: "#222D55",
               mt: { md: 6, xs: 2 },
+              opacity: "20%",
               borderBottomWidth: "1px",
             }}
           />
@@ -334,8 +340,10 @@ export default function InformationSystems() {
           <Divider
             variant="middle"
             sx={{
-              bgcolor: "#CDD1DD",
+              display: { md: "block", xs: "none" },
+              bgcolor: "#222D55",
               mt: { md: 6, xs: 2 },
+              opacity: "20%",
               borderBottomWidth: "1px",
             }}
           />
@@ -415,8 +423,10 @@ export default function InformationSystems() {
           <Divider
             variant="middle"
             sx={{
-              bgcolor: "#CDD1DD",
+              display: { md: "block", xs: "none" },
+              bgcolor: "#222D55",
               mt: { md: 6, xs: 2 },
+              opacity: "20%",
               borderBottomWidth: "1px",
             }}
           />

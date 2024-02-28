@@ -132,15 +132,18 @@ export default function OurService() {
           </span>{" "}
           de l’ACCYB
         </Box>
-        <Divider
-          variant="middle"
-          sx={{
-            display: { md: "block", xs: "none" },
-            bgcolor: "#D3D5DD",
-            mt: 5,
-            borderBottomWidth: "1px",
-          }}
-        />
+      </Container>
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: 5,
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={5} columnSpacing={2} rowSpacing={2}>
           {ourservice?.map((ele, index) => {
             return (

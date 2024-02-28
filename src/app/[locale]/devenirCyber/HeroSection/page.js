@@ -125,45 +125,47 @@ export default function HeroSection() {
                 </motion.div>
               </Grid>
             </Grid>
-
-            <Divider
-              variant="middle"
-              sx={{
-                display: { md: "block", xs: "none" },
-                bgcolor: "#8E9BBF",
-                mt: { md: 5, xs: 5 },
-                borderBottomWidth: "1px",
-              }}
-            />
-            <Grid item xs={12} md={12} position={"relative"} mt={3}>
-              <Box
-                sx={{
-                  display: { lg: "flex", xs: "none" },
-                  gap: 2,
-                  cursor: "pointer",
-                  alignItems: "center",
-                  position: "absolute",
-                  right: 10,
-                  bottom: -50,
-                }}
-              >
-                <Box onClick={handleContactUsClick}>
-                  <Typography
-                    sx={{
-                      color: "#FFFFFF",
-                      fontSize: "20px",
-                      fontWeight: 400,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  >
-                    Scroll
-                  </Typography>
-                </Box>
-
-                <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
-              </Box>
-            </Grid>
           </Box>
+        </Container>
+        <Divider
+          variant="middle"
+          sx={{
+            display: { md: "block", xs: "none" },
+            bgcolor: "#FFFFFF",
+            mt: 5,
+            opacity: "20%",
+            borderBottomWidth: "1px",
+          }}
+        />
+        <Container disableGutters maxWidth={"xl"}>
+          <Grid item xs={12} md={12} position={"relative"} mt={3}>
+            <Box
+              sx={{
+                display: { lg: "flex", xs: "none" },
+                gap: 2,
+                cursor: "pointer",
+                alignItems: "center",
+                position: "absolute",
+                right: 10,
+                bottom: -50,
+              }}
+            >
+              <Box onClick={handleContactUsClick}>
+                <Typography
+                  sx={{
+                    color: "#FFFFFF",
+                    fontSize: "20px",
+                    fontWeight: 400,
+                    fontFamily: inter.style.fontFamily,
+                  }}
+                >
+                  Scroll
+                </Typography>
+              </Box>
+
+              <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+            </Box>
+          </Grid>
         </Container>
       </Box>
     </Box>

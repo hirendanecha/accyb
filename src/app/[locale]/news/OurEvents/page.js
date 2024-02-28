@@ -295,15 +295,19 @@ export default function OurEvents() {
         >
           Articles
         </Typography>
-        <Divider
-          variant="middle"
-          sx={{
-            display: { md: "block", xs: "none" },
-            bgcolor: "#D3D5DD",
-            mt: 2,
-            borderBottomWidth: "1px",
-          }}
-        />
+      </Container>
+
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: 2,
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
           {articles?.map((ele, idx) => {
             return (
@@ -375,7 +379,7 @@ export default function OurEvents() {
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
-                            mt: {md : 3 , xs : 2},
+                            mt: { md: 3, xs: 2 },
                           }}
                         >
                           <Box>

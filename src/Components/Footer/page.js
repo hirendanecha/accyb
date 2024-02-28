@@ -34,144 +34,42 @@ export default function Footer() {
             <LinkedInIcon />
             <XIcon />
           </Box>
-          <Divider
-            variant="middle"
-            sx={{
-              bgcolor: "#8E9BBF",
-              mt: { md: 6, xs: 2 },
-              borderBottomWidth: "1px",
-            }}
-          />
-          <Grid container mt={8}>
-            <Grid item md={12}>
-              <Grid container>
-                <Grid
-                  item
-                  lg={1.8}
-                  md={12}
-                  xs={12}
-                  justifyContent={{ lg: "unset", xs: "center" }}
-                  display={"flex"}
-                  pb={{ lg: 0, xs: 10 }}
-                >
-                  <Image src={Logo} height={138} width={138} alt="logo" />
-                </Grid>
-                <Grid
-                  item
-                  lg={1.8}
-                  md={3}
-                  sm={6}
-                  xs={12}
-                  textAlign={{ md: "unset", xs: "center" }}
-                >
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        pb: 2,
-                        fontFamily: inter.style.fontFamily,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {t("title1")}
-                    </Typography>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        gap: "20px",
-                        mt: 2,
-                        justifyContent: { md: "unset", xs: "center" },
-                      }}
-                    >
-                      <Image
-                        src={partner1}
-                        height={81}
-                        width={73}
-                        alt="partner1"
-                      />
-                      <Image
-                        src={partner2}
-                        height={81}
-                        width={73}
-                        alt="partner2"
-                      />
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item lg={0.5}></Grid>
-                <Grid
-                  item
-                  lg={2.6}
-                  md={3}
-                  sm={6}
-                  xs={12}
-                  mt={{ md: 0, xs: 5 }}
-                  textAlign={{ md: "unset", xs: "center" }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: "12px",
-                      fontWeight: 600,
-                      fontFamily: inter.style.fontFamily,
-                      pb: 2,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {t("title2")}
-                  </Typography>
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t2sub1")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t2sub2")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t2sub3")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t2sub4")}
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid
-                  item
-                  lg={2.6}
-                  md={3}
-                  sm={6}
-                  xs={12}
-                  mt={{ md: 0, xs: 5 }}
-                  textAlign={{ md: "unset", xs: "center" }}
-                >
+        </Box>
+      </Container>
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: { md: 6, xs: 2 },
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
+        <Grid container mt={8} sx={{ padding: "0 16px" }}>
+          <Grid item md={12}>
+            <Grid container>
+              <Grid
+                item
+                lg={1.8}
+                md={12}
+                xs={12}
+                justifyContent={{ lg: "unset", xs: "center" }}
+                display={"flex"}
+                pb={{ lg: 0, xs: 10 }}
+              >
+                <Image src={Logo} height={138} width={138} alt="logo" />
+              </Grid>
+              <Grid
+                item
+                lg={1.8}
+                md={3}
+                sm={6}
+                xs={12}
+                textAlign={{ md: "unset", xs: "center" }}
+              >
+                <Box>
                   <Typography
                     sx={{
                       fontSize: "12px",
@@ -181,117 +79,223 @@ export default function Footer() {
                       textTransform: "uppercase",
                     }}
                   >
-                    {t("title3")}
+                    {t("title1")}
                   </Typography>
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontFamily: inter.style.fontFamily,
-                        fontWeight: 400,
-                        mt: 1,
-                      }}
-                    >
-                      {t("t3sub1")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontFamily: inter.style.fontFamily,
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                      }}
-                    >
-                      {t("t3sub2")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t3sub3")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontFamily: inter.style.fontFamily,
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                      }}
-                    >
-                      {t("t3sub4")}
-                    </Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: "20px",
+                      mt: 2,
+                      justifyContent: { md: "unset", xs: "center" },
+                    }}
+                  >
+                    <Image
+                      src={partner1}
+                      height={81}
+                      width={73}
+                      alt="partner1"
+                    />
+                    <Image
+                      src={partner2}
+                      height={81}
+                      width={73}
+                      alt="partner2"
+                    />
                   </Box>
-                </Grid>
-                <Grid
-                  item
-                  lg={2.6}
-                  md={3}
-                  sm={6}
-                  xs={12}
-                  mt={{ md: 0, xs: 5 }}
-                  textAlign={{ md: "unset", xs: "center" }}
+                </Box>
+              </Grid>
+              <Grid item lg={0.5}></Grid>
+              <Grid
+                item
+                lg={2.6}
+                md={3}
+                sm={6}
+                xs={12}
+                mt={{ md: 0, xs: 5 }}
+                textAlign={{ md: "unset", xs: "center" }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    fontFamily: inter.style.fontFamily,
+                    pb: 2,
+                    textTransform: "uppercase",
+                  }}
                 >
+                  {t("title2")}
+                </Typography>
+                <Box>
                   <Typography
                     sx={{
                       fontSize: "12px",
-                      fontWeight: 600,
-                      pb: 2,
-                      textTransform: "uppercase",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    {t("title4")}
+                    {t("t2sub1")}
                   </Typography>
-                  <Box>
-                    <Typography
-                      sx={{
-                        fontFamily: inter.style.fontFamily,
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                      }}
-                    >
-                      {t("t4sub1")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t4sub2")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t4sub3")}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        mt: 1,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("t4sub4")}
-                    </Typography>
-                  </Box>
-                </Grid>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t2sub2")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t2sub3")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t2sub4")}
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                lg={2.6}
+                md={3}
+                sm={6}
+                xs={12}
+                mt={{ md: 0, xs: 5 }}
+                textAlign={{ md: "unset", xs: "center" }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    pb: 2,
+                    fontFamily: inter.style.fontFamily,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {t("title3")}
+                </Typography>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontFamily: inter.style.fontFamily,
+                      fontWeight: 400,
+                      mt: 1,
+                    }}
+                  >
+                    {t("t3sub1")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                    }}
+                  >
+                    {t("t3sub2")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t3sub3")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                    }}
+                  >
+                    {t("t3sub4")}
+                  </Typography>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                lg={2.6}
+                md={3}
+                sm={6}
+                xs={12}
+                mt={{ md: 0, xs: 5 }}
+                textAlign={{ md: "unset", xs: "center" }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    pb: 2,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {t("title4")}
+                </Typography>
+                <Box>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                    }}
+                  >
+                    {t("t4sub1")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t4sub2")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t4sub3")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      mt: 1,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t4sub4")}
+                  </Typography>
+                </Box>
               </Grid>
             </Grid>
           </Grid>
-        </Box>
+        </Grid>
       </Container>
       <Box
         sx={{
@@ -302,10 +306,10 @@ export default function Footer() {
           <Box
             sx={{
               display: "flex",
-              flexWrap: "wrap",
+              flexDirection: { md: "row", xs: "column" },
               alignItems: "center",
               justifyContent: "center",
-              gap: 5,
+              gap: { md: 5, xs: 3 },
               padding: 2,
               mt: 5,
             }}

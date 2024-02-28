@@ -145,15 +145,18 @@ export default function Partenaires() {
             </Grid>
           </Grid>
         </Grid>
-        <Divider
-          variant="middle"
-          sx={{
-            bgcolor: "#8E9BBF",
-            mt: { md: 8, xs: 5 },
-            borderBottomWidth: "1px",
-          }}
-        />
       </Container>
+
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: { md: 8, xs: 5 },
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
       <Box mt={8}>
         <InfoSlider />
       </Box>

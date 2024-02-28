@@ -169,6 +169,7 @@ export default function Header() {
                 sx={{
                   color: locale === "fr" ? "#FFFFFF" : "#646C88",
                   fontFamily: inter.style.fontFamily,
+                  textDecoration: "none",
                 }}
               >
                 FR
@@ -187,6 +188,7 @@ export default function Header() {
                 sx={{
                   color: locale === "en" ? "#FFFFFF" : "#646C88",
                   fontFamily: inter.style.fontFamily,
+                  textDecoration: "none",
                 }}
               >
                 EN

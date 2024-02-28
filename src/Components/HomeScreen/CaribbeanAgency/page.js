@@ -147,8 +147,8 @@ export default function CaribbeanAgency() {
                           background:
                             "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                           borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
+                          width: { md: "50px", xs: "40px" },
+                          height: { md: "50px", xs: "40px" },
                           padding: 1.7,
                           marginRight: -2,
                           ml: 3,
@@ -192,8 +192,8 @@ export default function CaribbeanAgency() {
                           background:
                             "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                           borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
+                          width: { md: "50px", xs: "40px" },
+                          height: { md: "50px", xs: "40px" },
                           padding: 1.7,
                           marginRight: -2,
                           ":hover": {
@@ -258,45 +258,48 @@ export default function CaribbeanAgency() {
                 </Box>
               </Grid>
             </Grid>
+          </Box>
+        </Container>
 
-            <Divider
-              variant="middle"
-              sx={{
-                display: { md: "block", xs: "none" },
-                bgcolor: "#8E9BBF",
-                mt: { md: 12, xs: 5 },
-                borderBottomWidth: "1px",
-              }}
-            />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "end",
-                gap: 2,
-                mt: 5,
-                mr: 1.5,
-              }}
-            >
-              <Box>
-                <FiberManualRecordIcon
-                  sx={{ color: "#FFFFFF", width: "10px", height: "10px" }}
-                />
-              </Box>
-              <Box>
-                <FiberManualRecordIcon
-                  sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-                />
-              </Box>
-              <Box>
-                <FiberManualRecordIcon
-                  sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-                />
-              </Box>
-              <Box>
-                <FiberManualRecordIcon
-                  sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-                />
-              </Box>
+        <Divider
+          variant="middle"
+          sx={{
+            display: { md: "block", xs: "none" },
+            bgcolor: "#FFFFFF",
+            mt: { md: 12, xs: 5 },
+            opacity: "30%",
+            borderBottomWidth: "1px",
+          }}
+        />
+        <Container disableGutters maxWidth={"xl"}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "end",
+              gap: 2,
+              mt: 5,
+              mr: 1.5,
+            }}
+          >
+            <Box>
+              <FiberManualRecordIcon
+                sx={{ color: "#FFFFFF", width: "10px", height: "10px" }}
+              />
+            </Box>
+            <Box>
+              <FiberManualRecordIcon
+                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
+              />
+            </Box>
+            <Box>
+              <FiberManualRecordIcon
+                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
+              />
+            </Box>
+            <Box>
+              <FiberManualRecordIcon
+                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
+              />
             </Box>
           </Box>
         </Container>
