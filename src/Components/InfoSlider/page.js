@@ -95,10 +95,7 @@ export default function InfoSlider() {
           width: "max-content",
           flexWrap: "nowrap",
           gap: 3,
-          animation: {
-            md: "100s slide infinite linear",
-            xs: "70s slide infinite linear",
-          },
+          animation: "250s slide infinite linear",
         }}
       >
         {infoslider?.map((ele, idx) => {

@@ -179,6 +179,9 @@ export default function CaribbeanAgency() {
                         borderColor: "#8E9BBF",
                       },
                       fontFamily: inter.style.fontFamily,
+                      "& .MuiButton-endIcon": {
+                        marginLeft: 2.2,
+                      },
                     }}
                   >
                     {t("button1")}
