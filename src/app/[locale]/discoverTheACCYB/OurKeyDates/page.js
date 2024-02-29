@@ -2,12 +2,12 @@
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
-import Logo1 from "../../../../Icons/OurKeyDates/Image1.svg";
-import Logo2 from "../../../../Icons/OurKeyDates/Image2.svg";
-import Logo3 from "../../../../Icons/OurKeyDates/Image3.svg";
-import Logo4 from "../../../../Icons/OurKeyDates/Image4.svg";
-import Logo5 from "../../../../Icons/OurKeyDates/Image5.svg";
-import Logo6 from "../../../../Icons/OurKeyDates/Image6.svg";
+import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
+import Logo2 from "../../../../Icons/KeyDates/Image2.svg";
+import Logo3 from "../../../../Icons/KeyDates/Image3.svg";
+import Logo4 from "../../../../Icons/KeyDates/Image4.svg";
+import Logo5 from "../../../../Icons/KeyDates/Image5.svg";
+import Logo6 from "../../../../Icons/KeyDates/Image6.svg";
 import Image from "next/image";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -15,11 +15,6 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
-import LaptopMacIcon from "@mui/icons-material/LaptopMac";
-import HotelIcon from "@mui/icons-material/Hotel";
-import RepeatIcon from "@mui/icons-material/Repeat";
 
 export default function OurKeyDates() {
   return (
