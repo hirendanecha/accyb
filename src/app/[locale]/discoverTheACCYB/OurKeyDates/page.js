@@ -1,45 +1,22 @@
 "use client";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React from "react";
 import { inter } from "../../../../fonts/fonts";
+import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
+import Logo2 from "../../../../Icons/KeyDates/Image2.svg";
+import Logo3 from "../../../../Icons/KeyDates/Image3.svg";
+import Logo4 from "../../../../Icons/KeyDates/Image4.svg";
+import Logo5 from "../../../../Icons/KeyDates/Image5.svg";
+import Logo6 from "../../../../Icons/KeyDates/Image6.svg";
+import Image from "next/image";
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 export default function OurKeyDates() {
-  console.log("my new commint");
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      controls.start({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5 },
-      });
-    }
-  }, [isVisible, controls]);
   return (
     <Box
     // sx={{
@@ -51,13 +28,11 @@ export default function OurKeyDates() {
     >
       <Container disableGutters maxWidth={"xl"}>
         <Box
-          ref={ref}
           sx={{
             mt: { md: 20, xs: 5 },
             padding: "0 16px",
           }}
         >
-          {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
@@ -68,7 +43,6 @@ export default function OurKeyDates() {
           >
             Nos dates clés
           </Typography>
-          {/* </motion.div> */}
         </Box>
       </Container>
       <Divider
@@ -83,827 +57,878 @@ export default function OurKeyDates() {
         }}
       />
       <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
-        <Box
-          sx={{
-            paddingLeft: { md: "50px", xs: "0px" },
-            display: { lg: "block", md: "none", xs: "none" },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              position: "relative",
-              pb: 70,
-            }}
-          >
-            <Box
-              sx={{
-                border: "1px solid #B3D7C8",
-                padding: 10,
-                borderRadius: "50%",
-                height: "354px",
-                width: "354px",
-                position: "absolute",
-                top: 0,
-                bottom: 0,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  width: "100px",
-                  fontSize: "36px",
-                  lineHeight: "38px",
-                  color: "#007A47",
-                  fontWeight: "300",
-                  textTransform: "uppercase",
-                  marginLeft: "33px",
-                }}
-              >
-                04 juin 2021
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Délibération
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                de la Région
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Guadeloupe
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                border: "1px solid #B3D7C8",
-                padding: 10,
-                borderRadius: "50%",
-                height: "354px",
-                width: "354px",
-                position: "absolute",
-                top: 150,
-                bottom: 0,
-                left: 250,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  width: "100px",
-                  fontSize: "36px",
-                  lineHeight: "38px",
-                  color: "#007A47",
-                  fontWeight: "300",
-                  textTransform: "uppercase",
-                  marginLeft: "33px",
-                }}
-              >
-                04 juin 2021
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Délibération
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                de la Région
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Guadeloupe
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                border: "1px solid #B3D7C8",
-                padding: 10,
-                borderRadius: "50%",
-                height: "354px",
-                width: "354px",
-                top: 0,
-                bottom: 0,
-                position: "absolute",
-                left: 500,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  width: "100px",
-                  fontSize: "36px",
-                  lineHeight: "38px",
-                  color: "#007A47",
-                  fontWeight: "300",
-                  textTransform: "uppercase",
-                  marginLeft: "33px",
-                }}
-              >
-                04 juin 2021
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Délibération
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                de la Région
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Guadeloupe
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                border: "1px solid #B3D7C8",
-                padding: 10,
-                borderRadius: "50%",
-                height: "354px",
-                width: "354px",
-                position: "absolute",
-                top: 150,
-                bottom: 0,
-                left: 750,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  width: "100px",
-                  fontSize: "36px",
-                  lineHeight: "38px",
-                  color: "#007A47",
-                  fontWeight: "300",
-                  textTransform: "uppercase",
-                  marginLeft: "33px",
-                }}
-              >
-                04 juin 2021
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Délibération
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                de la Région
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  display: "flex",
-                  justifyContent: "center",
-                  mt: 0.5,
-                  color: "#222D55",
-                  lineHeight: "16px",
-                  fontSize: "19px",
-                  fontWeight: 400,
-                  textTransform: "uppercase",
-                }}
-              >
-                Guadeloupe
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-        {/* {"medium screen"} */}
-        <Box
-          sx={{
-            paddingLeft: "50px",
-            display: { lg: "none", md: "block", xs: "none" },
-          }}
-        >
-          <Grid container rowSpacing={5}>
-            <Grid item md={6} xs={12}>
-              <Box
-                sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "354px",
-                  width: "354px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    width: "100px",
-                    fontSize: "36px",
-                    lineHeight: "38px",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
-                    marginLeft: "33px",
-                  }}
-                >
-                  04 juin 2021
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  de la Région
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Guadeloupe
-                </Typography>
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {" "}
+          <Grid container>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4 }}>
+                <Box>
+                  <svg
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box mt={-3}>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    04 juin 2021
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Délibération
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de la Région
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Guadeloupe
+                  </Typography>
+                  <Box mt={1}>
+                    <Image src={Logo1} width={70} height={70} alt="logo1" />
+                  </Box>
+                </Box>
               </Box>
             </Grid>
-            <Grid item md={6} xs={12}>
-              <Box
-                sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "354px",
-                  width: "354px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    width: "100px",
-                    fontSize: "36px",
-                    lineHeight: "38px",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
-                    marginLeft: "33px",
-                  }}
-                >
-                  04 juin 2021
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  de la Région
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Guadeloupe
-                </Typography>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4 }}>
+                <Box>
+                  <svg
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box mt={-3}>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    24 AVRIL 2022
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Délibération
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de la Collectivité
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    territoriale
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de Guyane
+                  </Typography>
+                  <Box mt={1}>
+                    <Image src={Logo2} width={70} height={70} alt="logo1" />
+                  </Box>
+                </Box>
               </Box>
             </Grid>
-            <Grid item md={6} xs={12}>
-              <Box
-                sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "354px",
-                  width: "354px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    width: "100px",
-                    fontSize: "36px",
-                    lineHeight: "38px",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
-                    marginLeft: "33px",
-                  }}
-                >
-                  04 juin 2021
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  de la Région
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Guadeloupe
-                </Typography>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4 }}>
+                <Box>
+                  <svg
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box mt={-3}>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    26 septembre 2022
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Signature de la convention de
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    création du centre de
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    ressources cyber avec le SGDSN
+                  </Typography>
+                  <Box mt={1}>
+                    <Image src={Logo3} width={70} height={70} alt="logo1" />
+                  </Box>
+                </Box>
               </Box>
             </Grid>
-            <Grid item md={6} xs={12}>
-              <Box
-                sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "354px",
-                  width: "354px",
-                }}
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    width: "100px",
-                    fontSize: "36px",
-                    lineHeight: "38px",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
-                    marginLeft: "33px",
-                  }}
-                >
-                  04 juin 2021
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  de la Région
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    justifyContent: "center",
-                    mt: 0.5,
-                    color: "#222D55",
-                    lineHeight: "16px",
-                    fontSize: "19px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Guadeloupe
-                </Typography>
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <svg
+                width="227"
+                height="45"
+                viewBox="0 0 227 45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
+                  fill="#007A47"
+                />
+              </svg>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
+                <Box>
+                  <svg
+                    style={{ rotate: "180deg" }}
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box>
+                  <Box mt={1}>
+                    <Image src={Logo4} width={70} height={70} alt="logo1" />
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    04 février 2022
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Délibération
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de la Collectivité
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    d’Outre-Mer
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de Saint-Barthélemy
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
+                <Box>
+                  <svg
+                    style={{ rotate: "180deg" }}
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box>
+                  <Box mt={1}>
+                    <Image src={Logo5} width={70} height={70} alt="logo1" />
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    12 Juillet 2022
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    LOREM
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    IPSUM DOLORES
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    SIT DEUM
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
+                <Box>
+                  <svg
+                    style={{ rotate: "180deg" }}
+                    width="52"
+                    height="230"
+                    viewBox="0 0 52 230"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="25.5"
+                      y1="230"
+                      x2="25.5"
+                      y2="80"
+                      stroke="#007A47"
+                    />
+                    <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
+                    <circle cx="26" cy="26" r="4" fill="#007A47" />
+                  </svg>
+                </Box>
+                <Box>
+                  <Box mt={1}>
+                    <Image src={Logo6} width={70} height={70} alt="logo1" />
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      width: "100px",
+                      fontSize: "36px",
+                      lineHeight: "38px",
+                      color: "#007A47",
+                      fontWeight: "300",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    11 MAI 2023
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 2,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Délibération
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de la Collectivité
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    d’Outre-Mer
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      display: "flex",
+                      justifyContent: "start",
+                      mt: 0.5,
+                      color: "#222D55",
+                      lineHeight: "16px",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    de Saint-Martin
+                  </Typography>
+                </Box>
               </Box>
             </Grid>
           </Grid>
         </Box>
-        {/* {"mobile screen"} */}
-        <Box
-          sx={{
-            paddingLeft: { md: "50px", xs: "0px" },
-            display: { lg: "none", md: "none", xs: "block" },
-          }}
-        >
-          <Grid container rowSpacing={2}>
-            <Grid
-              item
-              md={6}
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Box
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          {" "}
+          <Timeline position="alternate">
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
                 sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "250px",
-                  width: "250px",
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
+                }}
+                color="#007A47"
+              >
+                04 juin 2021
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo1} alt="logo1" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent sx={{ py: "12px", px: 2 }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { sm: "15px", xs: "14px" },
+                  }}
+                  component="span"
+                >
+                  Délibération <br />
+                  de la Région <br />
+                  Guadeloupe
+                </Typography>
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
+                sx={{
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
+                }}
+                color="#007A47"
+              >
+                24 AVRIL 2022
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo2} alt="logo2" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent
+                sx={{
+                  fontFamily: inter.style.fontFamily,
                 }}
               >
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    color: "#222D55",
-                    fontSize: "16px",
-                    width: "100px",
-                    textWrap: "wrap",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
+                    fontSize: { sm: "15px", xs: "14px" },
                   }}
                 >
-                  04 juin 2021
+                  Délibération <br />
+                  de la Collectivité <br />
+                  territoriale <br />
+                  de Guyane
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    mt: 1,
-                    color: "#222D55",
-                    lineHeight: "18px",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération de la Région Guadeloupe
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Box
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
                 sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "250px",
-                  width: "250px",
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
                 }}
+                color="#007A47"
               >
+                26 septembre 2022
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo3} alt="logo3" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent sx={{ py: "12px", px: 2 }}>
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    color: "#222D55",
-                    fontSize: "16px",
-                    width: "100px",
-                    textWrap: "wrap",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
+                    fontSize: { sm: "15px", xs: "14px" },
                   }}
+                  component="span"
                 >
-                  04 juin 2021
+                  Signature de la convention de <br />
+                  création du centre de <br />
+                  ressources cyber avec le SGDSN
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    mt: 1,
-                    color: "#222D55",
-                    lineHeight: "18px",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération de la Région Guadeloupe
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Box
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
                 sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "250px",
-                  width: "250px",
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
                 }}
+                color="#007A47"
               >
+                04 février 2022
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo4} alt="logo4" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
                 <Typography
                   sx={{
-                    fontFamily: inter.style.fontFamily,
-                    color: "#222D55",
-                    fontSize: "16px",
-                    width: "100px",
-                    textWrap: "wrap",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
+                    fontSize: {
+                      sm: "15px",
+                      xs: "14px",
+                      fontFamily: inter.style.fontFamily,
+                    },
                   }}
                 >
-                  04 juin 2021
+                  Délibération <br />
+                  de la Collectivité <br />
+                  d’Outre-Mer <br />
+                  de Saint-Barthélemy
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    mt: 1,
-                    color: "#222D55",
-                    lineHeight: "18px",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Délibération de la Région Guadeloupe
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Box
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
                 sx={{
-                  border: "1px solid #B3D7C8",
-                  padding: 10,
-                  borderRadius: "50%",
-                  height: "250px",
-                  width: "250px",
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
                 }}
+                color="#007A47"
               >
+                12 Juillet 2022
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo5} alt="logo5" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent sx={{ py: "12px", px: 2 }}>
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    color: "#222D55",
-                    fontSize: "16px",
-                    width: "100px",
-                    textWrap: "wrap",
-                    color: "#007A47",
-                    fontWeight: "300",
-                    textTransform: "uppercase",
+                    fontSize: { sm: "15px", xs: "14px" },
                   }}
+                  ś
                 >
-                  04 juin 2021
+                  LOREM <br />
+                  IPSUM DOLORES <br />
+                  SIT DEUM
                 </Typography>
+              </TimelineContent>
+            </TimelineItem>
+            <TimelineItem sx={{ mt: 5 }}>
+              <TimelineOppositeContent
+                sx={{
+                  m: "auto 0",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { sm: "15px", xs: "14px" },
+                }}
+                color="#007A47"
+              >
+                11 MAI 2023
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <Image src={Logo6} alt="logo6" width={100} height={100} />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
                 <Typography
                   sx={{
+                    fontSize: { sm: "14px", xs: "15px" },
                     fontFamily: inter.style.fontFamily,
-                    display: "flex",
-                    mt: 1,
-                    color: "#222D55",
-                    lineHeight: "18px",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    textTransform: "uppercase",
                   }}
                 >
-                  Délibération de la Région Guadeloupe
+                  Délibération <br />
+                  de la Collectivité <br />
+                  d’Outre-Mer <br />
+                  de Saint-Martin
                 </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+              </TimelineContent>
+            </TimelineItem>
+          </Timeline>
         </Box>
       </Container>
     </Box>
