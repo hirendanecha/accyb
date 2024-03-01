@@ -1,5 +1,12 @@
 "use client";
-import { Box, Container, Divider, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
@@ -9,13 +16,12 @@ import Logo4 from "../../../../Icons/KeyDates/Image4.svg";
 import Logo5 from "../../../../Icons/KeyDates/Image5.svg";
 import Logo6 from "../../../../Icons/KeyDates/Image6.svg";
 import Image from "next/image";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-
+import Timeline from "../../../../../public/Timeline.svg";
+import Timeline2 from "../../../../../public/Timeline2.svg";
+const Img = styled(Image)(({ theme }) => ({
+  width: "100% !important",
+  height: "auto !important",
+}));
 export default function OurKeyDates() {
   return (
     <Box
@@ -58,7 +64,6 @@ export default function OurKeyDates() {
       />
       <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
-          {" "}
           <Grid container>
             <Grid item xs={12} md={4}>
               <Box sx={{ display: "flex", gap: 4 }}>
@@ -738,197 +743,14 @@ export default function OurKeyDates() {
             </Grid>
           </Grid>
         </Box>
-        <Box sx={{ display: { xs: "block", md: "none" } }}>
-          {" "}
-          <Timeline position="alternate">
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                04 juin 2021
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo1} alt="logo1" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: { sm: "15px", xs: "14px" },
-                  }}
-                  component="span"
-                >
-                  Délibération <br />
-                  de la Région <br />
-                  Guadeloupe
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                24 AVRIL 2022
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo2} alt="logo2" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: { sm: "15px", xs: "14px" },
-                  }}
-                >
-                  Délibération <br />
-                  de la Collectivité <br />
-                  territoriale <br />
-                  de Guyane
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                26 septembre 2022
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo3} alt="logo3" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: { sm: "15px", xs: "14px" },
-                  }}
-                  component="span"
-                >
-                  Signature de la convention de <br />
-                  création du centre de <br />
-                  ressources cyber avec le SGDSN
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                04 février 2022
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo4} alt="logo4" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography
-                  sx={{
-                    fontSize: {
-                      sm: "15px",
-                      xs: "14px",
-                      fontFamily: inter.style.fontFamily,
-                    },
-                  }}
-                >
-                  Délibération <br />
-                  de la Collectivité <br />
-                  d’Outre-Mer <br />
-                  de Saint-Barthélemy
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                12 Juillet 2022
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo5} alt="logo5" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: { sm: "15px", xs: "14px" },
-                  }}
-                  ś
-                >
-                  LOREM <br />
-                  IPSUM DOLORES <br />
-                  SIT DEUM
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem sx={{ mt: 5 }}>
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { sm: "15px", xs: "14px" },
-                }}
-                color="#007A47"
-              >
-                11 MAI 2023
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <Image src={Logo6} alt="logo6" width={100} height={100} />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography
-                  sx={{
-                    fontSize: { sm: "14px", xs: "15px" },
-                    fontFamily: inter.style.fontFamily,
-                  }}
-                >
-                  Délibération <br />
-                  de la Collectivité <br />
-                  d’Outre-Mer <br />
-                  de Saint-Martin
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-          </Timeline>
+        <Box
+          sx={{
+            display: { xs: "block", md: "none" },
+            mt: 5,
+            padding: { sm: "0 100px", xs: "0 10px" },
+          }}
+        >
+          <Img src={Timeline2} height={900} width={900} />
         </Box>
       </Container>
     </Box>

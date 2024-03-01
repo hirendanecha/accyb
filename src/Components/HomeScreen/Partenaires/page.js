@@ -62,6 +62,7 @@ export default function Partenaires() {
           mt: 6,
           display: "flex",
           overflowX: "scroll",
+          gap: {md : 0 , xs : 2},
           justifyContent: { md: "space-around", xs: "unset" },
           "&::-webkit-scrollbar": {
             width: "0.4em",
