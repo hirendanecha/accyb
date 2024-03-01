@@ -73,7 +73,7 @@ export default function CaribbeanAgency() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: { md: "970px", xs: "690px" },
+          height: { lg: "970px", md: "950px", sm: "900px", xs: "770px" },
           width: "100%",
         }}
       >
@@ -232,16 +232,22 @@ export default function CaribbeanAgency() {
                   </Button>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={12} position={"relative"}>
+              <Grid
+                item
+                xs={12}
+                md={12}
+                position={"relative"}
+                sx={{ display: { md: "block", xs: "none" } }}
+              >
                 <Box
                   sx={{
-                    display: { lg: "flex", xs: "none" },
+                    display: "flex",
                     gap: 2,
                     cursor: "pointer",
                     alignItems: "center",
                     position: "absolute",
                     right: 10,
-                    bottom: -50,
+                    bottom: { md: -70, xs: -60 },
                   }}
                 >
                   <Box onClick={handleContactUsClick}>
@@ -256,7 +262,6 @@ export default function CaribbeanAgency() {
                       Scroll
                     </Typography>
                   </Box>
-
                   <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
                 </Box>
               </Grid>
@@ -267,9 +272,9 @@ export default function CaribbeanAgency() {
         <Divider
           variant="middle"
           sx={{
-            display: { md: "block", xs: "none" },
+            // display: { md: "block", xs: "none" },
             bgcolor: "#FFFFFF",
-            mt: { md: 12, xs: 5 },
+            mt: { md: 12, xs: 10 },
             opacity: "30%",
             borderBottomWidth: "1px",
           }}
@@ -304,6 +309,30 @@ export default function CaribbeanAgency() {
                 sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
               />
             </Box>
+            <Grid item xs={12} md={12} display={{ md: "none", xs: "block" }} ml={2}>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  cursor: "pointer",
+                  alignItems: "center",
+                }}
+              >
+                <Box onClick={handleContactUsClick}>
+                  <Typography
+                    sx={{
+                      color: "#FFFFFF",
+                      fontSize: "20px",
+                      fontWeight: 400,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    Scroll
+                  </Typography>
+                </Box>
+                <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+              </Box>
+            </Grid>
           </Box>
         </Container>
       </Box>

@@ -142,7 +142,14 @@ export default function OurMission() {
           mb: { md: 10, xs: 4 },
         }}
       />
-      <Box sx={{ position: "absolute", right: 0, top: 0 }}>
+      <Box
+        sx={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          display: { md: "block", xs: "none" },
+        }}
+      >
         <svg
           width="465"
           height="955"
@@ -185,7 +192,14 @@ export default function OurMission() {
           </defs>
         </svg>
       </Box>
-      <Box sx={{ position: "absolute", left: 0, top: 100 }}>
+      <Box
+        sx={{
+          position: "absolute",
+          left: 0,
+          top: 100,
+          display: { md: "block", xs: "none" },
+        }}
+      >
         <svg
           width="494"
           height="955"

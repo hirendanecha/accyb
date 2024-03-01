@@ -24,7 +24,7 @@ const Img = styled(Image)(({ theme }) => ({
   width: "50px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
-    width: "40px !important",
+    width: "30px !important",
     height: "auto !important",
   },
   [theme.breakpoints.down("xs")]: {
@@ -128,7 +128,7 @@ export default function MajorActivity() {
         <Box
           ref={ref}
           sx={{
-            mt: { md: 20, xs: 10 },
+            mt: { md: 20, xs: 5 },
             padding: "0 16px",
           }}
         >
@@ -136,7 +136,7 @@ export default function MajorActivity() {
             <Typography
               sx={{
                 fontWeight: 400,
-                fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+                fontSize: { md: "70px", xs: "28px", lineHeight: "50px" },
                 color: "#222D55",
                 fontFamily: inter.style.fontFamily,
               }}
@@ -160,7 +160,7 @@ export default function MajorActivity() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid
           container
-          mt={5}
+          mt={{ md: 5, xs: 3 }}
           columnSpacing={2}
           rowSpacing={2}
           sx={{ padding: "0 16px" }}
@@ -227,7 +227,7 @@ export default function MajorActivity() {
                       height: "100%",
                       position: "relative",
                       zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 2 },
+                      gap: { lg: 3, md: 2, xs: 3 },
                     }}
                   >
                     <Grid item xs={3} sm={4}>
@@ -239,8 +239,8 @@ export default function MajorActivity() {
                           justifyContent: "center",
                           alignItems: "center",
                           border: "1px solid #8E9BBF",
-                          height: { lg: "140px", sm: "120px", xs: "80px" },
-                          width: { lg: "140px", sm: "120px", xs: "80px" },
+                          height: { lg: "140px", sm: "120px", xs: "88px" },
+                          width: { lg: "140px", sm: "120px", xs: "88px" },
                         }}
                       >
                         <Img
@@ -260,8 +260,8 @@ export default function MajorActivity() {
                           <Typography
                             sx={{
                               fontFamily: inter.style.fontFamily,
-                              fontSize: { lg: "32px", md: "30px", xs: "18px" },
-                              fontWeight: { lg: 500, xs: 600 },
+                              fontSize: { lg: "32px", md: "30px", xs: "22px" },
+                              fontWeight: { lg: 500, xs: 400 },
                               lineHeight: { md: "42px", xs: "25px" },
                               color: "#222D55",
                               display: "flex",
