@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Tech from "../../../../Icons/Discover/Img1.svg";
-import Doctor from "../../../../Icons/Discover/Img4.svg";
-import Adviser from "../../../../Icons/MajorActivity/Adviser.svg";
-import Scan from "../../../../Icons/Discover/Img3.svg";
-import Key from "../../../../Icons/Discover/Img5.svg";
-import Tower from "../../../../Icons/Discover/Img6.svg";
+import Image1 from "../../../../Icons/Discover/Image1.svg";
+import Image2 from "../../../../Icons/Discover/Image2.svg";
+import Image3 from "../../../../Icons/Discover/Image3.svg";
+import Image4 from "../../../../Icons/Discover/Image4.svg";
+import Image5 from "../../../../Icons/Discover/Image5.svg";
+import Image6 from "../../../../Icons/Discover/Image6.svg";
+import Image7 from "../../../../Icons/Discover/Image7.svg";
+import Image8 from "../../../../Icons/Discover/Image8.svg";
 import {
   Box,
   Container,
@@ -62,32 +64,40 @@ export default function OurMission() {
   }, [isVisible, controls]);
   const activites = [
     {
-      img: Tech,
-      title: "Actions de sensibilisations des bénéficiaires et du grand public",
+      img: Image1,
+      title: "Diagnostic cybersécurité",
     },
     {
-      img: Adviser,
-      title: "Centre de réponses à incident via le CSIRT-ATLANTIC",
+      img: Image2,
+      title: "Sensibilisation du grand public",
     },
     {
-      img: Scan,
-      title: "Scan de vulnérabilités pour les membres adhérents",
+      img: Image3,
+      title: "Ambassadeur cyber",
     },
     {
-      img: Doctor,
-      title: "Diagnostique via mon aide cyber",
+      img: Image4,
+      title: "Documentation de référence",
     },
     {
-      img: Key,
-      title: "Suivi de l’état cyber des bénéficiaires",
+      img: Image5,
+      title: "Consultation stratégique",
     },
     {
-      img: Tower,
-      title: "Diffusion d’alertes de sécurité",
+      img: Image6,
+      title: "Suivi de maturité Cyber",
+    },
+    {
+      img: Image7,
+      title: "Sensibilisation des adhérents",
+    },
+    {
+      img: Image8,
+      title: "Exercice de cyber-crise",
     },
   ];
   return (
-    <Box>
+    <Box sx={{ position: "relative" }}>
       <Container disableGutters maxWidth={"xl"}>
         <Box
           ref={ref}
@@ -100,12 +110,23 @@ export default function OurMission() {
           <Typography
             sx={{
               fontWeight: 400,
+              fontSize: { md: "14px", xs: "12px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+            }}
+          >
+            Nos services
+          </Typography>
+          <Typography
+            sx={{
+              fontWeight: 400,
+              mt: { md: 4, xs: 2 },
               fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
               fontFamily: inter.style.fontFamily,
             }}
           >
-            Quelles sont nos missions ?
+            Les services de l'ACCYB
           </Typography>
           {/* </motion.div> */}
         </Box>
@@ -121,6 +142,88 @@ export default function OurMission() {
           mb: { md: 10, xs: 4 },
         }}
       />
+      <Box sx={{ position: "absolute", right: 0, top: 0 }}>
+        <svg
+          width="465"
+          height="955"
+          viewBox="0 0 465 955"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.1" filter="url(#filter0_f_1856_4411)">
+            <ellipse
+              cx="477.5"
+              cy="477.5"
+              rx="317.5"
+              ry="317.5"
+              transform="rotate(-180 477.5 477.5)"
+              fill="#61F4C0"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_1856_4411"
+              x="0"
+              y="0"
+              width="955"
+              height="955"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="80"
+                result="effect1_foregroundBlur_1856_4411"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </Box>
+      <Box sx={{ position: "absolute", left: 0, top: 100 }}>
+        <svg
+          width="494"
+          height="955"
+          viewBox="0 0 494 955"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.1" filter="url(#filter0_f_1856_4412)">
+            <path
+              d="M-301 477.5C-301 302.15 -158.85 160 16.5 160C191.85 160 334 302.15 334 477.5C334 652.85 191.85 795 16.5 795C-158.85 795 -301 652.85 -301 477.5Z"
+              fill="#61F4C0"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_1856_4412"
+              x="-461"
+              y="0"
+              width="955"
+              height="955"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="80"
+                result="effect1_foregroundBlur_1856_4412"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </Box>
       <Container disableGutters maxWidth={"xl"}>
         <Grid
           container
@@ -131,11 +234,11 @@ export default function OurMission() {
         >
           {activites?.map((ele, index) => {
             return (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={4} key={index}>
                 <Box
                   sx={{
                     display: "flex",
-                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                    padding: { lg: 5, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
                     border: "2px solid",
                     borderImageSource:
@@ -193,7 +296,7 @@ export default function OurMission() {
                       height: "100%",
                       position: "relative",
                       zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 2 },
+                      gap: { lg: 3, md: 2, sm: 3, xs: 3 },
                     }}
                   >
                     <Grid item xs={3} sm={4}>
@@ -205,8 +308,8 @@ export default function OurMission() {
                           justifyContent: "center",
                           alignItems: "center",
                           border: "1px solid #8E9BBF",
-                          height: { lg: "160px", sm: "120px", xs: "80px" },
-                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                          height: { lg: "119.82px", sm: "100px", xs: "80px" },
+                          width: { lg: "119.82px", sm: "100px", xs: "80px" },
                         }}
                       >
                         <Img
@@ -225,9 +328,9 @@ export default function OurMission() {
                         > */}
                         <Typography
                           sx={{
-                            fontSize: { lg: "38px", md: "30px", xs: "18px" },
+                            fontSize: { lg: "25px", md: "20px", xs: "18px" },
                             fontWeight: 400,
-                            lineHeight: { md: "42px", xs: "25px" },
+                            lineHeight: { md: "27px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             color: "#222D55",
                             display: "flex",
