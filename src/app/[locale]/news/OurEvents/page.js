@@ -124,13 +124,25 @@ export default function OurEvents() {
         >
           Nos événements
         </Typography>
+      </Container>
+      <Divider
+        variant="middle"
+        sx={{
+          display: { md: "block", xs: "none" },
+          bgcolor: "#222D55",
+          mt: 1,
+          opacity: "20%",
+          borderBottomWidth: "1px",
+        }}
+      />
+      <Container disableGutters maxWidth={"xl"}>
         <Box
           sx={{
             overflowX: "auto",
             width: "100%",
             display: "flex",
             "&::-webkit-scrollbar": {
-              display: "none",
+              width: "0.4em",
             },
           }}
         >
@@ -139,9 +151,10 @@ export default function OurEvents() {
               display: "flex",
               gap: 1,
               mt: { md: 5, xs: 2 },
-              overflowX: "scroll",
+              overflowX: "auto",
+              cursor: "grab",
               "&::-webkit-scrollbar": {
-                display: "none",
+                width: "0.4em",
               },
             }}
           >
@@ -151,7 +164,7 @@ export default function OurEvents() {
                   onClick={() => handleClick(ele)}
                   key={idx}
                   sx={{
-                    minWidth: "180px",
+                    minWidth: "220px",
                     fontFamily: inter.style.fontFamily,
                     backgroundImage:
                       currentCategory == ele
