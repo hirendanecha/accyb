@@ -16,7 +16,7 @@ import Logo4 from "../../../../Icons/KeyDates/Image4.svg";
 import Logo5 from "../../../../Icons/KeyDates/Image5.svg";
 import Logo6 from "../../../../Icons/KeyDates/Image6.svg";
 import Image from "next/image";
-import Timeline from "../../../../../public/Timeline.svg";
+import Timeline from "../../../../Icons/TimeLine.svg";
 import Timeline2 from "../../../../../public/Timeline2.svg";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -353,88 +353,22 @@ export default function OurKeyDates() {
           </Grid>
           <Grid container>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
             <Grid item xs={12} md={2}>
-              <svg
-                width="227"
-                height="45"
-                viewBox="0 0 227 45"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0H216.843L227 22.5L216.843 45H0L10.1566 22.5L0 0Z"
-                  fill="#007A47"
-                />
-              </svg>
+              <Img src={Timeline} alt="timeline" />
             </Grid>
           </Grid>
           <Grid container>

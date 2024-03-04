@@ -132,7 +132,7 @@ export default function HowToWorkSlider() {
       component="section"
       sx={{
         padding: "0 30px",
-        pt: { xs: 28, sm: 28, lg: 32, xl: 30 },
+        pt: { xs: 10, sm: 10, lg: 15, xl: 20 },
       }}
     >
       <Container disableGutters maxWidth={"xl"}>
