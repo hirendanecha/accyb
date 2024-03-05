@@ -123,13 +123,15 @@ export default function OurMission() {
         >
           {activites?.map((ele, index) => {
             return (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={4} key={index}>
                 <Box
                   sx={{
                     display: "flex",
-                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                    padding: { lg: 4, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
-                    border: "2px solid #BE0011",
+                    border: "2px solid",
+                    borderImageSource:
+                      "linear-gradient(46.93deg, #BE0011 -9.61%, #BE0011 78.14%)",
                     borderImageSlice: 1,
                     position: "relative",
                     borderRadius: "20px",
@@ -138,42 +140,42 @@ export default function OurMission() {
                   }}
                 >
                   {/* {index !== 0 && !mdDown ? (
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: -3,
-                      right: -3,
-                      height: "80px",
-                      width: "80px",
-                      borderLeft:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderBottom:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderRadius: "0 0 0% 30%",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                    }}
-                  />
-                ) : (
-                  ""
-                )} */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: -3,
+                    right: -3,
+                    height: "80px",
+                    width: "80px",
+                    borderLeft:
+                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                    borderBottom:
+                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                    borderRadius: "0 0 0% 30%",
+                    zIndex: 0,
+                    backgroundColor: "#fff",
+                  }}
+                />
+              ) : (
+                ""
+              )} */}
                   {/* <Box
-                    sx={{
-                      position: "absolute",
-                      top: -2,
-                      right: "75px",
-                      height: "50px",
-                      width: "50px",
-                      borderTop: "2px solid #7DB1FF",
-                      borderRight: "2px solid #7DB1FF",
-                      borderRadius: "0 30% 0% 0%",
-                      backgroundColor:"red",
-                      // transform: "translate(50%, -50%)",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                      // boxShadow: "0px 0px 0px 1000px #fff",
-                    }}
-                  /> */}
+                  sx={{
+                    position: "absolute",
+                    top: -2,
+                    right: "75px",
+                    height: "50px",
+                    width: "50px",
+                    borderTop: "2px solid #7DB1FF",
+                    borderRight: "2px solid #7DB1FF",
+                    borderRadius: "0 30% 0% 0%",
+                    backgroundColor:"red",
+                    // transform: "translate(50%, -50%)",
+                    zIndex: 0,
+                    backgroundColor: "#fff",
+                    // boxShadow: "0px 0px 0px 1000px #fff",
+                  }}
+                /> */}
                   <Grid
                     container
                     sx={{
@@ -183,7 +185,7 @@ export default function OurMission() {
                       height: "100%",
                       position: "relative",
                       zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 2 },
+                      gap: { lg: 1.5, md: 2, sm: 3, xs: 3 },
                     }}
                   >
                     <Grid item xs={3} sm={4}>
@@ -194,25 +196,31 @@ export default function OurMission() {
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
-                          height: { lg: "160px", sm: "120px", xs: "80px" },
-                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                          border: "1px solid #8E9BBF",
+                          height: { lg: "119.82px", sm: "100px", xs: "80px" },
+                          width: { lg: "119.82px", sm: "100px", xs: "80px" },
                         }}
                       >
-                        {/* <Img src={ele?.img} height={900} width={900} alt="img" /> */}
+                        <Img
+                          src={ele?.img}
+                          height={900}
+                          width={900}
+                          alt="img"
+                        />
                       </Box>
                     </Grid>
                     <Grid item xs={8} sm={7}>
                       <Box ref={ref}>
                         {/* <motion.div
-                          initial={{ opacity: 0, y: 50 }}
-                          animate={controls}
-                        > */}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={controls}
+                      > */}
                         <Typography
                           sx={{
-                            fontFamily: inter.style.fontFamily,
-                            fontSize: { lg: "38px", md: "30px", xs: "18px" },
+                            fontSize: { lg: "25px", md: "20px", xs: "18px" },
                             fontWeight: 400,
-                            lineHeight: { md: "42px", xs: "25px" },
+                            lineHeight: { md: "27px", xs: "22px" },
+                            fontFamily: inter.style.fontFamily,
                             color: "#222D55",
                             display: "flex",
                             textAlign: "start",
@@ -220,6 +228,22 @@ export default function OurMission() {
                           }}
                         >
                           {ele?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                            fontWeight: 400,
+                            lineHeight: { md: "18px", xs: "16px" },
+                            fontFamily: inter.style.fontFamily,
+                            color: "#222D55",
+                            display: "flex",
+                            mt: 1,
+                            textAlign: "start",
+                          }}
+                        >
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Natus tempora nisi quis, beatae, neque, deserunt
+                          cupiditate modi excepturi velit ut error?
                         </Typography>
                         {/* </motion.div> */}
                       </Box>

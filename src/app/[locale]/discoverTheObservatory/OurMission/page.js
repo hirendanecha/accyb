@@ -90,13 +90,40 @@ export default function OurMission() {
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
-              fontWeight: 400,
-              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
             }}
           >
-            Quelles sont nos missions ?
+            Nos services
           </Typography>
+          <Box
+            mt={1}
+            sx={{
+              fontFamily: inter.style.fontFamily,
+              fontSize: {
+                md: "75px",
+                sm: "60px",
+                xs: "30px",
+              },
+              color: "#222D55",
+              fontWeight: 400,
+              lineHeight: {
+                md: "85px",
+                sm: "75px",
+                xs: "40px",
+              },
+              maxWidth: "900px !important",
+            }}
+          >
+            Découvrir{" "}
+            <span
+              style={{
+                color: "#7DB1FF",
+              }}
+            >
+              les services
+            </span>{" "}
+            de l’ACCYB
+          </Box>
           {/* </motion.div> */}
         </Box>
       </Container>

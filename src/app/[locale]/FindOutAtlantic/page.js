@@ -12,9 +12,9 @@ export default function FindOutAtlantic() {
       {/* {"hero section"} */}
       <HeroSection />
       {/* {"out mission"} */}
-      <OurMission />
-      {/* {"Our Service"} */}
       <OurService />
+      {/* {"Our Service"} */}
+      <OurMission />
       {/* {"our operation"} */}
       <OurPartners />
     </>

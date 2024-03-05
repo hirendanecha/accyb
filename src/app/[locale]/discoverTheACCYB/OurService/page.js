@@ -133,7 +133,7 @@ export default function OurService() {
                     md={3}
                     sx={{
                       marginTop: "30px",
-                      marginLeft: { md: 0, xs: "-150px" },
+                      marginLeft: { md: "20px", xs: "-150px" },
                     }}
                   >
                     <Box

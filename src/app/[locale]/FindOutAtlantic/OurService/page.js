@@ -1,10 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import Tech from "../../../../Icons/Discover/Img1.svg";
-import Doctor from "../../../../Icons/Discover/Img4.svg";
-import Adviser from "../../../../Icons/MajorActivity/Adviser.svg";
-import Announce from "../../../../Icons/Announce.svg";
-import Eye from "../../../../Icons/MajorActivity/Eye.svg";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Container,
@@ -13,186 +8,67 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { useAnimation, motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import Picto2 from "../../../../Icons/Picto2.svg";
+// import required modules
+import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 
-const Img = styled(Image)(({ theme }) => ({
-  width: "39px !important",
-  height: "auto !important",
-  [theme.breakpoints.down("lg")]: {
-    width: "30px !important",
-    height: "auto !important",
-  },
-}));
-
 export default function OurService() {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      controls.start({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5 },
-      });
-    }
-  }, [isVisible, controls]);
-  const ourservice = [
+  const data = [
     {
-      img: "",
       title: "Répondre",
       description:
-        "Offrir une réponse de premier niveau pour les incidents cyber survenant chez ses bénéficiaires (triage et qualification des signalements) ;",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
     },
     {
-      img: Adviser,
+      title: "Protéger",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    },
+    {
+      title: "Coopérer",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    },
+    {
       title: "Répondre",
       description:
-        "Rediriger ses bénéficiaires vers des prestataires territoriaux pour la remédiation de l’incident ;",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
     },
     {
-      img: Adviser,
-      title: "Manager",
-      description: "Suivre le traitement de l’incident jusqu’à sa clôture",
-    },
-    {
-      img: Eye,
-      title: "Agir",
+      title: "Protéger",
       description:
-        "Agir comme un relai entre le CERT-FR, les prestataires régionaux, les services de Police et de Gendarmerie et les bénéficiaires",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
     },
     {
-      img: Announce,
-      title: "Représentation",
+      title: "Coopérer",
       description:
-        "Consolider les statistiques d’incidentologie à l’échelle inter-régionale (Guadeloupe, Guyane, Saint-Barthélemy et Saint-Martin).",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...",
     },
   ];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.realIndex);
+  };
+  const Img = styled(Image)(({ theme }) => ({
+    width: "100% !important",
+    height: "auto !important",
+    [theme.breakpoints.down("sm")]: {
+      width: "40px !important",
+      height: "40px !important",
+    },
+  }));
   return (
-    <Box>
-      <Box sx={{ position: "relative", display: { md: "block", xs: "none" } }}>
-        <div style={{ position: "absolute", left: 0, top: -200 }}>
-          <svg
-            width="736"
-            height="1320"
-            viewBox="0 0 736 1320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g opacity="0.4" filter="url(#filter0_f_1430_2660)">
-              <ellipse
-                cx="89"
-                cy="660"
-                rx="174"
-                ry="187"
-                transform="rotate(-180 89 660)"
-                fill="#FF3838"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_f_1430_2660"
-                x="-557.622"
-                y="0.37793"
-                width="1293.24"
-                height="1319.24"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="BackgroundImageFix"
-                  result="shape"
-                />
-                <feGaussianBlur
-                  stdDeviation="236.311"
-                  result="effect1_foregroundBlur_1430_2660"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-        <div style={{ position: "absolute", right: 0 }}>
-          <svg
-            width="393"
-            height="885"
-            viewBox="0 0 393 885"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g opacity="0.15" filter="url(#filter0_f_1430_2659)">
-              <ellipse
-                cx="442.5"
-                cy="442.5"
-                rx="282.5"
-                ry="282.5"
-                transform="rotate(-180 442.5 442.5)"
-                fill="#FF274E"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_f_1430_2659"
-                x="-0.000488281"
-                y="0.000488281"
-                width="885"
-                height="885"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="BackgroundImageFix"
-                  result="shape"
-                />
-                <feGaussianBlur
-                  stdDeviation="80"
-                  result="effect1_foregroundBlur_1430_2659"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </Box>
-      <Container disableGutters maxWidth={"xl"}>
-        <Box pt={{ md: 30, xs: 10 }}>
-          <Typography
-            sx={{
-              fontFamily: inter.style.fontFamily,
-              color: "#222D55",
-              padding: "0 16px",
-            }}
-          >
-            Nos services
-          </Typography>
+    <>
+      <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }}>
+        <Container disableGutters maxWidth={"xl"}>
           <Box
             mt={1}
             sx={{
@@ -209,124 +85,147 @@ export default function OurService() {
                 sm: "75px",
                 xs: "40px",
               },
-              maxWidth: "900px !important",
-              padding: "0 16px",
             }}
           >
-            Découvrir{" "}
-            <span
-              style={{
-                color: "#BE0011",
-              }}
-            >
-              les services
-            </span>{" "}
-            de l’ACCYB
+            Nos missions
           </Box>
-        </Box>
-      </Container>
-      <Divider
-        variant="middle"
-        sx={{
-          display: { md: "block", xs: "none" },
-          bgcolor: "#222D55",
-          mt: 5,
-          opacity: "20%",
-          borderBottomWidth: "1px",
-        }}
-      />
-      <Container disableGutters maxWidth={"xl"}>
-        <Grid
-          container
-          mt={5}
-          columnSpacing={2}
-          rowSpacing={2}
-          sx={{
-            padding: "0 16px",
-          }}
-        >
-          {ourservice?.map((ele, index) => {
-            return (
-              <Grid item xs={12} lg={4} md={6} key={index}>
-                <Box sx={{ height: "100%" }}>
-                  <Grid
-                    container
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
+        </Container>
 
-                      height: "100%",
-                      position: "relative",
-                      zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 2 },
-                      mt: { md: 0, xs: 1.5 },
+        <Divider
+          variant="middle"
+          sx={{
+            display: { md: "block", xs: "none" },
+            bgcolor: "#222D55",
+            mt: 2,
+            opacity: "20%",
+            borderBottomWidth: "1px",
+          }}
+        />
+      </Box>
+
+      <Box
+        component={Swiper}
+        keyboard={true}
+        slidesPerView={2.5}
+        breakpoints={{
+          1440: { slidesPerView: 2.4, spaceBetween: 30 },
+          900: { slidesPerView: 2.4 },
+          600: { slidesPerView: 1.9 },
+          300: { slidesPerView: 1.9, spaceBetween: 90 },
+        }}
+        loop={true}
+        spaceBetween={30}
+        sx={{
+          marginTop: 10,
+        }}
+        modules={[Pagination]}
+        onSlideChange={handleSlideChange}
+        className="mySwiper"
+      >
+        {data?.map((ele, index) => {
+          return (
+            <>
+              <SwiperSlide key={index}>
+                <Grid container>
+                  <Grid
+                    item
+                    xs={12}
+                    md={3}
+                    sx={{
+                      marginTop: "30px",
+                      marginLeft: { md: "20px", xs: "-150px" },
                     }}
                   >
-                    <Grid item xs={3} sm={3}>
+                    <Box
+                      sx={{
+                        background:
+                          "linear-gradient(133.47deg, #FFE7E9 -0.34%, rgba(0, 122, 71, 0) 98.52%)",
+                        rotate: index === activeIndex + 1 ? "15deg" : "0deg",
+                        borderRadius: "116px 0px 0px 0px",
+                        height: {
+                          lg: "325px",
+                          md: "300",
+                          sm: "280px",
+                          xs: "210px",
+                        },
+                        width: {
+                          lg: "325px",
+                          md: "300",
+                          sm: "280px",
+                          xs: "210px",
+                        },
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 3,
+                        position: "relative",
+                      }}
+                    >
                       <Box
                         sx={{
-                          borderRadius: "50%",
-                          backgroundColor: "#BE0011",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          height: { lg: "119px", sm: "120px", xs: "80px" },
-                          width: { lg: "119px", sm: "120px", xs: "80px" },
+                          height: "100px",
+                          pl: { md: 7, xs: 6 },
+                          pt: { md: 7, xs: 6 },
                         }}
                       >
-                        <Img
-                          src={ele?.img}
-                          height={900}
-                          width={900}
-                          alt="img"
-                        />
-                      </Box>
-                    </Grid>
-                    {/* <Grid item sm={1}></Grid> */}
-                    <Grid item xs={8} sm={8}>
-                      <Box ref={ref}>
-                        {/* <motion.div
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={controls}
-                    > */}
                         <Typography
                           sx={{
+                            color: "#222D55",
+                            fontSize: { lg: "38px", md: "30px", xs: "20px" },
+                            fontWeight: 500,
+                            lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
-                            fontSize: { md: "14px", xs: "12px" },
-                            fontWeight: 400,
-                            lineHeight: "22px",
-                            color: "#20388F",
-                            display: "flex",
-                            textAlign: "start",
-                            textTransform: "uppercase",
+                            marginLeft: { md: "-150px", xs: "-60px" },
+                            rotate:
+                              index === activeIndex + 1 ? "-15deg" : "0deg",
                           }}
                         >
                           {ele?.title}
                         </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          height: "225px",
+                          pb: { md: 7, xs: 6 },
+                          pl: { md: 7, xs: 6 },
+                        }}
+                      >
                         <Typography
                           sx={{
-                            fontFamily: inter.style.fontFamily,
-                            mt: { md: 1, xs: 0.1 },
-                            fontSize: { md: "16px", xs: "12px" },
+                            color: "#222D55",
+                            fontSize: { lg: "14px", md: "12px", xs: "10px" },
                             fontWeight: 400,
-                            lineHeight: { md: "24px", xs: "18px" },
-                            color: "#20388F",
+                            lineHeight: { md: "22px", xs: "14px" },
+                            fontFamily: inter.style.fontFamily,
+                            maxWidth: "263px",
                             display: "flex",
-                            textAlign: "start",
+                            rotate:
+                              index === activeIndex + 1 ? "-15deg" : "0deg",
+                            justifyContent: "center",
+                            mt: { md: 2, xs: 0 },
                           }}
                         >
                           {ele?.description}
                         </Typography>
-                        {/* </motion.div> */}
                       </Box>
-                    </Grid>
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          left: { md: -30, xs: -10 },
+                          bottom: 50,
+                          rotate: index === activeIndex + 1 ? "-15deg" : "0deg",
+                          display: index === activeIndex + 1 ? "block" : "none",
+                        }}
+                      >
+                        <Img src={Picto2} height={68} width={68} alt="picto" />
+                      </Box>
+                    </Box>
                   </Grid>
-                </Box>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Container>
-    </Box>
+                </Grid>
+              </SwiperSlide>
+            </>
+          );
+        })}
+      </Box>
+    </>
   );
 }

@@ -9,8 +9,8 @@ export default function DiscoverTheObservatory() {
   return (
     <>
       <HeroSection />
-      <OurMission />
       <OurService />
+      <OurMission />
       <CaseStudies />
       <OurPartners />
     </>
