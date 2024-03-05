@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Tech from "../../../../Icons/Discover/Img1.svg";
-import Doctor from "../../../../Icons/Discover/Img4.svg";
-import Adviser from "../../../../Icons/MajorActivity/Adviser.svg";
-import Scan from "../../../../Icons/Discover/Img3.svg";
-import Key from "../../../../Icons/Discover/Img5.svg";
-import Tower from "../../../../Icons/Discover/Img6.svg";
+import Img1 from "../../../../Icons/Discover/Img1.svg";
+import Img2 from "../../../../Icons/Discover/Img2.svg";
+import Img3 from "../../../../Icons/Discover/Img3.svg";
+import Img4 from "../../../../Icons/Discover/Img4.svg";
+import Img5 from "../../../../Icons/Discover/Img5.svg";
+import Img6 from "../../../../Icons/Discover/Img6.svg";
+import Img7 from "../../../../Icons/Discover/Img7.svg";
 import {
   Box,
   Container,
@@ -18,7 +19,7 @@ import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
 const Img = styled(Image)(({ theme }) => ({
-  width: "39px !important",
+  width: "45px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
     width: "30px !important",
@@ -62,20 +63,44 @@ export default function OurMission() {
   }, [isVisible, controls]);
   const activites = [
     {
-      img: Tech,
-      title: "Alertes de sécurité",
+      img: Img1,
+      title: "Réception des incidents",
+      description:
+        "Mise en oeuvre d’une plateforme téléphonique et des moyens informatiques nécessaires à la réception des incidents informatiques.",
     },
     {
-      img: Adviser,
-      title: "réponses à incident",
+      img: Img2,
+      title: "Évalutation des incidents",
+      description: "Qualification et triages des incidents.",
     },
     {
-      img: Scan,
-      title: "Veille exposition à incident",
+      img: Img3,
+      title: "Traitement des incidents",
+      description:
+        "Mise en relation avec des prestataires labellisés Expert Cyber ou qualifiés par l’ANSSI.",
     },
     {
-      img: Doctor,
-      title: "Alerte avancée",
+      img: Img4,
+      title: "Analyse des incidents",
+      description: "Suivi des incidents.",
+    },
+    {
+      img: Img5,
+      title: "Appui à la réponse à incident",
+      description:
+        "Information et conseil relatifs aux poursuites juridictionelles. Accompagnement à la réponse.",
+    },
+    {
+      img: Img6,
+      title: "Coordination & coopération",
+      description:
+        "Relais et transfert des informations pertinentes vers le CERT-FR, Cybermalveillance.gouv, les autres CSIRT et l’interCERT-FR.",
+    },
+    {
+      img: Img7,
+      title: "Information des bénéficiaires",
+      description:
+        "Consolidation de l’incidentologie régionale et partage du résultat avec le CERT-FR. Information des bénéficiaires sur l’état de la menace.",
     },
   ];
   return (
@@ -231,7 +256,7 @@ export default function OurMission() {
                         </Typography>
                         <Typography
                           sx={{
-                            fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                            fontSize: { lg: "12px", md: "11px", xs: "10px" },
                             fontWeight: 400,
                             lineHeight: { md: "18px", xs: "16px" },
                             fontFamily: inter.style.fontFamily,
@@ -241,9 +266,7 @@ export default function OurMission() {
                             textAlign: "start",
                           }}
                         >
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Natus tempora nisi quis, beatae, neque, deserunt
-                          cupiditate modi excepturi velit ut error?
+                          {ele?.description}
                         </Typography>
                         {/* </motion.div> */}
                       </Box>

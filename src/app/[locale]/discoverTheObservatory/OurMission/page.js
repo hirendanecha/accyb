@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Tech from "../../../../Icons/Discover/Img1.svg";
-import Doctor from "../../../../Icons/Discover/Img4.svg";
-import Adviser from "../../../../Icons/MajorActivity/Adviser.svg";
-import Scan from "../../../../Icons/Discover/Img3.svg";
+import Photo1 from "../../../../Icons/Discover/Photo1.svg";
+import Photo2 from "../../../../Icons/Discover/Photo2.svg";
+import Photo3 from "../../../../Icons/Discover/Photo3.svg";
+import Photo4 from "../../../../Icons/Discover/Photo4.svg";
+import Photo5 from "../../../../Icons/Discover/Photo5.svg";
 import {
   Box,
   Container,
@@ -16,10 +17,10 @@ import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
 const Img = styled(Image)(({ theme }) => ({
-  width: "39px !important",
+  width: "63px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
-    width: "30px !important",
+    width: "40px !important",
     height: "auto !important",
   },
 }));
@@ -60,20 +61,24 @@ export default function OurMission() {
   }, [isVisible, controls]);
   const activites = [
     {
-      img: Tech,
-      title: "Alertes de sécurité",
+      img: Photo1,
+      title: "Panorama de la maturité Cyber",
     },
     {
-      img: Adviser,
-      title: "Réponses à incident",
+      img: Photo2,
+      title: "Panorama de la e-confiance",
     },
     {
-      img: Scan,
-      title: "Veille exposition à incident",
+      img: Photo3,
+      title: "Panorama de la formation",
     },
     {
-      img: Scan,
-      title: "Alerte avancée",
+      img: Photo4,
+      title: "Météo de la menace",
+    },
+    {
+      img: Photo5,
+      title: "Cartographie de l’incidentologie",
     },
   ];
   return (
@@ -148,7 +153,7 @@ export default function OurMission() {
         >
           {activites?.map((ele, index) => {
             return (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} md={4} key={index}>
                 <Box
                   sx={{
                     display: "flex",
@@ -222,16 +227,16 @@ export default function OurMission() {
                           justifyContent: "center",
                           alignItems: "center",
                           border: "1px solid #7DB1FF",
-                          height: { lg: "160px", sm: "120px", xs: "80px" },
-                          width: { lg: "160px", sm: "120px", xs: "80px" },
+                          height: { lg: "119.55px", sm: "100px", xs: "80px" },
+                          width: { lg: "119.55px", sm: "100px", xs: "80px" },
                         }}
                       >
-                        {/* <Img
+                        <Img
                           src={ele?.img}
                           height={900}
                           width={900}
                           alt="img"
-                        /> */}
+                        />
                       </Box>
                     </Grid>
                     <Grid item xs={8} sm={7}>
@@ -243,9 +248,9 @@ export default function OurMission() {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            fontSize: { lg: "38px", md: "30px", xs: "18px" },
+                            fontSize: { lg: "25px", md: "20px", xs: "18px" },
                             fontWeight: 400,
-                            lineHeight: { md: "42px", xs: "25px" },
+                            lineHeight: { md: "27px", xs: "20px" },
                             color: "#222D55",
                             display: "flex",
                             textAlign: "start",
