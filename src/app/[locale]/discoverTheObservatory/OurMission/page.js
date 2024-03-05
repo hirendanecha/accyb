@@ -82,7 +82,7 @@ export default function OurMission() {
     },
   ];
   return (
-    <Box>
+    <Box sx={{ position: "relative" }}>
       <Container disableGutters maxWidth={"xl"}>
         <Box
           ref={ref}
@@ -143,6 +143,103 @@ export default function OurMission() {
           borderBottomWidth: "1px",
         }}
       />
+      <Box
+        sx={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          display: { md: "block", xs: "none" },
+        }}
+      >
+        <svg
+          width="512"
+          height="955"
+          viewBox="0 0 512 955"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.1" filter="url(#filter0_f_1856_3893)">
+            <ellipse
+              cx="477.5"
+              cy="477.5"
+              rx="317.5"
+              ry="317.5"
+              transform="rotate(-180 477.5 477.5)"
+              fill="#3964FF"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_1856_3893"
+              x="0"
+              y="0"
+              width="955"
+              height="955"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="80"
+                result="effect1_foregroundBlur_1856_3893"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          left: 0,
+          top: 100,
+          display: { md: "block", xs: "none" },
+        }}
+      >
+        <svg
+          width="434"
+          height="955"
+          viewBox="0 0 434 955"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.1" filter="url(#filter0_f_1856_3894)">
+            <path
+              d="M-361 477.5C-361 302.15 -218.85 160 -43.5 160C131.85 160 274 302.15 274 477.5C274 652.85 131.85 795 -43.5 795C-218.85 795 -361 652.85 -361 477.5Z"
+              fill="#3964FF"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_1856_3894"
+              x="-521"
+              y="0"
+              width="955"
+              height="955"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="80"
+                result="effect1_foregroundBlur_1856_3894"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </Box>
+
       <Container disableGutters maxWidth={"xl"}>
         <Grid
           container
