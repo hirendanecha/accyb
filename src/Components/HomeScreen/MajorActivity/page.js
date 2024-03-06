@@ -21,14 +21,10 @@ import { inter } from "../../../fonts/fonts";
 import { useTranslations } from "next-intl";
 
 const Img = styled(Image)(({ theme }) => ({
-  width: "50px !important",
+  width: "45px !important",
   height: "auto !important",
   [theme.breakpoints.down("lg")]: {
     width: "30px !important",
-    height: "auto !important",
-  },
-  [theme.breakpoints.down("xs")]: {
-    width: "0px !important",
     height: "auto !important",
   },
 }));
@@ -162,17 +158,17 @@ export default function MajorActivity() {
           <Grid
             container
             mt={{ md: 5, xs: 3 }}
-            columnSpacing={2}
-            rowSpacing={2}
-            sx={{ padding: "0 16px" }}
+            columnSpacing={1}
+            rowSpacing={3}
+            sx={{ padding: "0 16px", overflow: "hidden" }}
           >
             {activites?.map((ele, index) => {
               return (
-                <Grid item xs={12} md={6} key={index}>
+                <Grid item xs={12} md={4} key={index}>
                   <Box
                     sx={{
                       display: "flex",
-                      padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                      padding: { lg: 4, md: 3, sm: 3, xs: 2 },
                       backgroundColor: "transparent",
                       border:
                         index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
@@ -182,43 +178,84 @@ export default function MajorActivity() {
                       height: "100%",
                     }}
                   >
-                    {/* {index !== 0 && !mdDown ? (
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: -3,
-                      right: -3,
-                      height: "80px",
-                      width: "80px",
-                      borderLeft:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderBottom:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderRadius: "0 0 0% 30%",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                    }}
-                  />
-                ) : (
-                  ""
-                )} */}
-                    {/* <Box
-                    sx={{
-                      position: "absolute",
-                      top: -2,
-                      right: "75px",
-                      height: "50px",
-                      width: "50px",
-                      borderTop: "2px solid #7DB1FF",
-                      borderRight: "2px solid #7DB1FF",
-                      borderRadius: "0 30% 0% 0%",
-                      backgroundColor:"red",
-                      // transform: "translate(50%, -50%)",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                      // boxShadow: "0px 0px 0px 1000px #fff",
-                    }}
-                  /> */}
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "-2px",
+                        right: "-2px",
+                        width: "50px",
+                        height: "50px",
+                        bgcolor: "#ffffff",
+                        borderBottomLeftRadius: "1rem",
+                        // borderWidth: "2px",
+                        // borderColor: "#7DB1FF",
+                        // borderStyle: "solid",
+                        zIndex: 5,
+                        "::before": {
+                          content: "''",
+                          position: "absolute",
+                          width: "25px",
+                          height: "25px",
+                          top: 0,
+                          left: "1px",
+                          transform: "translateX(-100%)",
+                          borderTopRightRadius: "16px",
+                          border:
+                            index % 2
+                              ? "2px solid #7DB1FF"
+                              : "2px solid #97E6FF",
+                          borderBottomWidth: "0",
+                          borderLeftWidth: "0",
+                        },
+                        "::after": {
+                          content: "''",
+                          position: "absolute",
+                          width: "25px",
+                          height: "25px",
+                          bottom: "1px",
+                          right: 0,
+                          transform: "translateY(100%)",
+                          borderTopRightRadius: "16px",
+                          border:
+                            index % 2
+                              ? "2px solid #7DB1FF"
+                              : "2px solid #97E6FF",
+                          borderBottomWidth: "0",
+                          borderLeftWidth: "0",
+                        },
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          content: "''",
+                          position: "absolute",
+                          bottom: "-1px",
+                          left: "-1px",
+                          width: "25px",
+                          height: "25px",
+                          border:
+                            index % 2
+                              ? "2px solid #7DB1FF"
+                              : "2px solid #97E6FF",
+                          borderTopWidth: "0",
+                          borderRightWidth: "0",
+                          borderBottomLeftRadius: "20px",
+                        }}
+                      />
+                    </Box>
+                    <Box
+                      sx={{
+                        content: "''",
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                        width: "25px",
+                        height: "100px",
+                        bgcolor: "#ffffff",
+                        transform: "rotateZ(-45deg)",
+                        transformOrigin: "-25px 50px",
+                      }}
+                    ></Box>
                     <Grid
                       container
                       sx={{
@@ -228,7 +265,7 @@ export default function MajorActivity() {
                         height: "100%",
                         position: "relative",
                         zIndex: 1,
-                        gap: { lg: 3, md: 2, xs: 3 },
+                        gap: { lg: 1.5, md: 2, sm: 3, xs: 1.2 },
                       }}
                     >
                       <Grid item xs={3} sm={4}>
@@ -240,8 +277,8 @@ export default function MajorActivity() {
                             justifyContent: "center",
                             alignItems: "center",
                             border: "1px solid #8E9BBF",
-                            height: { lg: "140px", sm: "120px", xs: "88px" },
-                            width: { lg: "140px", sm: "120px", xs: "88px" },
+                            height: { lg: "119.82px", sm: "100px", xs: "80px" },
+                            width: { lg: "119.82px", sm: "100px", xs: "80px" },
                           }}
                         >
                           <Img
@@ -256,33 +293,28 @@ export default function MajorActivity() {
                         <Box>
                           <Typography
                             sx={{
+                              fontSize: { lg: "25px", md: "20px", xs: "18px" },
+                              fontWeight: 400,
+                              lineHeight: { md: "27px", xs: "22px" },
                               fontFamily: inter.style.fontFamily,
-                              fontSize: { lg: "32px", md: "30px", xs: "22px" },
-                              fontWeight: { lg: 500, xs: 400 },
-                              lineHeight: { md: "42px", xs: "25px" },
                               color: "#222D55",
                               display: "flex",
                               textAlign: "start",
-                              maxWidth: { lg: "320px", xs: "250px" },
+                              maxWidth: { lg: "350px", xs: "250px" },
                             }}
                           >
                             {ele?.title}
                           </Typography>
                           <Typography
                             sx={{
-                              mt: 1,
-                              fontSize: { lg: "16px", md: "16px", xs: "14px" },
+                              fontSize: { lg: "12px", md: "11px", xs: "10px" },
                               fontWeight: 400,
-                              lineHeight: {
-                                lg: "25px",
-                                md: "22px",
-                                xs: "20px",
-                              },
+                              lineHeight: { md: "18px", xs: "16px" },
                               fontFamily: inter.style.fontFamily,
                               color: "#222D55",
                               display: "flex",
+                              mt: 1,
                               textAlign: "start",
-                              width: { lg: "350px", md: "250px", xs: "230px" },
                             }}
                           >
                             {ele?.description}
