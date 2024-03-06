@@ -297,7 +297,14 @@ export default function HowToWorkSlider() {
               className="swiper-button-prev-testimonials"
               aria-label="Next Slide"
               title="Next Slide"
-              sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
+              sx={{
+                bgcolor: "#007A47",
+                width: 45,
+                height: 45,
+                "&:hover": {
+                  backgroundColor: "#007A47",
+                },
+              }}
             >
               <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
             </IconButton>
@@ -334,6 +341,7 @@ export default function HowToWorkSlider() {
               justifyContent: "center",
               display: "flex",
               textAlign: "center",
+              fontSize: { lg: "22px", md: "18px", xs: "14px" },
               mt: 3,
             }}
           >
@@ -355,53 +363,25 @@ export default function HowToWorkSlider() {
             <IconButton
               aria-label="Next Slide"
               title="Next Slide"
-              sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
+              sx={{
+                bgcolor: "#007A47",
+                width: 45,
+                height: 45,
+                "&:hover": {
+                  backgroundColor: "#007A47",
+                },
+              }}
             >
               <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
             </IconButton>
           </Box>
         </Grid>
       </Grid>
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 3 }}>
-        <Box
-          sx={{
-            display: { md: "none", xs: "block" },
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
-            className="swiper-button-prev-testimonials"
-            aria-label="Next Slide"
-            title="Next Slide"
-            sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
-          >
-            <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
-          </IconButton>
-        </Box>
-        <Box
-          className="swiper-button-next-testimonials"
-          sx={{
-            display: { md: "none", xs: "block" },
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
-            aria-label="Next Slide"
-            title="Next Slide"
-            sx={{ bgcolor: "#007A47", width: 45, height: 45 }}
-          >
-            <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
-          </IconButton>
-        </Box>
-        <Box></Box>
-      </Box>
       <Box
         component={Swiper}
         keyboard={true}
         modules={[Navigation, Keyboard, Pagination, Autoplay]}
-        slidesPerView={1}
+        slidesPerView={2}
         spaceBetween={24}
         loop={true}
         navigation={{
@@ -414,9 +394,9 @@ export default function HowToWorkSlider() {
           600: { slidesPerView: 2 },
           1200: { slidesPerView: 5 },
         }}
-        mt={12}
+        mt={{ md: 12, xs: 0 }}
         sx={{
-          "& .swiper-pagination": { position: "static", mt: 16 },
+          "& .swiper-pagination": { position: "static", mt: 10 },
           "& .swiper-pagination-bullet": {
             bgcolor: "#5314A9",
             width: 4,
@@ -435,9 +415,12 @@ export default function HowToWorkSlider() {
                       sx={{
                         bgcolor: "#fff",
                         border: "1px solid black",
-                        padding: 5,
+                        padding: { md: 5, xs: 2 },
                         borderRadius: "10px",
-                        transform: j === 0 ? "" : "translateX(-50%)",
+                        transform: {
+                          md: j === 0 ? "" : "translateX(-50%)",
+                          xs: j === 0 ? "" : "translateX(-50%)",
+                        },
                       }}
                     >
                       <Typography
@@ -461,6 +444,56 @@ export default function HowToWorkSlider() {
             </Grid>
           </SwiperSlide>
         ))}
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 5 }}>
+        <Box
+          sx={{
+            display: { md: "none", xs: "flex" },
+            // justifyContent: "center",
+            // alignItems: "center",
+          }}
+        >
+          <IconButton
+            className="swiper-button-prev-testimonials"
+            aria-label="Next Slide"
+            title="Next Slide"
+            sx={{
+              bgcolor: "#007A47",
+              width: 45,
+              height: 45,
+              "&:hover": {
+                backgroundColor: "#007A47",
+              },
+            }}
+          >
+            <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
+          </IconButton>
+        </Box>
+        <Box
+          className="swiper-button-next-testimonials"
+          sx={{
+            display: { md: "none", xs: "flex" },
+          }}
+        >
+          <IconButton
+            aria-label="Next Slide"
+            title="Next Slide"
+            sx={{
+              bgcolor: "#007A47",
+              width: 45,
+              height: 45,
+              "&:hover": {
+                backgroundColor: "#007A47",
+              },
+            }}
+          >
+            <ArrowForwardIcon
+              sx={{
+                color: "#FFFFFF",
+              }}
+            />
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   );
