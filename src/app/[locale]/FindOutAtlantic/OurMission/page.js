@@ -665,10 +665,11 @@ export default function OurMission() {
         })}
         <Typography
           sx={{
+            padding: "0 16px",
             fontFamily: inter.style.fontFamily,
             fontWeight: 400,
             mt: { md: 3, xs: 1 },
-            fontSize: { md: "14px", xs: "10px", lineHeight: "20px" },
+            fontSize: "14px",
             color: "#222D55",
           }}
         >

@@ -59,7 +59,7 @@ export default function OurPartners() {
 
   return (
     <Box sx={{ padding: "0 16px" }}>
-      <Box mt={10}>
+      <Box mt={15}>
         <Typography
           sx={{
             fontFamily: inter.style.fontFamily,
@@ -212,7 +212,11 @@ export default function OurPartners() {
           </Box>
         </Grid>
       </Grid>
-      <Grid container mt={10} sx={{ display: { md: "none", xs: "block" } }}>
+      <Grid
+        container
+        mt={{ md: 10, xs: 5 }}
+        sx={{ display: { md: "none", xs: "block" } }}
+      >
         <Grid
           item
           md={2.5}
@@ -227,6 +231,7 @@ export default function OurPartners() {
               color: "#222D55",
               fontSize: "24px",
               fontWeight: 500,
+              pb: 3,
             }}
           >
             Vous êtes...
@@ -257,7 +262,7 @@ export default function OurPartners() {
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
-                      height: "445px",
+                      height: "550px",
                       // width: "100%",
                       borderRight: "1px solid rgba(217, 217, 217, 0.2)",
                     }}
@@ -276,8 +281,8 @@ export default function OurPartners() {
                           sx={{
                             fontFamily: inter.style.fontFamily,
                             display: "flex",
-                            justifyContent: "spa",
-                            fontSize: "14px",
+                            justifyContent: "center",
+                            fontSize: "40px",
                             color: "#FFFFFF",
                           }}
                         >
@@ -295,7 +300,7 @@ export default function OurPartners() {
                                   WebkitBackgroundClip: "text",
                                   backgroundClip: "text",
                                   color: "transparent",
-                                  fontSize: "12px",
+                                  fontSize: "18px",
                                   mt: 1,
                                   maxWidth: "300px",
                                   textTransform: "uppercase",
