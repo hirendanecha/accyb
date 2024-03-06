@@ -151,133 +151,133 @@ export default function OurNews() {
         pb: 10,
       }}
     >
-      <Container disableGutters maxWidth={"xl"}>
-        {!isVisible2 && smDown ? (
-          <>
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                right: 0,
-                width: "50px",
-                height: "50px",
-                bgcolor: "#ffffff",
-                borderBottomLeftRadius: "1rem",
-                zIndex: 5,
-                "::before": {
+      <Container disableGutters maxWidth={"xl"} ref={ref}>
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+          {!isVisible2 && smDown ? (
+            <>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  width: "50px",
+                  height: "50px",
+                  bgcolor: "#ffffff",
+                  borderBottomLeftRadius: "1rem",
+                  zIndex: 5,
+                  "::before": {
+                    content: "''",
+                    position: "absolute",
+                    width: "20px",
+                    height: "20px",
+                    top: "10px",
+                    left: "-10px",
+                    transform: "translateX(-100%)",
+                    boxShadow: `5px -5px 0 5px ${bgColor}`,
+                    borderTopRightRadius: "0.75rem",
+                  },
+                  "::after": {
+                    content: "''",
+                    position: "absolute",
+                    width: "20px",
+                    height: "20px",
+                    bottom: "-10px",
+                    right: "10px",
+                    transform: "translateY(100%)",
+                    boxShadow: `5px -5px 0 5px ${bgColor}`,
+                    borderTopRightRadius: "0.75rem",
+                  },
+                }}
+              ></Box>
+              <Box
+                sx={{
                   content: "''",
                   position: "absolute",
-                  width: "20px",
-                  height: "20px",
-                  top: "10px",
-                  left: "-10px",
-                  transform: "translateX(-100%)",
-                  boxShadow: `5px -5px 0 5px ${bgColor}`,
-                  borderTopRightRadius: "0.75rem",
-                },
-                "::after": {
-                  content: "''",
-                  position: "absolute",
-                  width: "20px",
-                  height: "20px",
-                  bottom: "-10px",
-                  right: "10px",
-                  transform: "translateY(100%)",
-                  boxShadow: `5px -5px 0 5px ${bgColor}`,
-                  borderTopRightRadius: "0.75rem",
-                },
-              }}
-            ></Box>
+                  top: 0,
+                  right: 0,
+                  width: "25px",
+                  height: "100px",
+                  bgcolor: "#ffffff",
+                  transform: "rotateZ(-45deg)",
+                  transformOrigin: "-25px 50px",
+                }}
+              ></Box>
+            </>
+          ) : (
+            ""
+          )}
+          <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }}>
             <Box
               sx={{
-                content: "''",
-                position: "absolute",
-                top: 0,
-                right: 0,
-                width: "25px",
-                height: "100px",
-                bgcolor: "#ffffff",
-                transform: "rotateZ(-45deg)",
-                transformOrigin: "-25px 50px",
-              }}
-            ></Box>
-          </>
-        ) : (
-          ""
-        )}
-        <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }} ref={ref}>
-          <Box
-            sx={{
-              display: { md: "flex", xs: "block" },
-              flexDirection: { xs: "column-reverse", md: "row" },
-              justifyContent: "space-between",
-              pt: { md: 15, xs: 10 },
-            }}
-          >
-            {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-            <Typography
-              sx={{
-                fontFamily: inter.style.fontFamily,
-                fontWeight: 400,
-                fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
-                color: textColor,
+                display: { md: "flex", xs: "block" },
+                flexDirection: { xs: "column-reverse", md: "row" },
+                justifyContent: "space-between",
+                pt: { md: 15, xs: 10 },
               }}
             >
-              {t("title")}
-            </Typography>
-            {/* </motion.div> */}
-            <Button
-              variant="outlined"
-              endIcon={
-                <ArrowForwardIcon
-                  sx={{
-                    backgroundColor: "#7DB1FF",
-                    borderRadius: "50%",
-                    background:
-                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                    width: "50px",
-                    height: "50px",
-                    color: "#FFFFFF",
-                    padding: 1.7,
-                    marginRight: -2,
-                    ml: 3,
-                    ":hover": {
-                      "@keyframes move-left": {
-                        "0%": {
-                          rotate: "0deg",
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontWeight: 400,
+                  fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
+                  color: textColor,
+                }}
+              >
+                {t("title")}
+              </Typography>
+              <Button
+                variant="outlined"
+                endIcon={
+                  <ArrowForwardIcon
+                    sx={{
+                      backgroundColor: "#7DB1FF",
+                      borderRadius: "50%",
+                      background:
+                        "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      width: "50px",
+                      height: "50px",
+                      color: "#FFFFFF",
+                      padding: 1.7,
+                      marginRight: -2,
+                      ml: 3,
+                      ":hover": {
+                        "@keyframes move-left": {
+                          "0%": {
+                            rotate: "0deg",
+                          },
+                          "100%": {
+                            rotate: "-35deg",
+                          },
                         },
-                        "100%": {
-                          rotate: "-35deg",
-                        },
+                        animation:
+                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
-                      animation:
-                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                    },
-                  }}
-                />
-              }
-              sx={{
-                mt: { md: 0, xs: 2 },
-                color: show ? "#FFFFFF" : "#222D55",
-                backgroundColor: show ? "#222D55" : "#FFFFFF",
-                border: "1px solid #FFFFFF",
-                borderRadius: "61px",
-                padding: "8px 30px",
-                display: { md: "flex", xs: "none" },
-                fontSize: "12px",
-                fontFamily: inter.style.fontFamily,
-                fontWeight: 600,
-                ":hover": {
-                  color: "textColor",
-                  border: "1px solid #FFFFFF",
+                    }}
+                  />
+                }
+                sx={{
+                  mt: { md: 0, xs: 2 },
+                  color: show ? "#FFFFFF" : "#222D55",
                   backgroundColor: show ? "#222D55" : "#FFFFFF",
-                },
-              }}
-            >
-              {t("button")}
-            </Button>
+                  border: "1px solid #FFFFFF",
+                  borderRadius: "61px",
+                  padding: "8px 30px",
+                  display: { md: "flex", xs: "none" },
+                  fontSize: "12px",
+                  fontFamily: inter.style.fontFamily,
+                  fontWeight: 600,
+                  ":hover": {
+                    color: "textColor",
+                    border: "1px solid #FFFFFF",
+                    backgroundColor: show ? "#222D55" : "#FFFFFF",
+                  },
+                }}
+              >
+                {t("button")}
+              </Button>
+            </Box>
           </Box>
-        </Box>
+        </motion.div>
       </Container>
 
       <Divider
@@ -286,7 +286,7 @@ export default function OurNews() {
           bgcolor: "#FFFFFF",
           mt: { md: 5, xs: 5 },
           mb: 3,
-          opacity: "20%",
+          opacity: show ? "100%" : "20%",
           borderBottomWidth: "1px",
         }}
       />
@@ -561,13 +561,13 @@ export default function OurNews() {
                   </Box>
                   {idx !== data.length - 1 ? (
                     <Divider
-                      orientation="vertical"
+                      variant="middle"
                       sx={{
-                        mt: 2,
-                        mb: 2,
-                        opacity: "20%",
-                        height: "1px", // Adjust height as needed
-                        backgroundColor: "#FFFFFF", // Example color
+                        bgcolor: "#FFFFFF",
+                        mt: 1,
+                        mb: 1,
+                        opacity: show ? "100%" : "20%",
+                        borderBottomWidth: "1px",
                       }}
                     />
                   ) : (

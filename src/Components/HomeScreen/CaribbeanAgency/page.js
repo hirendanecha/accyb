@@ -240,6 +240,7 @@ export default function CaribbeanAgency() {
                 sx={{ display: { md: "block", xs: "none" } }}
               >
                 <Box
+                  onClick={handleContactUsClick}
                   sx={{
                     display: "flex",
                     gap: 2,
@@ -250,7 +251,7 @@ export default function CaribbeanAgency() {
                     bottom: { md: -70, xs: -60 },
                   }}
                 >
-                  <Box onClick={handleContactUsClick}>
+                  <Box>
                     <Typography
                       sx={{
                         color: "#FFFFFF",
@@ -309,7 +310,13 @@ export default function CaribbeanAgency() {
                 sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
               />
             </Box>
-            <Grid item xs={12} md={12} display={{ md: "none", xs: "block" }} ml={2}>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              display={{ md: "none", xs: "block" }}
+              ml={2}
+            >
               <Box
                 sx={{
                   display: "flex",

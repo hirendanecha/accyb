@@ -157,31 +157,32 @@ export default function MajorActivity() {
           borderBottomWidth: "1px",
         }}
       />
-      <Container disableGutters maxWidth={"xl"}>
-        <Grid
-          container
-          mt={{ md: 5, xs: 3 }}
-          columnSpacing={2}
-          rowSpacing={2}
-          sx={{ padding: "0 16px" }}
-        >
-          {activites?.map((ele, index) => {
-            return (
-              <Grid item xs={12} md={6} key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
-                    backgroundColor: "transparent",
-                    border:
-                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                    position: "relative",
-                    borderRadius: "20px",
-                    // overflow: "hidden",
-                    height: "100%",
-                  }}
-                >
-                  {/* {index !== 0 && !mdDown ? (
+      <Container disableGutters maxWidth={"xl"} ref={ref}>
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+          <Grid
+            container
+            mt={{ md: 5, xs: 3 }}
+            columnSpacing={2}
+            rowSpacing={2}
+            sx={{ padding: "0 16px" }}
+          >
+            {activites?.map((ele, index) => {
+              return (
+                <Grid item xs={12} md={6} key={index}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      padding: { lg: 6, md: 3, sm: 3, xs: 2 },
+                      backgroundColor: "transparent",
+                      border:
+                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                      position: "relative",
+                      borderRadius: "20px",
+                      // overflow: "hidden",
+                      height: "100%",
+                    }}
+                  >
+                    {/* {index !== 0 && !mdDown ? (
                   <Box
                     sx={{
                       position: "absolute",
@@ -201,7 +202,7 @@ export default function MajorActivity() {
                 ) : (
                   ""
                 )} */}
-                  {/* <Box
+                    {/* <Box
                     sx={{
                       position: "absolute",
                       top: -2,
@@ -218,45 +219,41 @@ export default function MajorActivity() {
                       // boxShadow: "0px 0px 0px 1000px #fff",
                     }}
                   /> */}
-                  <Grid
-                    container
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
+                    <Grid
+                      container
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
 
-                      height: "100%",
-                      position: "relative",
-                      zIndex: 1,
-                      gap: { lg: 3, md: 2, xs: 3 },
-                    }}
-                  >
-                    <Grid item xs={3} sm={4}>
-                      <Box
-                        sx={{
-                          borderRadius: "50%",
-                          backgroundColor: "#1B2341",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          border: "1px solid #8E9BBF",
-                          height: { lg: "140px", sm: "120px", xs: "88px" },
-                          width: { lg: "140px", sm: "120px", xs: "88px" },
-                        }}
-                      >
-                        <Img
-                          src={ele?.img}
-                          height={900}
-                          width={900}
-                          alt="img"
-                        />
-                      </Box>
-                    </Grid>
-                    <Grid item xs={8} sm={7}>
-                      <Box ref={ref}>
-                        <motion.div
-                          initial={{ opacity: 0, y: 50 }}
-                          animate={controls}
+                        height: "100%",
+                        position: "relative",
+                        zIndex: 1,
+                        gap: { lg: 3, md: 2, xs: 3 },
+                      }}
+                    >
+                      <Grid item xs={3} sm={4}>
+                        <Box
+                          sx={{
+                            borderRadius: "50%",
+                            backgroundColor: "#1B2341",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            border: "1px solid #8E9BBF",
+                            height: { lg: "140px", sm: "120px", xs: "88px" },
+                            width: { lg: "140px", sm: "120px", xs: "88px" },
+                          }}
                         >
+                          <Img
+                            src={ele?.img}
+                            height={900}
+                            width={900}
+                            alt="img"
+                          />
+                        </Box>
+                      </Grid>
+                      <Grid item xs={8} sm={7}>
+                        <Box>
                           <Typography
                             sx={{
                               fontFamily: inter.style.fontFamily,
@@ -290,15 +287,15 @@ export default function MajorActivity() {
                           >
                             {ele?.description}
                           </Typography>
-                        </motion.div>
-                      </Box>
+                        </Box>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
-            );
-          })}
-        </Grid>
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </motion.div>
       </Container>
     </>
   );
