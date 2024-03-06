@@ -75,6 +75,37 @@ export default function OurNews() {
     };
   }, []);
 
+  const [bgColor, setBgColor] = useState("#222D55");
+  const [textColor, setTextColor] = useState("#7DB1FF");
+  const [isVisible2, setIsVisible2] = useState(false);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const targetScrollPosition = 2045;
+      if (scrollY >= targetScrollPosition) {
+        setBgColor("#FFFFFF");
+        setTextColor("#222D55");
+        setShow(true);
+      } else {
+        setBgColor("#222D55");
+        setTextColor("#7DB1FF");
+        setShow(false);
+      }
+      const stopAnimation = 2040;
+      if (scrollY >= stopAnimation) {
+        setIsVisible2(true);
+      } else {
+        setIsVisible2(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (isVisible) {
       controls.start({
@@ -108,11 +139,13 @@ export default function OurNews() {
     },
   ];
   const lgDown = useMediaQuery(1300);
+  const smDown = useMediaQuery(600);
   return (
     <Box
       sx={{
-        backgroundColor: "#222D55",
+        backgroundColor: bgColor, // Set background color dynamically
         position: "relative",
+        transition: "background-color 0.8s ease",
         borderRadius: "20px 20px 0 0",
         // height: "100vh",
         overflow: "hidden",
@@ -121,53 +154,59 @@ export default function OurNews() {
       }}
     >
       <Container disableGutters maxWidth={"xl"}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            width: "50px",
-            height: "50px",
-            bgcolor: "#ffffff",
-            borderBottomLeftRadius: "1rem",
-            zIndex: 5,
-            "::before": {
-              content: "''",
-              position: "absolute",
-              width: "20px",
-              height: "20px",
-              top: "10px",
-              left: "-10px",
-              transform: "translateX(-100%)",
-              boxShadow: "5px -5px 0 5px #222D55",
-              borderTopRightRadius: "0.75rem",
-            },
-            "::after": {
-              content: "''",
-              position: "absolute",
-              width: "20px",
-              height: "20px",
-              bottom: "-10px",
-              right: "10px",
-              transform: "translateY(100%)",
-              boxShadow: "5px -5px 0 5px #222D55",
-              borderTopRightRadius: "0.75rem",
-            },
-          }}
-        ></Box>
-        <Box
-          sx={{
-            content: "''",
-            position: "absolute",
-            top: 0,
-            right: 0,
-            width: "25px",
-            height: "100px",
-            bgcolor: "#ffffff",
-            transform: "rotateZ(-45deg)",
-            transformOrigin: "-25px 50px",
-          }}
-        ></Box>
+        {!isVisible2 && smDown ? (
+          <>
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: "50px",
+                height: "50px",
+                bgcolor: "#ffffff",
+                borderBottomLeftRadius: "1rem",
+                zIndex: 5,
+                "::before": {
+                  content: "''",
+                  position: "absolute",
+                  width: "20px",
+                  height: "20px",
+                  top: "10px",
+                  left: "-10px",
+                  transform: "translateX(-100%)",
+                  boxShadow: `5px -5px 0 5px ${bgColor}`,
+                  borderTopRightRadius: "0.75rem",
+                },
+                "::after": {
+                  content: "''",
+                  position: "absolute",
+                  width: "20px",
+                  height: "20px",
+                  bottom: "-10px",
+                  right: "10px",
+                  transform: "translateY(100%)",
+                  boxShadow: `5px -5px 0 5px ${bgColor}`,
+                  borderTopRightRadius: "0.75rem",
+                },
+              }}
+            ></Box>
+            <Box
+              sx={{
+                content: "''",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: "25px",
+                height: "100px",
+                bgcolor: "#ffffff",
+                transform: "rotateZ(-45deg)",
+                transformOrigin: "-25px 50px",
+              }}
+            ></Box>
+          </>
+        ) : (
+          ""
+        )}
         <Box sx={{ padding: !lgDown ? "0 30px" : "0 15px" }} ref={ref}>
           <Box
             sx={{
@@ -177,18 +216,18 @@ export default function OurNews() {
               pt: { md: 15, xs: 10 },
             }}
           >
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontWeight: 400,
-                  fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
-                  color: "#7DB1FF",
-                }}
-              >
-                {t("title")}
-              </Typography>
-            </motion.div>
+            {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+            <Typography
+              sx={{
+                fontFamily: inter.style.fontFamily,
+                fontWeight: 400,
+                fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
+                color: textColor,
+              }}
+            >
+              {t("title")}
+            </Typography>
+            {/* </motion.div> */}
             <Button
               variant="outlined"
               endIcon={
@@ -221,8 +260,8 @@ export default function OurNews() {
               }
               sx={{
                 mt: { md: 0, xs: 2 },
-                color: "#222D55",
-                backgroundColor: "#FFFFFF",
+                color: show ? "#FFFFFF" : "#222D55",
+                backgroundColor: show ? "#222D55" : "#FFFFFF",
                 border: "1px solid #FFFFFF",
                 borderRadius: "61px",
                 padding: "8px 30px",
@@ -231,7 +270,7 @@ export default function OurNews() {
                 fontFamily: inter.style.fontFamily,
                 fontWeight: 600,
                 ":hover": {
-                  color: "white",
+                  color: textColor,
                   border: "1px solid #FFFFFF",
                 },
               }}
@@ -290,7 +329,7 @@ export default function OurNews() {
                   </Typography>
                   <Box
                     sx={{
-                      border: "1px solid #FFFFFF",
+                      border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
                       width: "28px",
                       height: "28px",
                       borderRadius: "50%",
@@ -303,7 +342,7 @@ export default function OurNews() {
                       sx={{
                         height: "13px",
                         width: "13px",
-                        color: "#FFFFFF",
+                        color: show ? "#007A47" : "#FFFFFF",
                         cursor: "pointer",
                       }}
                     />
@@ -315,7 +354,7 @@ export default function OurNews() {
                     mt: 1,
                     width: { md: "450px", xs: "100%" },
                     lineHeight: "36px",
-                    color: "#FFFFFF",
+                    color: textColor,
                     fontFamily: inter.style.fontFamily,
                   }}
                 >
@@ -327,7 +366,7 @@ export default function OurNews() {
                     mt: 1,
                     width: { md: "450px", xs: "100%" },
                     lineHeight: "22px",
-                    color: "#FFFFFF",
+                    color: textColor,
                     fontFamily: inter.style.fontFamily,
                   }}
                 >
@@ -345,7 +384,7 @@ export default function OurNews() {
                       fontWeight: 500,
                       mt: 2,
                       fontSize: "14px",
-                      color: "#FFFFFF",
+                      color: textColor,
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
@@ -353,7 +392,7 @@ export default function OurNews() {
                   </Typography>
                   <Box
                     sx={{
-                      border: "1px solid #FFFFFF",
+                      border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
                       width: "40px",
                       height: "40px",
                       borderRadius: "50%",
@@ -366,7 +405,7 @@ export default function OurNews() {
                       sx={{
                         height: "20px",
                         width: "20px",
-                        color: "#FFFFFF",
+                        color: show ? "#007A47" : "#FFFFFF",
                         cursor: "pointer",
                       }}
                     />
@@ -419,7 +458,7 @@ export default function OurNews() {
                               padding: 1,
                               padding: "8px 15px 8px 15px",
                               cursor: "pointer",
-                              color: "#FFFFFF",
+                              color: "#ffffff",
                               textTransform: "uppercase",
                               fontFamily: inter.style.fontFamily,
                             }}
@@ -428,7 +467,9 @@ export default function OurNews() {
                           </Typography>
                           <Box
                             sx={{
-                              border: "1px solid #FFFFFF",
+                              border: show
+                                ? "1px solid #007A47"
+                                : "1px solid #FFFFFF",
                               width: "28px",
                               height: "28px",
                               borderRadius: "50%",
@@ -441,7 +482,7 @@ export default function OurNews() {
                               sx={{
                                 height: "13px",
                                 width: "13px",
-                                color: "#FFFFFF",
+                                color: show ? "#007A47" : "#FFFFFF",
                                 cursor: "pointer",
                               }}
                             />
@@ -454,7 +495,7 @@ export default function OurNews() {
                             fontSize: "18px",
                             lineHeight: "30px",
                             maxWidth: { lg: "360px", md: "100%" },
-                            color: "#FFFFFF",
+                            color: textColor,
                           }}
                         >
                           {ele?.heading}
@@ -462,7 +503,7 @@ export default function OurNews() {
                         <Typography
                           mt={1}
                           sx={{
-                            color: "#FFFFFF",
+                            color: textColor,
                             fontSize: "15px",
                             lineHeight: "20px",
                             maxWidth: { md: "280px", xs: "100%" },
@@ -485,7 +526,7 @@ export default function OurNews() {
                                 sx={{
                                   fontSize: 14,
                                   fontWeight: 600,
-                                  color: "#FFFFFF",
+                                  color: textColor,
                                   fontFamily: inter.style.fontFamily,
                                 }}
                               >
@@ -494,7 +535,9 @@ export default function OurNews() {
                             </Box>
                             <Box
                               sx={{
-                                border: "1px solid #FFFFFF",
+                                border: show
+                                  ? "1px solid #007A47"
+                                  : "1px solid #FFFFFF",
                                 width: "40px",
                                 height: "40px",
                                 borderRadius: "50%",
@@ -507,7 +550,7 @@ export default function OurNews() {
                                 sx={{
                                   height: "18px",
                                   width: "18px",
-                                  color: "#FFFFFF",
+                                  color: show ? "#007A47" : "#FFFFFF",
                                   cursor: "pointer",
                                 }}
                               />
