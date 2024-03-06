@@ -38,12 +38,6 @@ export default function Partenaires() {
   ];
   const supported = [
     {
-      img: Logo6,
-    },
-    {
-      img: Logo5,
-    },
-    {
       img: Logo7,
     },
     {
@@ -51,6 +45,12 @@ export default function Partenaires() {
     },
     {
       img: Logo9,
+    },
+    {
+      img: Logo5,
+    },
+    {
+      img: Logo6,
     },
   ];
   return (
@@ -62,7 +62,7 @@ export default function Partenaires() {
           mt: 6,
           display: "flex",
           overflowX: "scroll",
-          gap: {md : 0 , xs : 2},
+          gap: 3,
           justifyContent: { md: "space-around", xs: "unset" },
           "&::-webkit-scrollbar": {
             width: "0.4em",
