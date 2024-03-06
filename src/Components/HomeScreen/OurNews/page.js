@@ -216,18 +216,18 @@ export default function OurNews() {
               pt: { md: 15, xs: 10 },
             }}
           >
-            {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-            <Typography
-              sx={{
-                fontFamily: inter.style.fontFamily,
-                fontWeight: 400,
-                fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
-                color: textColor,
-              }}
-            >
-              {t("title")}
-            </Typography>
-            {/* </motion.div> */}
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontWeight: 400,
+                  fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
+                  color: textColor,
+                }}
+              >
+                {t("title")}
+              </Typography>
+            </motion.div>
             <Button
               variant="outlined"
               endIcon={
