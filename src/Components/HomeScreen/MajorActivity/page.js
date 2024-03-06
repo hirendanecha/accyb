@@ -173,15 +173,12 @@ export default function MajorActivity() {
                     display: "flex",
                     padding: { lg: 6, md: 3, sm: 3, xs: 2 },
                     backgroundColor: "transparent",
+                    border:
+                      index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
                     position: "relative",
-                    borderRadius: index === 0 ? "0px" : "20px",
+                    borderRadius: "20px",
+                    // overflow: "hidden",
                     height: "100%",
-                    border: `2px solid ${index % 2 ? "#7DB1FF" : "#97E6FF"}`,
-                    "&:hover": {
-                      border: `2px solid ${index % 2 ? "#7DB1FF" : "#97E6FF"}`,
-                      boxShadow: "0 0 10px rgba(125, 177, 255, 0.7)", // Adjust shadow color and intensity as needed
-                      transition: "border .3s, box-shadow .3s",
-                    },
                   }}
                 >
                   {/* {index !== 0 && !mdDown ? (

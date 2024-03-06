@@ -145,7 +145,7 @@ export default function OurNews() {
       sx={{
         backgroundColor: bgColor, // Set background color dynamically
         position: "relative",
-        transition: "background-color 0.7s ease",
+        transition: "background-color 0.8s ease",
         overflow: "hidden",
         mt: 10,
         pb: 10,
