@@ -663,6 +663,18 @@ export default function OurMission() {
             </>
           );
         })}
+        <Typography
+          sx={{
+            fontFamily: inter.style.fontFamily,
+            fontWeight: 400,
+            mt: { md: 3, xs: 1 },
+            fontSize: { md: "14px", xs: "10px", lineHeight: "20px" },
+            color: "#222D55",
+          }}
+        >
+          En cas d'incident, les bons réflexes en cas d'intrusion sur un système
+          d'information sont à retrouver ici.
+        </Typography>
       </Container>
     </Box>
   );
