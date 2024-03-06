@@ -84,7 +84,7 @@ export default function OurNews() {
       const scrollY = window.scrollY;
       const targetScrollPosition = 2145;
       if (scrollY >= targetScrollPosition) {
-        setBgColor("#FFFFFF");
+        setBgColor("#fff");
         setTextColor("#222D55");
         setShow(true);
       } else {
@@ -145,7 +145,7 @@ export default function OurNews() {
       sx={{
         backgroundColor: bgColor, // Set background color dynamically
         position: "relative",
-        transition: "background-color 0.8s ease",
+        transition: "background-color 0.3s ease",
         overflow: "hidden",
         mt: 10,
         pb: 10,
@@ -612,8 +612,8 @@ export default function OurNews() {
             }
             sx={{
               mt: { md: 0, xs: 2 },
-              color: "#222D55",
-              backgroundColor: "#FFFFFF",
+              color: show ? "#FFFFFF" : "#222D55",
+              backgroundColor: show ? "#222D55" : "#FFFFFF",
               border: "1px solid #FFFFFF",
               borderRadius: "61px",
               padding: "8px 30px",
@@ -622,8 +622,9 @@ export default function OurNews() {
               fontFamily: inter.style.fontFamily,
               fontWeight: 600,
               ":hover": {
-                color: "white",
+                color: "textColor",
                 border: "1px solid #FFFFFF",
+                backgroundColor: show ? "#222D55" : "#FFFFFF",
               },
             }}
           >
