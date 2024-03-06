@@ -145,7 +145,7 @@ export default function OurNews() {
       sx={{
         backgroundColor: bgColor, // Set background color dynamically
         position: "relative",
-        transition: "background-color 0.8s ease",
+        transition: "background-color 0.9s ease",
         borderRadius: "20px 20px 0 0",
         // height: "100vh",
         overflow: "hidden",
@@ -216,18 +216,18 @@ export default function OurNews() {
               pt: { md: 15, xs: 10 },
             }}
           >
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontWeight: 400,
-                  fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
-                  color: textColor,
-                }}
-              >
-                {t("title")}
-              </Typography>
-            </motion.div>
+            {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+            <Typography
+              sx={{
+                fontFamily: inter.style.fontFamily,
+                fontWeight: 400,
+                fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
+                color: textColor,
+              }}
+            >
+              {t("title")}
+            </Typography>
+            {/* </motion.div> */}
             <Button
               variant="outlined"
               endIcon={
@@ -270,8 +270,9 @@ export default function OurNews() {
                 fontFamily: inter.style.fontFamily,
                 fontWeight: 600,
                 ":hover": {
-                  color: textColor,
+                  color: "textColor",
                   border: "1px solid #FFFFFF",
+                  backgroundColor: show ? "#222D55" : "#FFFFFF",
                 },
               }}
             >
