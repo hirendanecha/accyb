@@ -82,7 +82,7 @@ export default function OurNews() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const targetScrollPosition = 2045;
+      const targetScrollPosition = 2145;
       if (scrollY >= targetScrollPosition) {
         setBgColor("#FFFFFF");
         setTextColor("#222D55");
@@ -92,7 +92,7 @@ export default function OurNews() {
         setTextColor("#7DB1FF");
         setShow(false);
       }
-      const stopAnimation = 2040;
+      const stopAnimation = 2140;
       if (scrollY >= stopAnimation) {
         setIsVisible2(true);
       } else {
@@ -145,9 +145,7 @@ export default function OurNews() {
       sx={{
         backgroundColor: bgColor, // Set background color dynamically
         position: "relative",
-        transition: "background-color 0.9s ease",
-        borderRadius: "20px 20px 0 0",
-        // height: "100vh",
+        transition: "background-color 0.7s ease",
         overflow: "hidden",
         mt: 10,
         pb: 10,
