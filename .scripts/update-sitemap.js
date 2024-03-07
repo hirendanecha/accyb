@@ -4,6 +4,12 @@ const xml2js = require("xml2js");
 
 const filePath = path.join(__dirname, "../public/sitemap.xml");
 
+const newSitemapLinks = [
+  "/fr/sitemap.xml",
+  // "/fr/category-sitemap.xml",
+  // Add more links as needed
+];
+
 // Read the XML file
 fs.readFile(filePath, "utf8", (err, data) => {
   if (err) {
@@ -17,6 +23,13 @@ fs.readFile(filePath, "utf8", (err, data) => {
       console.error("Error parsing XML:", parseErr);
       return;
     }
+
+    // Update the sitemap links
+    newSitemapLinks.forEach((link) => {
+      result.sitemapindex.sitemap.push({
+        loc: ["https://accyb.vercel.app/" + link],
+      });
+    });
 
     // Convert JSON back to XML
     const builder = new xml2js.Builder();
