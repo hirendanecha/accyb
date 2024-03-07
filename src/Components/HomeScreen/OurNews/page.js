@@ -26,7 +26,12 @@ import { useTranslations } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
-  resize: "cover !important",
+  resize: "stratch",
+}));
+const Imgs = styled(Image)(({ theme }) => ({
+  width: "310px !important",
+  height: "auto !important",
+  resize: "stratch",
 }));
 export const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -426,10 +431,9 @@ export default function OurNews() {
                     }}
                   >
                     <Box>
-                      <Img
+                      <Imgs
                         src={ele?.img}
                         alt="img2"
-                        style={{ height: "auto", width: "100%" }}
                         width={900}
                         height={900}
                       />

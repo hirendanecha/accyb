@@ -104,6 +104,7 @@ export default function Partenaires() {
               <Box
                 key={idx}
                 sx={{
+                  alignItems: "center",
                   display: "flex",
                   justifyContent: { md: "start", xs: "center" },
                   mb: 2,
@@ -147,12 +148,13 @@ export default function Partenaires() {
                 key={idx}
                 sx={{
                   display: "flex",
+                  alignItems: "center",
                   justifyContent: { md: "start", xs: "center" },
                   mb: 2,
                   mr: { md: 2, xs: 0 },
                 }}
               >
-                <Imgs src={ele.img} width={900} height={900} alt="img" />
+                <Imgs src={ele.img} width={1200} height={1200} alt="img" />
               </Box>
             );
           })}
