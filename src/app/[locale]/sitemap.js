@@ -3,15 +3,15 @@ const changeFrequency =
   "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export default function sitemap() {
   const changeFrequency = "daily";
-  const routes = [  
+  const routes = [
     "",
-    "/devenirCyber",
-    "/discoverTheACCYB",
-    "/discoverTheObservatory",
-    "/FindOutAtlantic",
-    "/news",
-    "/seFormer",
-    "/sInformer",
+    "/fr/devenirCyber",
+    "/fr/discoverTheACCYB",
+    "/fr/discoverTheObservatory",
+    "/fr/FindOutAtlantic",
+    "/fr/news",
+    "/fr/seFormer",
+    "/fr/sInformer",
   ].map((route) => ({
     url: `${WEBSITE_HOST_URL}${route}`,
     lastModified: new Date().toISOString(),
