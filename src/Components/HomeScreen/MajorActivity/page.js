@@ -170,8 +170,7 @@ export default function MajorActivity() {
                       display: "flex",
                       padding: { lg: 5, md: 3, sm: 5, xs: 3 },
                       backgroundColor: "transparent",
-                      border:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                      border: "2px solid #7DB1FF",
                       position: "relative",
                       borderRadius: "20px",
                       // overflow: "hidden",
@@ -203,7 +202,7 @@ export default function MajorActivity() {
                           border:
                             index % 2
                               ? "2px solid #7DB1FF"
-                              : "2px solid #97E6FF",
+                              : "2px solid #7DB1FF",
                           borderBottomWidth: "0",
                           borderLeftWidth: "0",
                         },
@@ -219,7 +218,7 @@ export default function MajorActivity() {
                           border:
                             index % 2
                               ? "2px solid #7DB1FF"
-                              : "2px solid #97E6FF",
+                              : "2px solid #7DB1FF",
                           borderBottomWidth: "0",
                           borderLeftWidth: "0",
                         },
@@ -236,7 +235,7 @@ export default function MajorActivity() {
                           border:
                             index % 2
                               ? "2px solid #7DB1FF"
-                              : "2px solid #97E6FF",
+                              : "2px solid #7DB1FF",
                           borderTopWidth: "0",
                           borderRightWidth: "0",
                           borderBottomLeftRadius: "20px",
