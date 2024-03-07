@@ -32,6 +32,11 @@ const Imgs = styled(Image)(({ theme }) => ({
   width: "310px !important",
   height: "auto !important",
   resize: "stratch",
+  [theme.breakpoints.down("sm")]: {
+    width: "100% !important",
+    height: "auto !important",
+    resize: "stratch",
+  },
 }));
 export const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -496,7 +501,7 @@ export default function OurNews() {
                             fontWeight: 600,
                             fontFamily: inter.style.fontFamily,
                             fontSize: "18px",
-                            lineHeight: "30px",
+                            lineHeight: "25px",
                             maxWidth: { lg: "360px", md: "100%" },
                             color: textColor,
                           }}
@@ -521,7 +526,7 @@ export default function OurNews() {
                               display: "flex",
                               justifyContent: "space-between",
                               alignItems: "center",
-                              mt: 3,
+                              mt: 1,
                             }}
                           >
                             <Box>
