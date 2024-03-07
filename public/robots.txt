@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://accyb.vercel.app
-
-# Sitemaps
-Sitemap: https://accyb.vercel.app/sitemap.xml
