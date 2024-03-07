@@ -3,7 +3,7 @@ const changeFrequency =
   "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 export default function sitemap() {
   const changeFrequency = "daily";
-  const routes = [
+  const routes = [  
     "",
     "/devenirCyber",
     "/discoverTheACCYB",
