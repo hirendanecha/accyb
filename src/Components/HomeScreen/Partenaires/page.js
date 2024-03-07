@@ -9,14 +9,18 @@ import Logo5 from "../../../Icons/Supported/Logo1.svg";
 import Logo6 from "../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../Icons/Supported/Logo4.svg";
-import Logo9 from "../../../Icons/Supported/Logo5.svg";
+import Logo9 from "../../../Icons/Supported/Logo1.jpg";
 import Image from "next/image";
 import InfoSlider from "../../../Components/InfoSlider/page";
 import { inter } from "../../../fonts/fonts";
 import { useTranslations } from "next-intl";
 
 const Img = styled(Image)(({ theme }) => ({
-  width: "90px !important",
+  width: "100px !important",
+  height: "97px !important",
+}));
+const Imgs = styled(Image)(({ theme }) => ({
+  width: "110px !important",
   height: "97px !important",
 }));
 
@@ -62,7 +66,7 @@ export default function Partenaires() {
           mt: 6,
           display: "flex",
           overflowX: "scroll",
-          gap: 3,
+          gap: 1,
           justifyContent: { md: "space-around", xs: "unset" },
           "&::-webkit-scrollbar": {
             width: "0.4em",
@@ -74,7 +78,7 @@ export default function Partenaires() {
             display: "flex",
             justifyContent: "center",
             mt: 3,
-            gap: { md: 2, xs: 1 },
+            gap: { md: 1, xs: 1 },
             flexWrap: "nowrap",
           }}
         >
@@ -116,7 +120,7 @@ export default function Partenaires() {
             display: "flex",
             justifyContent: "center",
             mt: 3,
-            gap: 2,
+            gap: 1,
             flexWrap: "nowrap",
           }}
         >
@@ -148,7 +152,7 @@ export default function Partenaires() {
                   mr: { md: 2, xs: 0 },
                 }}
               >
-                <Img src={ele.img} width={100} height={100} alt="img" />
+                <Imgs src={ele.img} width={900} height={900} alt="img" />
               </Box>
             );
           })}

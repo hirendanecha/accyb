@@ -164,11 +164,11 @@ export default function MajorActivity() {
           >
             {activites?.map((ele, index) => {
               return (
-                <Grid item xs={12} md={4} key={index}>
+                <Grid item xs={12} lg={4} md={6} key={index}>
                   <Box
                     sx={{
                       display: "flex",
-                      padding: { lg: 4, md: 3, sm: 3, xs: 2 },
+                      padding: { lg: 5, md: 3, sm: 5, xs: 3 },
                       backgroundColor: "transparent",
                       border:
                         index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
@@ -265,7 +265,7 @@ export default function MajorActivity() {
                         height: "100%",
                         position: "relative",
                         zIndex: 1,
-                        gap: { lg: 1.5, md: 2, sm: 3, xs: 1.2 },
+                        gap: { lg: 1.5, md: 2, sm: 3, xs: 3 },
                       }}
                     >
                       <Grid item xs={3} sm={4}>
@@ -300,7 +300,7 @@ export default function MajorActivity() {
                               color: "#222D55",
                               display: "flex",
                               textAlign: "start",
-                              maxWidth: { lg: "350px", xs: "250px" },
+                              maxWidth: { lg: "350px", xs: "100px" },
                             }}
                           >
                             {ele?.title}
