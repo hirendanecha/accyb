@@ -167,21 +167,41 @@ export default function MajorActivity() {
                 <Grid item xs={12} lg={4} md={6} key={index}>
                   <Box
                     sx={{
-                      display: "flex",
-                      padding: { lg: 5, md: 3, sm: 5, xs: 3 },
-                      backgroundColor: "transparent",
-                      border: "2px solid #7DB1FF",
+                      // display: "flex",
+                      // padding: { lg: 5, md: 3, sm: 5, xs: 3 },
+                      // backgroundColor: "transparent",
+                      // // border:
+                      // //   index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                      // border: "2px solid transparent",
+                      // borderImageSlice: 1,
+                      // borderImage:
+                      //   "linear-gradient(to right, #7DB1FF, #97E6FF) 1",
+                      // position: "relative",
+                      // borderRadius: "20px",
+                      // // overflow: "hidden",
+                      // height: "100%",
                       position: "relative",
-                      borderRadius: "20px",
-                      // overflow: "hidden",
+                      padding: { lg: 5, md: 3, sm: 5, xs: 3 },
                       height: "100%",
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        inset: 0,
+                        borderRadius: "20px",
+                        padding: "2px",
+                        background: "linear-gradient(45deg, #7DB1FF, #97E6FF)",
+                        WebkitMask:
+                          "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                        WebkitMaskComposite: "xor",
+                        maskComposite: "exclude",
+                      },
                     }}
                   >
                     <Box
                       sx={{
                         position: "absolute",
-                        top: "-2px",
-                        right: "-2px",
+                        top: "0px",
+                        right: "0px",
                         width: "50px",
                         height: "50px",
                         bgcolor: "#ffffff",
@@ -199,10 +219,7 @@ export default function MajorActivity() {
                           left: "1px",
                           transform: "translateX(-100%)",
                           borderTopRightRadius: "16px",
-                          border:
-                            index % 2
-                              ? "2px solid #7DB1FF"
-                              : "2px solid #7DB1FF",
+                          border: "2px solid #97E6FF",
                           borderBottomWidth: "0",
                           borderLeftWidth: "0",
                         },
@@ -215,10 +232,7 @@ export default function MajorActivity() {
                           right: 0,
                           transform: "translateY(100%)",
                           borderTopRightRadius: "16px",
-                          border:
-                            index % 2
-                              ? "2px solid #7DB1FF"
-                              : "2px solid #7DB1FF",
+                          border: "2px solid #97E6FF",
                           borderBottomWidth: "0",
                           borderLeftWidth: "0",
                         },
@@ -232,10 +246,7 @@ export default function MajorActivity() {
                           left: "-1px",
                           width: "25px",
                           height: "25px",
-                          border:
-                            index % 2
-                              ? "2px solid #7DB1FF"
-                              : "2px solid #7DB1FF",
+                          border: "2px solid #97E6FF",
                           borderTopWidth: "0",
                           borderRightWidth: "0",
                           borderBottomLeftRadius: "20px",
