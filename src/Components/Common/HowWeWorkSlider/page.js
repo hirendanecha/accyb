@@ -1,3 +1,4 @@
+"use client";
 import {
   Box,
   Card,
@@ -275,107 +276,326 @@ export default function HowToWorkSlider() {
     <Box
       component="section"
       sx={{
-        padding: "0 30px",
         pt: { xs: 10, sm: 10, lg: 15, xl: 20 },
       }}
     >
       <Grid
         container
-        columnSpacing={2}
-        rowSpacing={6}
-        sx={{ display: "flex", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          alignItems: "start",
+          position: "relative",
+        }}
       >
-        <Grid item xs={12} md={2.5}>
-          <Box
+        <Box
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            display: { lg: "block", md: " none", xs: "none" },
+            position: "absolute",
+            left: { md: "25%", xs: "5%" },
+            zIndex: 10,
+            top: 60,
+          }}
+        >
+          <IconButton
+            className="swiper-button-prev-testimonials"
+            aria-label="Next Slide"
+            title="Next Slide"
             sx={{
-              display: { md: "flex", xs: "none" },
-              justifyContent: "center",
-              alignItems: "center",
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+              width: 45,
+              height: 45,
             }}
           >
-            <IconButton
-              className="swiper-button-prev-testimonials"
-              aria-label="Next Slide"
-              title="Next Slide"
-              sx={{
-                bgcolor: "#007A47",
-                width: 45,
-                height: 45,
-                "&:hover": {
-                  backgroundColor: "#007A47",
-                },
-              }}
-            >
-              <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
-            </IconButton>
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <Typography
+            <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
+          </IconButton>
+        </Box>
+        <Box
+          component={Swiper}
+          keyboard={true}
+          modules={[Navigation, Keyboard, Pagination]}
+          slidesPerView={1.7}
+          loop={true}
+          navigation={{
+            nextEl: ".swiper-button-next-testimonials",
+            prevEl: ".swiper-button-prev-testimonials",
+            enabled: true,
+          }}
+          breakpoints={{
+            300: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 1.7,
+            },
+          }}
+          centeredSlides={true}
+          centeredSlidesBounds={true}
+          allowTouchMove={false}
+          sx={{
+            "& .swiper-slide:not(.swiper-slide-active)": {
+              opacity: { lg: 0.3, md: 1, xs: 1 },
+            },
+          }}
+        >
+          <SwiperSlide>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    padding: { md: 5, xs: 0.2 },
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    color="#007A47"
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                    }}
+                  >
+                    Conseil d’administration
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      justifyContent: "center",
+                      display: "flex",
+                      textAlign: "center",
+                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                      mt: 3,
+                      mb: { md: 1, xs: 5 },
+                      maxWidth: "100%",
+                    }}
+                  >
+                    Le conseil d’administration détermine les axes stratégiques
+                    et les orientations de l’activité de l’association ainsi que
+                    les grands principes de fonctionnement de l’Association et
+                    veille à leur mise en œuvre.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    padding: { md: 5, xs: 0.2 },
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    color="#007A47"
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                    }}
+                  >
+                    Conseil d’administration
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      justifyContent: "center",
+                      display: "flex",
+                      textAlign: "center",
+                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                      mt: 3,
+                      mb: { md: 1, xs: 5 },
+                      maxWidth: "100%",
+                    }}
+                  >
+                    Le conseil d’administration détermine les axes stratégiques
+                    et les orientations de l’activité de l’association ainsi que
+                    les grands principes de fonctionnement de l’Association et
+                    veille à leur mise en œuvre.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    padding: { md: 5, xs: 0.2 },
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    color="#007A47"
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                    }}
+                  >
+                    Conseil d’administration
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      justifyContent: "center",
+                      display: "flex",
+                      textAlign: "center",
+                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                      mt: 3,
+                      mb: { md: 1, xs: 5 },
+                      maxWidth: "100%",
+                    }}
+                  >
+                    Le conseil d’administration détermine les axes stratégiques
+                    et les orientations de l’activité de l’association ainsi que
+                    les grands principes de fonctionnement de l’Association et
+                    veille à leur mise en œuvre.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    padding: { md: 5, xs: 0.2 },
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    color="#007A47"
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                    }}
+                  >
+                    Conseil d’administration
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      justifyContent: "center",
+                      display: "flex",
+                      textAlign: "center",
+                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                      mt: 3,
+                      mb: { md: 1, xs: 5 },
+                      maxWidth: "100%",
+                    }}
+                  >
+                    Le conseil d’administration détermine les axes stratégiques
+                    et les orientations de l’activité de l’association ainsi que
+                    les grands principes de fonctionnement de l’Association et
+                    veille à leur mise en œuvre.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </SwiperSlide>
+          <SwiperSlide>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid item xs={12} md={12} lg={12}>
+                <Box
+                  sx={{
+                    bgcolor: "#fff",
+                    padding: { md: 5, xs: 0.2 },
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    color="#007A47"
+                    sx={{
+                      textTransform: "capitalize",
+                      display: "flex",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                    }}
+                  >
+                    Conseil d’administration
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      justifyContent: "center",
+                      display: "flex",
+                      textAlign: "center",
+                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                      mt: 3,
+                      mb: { md: 1, xs: 5 },
+                      maxWidth: "100%",
+                    }}
+                  >
+                    Le conseil d’administration détermine les axes stratégiques
+                    et les orientations de l’activité de l’association ainsi que
+                    les grands principes de fonctionnement de l’Association et
+                    veille à leur mise en œuvre.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </SwiperSlide>
+        </Box>
+        <Box
+          className="swiper-button-next-testimonials"
+          sx={{
+            display: { lg: "block", md: " none", xs: "none" },
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            left: { md: "75%", xs: "85%" },
+            top: 60,
+            zIndex: 10,
+          }}
+        >
+          <IconButton
+            aria-label="Next Slide"
+            title="Next Slide"
             sx={{
-              justifyContent: "center",
-              display: "flex",
-              fontFamily: inter.style.fontFamily,
+              backgroundImage:
+                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+              width: 45,
+              height: 45,
             }}
           >
-            Notre fonctionnement
-          </Typography>
-          <Typography
-            variant="h2"
-            color="#007A47"
-            sx={{
-              textTransform: "capitalize",
-              display: "flex",
-              justifyContent: "center",
-              textAlign: "center",
-              mt: 3,
-              fontFamily: inter.style.fontFamily,
-              fontSize: { lg: "64px", md: "50px", xs: "40px" },
-            }}
-          >
-            Conseil d’administration
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: inter.style.fontFamily,
-              justifyContent: "center",
-              display: "flex",
-              textAlign: "center",
-              fontSize: { lg: "22px", md: "18px", xs: "14px" },
-              mt: 3,
-            }}
-          >
-            Le conseil d’administration détermine les axes stratégiques et les
-            orientations de l’activité de l’association ainsi que les grands
-            principes de fonctionnement de l’Association et veille à leur mise
-            en œuvre.
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={2.5}>
-          <Box
-            className="swiper-button-next-testimonials"
-            sx={{
-              display: { md: "flex", xs: "none" },
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <IconButton
-              aria-label="Next Slide"
-              title="Next Slide"
-              sx={{
-                bgcolor: "#007A47",
-                width: 45,
-                height: 45,
-                "&:hover": {
-                  backgroundColor: "#007A47",
-                },
-              }}
-            >
-              <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
-            </IconButton>
-          </Box>
-        </Grid>
+            <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
+          </IconButton>
+        </Box>
       </Grid>
       <Box
         component={Swiper}
@@ -394,6 +614,7 @@ export default function HowToWorkSlider() {
           600: { slidesPerView: 2 },
           1200: { slidesPerView: 5 },
         }}
+        allowTouchMove={false}
         mt={{ md: 12, xs: 0 }}
         sx={{
           "& .swiper-pagination": { position: "static", mt: 10 },
@@ -448,7 +669,7 @@ export default function HowToWorkSlider() {
       <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 5 }}>
         <Box
           sx={{
-            display: { md: "none", xs: "flex" },
+            display: { lg: "none", md: "flex" },
             // justifyContent: "center",
             // alignItems: "center",
           }}
@@ -472,7 +693,7 @@ export default function HowToWorkSlider() {
         <Box
           className="swiper-button-next-testimonials"
           sx={{
-            display: { md: "none", xs: "flex" },
+            display: { lg: "none", md: "flex" },
           }}
         >
           <IconButton
