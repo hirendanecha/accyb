@@ -180,7 +180,7 @@ export default function OurEvents() {
                 <Button
                   onClick={() => handleClick(ele)}
                   sx={{
-                    minWidth: {
+                    width: {
                       lg: "220px",
                       md: "200px",
                       sm: "150px",
