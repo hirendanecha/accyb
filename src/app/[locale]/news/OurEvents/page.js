@@ -17,6 +17,7 @@ import Image1 from "../../../../Icons/Image1.png";
 import Image2 from "../../../../Icons/Image2.png";
 import Image3 from "../../../../Icons/Image3.png";
 import ShareIcon from "@mui/icons-material/Share";
+import { SwiperSlide, Swiper } from "swiper/react";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -138,43 +139,34 @@ export default function OurEvents() {
       <Container disableGutters maxWidth={"xl"}>
         <Box
           sx={{
-            overflowX: "auto",
-            width: "100%",
-            display: "flex",
-            "&::-webkit-scrollbar": {
-              width: "0.4em",
-            },
+            mt: 4,
+            cursor: "grab",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              gap: 1,
-              mt: { md: 5, xs: 2 },
-              overflowX: "auto",
-              cursor: "grab",
-              "&::-webkit-scrollbar": {
-                width: "0.4em",
-              },
-            }}
+          <Swiper
+            spaceBetween={10} // Adjust as needed
+            slidesPerView={6.5} // Adjust as needed
+            grabCursor={true}
+            loop={true}
+            scrollbar={{ draggable: true }}
+            className="mySwiper"
           >
-            {category?.map((ele, idx) => {
-              return (
+            {category?.map((ele, idx) => (
+              <SwiperSlide key={idx}>
                 <Button
                   onClick={() => handleClick(ele)}
-                  key={idx}
                   sx={{
                     minWidth: "220px",
                     fontFamily: inter.style.fontFamily,
                     backgroundImage:
-                      currentCategory == ele
+                      currentCategory === ele
                         ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
                         : "transparent",
-                    border: !currentCategory == ele ? "" : "1px solid #D3D5DD",
+                    border: currentCategory === ele ? "" : "1px solid #D3D5DD",
                     textTransform: "uppercase",
-                    padding: "15px 40px 15px 40px",
+                    padding: "15px 40px",
                     fontSize: { md: "14px", xs: "12px" },
-                    color: currentCategory == ele ? "#FFFFFF" : "#222D55",
+                    color: currentCategory === ele ? "#FFFFFF" : "#222D55",
                     borderRadius: "50px",
                     "&:hover": {
                       backgroundImage:
@@ -185,9 +177,9 @@ export default function OurEvents() {
                 >
                   {ele}
                 </Button>
-              );
-            })}
-          </Box>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Box>
         <Grid
           container
