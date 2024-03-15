@@ -184,7 +184,7 @@ export default function OurEvents() {
                       lg: "220px",
                       md: "200px",
                       sm: "150px",
-                      xs: "120px",
+                      xs: "100%",
                     },
                     fontFamily: inter.style.fontFamily,
                     backgroundImage:
