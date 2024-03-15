@@ -147,6 +147,26 @@ export default function OurEvents() {
             spaceBetween={10} // Adjust as needed
             slidesPerView={6.5} // Adjust as needed
             grabCursor={true}
+            breakpoints={{
+              0: {
+                slidesPerView: 2.5,
+              },
+              600: {
+                slidesPerView: 3.5,
+              },
+              960: {
+                slidesPerView: 4.5,
+              },
+              1200: {
+                slidesPerView: 5.1,
+              },
+              1400: {
+                slidesPerView: 6.5,
+              },
+              1600: {
+                slidesPerView: 6.5,
+              },
+            }}
             loop={true}
             scrollbar={{ draggable: true }}
             className="mySwiper"
@@ -156,7 +176,7 @@ export default function OurEvents() {
                 <Button
                   onClick={() => handleClick(ele)}
                   sx={{
-                    minWidth: "220px",
+                    minWidth: { lg: "220px", md: "200px", sm: "150px" , xs : "120px"},
                     fontFamily: inter.style.fontFamily,
                     backgroundImage:
                       currentCategory === ele
