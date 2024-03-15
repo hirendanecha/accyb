@@ -121,7 +121,11 @@ export default function OurEvents() {
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
         <Typography
-          sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" } }}
+          sx={{
+            color: "#222D55",
+            fontSize: { md: "39px", xs: "24px" },
+            mt: { md: 0, xs: 4 },
+          }}
         >
           Nos événements
         </Typography>
@@ -176,7 +180,12 @@ export default function OurEvents() {
                 <Button
                   onClick={() => handleClick(ele)}
                   sx={{
-                    minWidth: { lg: "220px", md: "200px", sm: "150px" , xs : "120px"},
+                    minWidth: {
+                      lg: "220px",
+                      md: "200px",
+                      sm: "150px",
+                      xs: "120px",
+                    },
                     fontFamily: inter.style.fontFamily,
                     backgroundImage:
                       currentCategory === ele
