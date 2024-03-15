@@ -25,7 +25,7 @@ import Logo2 from "../../Icons/Frame2.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { inter } from "../../fonts/fonts";
 import { useParams, useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 const Img = styled(Image)(({ theme }) => ({
   width: "64px !important",
@@ -35,6 +35,7 @@ const Img = styled(Image)(({ theme }) => ({
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Header() {
+  const locales = useLocale();
   const t = useTranslations("HeaderLink");
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -43,15 +44,15 @@ export default function Header() {
   const pages = [
     {
       name: t("title"),
-      path: "/fr/discoverTheACCYB",
+      path: `/${locales}/discoverTheACCYB`,
     },
     {
       name: t("title2"),
-      path: "/fr/FindOutAtlantic",
+      path: `/${locales}/FindOutAtlantic`,
     },
     {
       name: t("title3"),
-      path: "/fr/discoverTheObservatory",
+      path: `/${locales}/discoverTheObservatory`,
     },
   ];
   const link = [
@@ -61,11 +62,11 @@ export default function Header() {
     },
     {
       name: t("title5"),
-      path: "/fr/seFormer",
+      path: `/${locales}/seFormer`,
     },
     {
       name: t("title6"),
-      path: "/fr/sInformer",
+      path: `/${locales}/sInformer`,
     },
   ];
   const handleOpenNavMenu = (event) => {

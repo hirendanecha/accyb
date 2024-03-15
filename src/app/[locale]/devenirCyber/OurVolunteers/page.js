@@ -30,27 +30,36 @@ export default function OurVolunteers() {
         </Box>
         <Grid
           container
-          columnSpacing={2}
           rowSpacing={3}
+          columnSpacing={2}
           mt={5}
           sx={{
             padding: "0 16px",
           }}
         >
-          <Grid item xs={12} lg={3} md={3}>
+          <Grid
+            item
+            xs={6}
+            lg={3}
+            md={3}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Box
               sx={{
                 bgcolor: "#fff",
                 border: "1px solid black",
-                padding: 6,
                 borderRadius: "10px",
                 display: "flex",
+                height: { md: "122px", xs: "71px" },
+                width: { md: "258px", xs: "152px" },
+                alignItems: "center",
                 justifyContent: "center",
               }}
             >
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
                 }}
               >
                 ALTEN
@@ -58,55 +67,122 @@ export default function OurVolunteers() {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
                 }}
               >
                 EN FRANCE
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3} md={3}>
+          <Grid
+            item
+            xs={6}
+            lg={3}
+            md={3}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Box
               sx={{
                 bgcolor: "#fff",
                 border: "1px solid black",
-                padding: 6,
                 borderRadius: "10px",
                 display: "flex",
+                height: { md: "122px", xs: "71px" },
+                width: { md: "258px", xs: "152px" },
+                alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3} md={3}>
+          <Grid
+            item
+            xs={6}
+            lg={3}
+            md={3}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Box
               sx={{
                 bgcolor: "#fff",
                 border: "1px solid black",
-                padding: 6,
                 borderRadius: "10px",
                 display: "flex",
+                height: { md: "122px", xs: "71px" },
+                width: { md: "258px", xs: "152px" },
+                alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} lg={3} md={3}>
+          <Grid
+            item
+            xs={6}
+            lg={3}
+            md={3}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Box
               sx={{
                 bgcolor: "#fff",
                 border: "1px solid black",
-                padding: 6,
                 borderRadius: "10px",
                 display: "flex",
+                height: { md: "122px", xs: "71px" },
+                width: { md: "258px", xs: "152px" },
+                alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <Typography>ALTEN</Typography>
-              <Typography>EN FRANCE</Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                ALTEN
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                }}
+              >
+                EN FRANCE
+              </Typography>
             </Box>
           </Grid>
         </Grid>

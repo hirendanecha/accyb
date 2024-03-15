@@ -65,6 +65,10 @@ const data = [
     heading: "Calendrier de l’Avent Cyber 2023",
   },
 ];
+const Img = styled(Image)(({ theme }) => ({
+  width: "100% !important",
+  height: "auto !important",
+}));
 export default function CaseStudies() {
   return (
     <Box
@@ -137,24 +141,24 @@ export default function CaseStudies() {
               padding: { md: "0 20px 0 20px", xs: "0 20px 0 20px" },
             }}
           >
-            <Grid item xs={12} md={8}>
+            <Grid item xs={8} md={8}>
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
                   justifyContent: "start",
                   display: "flex",
-                  fontSize: { lg: "75px", md: "65px", sm: "40px", xs: "30px" },
+                  fontSize: { lg: "75px", md: "65px", sm: "40px", xs: "26px" },
+                  lineHeight: { lg: "80px", md: "70px", sm: "50px" },
                   color: "#FFFFFF",
                 }}
               >
                 Nos formations vidéos
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={4} md={4}>
               <Box sx={{ display: "flex", justifyContent: "end", gap: 1 }}>
                 <Box
                   sx={{
-                    display: { md: "flex", xs: "none" },
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -166,8 +170,8 @@ export default function CaseStudies() {
                     sx={{
                       backgroundImage:
                         "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: 45,
-                      height: 45,
+                      width: { md: 45, xs: 40 },
+                      height: { md: 45, xs: 40 },
                     }}
                   >
                     <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
@@ -176,7 +180,6 @@ export default function CaseStudies() {
                 <Box
                   className="swiper-button-next-testimonials"
                   sx={{
-                    display: { md: "flex", xs: "none" },
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -187,8 +190,8 @@ export default function CaseStudies() {
                     sx={{
                       backgroundImage:
                         "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      width: 45,
-                      height: 45,
+                      width: { md: 45, xs: 40 },
+                      height: { md: 45, xs: 40 },
                     }}
                   >
                     <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
@@ -203,25 +206,25 @@ export default function CaseStudies() {
             // pagination={{ clickable: true }}
             modules={[Navigation, Keyboard, Pagination]}
             slidesPerView={3.5}
-            spaceBetween={150}
             navigation={{
               nextEl: ".swiper-button-next-testimonials",
               prevEl: ".swiper-button-prev-testimonials",
               enabled: true,
             }}
             breakpoints={{
-              300: { slidesPerView: 1 },
+              300: { slidesPerView: 1.3 },
               400: { slidesPerView: 1.2 },
               600: { slidesPerView: 1.6 },
               800: { slidesPerView: 2.1 },
               1000: { slidesPerView: 2.5 },
               1200: { slidesPerView: 2.9 },
               1260: { slidesPerView: 3.1 },
-              1400: { slidesPerView: 3.5 },
-              1440: { slidesPerView: 3.5 },
-              1920: { slidesPerView: 3.5 },
+              1400: { slidesPerView: 3.3 },
+              1440: { slidesPerView: 3.3 },
+              1920: { slidesPerView: 3.3 },
             }}
-            mt={{ md: 6, xs: 0 }}
+            mt={{ md: 6, xs: 5 }}
+            mb={{ md: 6, xs: 5 }}
             sx={{
               "& .swiper-pagination": {
                 position: "static",
@@ -243,16 +246,16 @@ export default function CaseStudies() {
                       sx={{ padding: { md: "0 0 0 20px", xs: "0 0 0 10px" } }}
                     >
                       <Box>
-                        <Image
+                        <Img
                           src={ele?.img}
-                          width={423}
-                          height={233}
+                          width={900}
+                          height={900}
                           alt="video-traning"
                         />
                       </Box>
                       <Box
                         sx={{
-                          display: "flex",
+                          display: { md: "flex", xs: "block" },
                           alignItems: "center",
                           gap: 2,
                           mt: 1.5,
@@ -264,7 +267,7 @@ export default function CaseStudies() {
                             backgroundImage:
                               "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                             width: "max-content",
-                            fontSize: "12px",
+                            fontSize: { md: "12px", xs: "10px" },
                             mb: 1,
                             padding: "10px 20px 10px 20px",
                             cursor: "pointer",
@@ -277,7 +280,7 @@ export default function CaseStudies() {
                         </Typography>
                         <Typography
                           sx={{
-                            fontSize: "18px",
+                            fontSize: { md: "18px", xs: "14px" },
                             color: "#FFFFFF",
                             fontFamily: inter.style.fontFamily,
                           }}
@@ -290,58 +293,6 @@ export default function CaseStudies() {
                 </>
               );
             })}
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 1,
-              pb: 8,
-              mt: 5,
-            }}
-          >
-            <Box
-              sx={{
-                display: { md: "none", xs: "block" },
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                className="swiper-button-prev-testimonials"
-                aria-label="Next Slide"
-                title="Next Slide"
-                sx={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                  width: 45,
-                  height: 45,
-                }}
-              >
-                <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
-              </IconButton>
-            </Box>
-            <Box
-              className="swiper-button-next-testimonials"
-              sx={{
-                display: { md: "none", xs: "block" },
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                aria-label="Next Slide"
-                title="Next Slide"
-                sx={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                  width: 45,
-                  height: 45,
-                }}
-              >
-                <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
-              </IconButton>
-            </Box>
           </Box>
         </Box>
       </Container>

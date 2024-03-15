@@ -26,243 +26,127 @@ import { inter } from "../../../fonts/fonts";
 const reviews = [
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenience and quality. Team takes care of getting us high-quality images quickly and efficiently.",
-    reviewer: "Leslie Alexander",
-    position: "UI/UX Designer",
-    // img: Client1Img,
   },
   {
     rating: 5,
-    review:
-      "I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born.",
-    reviewer: "Esther Howard",
-    position: "Nursing Assistant",
-    // img: Client2Img,
   },
   {
     rating: 5,
-    review:
-      "Quote testimonials are ads or artwork that display positive statements about your company from a brand evangelist or a delighted customer. The quote is usually accompanied by an image of the person being quoted to make the message more relatable to the target audience.",
-    reviewer: "Savannah Nguyen",
-    position: "Dog Trainer",
-    // img: Client3Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenience and quality. Team takes care of getting us high-quality images quickly and efficiently.",
-    reviewer: "Leslie Alexander",
-    position: "UI/UX Designer",
-    // img: Client1Img,
   },
   {
     rating: 5,
-    review:
-      "I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born.",
-    reviewer: "Esther Howard",
-    position: "Nursing Assistant",
-    // img: Client2Img,
   },
   {
     rating: 5,
-    review:
-      "Quote testimonials are ads or artwork that display positive statements about your company from a brand evangelist or a delighted customer. The quote is usually accompanied by an image of the person being quoted to make the message more relatable to the target audience.",
-    reviewer: "Savannah Nguyen",
-    position: "Dog Trainer",
-    // img: Client3Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
   },
   {
     rating: 5,
-    review:
-      "We Chose Squareshot because it’s the perfect combination of convenienc.",
-    reviewer: "Ronald Richards",
-    position: "President of Sales",
-    // img: Client4Img,
   },
   {
     rating: 5,
-    review:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical.",
-    reviewer: "Dianne Russell",
-    position: "Web Designer",
-    // img: Client5Img,
   },
   {
     rating: 5,
-    review:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.",
-    reviewer: "Eleanor Pena",
-    position: "Marketing Coordinator",
-    // img: Client6Img,
+  },
+  {
+    rating: 5,
+  },
+  {
+    rating: 5,
+  },
+];
+
+const reviewHeading = [
+  {
+    title: "Conseil D’administration",
+    description:
+      "Le conseil d’administration détermine les axes stratégiques et les orientations de l’activité de l’association ainsi que les grands principes de fonctionnement de l’Association et veille à leur mise en œuvre.",
+  },
+  {
+    title: "Conseil D’administration",
+    description:
+      "Le conseil d’administration détermine les axes stratégiques et les orientations de l’activité de l’association ainsi que les grands principes de fonctionnement de l’Association et veille à leur mise en œuvre.",
+  },
+  {
+    title: "Conseil D’administration",
+    description:
+      "Le conseil d’administration détermine les axes stratégiques et les orientations de l’activité de l’association ainsi que les grands principes de fonctionnement de l’Association et veille à leur mise en œuvre.",
+  },
+  {
+    title: "Conseil D’administration",
+    description:
+      "Le conseil d’administration détermine les axes stratégiques et les orientations de l’activité de l’association ainsi que les grands principes de fonctionnement de l’Association et veille à leur mise en œuvre.",
+  },
+  {
+    title: "Conseil D’administration",
+    description:
+      "Le conseil d’administration détermine les axes stratégiques et les orientations de l’activité de l’association ainsi que les grands principes de fonctionnement de l’Association et veille à leur mise en œuvre.",
   },
 ];
 
@@ -279,6 +163,18 @@ export default function HowToWorkSlider() {
         pt: { xs: 10, sm: 10, lg: 15, xl: 20 },
       }}
     >
+      <Typography
+        sx={{
+          fontFamily: inter.style.fontFamily,
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+          color: "#222D55",
+          fontSize: "18px",
+        }}
+      >
+        Notre fonctionnement
+      </Typography>
       <Grid
         container
         sx={{
@@ -340,236 +236,58 @@ export default function HowToWorkSlider() {
             },
           }}
         >
-          <SwiperSlide>
-            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    padding: { md: 5, xs: 0.2 },
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    color="#007A47"
-                    sx={{
-                      textTransform: "capitalize",
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      mt: 3,
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
-                    }}
+          {reviewHeading?.map((ele) => {
+            return (
+              <>
+                <SwiperSlide>
+                  <Grid
+                    container
+                    sx={{ display: "flex", justifyContent: "center" }}
                   >
-                    Conseil d’administration
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      justifyContent: "center",
-                      display: "flex",
-                      textAlign: "center",
-                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
-                      mt: 3,
-                      mb: { md: 1, xs: 5 },
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Le conseil d’administration détermine les axes stratégiques
-                    et les orientations de l’activité de l’association ainsi que
-                    les grands principes de fonctionnement de l’Association et
-                    veille à leur mise en œuvre.
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    padding: { md: 5, xs: 0.2 },
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    color="#007A47"
-                    sx={{
-                      textTransform: "capitalize",
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      mt: 3,
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
-                    }}
-                  >
-                    Conseil d’administration
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      justifyContent: "center",
-                      display: "flex",
-                      textAlign: "center",
-                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
-                      mt: 3,
-                      mb: { md: 1, xs: 5 },
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Le conseil d’administration détermine les axes stratégiques
-                    et les orientations de l’activité de l’association ainsi que
-                    les grands principes de fonctionnement de l’Association et
-                    veille à leur mise en œuvre.
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    padding: { md: 5, xs: 0.2 },
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    color="#007A47"
-                    sx={{
-                      textTransform: "capitalize",
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      mt: 3,
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
-                    }}
-                  >
-                    Conseil d’administration
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      justifyContent: "center",
-                      display: "flex",
-                      textAlign: "center",
-                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
-                      mt: 3,
-                      mb: { md: 1, xs: 5 },
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Le conseil d’administration détermine les axes stratégiques
-                    et les orientations de l’activité de l’association ainsi que
-                    les grands principes de fonctionnement de l’Association et
-                    veille à leur mise en œuvre.
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    padding: { md: 5, xs: 0.2 },
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    color="#007A47"
-                    sx={{
-                      textTransform: "capitalize",
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      mt: 3,
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
-                    }}
-                  >
-                    Conseil d’administration
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      justifyContent: "center",
-                      display: "flex",
-                      textAlign: "center",
-                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
-                      mt: 3,
-                      mb: { md: 1, xs: 5 },
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Le conseil d’administration détermine les axes stratégiques
-                    et les orientations de l’activité de l’association ainsi que
-                    les grands principes de fonctionnement de l’Association et
-                    veille à leur mise en œuvre.
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
-              <Grid item xs={12} md={12} lg={12}>
-                <Box
-                  sx={{
-                    bgcolor: "#fff",
-                    padding: { md: 5, xs: 0.2 },
-                    borderRadius: "10px",
-                  }}
-                >
-                  <Typography
-                    variant="h2"
-                    color="#007A47"
-                    sx={{
-                      textTransform: "capitalize",
-                      display: "flex",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      mt: 3,
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: { lg: "40px", md: "30px", xs: "20px" },
-                    }}
-                  >
-                    Conseil d’administration
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      justifyContent: "center",
-                      display: "flex",
-                      textAlign: "center",
-                      fontSize: { lg: "14px", md: "12px", xs: "10px" },
-                      mt: 3,
-                      mb: { md: 1, xs: 5 },
-                      maxWidth: "100%",
-                    }}
-                  >
-                    Le conseil d’administration détermine les axes stratégiques
-                    et les orientations de l’activité de l’association ainsi que
-                    les grands principes de fonctionnement de l’Association et
-                    veille à leur mise en œuvre.
-                  </Typography>
-                </Box>
-              </Grid>
-            </Grid>
-          </SwiperSlide>
+                    <Grid item xs={12} md={12} lg={12}>
+                      <Box
+                        sx={{
+                          bgcolor: "#fff",
+                          padding: { md: 5, xs: 0.2 },
+                          borderRadius: "10px",
+                        }}
+                      >
+                        <Typography
+                          variant="h2"
+                          color="#007A47"
+                          sx={{
+                            textTransform: "capitalize",
+                            display: "flex",
+                            justifyContent: "center",
+                            textAlign: "center",
+                            mt: 3,
+                            fontFamily: inter.style.fontFamily,
+                            fontSize: { lg: "40px", md: "30px", xs: "20px" },
+                          }}
+                        >
+                          {ele?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontFamily: inter.style.fontFamily,
+                            justifyContent: "center",
+                            display: "flex",
+                            textAlign: "center",
+                            fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                            mt: 3,
+                            mb: { md: 1, xs: 5 },
+                            maxWidth: "100%",
+                          }}
+                        >
+                          {ele?.description}
+                        </Typography>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </SwiperSlide>
+              </>
+            );
+          })}
         </Box>
         <Box
           className="swiper-button-next-testimonials"
@@ -609,7 +327,7 @@ export default function HowToWorkSlider() {
           prevEl: ".swiper-button-prev-testimonials",
           enabled: true,
         }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        // autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
           600: { slidesPerView: 2 },
           1200: { slidesPerView: 5 },
@@ -636,10 +354,12 @@ export default function HowToWorkSlider() {
                       sx={{
                         bgcolor: "#fff",
                         border: "1px solid black",
-                        padding: { md: 5, xs: 2 },
+                        padding: { md: 5, xs: 3 },
                         borderRadius: "10px",
+                        textAlign: "center",
                         transform: {
-                          md: j === 0 ? "" : "translateX(-50%)",
+                          lg: j === 0 ? "" : "translateX(-50%)",
+                          sm: "unset",
                           xs: j === 0 ? "" : "translateX(-50%)",
                         },
                       }}
@@ -647,6 +367,7 @@ export default function HowToWorkSlider() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
+                          fontSize: { md: "18px", xs: "12px" },
                         }}
                       >
                         ALTEN
@@ -654,6 +375,7 @@ export default function HowToWorkSlider() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
+                          fontSize: { md: "18px", xs: "12px" },
                         }}
                       >
                         EN FRANCE

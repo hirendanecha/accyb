@@ -29,7 +29,7 @@ export default function OurCommunity() {
           position: "relative",
           borderRadius: "20px 20px 0 0",
           overflow: "hidden",
-          mt: 20,
+          mt: { md: 20, xs: 13 },
         }}
       >
         <Container disableGutters maxWidth={"xl"}>
@@ -121,8 +121,8 @@ export default function OurCommunity() {
                     sx={{
                       border: "1px solid #B3D7C8",
                       borderRadius: "50%",
-                      height: "260px",
-                      width: "260px",
+                      height: { md: "260px", xs: "165px" },
+                      width: { md: "260px", xs: "165px" },
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
