@@ -3,6 +3,7 @@ import Header from "../../Components/Header/page";
 import Footer from "../../Components/Footer/page";
 import { inter } from "../../fonts/fonts";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import ThemeProviderWrapper from "../../fonts/ThemeProviderWrapper";
 
 export const metadata = {
   title: "ACCYB",
@@ -12,14 +13,16 @@ export const metadata = {
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
   return (
-    <html lang={locale} className={inter.className}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <ThemeProviderWrapper>
+      <html lang={locale}>
+        <body className={inter.className}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ThemeProviderWrapper>
   );
 }

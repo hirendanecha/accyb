@@ -226,10 +226,12 @@ export default function Header() {
                 >
                   <PersonOutlineIcon />
                   <Typography
+                    onClick={() => router.push(`/${locale}/joinAccyb`)}
                     variant="h7"
                     color="inherit"
                     component="div"
                     sx={{
+                      cursor: "pointer",
                       textTransform: "uppercase",
                       height: "100%",
                       fontSize: "13px",
@@ -490,10 +492,12 @@ export default function Header() {
                 >
                   <PersonOutlineIcon sx={{ color: "#fff" }} />
                   <Typography
+                    onClick={() => router.push("/joinAccyb")}
                     variant="h7"
                     color="inherit"
                     component="div"
                     sx={{
+                      cursor: "pointer",
                       textTransform: "uppercase",
                       height: "100%",
                       fontSize: "13px",
