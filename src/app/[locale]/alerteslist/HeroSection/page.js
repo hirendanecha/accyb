@@ -499,7 +499,7 @@ export default function HeroSection() {
                               border: "1px solid rgba(0, 0, 0, 0.3)",
                               padding: 5,
                               position: "relative",
-                              borderTop: idx !== 0 && idx !== 1 ? "none" : "1px solid rgba(0, 0, 0, 0.3)",
+                              borderTop: idxx !== 0 && idxx !== 1 ? "none" : "1px solid rgba(0, 0, 0, 0.3)",
                             }}
                           >
                             <Box sx={{ display: "flex", gap: 3 }}>
