@@ -489,11 +489,11 @@ export default function HeroSection() {
           <Swiper slidesPerView={1} pagination={pagination} modules={[Pagination]} className="mySwiper">
             {category?.map((data, idx) => {
               return (
-                <SwiperSlide>
-                  <Grid container columnSpacing={2} sx={{ display: "flex" }} key={idx} pb={10}>
-                    {data?.data?.map((ele, idx) => {
+                <SwiperSlide key={idx}>
+                  <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
+                    {data?.data?.map((ele, idxx) => {
                       return (
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} key={idxx}>
                           <Box
                             sx={{
                               border: "1px solid rgba(0, 0, 0, 0.3)",
