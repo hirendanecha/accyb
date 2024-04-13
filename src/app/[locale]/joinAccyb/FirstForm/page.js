@@ -12,9 +12,9 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import Stepper from "../../../Components/Common/Stepper/page";
-import HandleForm from "../../../Components/HandleForm/page";
-import { inter } from "../../../fonts/fonts";
+import Stepper from "../../../../Components/Common/Stepper/page";
+import HandleMemberForm from "../../../../Components/Forms/HandleMemberOneForm/page";
+import { inter } from "../../../../fonts/fonts";
 
 export default function JoinAccyb() {
   return (
@@ -26,7 +26,9 @@ export default function JoinAccyb() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Stepper />
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Stepper activeStep={0} />
+            </Box>
           </Grid>
           <Grid item xs={12} md={6}>
             <Box>
@@ -53,7 +55,7 @@ export default function JoinAccyb() {
                 Ce formulaire d’adhésion couvre la période du 01 janvier 2023 au 31 décembre 2024
               </Typography>
             </Box>
-            <HandleForm />
+            <HandleMemberForm />
           </Grid>
           <Grid item xs={12} md={3}></Grid>
         </Grid>

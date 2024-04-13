@@ -2,7 +2,7 @@
 import React from "react";
 import { Box, Typography, Divider, Grid, styled, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { inter } from "../../fonts/fonts";
+import { inter } from "../../../fonts/fonts";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -12,6 +12,8 @@ import Select from "@mui/material/Select";
 import DoneIcon from "@mui/icons-material/Done";
 import MenuItem from "@mui/material/MenuItem";
 import EuroIcon from "@mui/icons-material/Euro";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -34,6 +36,8 @@ const ValidationTextField = styled(TextField)({
   },
 });
 export default function HandleForm() {
+  const locales = useLocale();
+  const router = useRouter();
   const [name, setName] = React.useState("Cat in the Hat");
   return (
     <Box>
@@ -1046,6 +1050,7 @@ export default function HandleForm() {
       </Grid>
 
       <Button
+        onClick={() => router.push(`/${locales}/joinAccyb/SecoundForm`)}
         variant="outlined"
         endIcon={
           <ArrowForwardIcon

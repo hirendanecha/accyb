@@ -226,7 +226,7 @@ export default function Header() {
                 >
                   <PersonOutlineIcon />
                   <Typography
-                    onClick={() => router.push(`/${locale}/joinAccyb`)}
+                    onClick={() => router.push(`/${locale}/joinAccyb/FirstForm`)}
                     variant="h7"
                     color="inherit"
                     component="div"
