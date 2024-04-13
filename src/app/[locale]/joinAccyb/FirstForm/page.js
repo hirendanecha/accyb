@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -17,6 +18,8 @@ import HandleMemberForm from "../../../../Components/Forms/HandleMemberOneForm/p
 import { inter } from "../../../../fonts/fonts";
 
 export default function JoinAccyb() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <Box
       sx={{

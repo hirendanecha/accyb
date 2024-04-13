@@ -84,12 +84,8 @@ export default function HandleForm() {
                 },
               }}
               id="standard-basic"
-              value={name}
               type="date"
               variant="standard"
-              onChange={(event) => {
-                setName(event.target.value);
-              }}
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
           </Grid>

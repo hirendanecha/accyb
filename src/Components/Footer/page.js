@@ -1,3 +1,4 @@
+"use client";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -7,10 +8,13 @@ import Logo from "../../Icons/Footer/Logo.svg";
 import partner1 from "../../Icons/Footer/partner1.svg";
 import partner2 from "../../Icons/Footer/partner2.svg";
 import { inter } from "../../fonts/fonts";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const router = useRouter();
+  const locales = useLocale();
   return (
     <>
       <Container disableGutters maxWidth={"xl"}>
@@ -28,9 +32,7 @@ export default function Footer() {
           >
             {t("heading")}
           </Typography>
-          <Box
-            sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}
-          >
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}>
             <LinkedInIcon />
             <XIcon />
           </Box>
@@ -61,14 +63,7 @@ export default function Footer() {
               >
                 <Image src={Logo} height={138} width={138} alt="logo" />
               </Grid>
-              <Grid
-                item
-                lg={1.8}
-                md={3}
-                sm={6}
-                xs={12}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
+              <Grid item lg={1.8} md={3} sm={6} xs={12} textAlign={{ md: "unset", xs: "center" }}>
                 <Box>
                   <Typography
                     sx={{
@@ -89,31 +84,13 @@ export default function Footer() {
                       justifyContent: { md: "unset", xs: "center" },
                     }}
                   >
-                    <Image
-                      src={partner1}
-                      height={81}
-                      width={73}
-                      alt="partner1"
-                    />
-                    <Image
-                      src={partner2}
-                      height={81}
-                      width={73}
-                      alt="partner2"
-                    />
+                    <Image src={partner1} height={81} width={73} alt="partner1" />
+                    <Image src={partner2} height={81} width={73} alt="partner2" />
                   </Box>
                 </Box>
               </Grid>
               <Grid item lg={0.5}></Grid>
-              <Grid
-                item
-                lg={2.6}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
+              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",
@@ -168,15 +145,7 @@ export default function Footer() {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid
-                item
-                lg={2.6}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
+              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",
@@ -210,7 +179,9 @@ export default function Footer() {
                     {t("t3sub2")}
                   </Typography>
                   <Typography
+                    onClick={() => router.push(`${locales}/alerteslist`)}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontWeight: 400,
                       mt: 1,
@@ -231,15 +202,7 @@ export default function Footer() {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid
-                item
-                lg={2.6}
-                md={3}
-                sm={6}
-                xs={12}
-                mt={{ md: 0, xs: 5 }}
-                textAlign={{ md: "unset", xs: "center" }}
-              >
+              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -16,6 +17,8 @@ import SecoundAlertForm from "../../../../Components/FormAlerts/SecoundAlertForm
 import { inter } from "../../../../fonts/fonts";
 import SecoundStepper from "../../../../Components/Common/SecoundStepper/page";
 export default function HandleSecoundForm() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <Box
       sx={{
@@ -26,7 +29,7 @@ export default function HandleSecoundForm() {
         <Grid container>
           <Grid item xs={12} md={3}>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <SecoundStepper activeStep={0} />
+              <SecoundStepper activeStep={1} />
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>

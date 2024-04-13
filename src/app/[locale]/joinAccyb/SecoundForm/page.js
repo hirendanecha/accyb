@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -17,6 +18,8 @@ import HandleMemberForm from "../../../../Components/Forms/HandleMmbersTwoForm/p
 import { inter } from "../../../../fonts/fonts";
 
 export default function JoinAccyb() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <Box
       sx={{
@@ -27,7 +30,7 @@ export default function JoinAccyb() {
         <Grid container>
           <Grid item xs={12} md={3}>
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Stepper activeStep={0} />
+              <Stepper activeStep={1} />
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>

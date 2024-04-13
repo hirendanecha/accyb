@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -16,6 +17,7 @@ import FirstAlertForm from "../../../../Components/FormAlerts/FirstAlertForm/pag
 import { inter } from "../../../../fonts/fonts";
 import SecoundStepper from "../../../../Components/Common/SecoundStepper/page";
 export default function HandleFirstForm() {
+  const [activeStep, setActiveStep] = useState(0);
   return (
     <Box
       sx={{
