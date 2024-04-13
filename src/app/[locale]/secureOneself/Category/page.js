@@ -4,7 +4,11 @@ import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AddIcon from "@mui/icons-material/Add";
+import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 export default function NewForms() {
+  const router = useRouter();
+  const locales = useLocale();
   const category = [
     {
       data: [
@@ -255,7 +259,9 @@ export default function NewForms() {
                           }}
                         >
                           <Box
+                            onClick={() => router.push(`/${locales}/secureOneself/Category/Categorydetails`)}
                             sx={{
+                              cursor: "pointer",
                               width: "45px",
                               height: "45px",
                               borderRadius: "50%",
