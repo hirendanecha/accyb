@@ -253,10 +253,12 @@ export default function Header() {
                 >
                   <NotificationsNoneIcon />
                   <Typography
+                    onClick={() => router.push(`/${locale}/alertreports/HandleFirstForm`)}
                     variant="h7"
                     color="inherit"
                     component="div"
                     sx={{
+                      cursor: "pointer",
                       textTransform: "uppercase",
                       height: "100%",
                       fontSize: "13px",
