@@ -1,13 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  keyframes,
-  styled,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, keyframes, styled } from "@mui/material";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Stack from "../../../Icons/MajorActivity/Stack.svg";
@@ -88,21 +80,6 @@ export default function MajorActivity() {
   const mdDown = useMediaQuery(1200);
   const activites = [
     {
-      img: Stack,
-      title: t("title1"),
-      description: t("description1"),
-    },
-    {
-      img: Doctor,
-      title: t("title2"),
-      description: t("description2"),
-    },
-    {
-      img: Annousment,
-      title: t("title3"),
-      description: t("description3"),
-    },
-    {
       img: Adviser,
       title: t("title4"),
       description: t("description4"),
@@ -113,9 +90,24 @@ export default function MajorActivity() {
       description: t("description5"),
     },
     {
+      img: Doctor,
+      title: t("title2"),
+      description: t("description2"),
+    },
+    {
       img: Tower,
       title: t("title6"),
       description: t("description6"),
+    },
+    {
+      img: Annousment,
+      title: t("title3"),
+      description: t("description3"),
+    },
+    {
+      img: Stack,
+      title: t("title1"),
+      description: t("description1"),
     },
   ];
   return (
@@ -190,8 +182,7 @@ export default function MajorActivity() {
                         borderRadius: "20px",
                         padding: "2px",
                         background: "linear-gradient(45deg, #7DB1FF, #97E6FF)",
-                        WebkitMask:
-                          "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                        WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                         WebkitMaskComposite: "xor",
                         maskComposite: "exclude",
                       },
@@ -291,12 +282,7 @@ export default function MajorActivity() {
                             width: { lg: "119.82px", sm: "100px", xs: "80px" },
                           }}
                         >
-                          <Img
-                            src={ele?.img}
-                            height={900}
-                            width={900}
-                            alt="img"
-                          />
+                          <Img src={ele?.img} height={900} width={900} alt="img" />
                         </Box>
                       </Grid>
                       <Grid item xs={8} sm={7}>

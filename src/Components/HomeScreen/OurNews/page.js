@@ -316,12 +316,13 @@ export default function OurNews() {
                       backgroundColor: "#007A47",
                       width: "max-content",
                       padding: "8px 15px 8px 15px",
-                      fontSize: "12px",
+                      fontSize: "10px",
                       mt: 3,
                       color: "#FFFFFF",
                       textTransform: "uppercase",
                       cursor: "pointer",
                       marginTop: "auto",
+                      fontWeight: 400,
                       fontFamily: inter.style.fontFamily,
                     }}
                   >

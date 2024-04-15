@@ -34,17 +34,17 @@
   "majorActivities": {
     "title": "Nos activités majeurs",
     "title1": "Statistique des territoires",
-    "description1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "description1": "Consolider et analyser des informations représentatives des usages et de la maturité cyber de chaque territoire en vue de l'adoption de stratégies adaptées à nos réalités.",
     "title2": "Diagnostic Cybersécurité",
-    "description2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "description2": "Accompagner les entreprises et les collectivités dans une première démarche d'évaluation de maturité cyber.",
     "title3": "Sensibilisation du grand public",
-    "description3": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "description3": "Favoriser la prise de conscience et l'acculturation au principe de cybersécurité à destination du grand public.",
     "title4": "Réponse à incident",
-    "description4": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "description4": "Centre d'assistance aux victimes de cyberattaques via le CSIRT-ATLANTIC.",
     "title5": "Veille d'exposition internet",
-    "description5": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+    "description5": "Surveillance de la surface d'exposition sur internet des services sensibles de nos adhérents.",
     "title6": "Alerte avancée",
-    "description6": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+    "description6": "Diffuser des alertes de sécurité faisant état d'un danger immédiat."
   },
   "OurNews": {
     "title": "Nos actualités",
