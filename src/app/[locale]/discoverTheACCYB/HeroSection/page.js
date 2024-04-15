@@ -51,14 +51,6 @@ export default function HeroSection() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  color: "#FFFFFF",
-                }}
-              >
-                Découvrir l’ACCYB
-              </Typography>
               <Box
                 mt={1}
                 sx={{
@@ -78,14 +70,14 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Découvrir le{" "}
+                Découvrir{" "}
                 <u
                   style={{
                     textDecorationThickness: "3px",
                     textUnderlineOffset: "10px",
                   }}
                 >
-                  CSIRT-ATLANTIC
+                  l’ACCYB
                 </u>{" "}
               </Box>
               <Box
@@ -93,17 +85,18 @@ export default function HeroSection() {
                   display: { md: "flex", xs: "none" },
                   flexDirection: { md: "row", xs: "column" },
                   gap: { md: 5, xs: 1 },
-                  mt: 5,
+                  mt: 10,
                   maxWidth: { md: "unset", xs: "320px" },
                 }}
               >
                 <Button
-                  onClick={() => router.push(`/${locals}/alerteslist`)}
+                  onClick={handleMissionClick}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
                       sx={{
-                        backgroundColor: "#FC0029",
+                        backgroundColor: "#7DB1FF",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
@@ -125,8 +118,6 @@ export default function HeroSection() {
                     />
                   }
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
                     color: "#FFFFFF",
                     border: "1px solid rgba(142, 155, 191, 0.3)",
                     borderRadius: "61px",
@@ -138,24 +129,27 @@ export default function HeroSection() {
                       borderColor: "#8E9BBF",
                     },
                     fontFamily: inter.style.fontFamily,
-                    "& .MuiButton-endIcon": {
-                      marginLeft: 2.2,
-                    },
+                    // "& .MuiButton-endIcon": {
+                    //   marginLeft: 2.2,
+                    // },
                   }}
                 >
-                  voir nos alertes de sécurité
+                  Découvrir nos missions
                 </Button>
                 <Button
+                  onClick={handleServiceClick}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
                       sx={{
-                        backgroundColor: "#FC0029",
+                        backgroundColor: "#7DB1FF",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
                         padding: 1.7,
                         marginRight: -2,
+                        ml: 3,
                         ":hover": {
                           "@keyframes move-left": {
                             "0%": {
@@ -171,22 +165,23 @@ export default function HeroSection() {
                     />
                   }
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
                     color: "#FFFFFF",
                     border: "1px solid rgba(142, 155, 191, 0.3)",
                     borderRadius: "61px",
-                    fontSize: "12px",
                     padding: "8px 30px",
+                    fontSize: "12px",
                     fontWeight: 600,
                     background: "rgba(255, 255, 255, 0.1)",
-                    fontFamily: inter.style.fontFamily,
                     ":hover": {
                       borderColor: "#8E9BBF",
                     },
+                    fontFamily: inter.style.fontFamily,
+                    // "& .MuiButton-endIcon": {
+                    //   marginLeft: 2.2,
+                    // },
                   }}
                 >
-                  RFC 2350
+                  Découvrir nos services
                 </Button>
               </Box>
             </Grid>
