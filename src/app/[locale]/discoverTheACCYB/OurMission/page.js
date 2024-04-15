@@ -61,8 +61,16 @@ export default function OurMission() {
       title: "Diagnostic cybersécurité",
     },
     {
+      img: Image5,
+      title: "Consultation stratégique",
+    },
+    {
       img: Image2,
-      title: "Sensibilisation du grand public",
+      title: "Sensibilisation des adhérents et du grand public",
+    },
+    {
+      img: Image6,
+      title: "Suivi de maturité Cyber",
     },
     {
       img: Image3,
@@ -71,14 +79,6 @@ export default function OurMission() {
     {
       img: Image4,
       title: "Documentation de référence",
-    },
-    {
-      img: Image5,
-      title: "Consultation stratégique",
-    },
-    {
-      img: Image6,
-      title: "Suivi de maturité Cyber",
     },
     // {
     //   img: Image7,

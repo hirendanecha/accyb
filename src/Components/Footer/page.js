@@ -23,6 +23,7 @@ export default function Footer() {
             sx={{
               color: "#222D55",
               fontWeight: 500,
+              cursor: "pointer",
               fontSize: "24px",
               lineHeight: "36px",
               display: "flex",
@@ -33,8 +34,32 @@ export default function Footer() {
             {t("heading")}
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", mt: 2, gap: 2 }}>
-            <LinkedInIcon />
-            <XIcon />
+            <Box
+              onClick={(e) => {
+                e.preventDefault();
+                const link = document.createElement("a");
+                link.href = "https://www.linkedin.com/company/accyb/";
+                link.setAttribute("target", "_blank");
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+              }}
+            >
+              <LinkedInIcon sx={{ cursor: "pointer" }} />
+            </Box>
+            <Box
+              onClick={(e) => {
+                e.preventDefault();
+                const link = document.createElement("a");
+                link.href = "https://twitter.com/ACCYB97?s=20";
+                link.setAttribute("target", "_blank");
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+              }}
+            >
+              <XIcon sx={{ cursor: "pointer" }} />
+            </Box>
           </Box>
         </Box>
       </Container>

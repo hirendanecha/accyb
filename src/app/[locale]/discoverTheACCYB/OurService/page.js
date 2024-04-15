@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Picto from "../../../../Icons/Picto.svg";
 import Group1 from "../../../../Icons/Group1.svg";
 import Group2 from "../../../../Icons/Group2.svg";
+import Group3 from "../../../../Icons/Group3.svg";
 // import required modules
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
@@ -17,22 +18,10 @@ import Image from "next/image";
 export default function OurService() {
   const data = [
     {
-      icon: Group1,
-      title: "Observatoire",
-      description:
-        " Identifier et analyser les réalités de nos territoires, consolider des données partageables au sein de la communauté pouvant enrichir la réflexion.",
-    },
-    {
       icon: Picto,
       title: "Représentation",
       description:
         "Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
-    },
-    {
-      icon: Group2,
-      title: "Acculturation",
-      description:
-        "Accompagner l’ensemble des acteurs vers la confiance numérique et promouvoir les actions de sensibilisation et de formation à la cybersécurité.",
     },
     {
       icon: Group1,
@@ -41,16 +30,22 @@ export default function OurService() {
         " Identifier et analyser les réalités de nos territoires, consolider des données partageables au sein de la communauté pouvant enrichir la réflexion.",
     },
     {
-      icon: Picto,
-      title: "Représentation",
-      description:
-        "Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
-    },
-    {
       icon: Group2,
       title: "Acculturation",
       description:
         "Accompagner l’ensemble des acteurs vers la confiance numérique et promouvoir les actions de sensibilisation et de formation à la cybersécurité.",
+    },
+    {
+      icon: Group3,
+      title: "Souveraineté & résilience",
+      description:
+        "Contribuer à la réflexion stratégique des institutions publiques et privées sur les enjeux liés à la cybersécurité et à l’organisation d’un écosystème de proximité de confiance, répondant aux enjeux de nos territoires.",
+    },
+    {
+      icon: Group3,
+      title: "Réponse aux incidents",
+      description:
+        "Traiter les demandes d’assistance des acteurs de taille intermédiaire et mettre en relation avec des partenaires de proximité.",
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
