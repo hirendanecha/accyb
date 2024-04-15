@@ -1,19 +1,11 @@
-import {
-  Box,
-  Grid,
-  Rating,
-  Stack,
-  Typography,
-  keyframes,
-  styled,
-} from "@mui/material";
+import { Box, Grid, Rating, Stack, Typography, keyframes, styled } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import Personnes from "../../Icons/personnes.svg";
-import Calque from "../../Icons/Calque.svg";
-import Light from "../../Icons/Light.svg";
-import Key from "../../Icons/Key.svg";
+import Calque from "../../Icons/Cal.svg";
+import Light from "../../Icons/Info.svg";
+import Key from "../../Icons/Doc.svg";
 import Dna from "../../Icons/Dna.svg";
 import Bell from "../../Icons/Bell.svg";
 import CountUp from "react-countup";
@@ -50,9 +42,9 @@ export default function InfoSlider() {
 `;
   const infoslider = [
     {
-      img: Personnes,
-      title: "175",
-      description: t("slider1"),
+      img: Dna,
+      title: "85",
+      description: t("slider5"),
     },
     {
       img: Calque,
@@ -60,19 +52,19 @@ export default function InfoSlider() {
       description: t("slider2"),
     },
     {
-      img: Light,
-      title: "32",
-      description: t("slider3"),
-    },
-    {
       img: Key,
       title: "96",
       description: t("slider4"),
     },
     {
-      img: Dna,
-      title: "85",
-      description: t("slider5"),
+      img: Personnes,
+      title: "175",
+      description: t("slider1"),
+    },
+    {
+      img: Light,
+      title: "32",
+      description: t("slider3"),
     },
     {
       img: Bell,
@@ -118,8 +110,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -210,8 +201,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -302,8 +292,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -394,8 +383,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -486,8 +474,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -578,8 +565,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -670,8 +656,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -762,8 +747,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -854,8 +838,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -946,8 +929,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -1038,8 +1020,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -1130,8 +1111,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
@@ -1222,8 +1202,7 @@ export default function InfoSlider() {
                   left: 0,
                   width: "100%",
                   height: "3px",
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 },
               }}
             >
