@@ -18,7 +18,7 @@ export default function DiscoverTheACCYB({ params: { locale } }) {
       {/* {"our service"} */}
       <OurMission />
       {/* {"testimonials"} */}
-      <HowToWorkSlider />
+      {/* <HowToWorkSlider /> */}
     </>
   );
 }

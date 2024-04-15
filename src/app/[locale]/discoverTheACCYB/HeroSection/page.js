@@ -12,6 +12,22 @@ export default function HeroSection() {
       footerElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const handleMissionClick = (event) => {
+    event.preventDefault();
+    const footerElement = document.getElementById("mission");
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleServiceClick = (event) => {
+    event.preventDefault();
+    const footerElement = document.getElementById("services");
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <Box
       sx={{
@@ -35,14 +51,6 @@ export default function HeroSection() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  color: "#FFFFFF",
-                  fontFamily: inter.style.fontFamily,
-                }}
-              >
-                Découvrir l’ACCYB
-              </Typography>
               <Box
                 mt={1}
                 sx={{
@@ -62,16 +70,15 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                L’agence{" "}
+                Découvrir{" "}
                 <u
                   style={{
                     textDecorationThickness: "3px",
                     textUnderlineOffset: "10px",
                   }}
                 >
-                  Caribéenne
+                  l’ACCYB
                 </u>{" "}
-                pour la Cybersécurité
               </Box>
               <Box
                 sx={{
@@ -83,13 +90,13 @@ export default function HeroSection() {
                 }}
               >
                 <Button
+                  onClick={handleMissionClick}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
                       sx={{
                         backgroundColor: "#7DB1FF",
-                        background:
-                          "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
@@ -105,8 +112,7 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation:
-                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -131,13 +137,13 @@ export default function HeroSection() {
                   Découvrir nos missions
                 </Button>
                 <Button
+                  onClick={handleServiceClick}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
                       sx={{
                         backgroundColor: "#7DB1FF",
-                        background:
-                          "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
@@ -153,8 +159,7 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation:
-                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -176,7 +181,7 @@ export default function HeroSection() {
                     // },
                   }}
                 >
-                  Découvrir nos missions
+                  Découvrir nos services
                 </Button>
               </Box>
             </Grid>
@@ -201,9 +206,8 @@ export default function HeroSection() {
                     lineHeight: { md: "22px", xs: "20px" },
                   }}
                 >
-                  L’Agence Caribéenne pour la Cybersécurité est une initiative
-                  fondée par les collectivités territoriales de Guadeloupe,
-                  Guyane et Saint-Barthélemy
+                  L’Agence Caribéenne pour la Cybersécurité est une initiative fondée par les collectivités
+                  territoriales de Guadeloupe, Guyane et Saint-Barthélemy
                 </Typography>
                 <Typography
                   mt={{ md: 5, xs: 1.5 }}
@@ -214,10 +218,8 @@ export default function HeroSection() {
                     lineHeight: { md: "22px", xs: "20px" },
                   }}
                 >
-                  Après 2 ans de réflexion, le constat était indéniable du
-                  besoin de cohérence et de cohésion des territoires en faveur
-                  d’une stratégie de Cybersécurité adaptée aux territoires
-                  français d’Amérique.
+                  Après 2 ans de réflexion, le constat était indéniable du besoin de cohérence et de cohésion des
+                  territoires en faveur d’une stratégie de Cybersécurité adaptée aux territoires français d’Amérique.
                 </Typography>
               </Box>
               <Box
@@ -263,8 +265,7 @@ export default function HeroSection() {
                 <ArrowForwardIcon
                   sx={{
                     backgroundColor: "#7DB1FF",
-                    background:
-                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                     borderRadius: "50%",
                     width: { md: "50px", xs: "40px" },
                     height: { md: "50px", xs: "40px" },
@@ -280,8 +281,7 @@ export default function HeroSection() {
                           rotate: "-35deg",
                         },
                       },
-                      animation:
-                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                     },
                   }}
                 />
@@ -311,8 +311,7 @@ export default function HeroSection() {
                 <ArrowForwardIcon
                   sx={{
                     backgroundColor: "#7DB1FF",
-                    background:
-                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                     borderRadius: "50%",
                     width: { md: "50px", xs: "40px" },
                     height: { md: "50px", xs: "40px" },
@@ -328,8 +327,7 @@ export default function HeroSection() {
                           rotate: "-35deg",
                         },
                       },
-                      animation:
-                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                     },
                   }}
                 />

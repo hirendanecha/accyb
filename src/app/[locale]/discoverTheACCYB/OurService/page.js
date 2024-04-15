@@ -1,19 +1,14 @@
 "use client";
 import React, { useRef, useState } from "react";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 // import "swiper/css";
 // import "swiper/css/pagination";
 import Picto from "../../../../Icons/Picto.svg";
+import Group1 from "../../../../Icons/Group1.svg";
+import Group2 from "../../../../Icons/Group2.svg";
 // import required modules
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
@@ -22,34 +17,40 @@ import Image from "next/image";
 export default function OurService() {
   const data = [
     {
+      icon: Group1,
       title: "Observatoire",
       description:
-        "Rediriger ses bénéficiaires vers des prestataires territoriaux pour la remédiation de l’incident ;",
+        " Identifier et analyser les réalités de nos territoires, consolider des données partageables au sein de la communauté pouvant enrichir la réflexion.",
     },
     {
+      icon: Picto,
       title: "Représentation",
       description:
-        "Offrir une réponse de premier niveau pour les incidents cyber survenant chez ses bénéficiaires (triage et qualification des signalements) ;",
+        "Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
     },
     {
-      title: "Souveraineté & résilience",
+      icon: Group2,
+      title: "Acculturation",
       description:
-        "Agir comme un relai entre le CERT-FR, les prestataires régionaux, les services de Police et de Gendarmerie et les bénéficiaires",
+        "Accompagner l’ensemble des acteurs vers la confiance numérique et promouvoir les actions de sensibilisation et de formation à la cybersécurité.",
     },
     {
+      icon: Group1,
       title: "Observatoire",
       description:
-        "Rediriger ses bénéficiaires vers des prestataires territoriaux pour la remédiation de l’incident ;",
+        " Identifier et analyser les réalités de nos territoires, consolider des données partageables au sein de la communauté pouvant enrichir la réflexion.",
     },
     {
+      icon: Picto,
       title: "Représentation",
       description:
-        "Offrir une réponse de premier niveau pour les incidents cyber survenant chez ses bénéficiaires (triage et qualification des signalements) ;",
+        "Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
     },
     {
-      title: "Souveraineté & résilience",
+      icon: Group2,
+      title: "Acculturation",
       description:
-        "Agir comme un relai entre le CERT-FR, les prestataires régionaux, les services de Police et de Gendarmerie et les bénéficiaires",
+        "Accompagner l’ensemble des acteurs vers la confiance numérique et promouvoir les actions de sensibilisation et de formation à la cybersécurité.",
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -67,7 +68,7 @@ export default function OurService() {
   }));
   return (
     <>
-      <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }}>
+      <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }} id="mission">
         <Container disableGutters maxWidth={"xl"}>
           <Box
             mt={1}
@@ -123,6 +124,7 @@ export default function OurService() {
         className="mySwiper"
       >
         {data?.map((ele, index) => {
+          console.log(ele, "ele");
           return (
             <>
               <SwiperSlide key={index}>
@@ -138,9 +140,8 @@ export default function OurService() {
                   >
                     <Box
                       sx={{
-                        background:
-                          "linear-gradient(133.47deg, #E0EFE9 -0.34%, rgba(0, 122, 71, 0) 98.52%)",
-                        rotate: index === activeIndex + 1 ? "15deg" : "0deg",
+                        background: "linear-gradient(133.47deg, #E0EFE9 -0.34%, rgba(0, 122, 71, 0) 98.52%)",
+                        rotate: index === activeIndex + 1 ? "10deg" : "0deg",
                         borderRadius: "116px 0px 0px 0px",
                         height: {
                           lg: "325px",
@@ -175,8 +176,7 @@ export default function OurService() {
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
-                            rotate:
-                              index === activeIndex + 1 ? "-15deg" : "0deg",
+                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                           }}
                         >
                           {ele?.title}
@@ -198,8 +198,7 @@ export default function OurService() {
                             fontFamily: inter.style.fontFamily,
                             maxWidth: "263px",
                             display: "flex",
-                            rotate:
-                              index === activeIndex + 1 ? "-15deg" : "0deg",
+                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                             justifyContent: "center",
                             mt: { md: 2, xs: 0 },
                           }}
@@ -212,11 +211,11 @@ export default function OurService() {
                           position: "absolute",
                           left: { md: -30, xs: -10 },
                           bottom: 50,
-                          rotate: index === activeIndex + 1 ? "-15deg" : "0deg",
-                          display: index === activeIndex + 1 ? "block" : "none",
+                          rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
+                          // display: index === activeIndex + 1 ? "block" : "none",
                         }}
                       >
-                        <Img src={Picto} height={68} width={68} alt="picto" />
+                        <Img src={ele.icon} height={68} width={68} alt="picto" />
                       </Box>
                     </Box>
                   </Grid>
