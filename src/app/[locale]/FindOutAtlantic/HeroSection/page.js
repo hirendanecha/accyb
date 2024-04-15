@@ -1,11 +1,24 @@
 "use client";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography, styled } from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-
+import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
+import Image from "next/image";
+import LogoAccyb from "../../../../Icons/LogoAccyb.svg";
+const Img = styled(Image)(({ theme }) => ({
+  width: "151px !important",
+  height: "151px !important",
+  [theme.breakpoints.down("sm")]: {
+    width: "100px !important",
+    height: "100px !important",
+  },
+}));
 export default function HeroSection() {
+  const router = useRouter();
+  const locals = useLocale();
   const handleContactUsClick = (event) => {
     event.preventDefault();
     const footerElement = document.getElementById("footer");
@@ -20,7 +33,7 @@ export default function HeroSection() {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: { md: "770px", xs: "690px" },
+        height: { md: "770px", xs: "850px" },
         width: "100%",
       }}
     >
@@ -35,7 +48,13 @@ export default function HeroSection() {
       >
         <Container disableGutters maxWidth={"xl"}>
           <Grid container display={"flex"} justifyContent={"space-between"}>
-            <Grid item xs={12} lg={6} sx={{ padding: "0 16px" }}>
+            <Grid
+              item
+              xs={12}
+              lg={6}
+              mt={{ xs: 0, md: 15 }}
+              sx={{ padding: "0 16px", display: "flex", flexDirection: "column", justifyContent: "center" }}
+            >
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
@@ -83,6 +102,7 @@ export default function HeroSection() {
                 }}
               >
                 <Button
+                  onClick={() => router.push(`/${locals}/alerteslist`)}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
@@ -103,8 +123,7 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation:
-                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -150,8 +169,7 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation:
-                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -187,37 +205,37 @@ export default function HeroSection() {
                 position: "relative",
               }}
             >
-              <Box mt={5}>
+              <Box>
+                <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "end" }, mt: { lg: 5, xs: 2 } }}>
+                  <Img src={LogoAccyb} alt="LogoAccyb" height={151} width={151} />
+                </Box>
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
                     color: "#FFFFFF",
-                    mt: { lg: 10, xs: 0 },
+                    mt: { lg: 5, xs: 2 },
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  Un Computer Security incident Response Team est un centre de
-                  réponse aux incidents de sécurité.
+                  Le CSIRT-ATLANTIC est le centre d'assistance cyber unique pour les bénéficiaires de taille
+                  intermédiaire des territoires français d'Amérique. Il est au cœur du dispositif national de CSIRT
+                  régionaux soutenu par l'ANSSI, engagé dans des actions de prévention, protection et partage
+                  d'information communautaire cyber.
                 </Typography>
-                <Button
-                  variant="outlined"
+                <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    mt: { lg: 5, xs: 3 },
                     color: "#FFFFFF",
-                    border: "1px solid #D3D5DD",
-                    borderRadius: "61px",
-                    padding: { md: "18px 40px", xs: "18px 16px" },
-                    fontSize: { md: "12px", xs: "10px" },
-                    fontWeight: 600,
-                    ":hover": {
-                      borderColor: "white",
-                    },
+                    mt: { lg: 5, xs: 2 },
+                    fontSize: { md: "15px", xs: "13px" },
+                    lineHeight: { md: "25px", xs: "22px" },
+                    maxWidth: "300px",
                   }}
                 >
-                  {`Horaires d'ouverture : Lundi au vendredi de 09h00 à 18h00`}
-                </Button>
+                  Horaires d'ouverture : <br />
+                  Lundi au vendredi (hors jours fériés) de 8h30 à 12h30 - 14h00 à 17h00
+                </Typography>
                 <Box
                   sx={{
                     display: { lg: "flex", xs: "none" },
@@ -227,7 +245,7 @@ export default function HeroSection() {
                     position: "absolute",
                     bottom: 0,
                     right: 30,
-                    top: 400,
+                    top: 500,
                   }}
                 >
                   <Box onClick={handleContactUsClick}>
@@ -276,8 +294,7 @@ export default function HeroSection() {
                             rotate: "-35deg",
                           },
                         },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
@@ -323,8 +340,7 @@ export default function HeroSection() {
                             rotate: "-35deg",
                           },
                         },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
