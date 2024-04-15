@@ -103,23 +103,13 @@ export default function OurMission() {
           <Typography
             sx={{
               fontWeight: 400,
-              fontSize: { md: "14px", xs: "12px" },
-              color: "#222D55",
-              fontFamily: inter.style.fontFamily,
-            }}
-          >
-            Nos services
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: 400,
               mt: { md: 4, xs: 2 },
               fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
               color: "#222D55",
               fontFamily: inter.style.fontFamily,
             }}
           >
-            Les services de l'ACCYB
+            Nos services
           </Typography>
           {/* </motion.div> */}
         </Box>
