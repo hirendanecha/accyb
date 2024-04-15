@@ -1,14 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  keyframes,
-} from "@mui/material";
+import { Box, Button, Container, Divider, Grid, Typography, keyframes } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -73,7 +65,7 @@ export default function CaribbeanAgency() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: { lg: "970px", md: "950px", sm: "900px", xs: "770px" },
+          height: { lg: "900px", md: "950px", sm: "900px", xs: "770px" },
           width: "100%",
         }}
       >
@@ -85,20 +77,20 @@ export default function CaribbeanAgency() {
                   <Box
                     sx={{
                       fontSize: {
-                        lg: "85px",
-                        md: "80px",
+                        lg: "76.5",
+                        md: "75",
                         sm: "60px",
                         xs: "35px",
                       },
                       color: "#FFFFFF",
                       fontWeight: 400,
                       lineHeight: {
-                        lg: "90px",
-                        md: "85px",
-                        sm: "85px",
+                        lg: "80px",
+                        md: "75px",
+                        sm: "70px",
                         xs: "50px",
                       },
-                      maxWidth: { md: "750px !important", xs: "550px" },
+                      maxWidth: { md: "650px !important", xs: "550px" },
                       paddingTop: { md: 30, xs: 20 },
                       fontFamily: inter.style.fontFamily,
                     }}
@@ -119,7 +111,7 @@ export default function CaribbeanAgency() {
                       fontSize: { lg: "22px", md: "20px", xs: "18px" },
                       color: "#FFFFFF",
                       fontWeight: 400,
-                      lineHeight: { md: "40px", xs: "25px" },
+                      lineHeight: { md: "32px", xs: "25px" },
                       maxWidth: "550px !important",
                       mt: 3,
                       fontFamily: inter.style.fontFamily,
@@ -144,8 +136,7 @@ export default function CaribbeanAgency() {
                       <ArrowForwardIcon
                         sx={{
                           backgroundColor: "#7DB1FF",
-                          background:
-                            "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                          background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                           borderRadius: "50%",
                           width: { md: "50px", xs: "40px" },
                           height: { md: "50px", xs: "40px" },
@@ -161,8 +152,7 @@ export default function CaribbeanAgency() {
                                 rotate: "-35deg",
                               },
                             },
-                            animation:
-                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                            animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                           },
                         }}
                       />
@@ -192,8 +182,7 @@ export default function CaribbeanAgency() {
                       <ArrowForwardIcon
                         sx={{
                           backgroundColor: "#7DB1FF",
-                          background:
-                            "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                          background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                           borderRadius: "50%",
                           width: { md: "50px", xs: "40px" },
                           height: { md: "50px", xs: "40px" },
@@ -208,8 +197,7 @@ export default function CaribbeanAgency() {
                                 rotate: "-35deg",
                               },
                             },
-                            animation:
-                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                            animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                           },
                         }}
                       />
@@ -232,114 +220,56 @@ export default function CaribbeanAgency() {
                   </Button>
                 </Box>
               </Grid>
-              <Grid
-                item
-                xs={12}
-                md={12}
-                position={"relative"}
-                sx={{ display: { md: "block", xs: "none" } }}
-              >
-                <Box
-                  onClick={handleContactUsClick}
-                  sx={{
-                    display: "flex",
-                    gap: 2,
-                    cursor: "pointer",
-                    alignItems: "center",
-                    position: "absolute",
-                    right: 10,
-                    bottom: { md: -70, xs: -60 },
-                  }}
-                >
-                  <Box>
-                    <Typography
-                      sx={{
-                        color: "#FFFFFF",
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      Scroll
-                    </Typography>
-                  </Box>
-                  <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
-                </Box>
-              </Grid>
+              <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
             </Grid>
           </Box>
         </Container>
-
-        <Divider
-          variant="middle"
-          sx={{
-            // display: { md: "block", xs: "none" },
-            bgcolor: "#FFFFFF",
-            mt: { md: 12, xs: 10 },
-            opacity: "30%",
-            borderBottomWidth: "1px",
-          }}
-        />
         <Container disableGutters maxWidth={"xl"}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "end",
-              gap: 2,
-              mt: 5,
-              mr: 1.5,
-            }}
-          >
-            <Box>
-              <FiberManualRecordIcon
-                sx={{ color: "#FFFFFF", width: "10px", height: "10px" }}
-              />
-            </Box>
-            <Box>
-              <FiberManualRecordIcon
-                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-              />
-            </Box>
-            <Box>
-              <FiberManualRecordIcon
-                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-              />
-            </Box>
-            <Box>
-              <FiberManualRecordIcon
-                sx={{ color: "#8E9BBF", width: "10px", height: "10px" }}
-              />
-            </Box>
-            <Grid
-              item
-              xs={12}
-              md={12}
-              display={{ md: "none", xs: "block" }}
-              ml={2}
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: 15 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                ml: 3,
+              }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  cursor: "pointer",
-                  alignItems: "center",
-                }}
-              >
-                <Box onClick={handleContactUsClick}>
-                  <Typography
-                    sx={{
-                      color: "#FFFFFF",
-                      fontSize: "20px",
-                      fontWeight: 400,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  >
-                    Scroll
-                  </Typography>
-                </Box>
-                <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+              <Box>
+                <FiberManualRecordIcon sx={{ color: "#FFFFFF", width: "10px", height: "10px" }} />
               </Box>
-            </Grid>
+              <Box>
+                <FiberManualRecordIcon sx={{ color: "#8E9BBF", width: "10px", height: "10px" }} />
+              </Box>
+              <Box>
+                <FiberManualRecordIcon sx={{ color: "#8E9BBF", width: "10px", height: "10px" }} />
+              </Box>
+              <Box>
+                <FiberManualRecordIcon sx={{ color: "#8E9BBF", width: "10px", height: "10px" }} />
+              </Box>
+            </Box>
+            <Box
+              onClick={handleContactUsClick}
+              sx={{
+                display: "flex",
+                gap: 2,
+                cursor: "pointer",
+                alignItems: "center",
+                mr: 3,
+              }}
+            >
+              <Box>
+                <Typography
+                  sx={{
+                    color: "#FFFFFF",
+                    fontSize: "20px",
+                    fontWeight: 400,
+                    fontFamily: inter.style.fontFamily,
+                  }}
+                >
+                  Scroll
+                </Typography>
+              </Box>
+              <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+            </Box>
           </Box>
         </Container>
       </Box>

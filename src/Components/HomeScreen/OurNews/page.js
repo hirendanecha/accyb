@@ -1,16 +1,5 @@
 "use client";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Container, Divider, Grid, Typography, styled } from "@mui/material";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
@@ -21,7 +10,8 @@ import Image2 from "../../../Icons/Image2.png";
 import Image3 from "../../../Icons/Image3.png";
 import { motion, useAnimation } from "framer-motion";
 import { inter } from "../../../fonts/fonts";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -59,6 +49,8 @@ export const useMediaQuery = (width) => {
   return targetReached;
 };
 export default function OurNews() {
+  const router = useRouter();
+  const locals = useLocale();
   const t = useTranslations("OurNews");
   const controls = useAnimation();
   const ref = useRef(null);
@@ -236,14 +228,14 @@ export default function OurNews() {
                 {t("title")}
               </Typography>
               <Button
+                onClick={() => router.push(`/${locals}/news`)}
                 variant="outlined"
                 endIcon={
                   <ArrowForwardIcon
                     sx={{
                       backgroundColor: "#7DB1FF",
                       borderRadius: "50%",
-                      background:
-                        "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                       width: "50px",
                       height: "50px",
                       color: "#FFFFFF",
@@ -259,8 +251,7 @@ export default function OurNews() {
                             rotate: "-35deg",
                           },
                         },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
@@ -309,7 +300,7 @@ export default function OurNews() {
           pt={5}
         >
           <Grid item xs={12} md={12} lg={6} mt={2}>
-            <Img src={Annousment} width={900} height={900} alt="img" />
+            <Img src={Annousment} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
             <Box ref={ref}>
               <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
                 <Box
@@ -422,6 +413,54 @@ export default function OurNews() {
                 </Box>
               </motion.div>
             </Box>
+            <Button
+              onClick={() => router.push(`/${locals}/news`)}
+              variant="outlined"
+              endIcon={
+                <ArrowForwardIcon
+                  sx={{
+                    backgroundColor: "#7DB1FF",
+                    borderRadius: "50%",
+                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    width: "50px",
+                    height: "50px",
+                    color: "#FFFFFF",
+                    padding: 1.7,
+                    marginRight: -2,
+                    ml: 3,
+                    ":hover": {
+                      "@keyframes move-left": {
+                        "0%": {
+                          rotate: "0deg",
+                        },
+                        "100%": {
+                          rotate: "-35deg",
+                        },
+                      },
+                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                    },
+                  }}
+                />
+              }
+              sx={{
+                mt: { md: 3, xs: 2 },
+                color: show ? "#FFFFFF" : "#222D55",
+                backgroundColor: show ? "#222D55" : "#FFFFFF",
+                border: "1px solid #FFFFFF",
+                borderRadius: "61px",
+                padding: "8px 30px",
+                fontSize: "12px",
+                fontFamily: inter.style.fontFamily,
+                fontWeight: 600,
+                ":hover": {
+                  color: "textColor",
+                  border: "1px solid #FFFFFF",
+                  backgroundColor: show ? "#222D55" : "#FFFFFF",
+                },
+              }}
+            >
+              {t("buttonBlog")}
+            </Button>
           </Grid>
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
             {data?.map((ele, idx) => {
@@ -436,12 +475,7 @@ export default function OurNews() {
                     }}
                   >
                     <Box>
-                      <Imgs
-                        src={ele?.img}
-                        alt="img2"
-                        width={900}
-                        height={900}
-                      />
+                      <Imgs src={ele?.img} alt="img2" width={900} height={900} />
                     </Box>
                     <Box
                       sx={{
@@ -475,9 +509,7 @@ export default function OurNews() {
                           </Typography>
                           <Box
                             sx={{
-                              border: show
-                                ? "1px solid #007A47"
-                                : "1px solid #FFFFFF",
+                              border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
                               width: "28px",
                               height: "28px",
                               borderRadius: "50%",
@@ -543,9 +575,7 @@ export default function OurNews() {
                             </Box>
                             <Box
                               sx={{
-                                border: show
-                                  ? "1px solid #007A47"
-                                  : "1px solid #FFFFFF",
+                                border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
                                 width: "40px",
                                 height: "40px",
                                 borderRadius: "50%",
@@ -596,8 +626,7 @@ export default function OurNews() {
                 sx={{
                   backgroundColor: "#7DB1FF",
                   borderRadius: "50%",
-                  background:
-                    "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                  background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                   width: "50px",
                   height: "50px",
                   color: "#FFFFFF",
@@ -613,8 +642,7 @@ export default function OurNews() {
                         rotate: "-35deg",
                       },
                     },
-                    animation:
-                      "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                    animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                   },
                 }}
               />
