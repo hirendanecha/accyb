@@ -54,16 +54,14 @@ export default function Footer() {
             <Grid container>
               <Grid
                 item
-                lg={1.8}
+                lg={2}
                 md={12}
                 xs={12}
-                justifyContent={{ lg: "unset", xs: "center" }}
-                display={"flex"}
-                pb={{ lg: 0, xs: 10 }}
+                sx={{ justifyContent: { lg: "unset", xs: "center" }, display: "flex", pb: { lg: 0, xs: 10 } }}
               >
                 <Image src={Logo} height={138} width={138} alt="logo" />
               </Grid>
-              <Grid item lg={1.8} md={3} sm={6} xs={12} textAlign={{ md: "unset", xs: "center" }}>
+              <Grid item lg={2} md={2.4} sm={6} xs={12} textAlign={{ md: "unset", xs: "center" }}>
                 <Box>
                   <Typography
                     sx={{
@@ -84,13 +82,11 @@ export default function Footer() {
                       justifyContent: { md: "unset", xs: "center" },
                     }}
                   >
-                    <Image src={partner1} height={81} width={73} alt="partner1" />
                     <Image src={partner2} height={81} width={73} alt="partner2" />
                   </Box>
                 </Box>
               </Grid>
-              <Grid item lg={0.5}></Grid>
-              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
+              <Grid item lg={2} md={2.4} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",
@@ -133,19 +129,9 @@ export default function Footer() {
                   >
                     {t("t2sub3")}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: "12px",
-                      fontWeight: 400,
-                      mt: 1,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  >
-                    {t("t2sub4")}
-                  </Typography>
                 </Box>
               </Grid>
-              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
+              <Grid item lg={2} md={2.4} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",
@@ -202,7 +188,7 @@ export default function Footer() {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid item lg={2.6} md={3} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
+              <Grid item lg={2} md={2.4} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
                     fontSize: "12px",
@@ -244,15 +230,49 @@ export default function Footer() {
                   >
                     {t("t4sub3")}
                   </Typography>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                lg={2}
+                md={2.4}
+                sm={12}
+                xs={12}
+                mt={{ md: 0, xs: 5 }}
+                textAlign={{ md: "unset", xs: "center" }}
+              >
+                <Box>
                   <Typography
                     sx={{
                       fontSize: "12px",
-                      fontWeight: 400,
-                      mt: 1,
+                      textTransform: "uppercase",
+                      fontWeight: 600,
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    {t("t4sub4")}
+                    {t("t5sub1")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                      mt: 2,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t5sub2")}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                      mt: 2,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("t5sub3")}
                   </Typography>
                 </Box>
               </Grid>
