@@ -27,7 +27,7 @@ export default function HandleFirstForm() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box sx={{ position: "sticky", top: "25%", marginLeft: 5 }}>
               <SecoundStepper activeStep={0} />
             </Box>
           </Grid>

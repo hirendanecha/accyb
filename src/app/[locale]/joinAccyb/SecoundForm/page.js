@@ -29,7 +29,7 @@ export default function JoinAccyb() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box sx={{ position: "sticky", top: "20%", marginLeft : 5}}>
               <Stepper activeStep={1} />
             </Box>
           </Grid>

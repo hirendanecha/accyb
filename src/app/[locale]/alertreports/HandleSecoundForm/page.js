@@ -28,7 +28,7 @@ export default function HandleSecoundForm() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box sx={{ position: "sticky", top: "20%" , marginLeft : 5 }}>
               <SecoundStepper activeStep={1} />
             </Box>
           </Grid>

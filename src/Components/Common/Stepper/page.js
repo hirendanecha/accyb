@@ -40,7 +40,7 @@ export default function VerticalLinearStepper({ activeStep }) {
           <ArrowBackIcon sx={{ width: "15px", height: "15px" }} />
         </Box>
       )}
-      <Box sx={{ maxWidth: 400, mt: 15 }}>
+      <Box sx={{ maxWidth: 400, mt: 5 }}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step
@@ -72,7 +72,7 @@ export default function VerticalLinearStepper({ activeStep }) {
                   "& .MuiStepLabel-labelContainer span": {
                     textTransform: "uppercase",
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "18px",
+                    fontSize: "12px",
                     fontWeight: 700,
                   },
                 }}

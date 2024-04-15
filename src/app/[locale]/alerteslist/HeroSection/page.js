@@ -283,10 +283,15 @@ export default function HeroSection() {
       key: "Category 1",
     },
   ];
-  const [age, setAge] = React.useState("");
+  const [source, setSocurce] = React.useState("");
+  const [type, setType] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleSourceChange = (event) => {
+    setSocurce(event.target.value);
+  };
+
+  const handleTypeChange = (event) => {
+    setType(event.target.value);
   };
 
   return (
@@ -370,7 +375,7 @@ export default function HeroSection() {
           />
           <Grid container sx={{ display: "flex", alignItems: "center", mt: 5, pb: 5 }}>
             <Grid item xs={12} md={6}>
-              <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
+              <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                 <Typography
                   sx={{
                     color: "#222D55",
@@ -382,13 +387,14 @@ export default function HeroSection() {
                   Filtrer par
                 </Typography>
                 <FormControl
-                  fullWidth
                   sx={{
+                    m: 1,
+                    minWidth: 180,
                     color: "#222D55",
                     background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    // border: "1px solid rgba(34, 45, 85, 0.3)",
                     borderRadius: "50px",
                     fontSize: { md: "12px", xs: "10px" },
-                    maxWidth: "198px",
                     fontWeight: 600,
                     fontFamily: inter.style.fontFamily,
                     "&:hover": {
@@ -400,9 +406,6 @@ export default function HeroSection() {
                     },
                   }}
                 >
-                  <InputLabel id="demo-simple-select-label" sx={{ fontFamily: inter.style.fontFamily, color: "#fff" }}>
-                    Source
-                  </InputLabel>
                   <Select
                     sx={{
                       boxShadow: "none",
@@ -413,46 +416,42 @@ export default function HeroSection() {
                       "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
                         border: 0,
                       },
+                      color: "#fff !important",
+                      fontWeight: 600,
                     }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
+                    value={source}
+                    onChange={handleSourceChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
                   >
-                    <MenuItem value={10} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Ten
+                    <MenuItem value="" sx={{ textTransform: "uppercase" }}>
+                      SOURCE
                     </MenuItem>
-                    <MenuItem value={20} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Twenty
-                    </MenuItem>
-                    <MenuItem value={30} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Thirty
-                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
                   </Select>
                 </FormControl>
                 <FormControl
-                  fullWidth
                   sx={{
+                    m: 1,
+                    minWidth: 180,
                     color: "#222D55",
-                    background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    // background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    border: "1px solid rgba(34, 45, 85, 0.3)",
                     borderRadius: "50px",
                     fontSize: { md: "12px", xs: "10px" },
-                    fontWeight: 600,
-                    maxWidth: "198px",
+                    fontWeight: 500,
                     fontFamily: inter.style.fontFamily,
                     "&:hover": {
                       backgroundColor: "transparent",
                     },
                     "& .MuiSelect-icon": {
                       // Change dropdown arrow color
-                      color: "#fff",
+                      color: "#222D55",
                     },
                   }}
                 >
-                  <InputLabel id="demo-simple-select-label" sx={{ fontFamily: inter.style.fontFamily, color: "#fff" }}>
-                    Source
-                  </InputLabel>
                   <Select
                     sx={{
                       boxShadow: "none",
@@ -463,22 +462,20 @@ export default function HeroSection() {
                       "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
                         border: 0,
                       },
+                      textTransform: "uppercase",
+                      fontWeight: 500,
                     }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
+                    value={type}
+                    onChange={handleTypeChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
                   >
-                    <MenuItem value={10} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Ten
+                    <MenuItem value="" sx={{ textTransform: "uppercase" }}>
+                      Type
                     </MenuItem>
-                    <MenuItem value={20} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Twenty
-                    </MenuItem>
-                    <MenuItem value={30} sx={{ fontFamily: inter.style.fontFamily }}>
-                      Thirty
-                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
                   </Select>
                 </FormControl>
               </Box>

@@ -165,7 +165,7 @@ export default function Footer() {
                     {t("t3sub2")}
                   </Typography>
                   <Typography
-                    onClick={() => router.push(`${locales}/alerteslist`)}
+                    onClick={() => router.push(`/${locales}/alerteslist`)}
                     sx={{
                       cursor: "pointer",
                       fontSize: "12px",
@@ -243,18 +243,22 @@ export default function Footer() {
               >
                 <Box>
                   <Typography
+                    onClick={() => router.push(`/${locales}/secureOneself`)}
                     sx={{
                       fontSize: "12px",
                       textTransform: "uppercase",
                       fontWeight: 600,
+                      cursor: "pointer",
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
                     {t("t5sub1")}
                   </Typography>
                   <Typography
+                    onClick={() => router.push(`/${locales}/seFormer`)}
                     sx={{
                       fontSize: "12px",
+                      cursor: "pointer",
                       textTransform: "uppercase",
                       fontWeight: 600,
                       mt: 2,
@@ -264,7 +268,9 @@ export default function Footer() {
                     {t("t5sub2")}
                   </Typography>
                   <Typography
+                    onClick={() => router.push(`/${locales}/sInformer`)}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       textTransform: "uppercase",
                       fontWeight: 600,
