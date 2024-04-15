@@ -206,20 +206,11 @@ export default function HeroSection() {
                     lineHeight: { md: "22px", xs: "20px" },
                   }}
                 >
-                  L’Agence Caribéenne pour la Cybersécurité est une initiative fondée par les collectivités
-                  territoriales de Guadeloupe, Guyane et Saint-Barthélemy
-                </Typography>
-                <Typography
-                  mt={{ md: 5, xs: 1.5 }}
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    color: "#FFFFFF",
-                    fontSize: { md: "14px", xs: "12px" },
-                    lineHeight: { md: "22px", xs: "20px" },
-                  }}
-                >
-                  Après 2 ans de réflexion, le constat était indéniable du besoin de cohérence et de cohésion des
-                  territoires en faveur d’une stratégie de Cybersécurité adaptée aux territoires français d’Amérique.
+                  Face aux défis posés par la transformation numérique, l’Agence caribéenne pour la cybersécurité
+                  (ACCYB) a pour mission de favoriser, par tous moyens, les partages de connaissances entre les sphères
+                  scientifique, économique, privée et publique. L’agence vise ainsi à faire émerger des solutions de
+                  long terme relevant de la cybersécurité, la sûreté et la résilience des territoires français
+                  d’Amérique et de la zone Caraïbes.
                 </Typography>
               </Box>
               <Box
