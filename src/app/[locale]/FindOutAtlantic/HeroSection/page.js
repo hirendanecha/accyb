@@ -6,6 +6,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Image from "next/image";
 import Logo from "../../../../Icons/Logo.svg";
+import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "151px !important",
   height: "151px !important",
@@ -16,6 +18,8 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 
 export default function HeroSection() {
+  const router = useRouter();
+  const locale = useLocale();
   console.log("done");
   const handleContactUsClick = (event) => {
     event.preventDefault();
@@ -94,6 +98,7 @@ export default function HeroSection() {
                 }}
               >
                 <Button
+                  onClick={() => router.push(`/${locale}/alerteslist`)}
                   variant="outlined"
                   endIcon={
                     <ArrowForwardIcon
@@ -227,7 +232,9 @@ export default function HeroSection() {
                 >
                   Horaires d'ouverture :
                   <br />
-                  Lundi au vendredi (hors jours fériés) de 8h30 à 12h30 - 14h00 à 17h00
+                  Lundi au vendredi (hors jours fériés)
+                  <br />
+                  de 8h30 à 12h30 - 14h00 à 17h00
                 </Typography>
               </Box>
               <Box
@@ -268,6 +275,7 @@ export default function HeroSection() {
               }}
             >
               <Button
+                onClick={() => router.push(`/${locale}/alerteslist`)}
                 variant="outlined"
                 endIcon={
                   <ArrowForwardIcon

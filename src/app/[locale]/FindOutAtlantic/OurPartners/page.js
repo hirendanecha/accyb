@@ -1,14 +1,16 @@
 "use client";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
+import Logo1 from "../../../../Icons/Partners/Logo1.svg";
+import Logo2 from "../../../../Icons/Partners/Logo2.svg";
+import Logo3 from "../../../../Icons/Partners/Logo3.svg";
+import Logo4 from "../../../../Icons/Partners/Logo4.svg";
+import Logo5 from "../../../../Icons/Supported/Logo1.svg";
+import Logo6 from "../../../../Icons/Supported/Logo2.svg";
+import Logo7 from "../../../../Icons/Supported/Logo3.svg";
+import Logo8 from "../../../../Icons/Supported/Logo4.svg";
+import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -18,8 +20,49 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import AddIcon from "@mui/icons-material/Add";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
+import Image from "next/image";
+
+const Img = styled(Image)(({ theme }) => ({
+  width: "100px !important",
+  height: "97px !important",
+}));
+const Imgs = styled(Image)(({ theme }) => ({
+  width: "110px !important",
+  height: "97px !important",
+}));
 
 export default function OurPartners() {
+  const partners = [
+    {
+      img: Logo1,
+    },
+    {
+      img: Logo2,
+    },
+    {
+      img: Logo3,
+    },
+    {
+      img: Logo4,
+    },
+  ];
+  const supported = [
+    {
+      img: Logo7,
+    },
+    {
+      img: Logo8,
+    },
+    {
+      img: Logo9,
+    },
+    {
+      img: Logo5,
+    },
+    {
+      img: Logo6,
+    },
+  ];
   const data = [
     {
       count: "01",
@@ -38,13 +81,7 @@ export default function OurPartners() {
     {
       count: "03",
       key: 3,
-      item: [
-        "PME",
-        "ETI",
-        "Collectivité locale",
-        "Etablissement public",
-        "Association régionale et nationale",
-      ],
+      item: ["PME", "ETI", "Collectivité locale", "Etablissement public", "Association régionale et nationale"],
     },
   ];
   const [id, setId] = useState([1]);
@@ -117,9 +154,7 @@ export default function OurPartners() {
                   <SwiperSlide
                     key={idxx}
                     style={{
-                      backgroundImage: match
-                        ? "url('/Images/Slider/Slider1.png')"
-                        : "",
+                      backgroundImage: match ? "url('/Images/Slider/Slider1.png')" : "",
                       backgroundColor: !match ? "#222D55" : "",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
@@ -194,9 +229,7 @@ export default function OurPartners() {
                           sx={{
                             color: match ? "#7DB1FF" : "#ffffff",
                             borderRadius: "50%",
-                            backgroundImage: !match
-                              ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
-                              : "",
+                            backgroundImage: !match ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)" : "",
                             backgroundColor: match ? "#FFFFFF" : "white",
                             width: { lg: 45, md: 40, xs: 30 },
                             padding: 0.7,
@@ -212,11 +245,7 @@ export default function OurPartners() {
           </Box>
         </Grid>
       </Grid>
-      <Grid
-        container
-        mt={{ md: 10, xs: 5 }}
-        sx={{ display: { md: "none", xs: "block" } }}
-      >
+      <Grid container mt={{ md: 10, xs: 5 }} sx={{ display: { md: "none", xs: "block" } }}>
         <Grid
           item
           md={2.5}
@@ -350,8 +379,7 @@ export default function OurPartners() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -371,8 +399,7 @@ export default function OurPartners() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -384,6 +411,99 @@ export default function OurPartners() {
           </Box>
         </Grid>
       </Grid>
+      <Container
+        disableGutters
+        maxWidth="xl"
+        sx={{
+          mt: { md: 10, xs: 2 },
+          display: "flex",
+          overflowX: "scroll",
+          gap: 1,
+          justifyContent: { md: "space-around", xs: "unset" },
+          "&::-webkit-scrollbar": {
+            width: "0.4em",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: 3,
+            gap: { md: 1, xs: 1 },
+            flexWrap: "nowrap",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "14px", xs: "12px" },
+              maxWidth: "100px",
+              textAlign: "end",
+              mr: 1,
+            }}
+          >
+            Partenaires majeurs
+          </Typography>
+          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          {partners?.map((ele, idx) => {
+            return (
+              <Box
+                key={idx}
+                sx={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: { md: "start", xs: "center" },
+                  mb: 2,
+                  mr: { md: 2, xs: 0 },
+                }}
+              >
+                <Img src={ele.img} width={900} height={900} alt="img" />
+              </Box>
+            );
+          })}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: 3,
+            gap: 1,
+            flexWrap: "nowrap",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "14px", xs: "12px" },
+              maxWidth: "100px",
+              textAlign: "end",
+              mr: 1,
+            }}
+          >
+            Avec le soutien de
+          </Typography>
+          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          {supported?.map((ele, idx) => {
+            return (
+              <Box
+                key={idx}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: { md: "start", xs: "center" },
+                  mb: 2,
+                  mr: { md: 2, xs: 0 },
+                }}
+              >
+                <Imgs src={ele.img} width={1200} height={1200} alt="img" />
+              </Box>
+            );
+          })}
+        </Box>
+      </Container>
     </Box>
   );
 }
