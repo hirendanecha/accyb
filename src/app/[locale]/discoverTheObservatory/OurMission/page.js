@@ -5,14 +5,7 @@ import Photo2 from "../../../../Icons/Discover/Photo2.svg";
 import Photo3 from "../../../../Icons/Discover/Photo3.svg";
 import Photo4 from "../../../../Icons/Discover/Photo4.svg";
 import Photo5 from "../../../../Icons/Discover/Photo5.svg";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
@@ -92,14 +85,7 @@ export default function OurMission() {
           }}
         >
           {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-          <Typography
-            sx={{
-              fontFamily: inter.style.fontFamily,
-              color: "#222D55",
-            }}
-          >
-            Nos services
-          </Typography>
+
           <Box
             mt={1}
             sx={{
@@ -119,15 +105,7 @@ export default function OurMission() {
               maxWidth: "900px !important",
             }}
           >
-            Découvrir{" "}
-            <span
-              style={{
-                color: "#7DB1FF",
-              }}
-            >
-              les services
-            </span>{" "}
-            de l’ACCYB
+            Nos services
           </Box>
           {/* </motion.div> */}
         </Box>
@@ -146,68 +124,12 @@ export default function OurMission() {
       <Box
         sx={{
           position: "absolute",
-          right: 0,
-          top: 0,
-          display: { md: "block", xs: "none" },
-        }}
-      >
-        <svg
-          width="512"
-          height="955"
-          viewBox="0 0 512 955"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g opacity="0.1" filter="url(#filter0_f_1856_3893)">
-            <ellipse
-              cx="477.5"
-              cy="477.5"
-              rx="317.5"
-              ry="317.5"
-              transform="rotate(-180 477.5 477.5)"
-              fill="#3964FF"
-            />
-          </g>
-          <defs>
-            <filter
-              id="filter0_f_1856_3893"
-              x="0"
-              y="0"
-              width="955"
-              height="955"
-              filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
-            >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="80"
-                result="effect1_foregroundBlur_1856_3893"
-              />
-            </filter>
-          </defs>
-        </svg>
-      </Box>
-      <Box
-        sx={{
-          position: "absolute",
           left: 0,
           top: 100,
           display: { md: "block", xs: "none" },
         }}
       >
-        <svg
-          width="434"
-          height="955"
-          viewBox="0 0 434 955"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="434" height="955" viewBox="0 0 434 955" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.1" filter="url(#filter0_f_1856_3894)">
             <path
               d="M-361 477.5C-361 302.15 -218.85 160 -43.5 160C131.85 160 274 302.15 274 477.5C274 652.85 131.85 795 -43.5 795C-218.85 795 -361 652.85 -361 477.5Z"
@@ -225,84 +147,118 @@ export default function OurMission() {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="80"
-                result="effect1_foregroundBlur_1856_3894"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="80" result="effect1_foregroundBlur_1856_3894" />
             </filter>
           </defs>
         </svg>
       </Box>
 
       <Container disableGutters maxWidth={"xl"}>
-        <Grid
-          container
-          mt={5}
-          columnSpacing={2}
-          rowSpacing={2}
-          sx={{ padding: "0 16px" }}
-        >
+        <Grid container mt={5} columnSpacing={2} rowSpacing={2} sx={{ padding: "0 16px" }}>
           {activites?.map((ele, index) => {
             return (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid item xs={12} lg={4} md={6} mt={2} key={index}>
                 <Box
                   sx={{
-                    display: "flex",
-                    padding: { lg: 6, md: 3, sm: 3, xs: 2 },
-                    backgroundColor: "transparent",
-                    border: "2px solid",
-                    borderImageSource:
-                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                    borderImageSlice: 1,
+                    // display: "flex",
+                    // padding: { lg: 5, md: 3, sm: 5, xs: 3 },
+                    // backgroundColor: "transparent",
+                    // // border:
+                    // //   index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
+                    // border: "2px solid transparent",
+                    // borderImageSlice: 1,
+                    // borderImage:
+                    //   "linear-gradient(to right, #7DB1FF, #97E6FF) 1",
+                    // position: "relative",
+                    // borderRadius: "20px",
+                    // // overflow: "hidden",
+                    // height: "100%",
                     position: "relative",
-                    borderRadius: "20px",
-                    overflow: "hidden",
+                    padding: { lg: 5, md: 3, sm: 5, xs: 3 },
                     height: "100%",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "20px",
+                      padding: "2px",
+                      background: "linear-gradient(90deg, #222D55 -7.37%, #222D55 68.51%)",
+                      WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      WebkitMaskComposite: "xor",
+                      maskComposite: "exclude",
+                    },
                   }}
                 >
-                  {/* {index !== 0 && !mdDown ? (
                   <Box
                     sx={{
                       position: "absolute",
-                      top: -3,
-                      right: -3,
-                      height: "80px",
-                      width: "80px",
-                      borderLeft:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderBottom:
-                        index % 2 ? "2px solid #7DB1FF" : "2px solid #97E6FF",
-                      borderRadius: "0 0 0% 30%",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                    }}
-                  />
-                ) : (
-                  ""
-                )} */}
-                  {/* <Box
-                    sx={{
-                      position: "absolute",
-                      top: -2,
-                      right: "75px",
-                      height: "50px",
+                      top: "0px",
+                      right: "0px",
                       width: "50px",
-                      borderTop: "2px solid #7DB1FF",
-                      borderRight: "2px solid #7DB1FF",
-                      borderRadius: "0 30% 0% 0%",
-                      backgroundColor:"red",
-                      // transform: "translate(50%, -50%)",
-                      zIndex: 0,
-                      backgroundColor: "#fff",
-                      // boxShadow: "0px 0px 0px 1000px #fff",
+                      height: "50px",
+                      bgcolor: "#ffffff",
+                      borderBottomLeftRadius: "1rem",
+                      // borderWidth: "2px",
+                      // borderColor: "#7DB1FF",
+                      // borderStyle: "solid",
+                      zIndex: 5,
+                      "::before": {
+                        content: "''",
+                        position: "absolute",
+                        width: "28px",
+                        height: "28px",
+                        top: 0,
+                        left: "1px",
+                        transform: "translateX(-100%)",
+                        borderTopRightRadius: "16px",
+                        border: "2px solid #222D55",
+                        borderBottomWidth: "0",
+                        borderLeftWidth: "0",
+                      },
+                      "::after": {
+                        content: "''",
+                        position: "absolute",
+                        width: "28px",
+                        height: "28px",
+                        bottom: "1px",
+                        right: 0,
+                        transform: "translateY(100%)",
+                        borderTopRightRadius: "16px",
+                        border: "2px solid #222D55",
+                        borderBottomWidth: "0",
+                        borderLeftWidth: "0",
+                      },
                     }}
-                  /> */}
+                  >
+                    <Box
+                      sx={{
+                        content: "''",
+                        position: "absolute",
+                        bottom: "-1px",
+                        left: "-1px",
+                        width: "25px",
+                        height: "25px",
+                        border: "2px solid #222D55",
+                        borderTopWidth: "0",
+                        borderRightWidth: "0",
+                        borderBottomLeftRadius: "20px",
+                      }}
+                    />
+                  </Box>
+                  <Box
+                    sx={{
+                      content: "''",
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
+                      width: "25px",
+                      height: "100px",
+                      bgcolor: "#ffffff",
+                      transform: "rotateZ(-45deg)",
+                      transformOrigin: "-25px 50px",
+                    }}
+                  ></Box>
                   <Grid
                     container
                     sx={{
@@ -328,12 +284,7 @@ export default function OurMission() {
                           width: { lg: "119.55px", sm: "100px", xs: "80px" },
                         }}
                       >
-                        <Img
-                          src={ele?.img}
-                          height={900}
-                          width={900}
-                          alt="img"
-                        />
+                        <Img src={ele?.img} height={900} width={900} alt="img" />
                       </Box>
                     </Grid>
                     <Grid item xs={8} sm={7}>

@@ -1,19 +1,14 @@
 "use client";
 import React, { useRef, useState } from "react";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Icon, Typography, styled } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import Picto3 from "../../../../Icons/Picto3.svg";
+import Discover1 from "../../../../Icons/Discover1.svg";
+import Discover3 from "../../../../Icons/Discover3.svg";
 // import required modules
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
@@ -22,34 +17,38 @@ import Image from "next/image";
 export default function OurService() {
   const data = [
     {
-      title: "Collecter et consolider",
+      icon: Discover3,
+      title: "Collecter",
       description:
-        "Offrir une réponse de premier niveau pour les incidents cyber survenant chez ses bénéficiaires (triage et qualification des signalements) ;",
+        "Consolider à l'aide de divers moyens organisationnels et techniques, des informations clés utiles à la compréhension de nos territoires.",
     },
     {
+      icon: Picto3,
       title: "Analyser",
-      description:
-        "Rediriger ses bénéficiaires vers des prestataires territoriaux pour la remédiation de l’incident ;",
+      description: "Etudier les tendances et les évolutions en matière de cybersécurité sur nos territoires.",
     },
     {
-      title: "Fournir",
+      icon: Discover1,
+      title: "Partager",
       description:
-        "Suivre le traitement de l’incident jusqu’à sa clôture",
+        "Outiller la communauté de CSIRT, les décideurs économiques et plus généralement le plus grand nombre, à la prise de décision par la mise à disposition d'études de nos territoires.",
     },
     {
-      title: "Collecter et consolider",
+      icon: Discover3,
+      title: "Collecter",
       description:
-        "Offrir une réponse de premier niveau pour les incidents cyber survenant chez ses bénéficiaires (triage et qualification des signalements) ;",
+        "Consolider à l'aide de divers moyens organisationnels et techniques, des informations clés utiles à la compréhension de nos territoires.",
     },
     {
+      icon: Picto3,
       title: "Analyser",
-      description:
-        "Rediriger ses bénéficiaires vers des prestataires territoriaux pour la remédiation de l’incident ;",
+      description: "Etudier les tendances et les évolutions en matière de cybersécurité sur nos territoires.",
     },
     {
-      title: "Fournir",
+      icon: Discover1,
+      title: "Partager",
       description:
-        "Suivre le traitement de l’incident jusqu’à sa clôture",
+        "Outiller la communauté de CSIRT, les décideurs économiques et plus généralement le plus grand nombre, à la prise de décision par la mise à disposition d'études de nos territoires.",
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -138,9 +137,8 @@ export default function OurService() {
                   >
                     <Box
                       sx={{
-                        background:
-                          "linear-gradient(133.47deg, #E1E7FE -0.34%, rgba(0, 122, 71, 0) 98.52%)",
-                        rotate: index === activeIndex + 1 ? "15deg" : "0deg",
+                        background: "linear-gradient(133.47deg, #E1E7FE -0.34%, rgba(0, 122, 71, 0) 98.52%)",
+                        rotate: index === activeIndex + 1 ? "10deg" : "0deg",
                         borderRadius: "116px 0px 0px 0px",
                         height: {
                           lg: "325px",
@@ -175,8 +173,7 @@ export default function OurService() {
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
-                            rotate:
-                              index === activeIndex + 1 ? "-15deg" : "0deg",
+                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                           }}
                         >
                           {ele?.title}
@@ -198,8 +195,7 @@ export default function OurService() {
                             fontFamily: inter.style.fontFamily,
                             maxWidth: "263px",
                             display: "flex",
-                            rotate:
-                              index === activeIndex + 1 ? "-15deg" : "0deg",
+                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                             justifyContent: "center",
                             mt: { md: 2, xs: 0 },
                           }}
@@ -212,11 +208,10 @@ export default function OurService() {
                           position: "absolute",
                           left: { md: -30, xs: -10 },
                           bottom: 50,
-                          rotate: index === activeIndex + 1 ? "-15deg" : "0deg",
-                          display: index === activeIndex + 1 ? "block" : "none",
+                          rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                         }}
                       >
-                        <Img src={Picto3} height={68} width={68} alt="picto" />
+                        <Img src={ele.icon} height={68} width={68} alt="picto" />
                       </Box>
                     </Box>
                   </Grid>

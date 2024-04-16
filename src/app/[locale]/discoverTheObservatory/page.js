@@ -12,7 +12,7 @@ export default function DiscoverTheObservatory() {
       <OurService />
       <OurMission />
       <CaseStudies />
-      <OurPartners />
+      {/* <OurPartners /> */}
     </>
   );
 }

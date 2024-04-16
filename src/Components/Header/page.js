@@ -279,7 +279,7 @@ export default function Header() {
           backgroundColor: "#FFFFFF",
           padding: { md: "0 0px", xs: "5px 0" },
           boxShadow: "none",
-          borderBottom: "1px solid #222D55",
+          borderBottom: "1px solid rgba(34, 45, 85, 0.2)",
         }}
       >
         <Container disableGutters maxWidth={"xl"}>
