@@ -186,9 +186,7 @@ export default function OurPartners() {
                           {ele?.count}
                         </Typography>
                       </Box>
-                      <Box
-                        sx={{ height: "400px", pt: 10, display: "flex", flexDirection: "column", alignItems: "start" }}
-                      >
+                      <Box sx={{ height: "auto", pt: 10 }}>
                         {ele?.item?.map((el, idx) => {
                           return (
                             <Box key={`${idx}${idx}`}>
@@ -225,7 +223,7 @@ export default function OurPartners() {
                           );
                         })}
                       </Box>
-                      <Box sx={{ display: "flex", justifyContent: "center" }}>
+                      <Box sx={{ display: "flex", justifyContent: "center", pb: 5}}>
                         <AddIcon
                           onClick={() => handleBackgroundChange(idxx)}
                           sx={{
