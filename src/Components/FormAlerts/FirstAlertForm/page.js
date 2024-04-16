@@ -167,6 +167,27 @@ export default function HandleForm() {
                   <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"PME"}>
                     PME
                   </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"ETI"}>
+                    ETI
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Commune"}>
+                    Commune
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Communauté d’agglomération"}>
+                    Communauté d’agglomération
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Collectivité territoriale"}>
+                    Collectivité territoriale
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Collectivité d’Outre-Mer"}>
+                    Collectivité d’Outre-Mer
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Établissements publics"}>
+                    Établissements publics
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Associations nationales"}>
+                    Associations nationales
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -187,6 +208,66 @@ export default function HandleForm() {
                 >
                   <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Administration publique"}>
                     Administration publique
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Eau potable"}>
+                    Eau potable
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Eaux usées"}>
+                    Eaux usées
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Energie"}>
+                    Energie
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Espace"}>
+                    Espace
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Fabrication"}>
+                    Fabrication
+                  </MenuItem>
+                  <MenuItem
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    value={"Fabrication, production et distribution de produits chimiques"}
+                  >
+                    Fabrication, production et distribution de produits chimiques
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Fournisseurs numériques"}>
+                    Fournisseurs numériques
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Gestion des déchets"}>
+                    Gestion des déchets
+                  </MenuItem>
+                  <MenuItem
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    value={"Gestion des services TIC (interentreprises)"}
+                  >
+                    Gestion des services TIC (interentreprises)
+                  </MenuItem>
+                  <MenuItem
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    value={"Infrastructures des marchés financiers"}
+                  >
+                    Infrastructures des marchés financiers
+                  </MenuItem>
+                  <MenuItem
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    value={"Production, transformation et distribution des denrées alimentaires"}
+                  >
+                    Production, transformation et distribution des denrées alimentaires
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Recherche"}>
+                    Recherche
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Transport"}>
+                    Transport
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Santé"}>
+                    Santé
+                  </MenuItem>
+                  <MenuItem
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    value={"Secteur bancaire Services postaux et d’expédition"}
+                  >
+                    Secteur bancaire Services postaux et d’expédition
                   </MenuItem>
                 </Select>
               </FormControl>
