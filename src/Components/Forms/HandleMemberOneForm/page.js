@@ -168,7 +168,7 @@ export default function HandleForm() {
           Votre entreprise
         </Typography>
         <Grid container columnSpacing={5} mt={5}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={10}>
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
@@ -177,34 +177,64 @@ export default function HandleForm() {
             <FormControl sx={{ mt: 3 }}>
               <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
                 <FormControlLabel
-                  sx={{ "& .MuiFormControlLabel-label": { fontSize: "14px", fontFamily: inter.style.fontFamily } }}
-                  value="female"
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      mr: 2,
+                    },
+                  }}
+                  value="Administration"
                   control={<Radio />}
                   label="Administration"
                 />
                 <FormControlLabel
-                  value="male"
+                  value="Collectivité"
                   control={<Radio />}
                   label="Collectivité"
-                  sx={{ "& .MuiFormControlLabel-label": { fontSize: "14px", fontFamily: inter.style.fontFamily } }}
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      mr: 2,
+                    },
+                  }}
                 />
                 <FormControlLabel
-                  value="other"
+                  value="Organisme public"
                   control={<Radio />}
                   label="Organisme public"
-                  sx={{ "& .MuiFormControlLabel-label": { fontSize: "14px", fontFamily: inter.style.fontFamily } }}
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      mr: 2,
+                    },
+                  }}
                 />
                 <FormControlLabel
                   value="association"
                   control={<Radio />}
                   label="Association"
-                  sx={{ "& .MuiFormControlLabel-label": { fontSize: "14px", fontFamily: inter.style.fontFamily } }}
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      mr: 2,
+                    },
+                  }}
                 />
                 <FormControlLabel
                   value="entreprise"
                   control={<Radio />}
                   label="Entreprise"
-                  sx={{ "& .MuiFormControlLabel-label": { fontSize: "14px", fontFamily: inter.style.fontFamily } }}
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      mr: 2,
+                    },
+                  }}
                 />
               </RadioGroup>
             </FormControl>
@@ -420,8 +450,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> <br />
+                  Un référent et jusqu’à 3 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -471,8 +501,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> <br />
+                  Un référent et jusqu’à 3 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -486,7 +516,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 7 500€
                 </Typography>
               </Grid>
             </Grid>
@@ -509,7 +539,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Collectivité
                 </Typography>
               </Grid>
             </Grid>
@@ -523,8 +553,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant plus de 40 000 habitants</span> <br />
+                  Un référent et jusqu’à 2 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -538,7 +568,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 4 000€
                 </Typography>
               </Grid>
             </Grid>
@@ -560,7 +590,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Collectivité
                 </Typography>
               </Grid>
             </Grid>
@@ -574,8 +604,9 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant entre 10 000 et 40 000 habitants</span>
+                  <br />
+                  Un référent et jusqu’à 1 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -589,7 +620,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 2 000€
                 </Typography>
               </Grid>
             </Grid>
@@ -612,7 +643,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Collectivité
                 </Typography>
               </Grid>
             </Grid>
@@ -626,8 +657,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant moins de 10 000 habitants</span> <br />
+                  Un référent
                 </Typography>
               </Grid>
             </Grid>
@@ -641,7 +672,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 1 000€
                 </Typography>
               </Grid>
             </Grid>
@@ -679,7 +710,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Personne morale
                 </Typography>
               </Grid>
             </Grid>
@@ -693,8 +724,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>groupe national ou international</span> <br />
+                  Un référent et jusqu’à 3 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -730,7 +761,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Personne morale
                 </Typography>
               </Grid>
             </Grid>
@@ -744,8 +775,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>groupe inter-régional</span> <br />
+                  Un référent et jusqu’à 3 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -759,7 +790,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 7 000€
                 </Typography>
               </Grid>
             </Grid>
@@ -782,7 +813,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Personne morale
                 </Typography>
               </Grid>
             </Grid>
@@ -796,8 +827,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant plus de 50 salariés</span> <br />
+                  Un référent et jusqu’à 2 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -811,7 +842,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 4 500€
                 </Typography>
               </Grid>
             </Grid>
@@ -833,7 +864,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Personne morale
                 </Typography>
               </Grid>
             </Grid>
@@ -847,8 +878,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant entre 11 et 50 salariés</span> <br />
+                  Un référent et jusqu’à 1 participants
                 </Typography>
               </Grid>
             </Grid>
@@ -862,7 +893,7 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 15 00€
                 </Typography>
               </Grid>
             </Grid>
@@ -885,7 +916,7 @@ export default function HandleForm() {
                     fontWeight: 600,
                   }}
                 >
-                  Collectivité Territoriale Chef de File
+                  Personne morale
                 </Typography>
               </Grid>
             </Grid>
@@ -899,8 +930,8 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  <span style={{ color: "#007A47" }}>comptant plus de 200 000 habitants</span> Un référent et jusqu’à 3
-                  participants
+                  <span style={{ color: "#007A47" }}>comptant entre 4 et 10 salariés</span> <br />
+                  Un référent
                 </Typography>
               </Grid>
             </Grid>
@@ -914,13 +945,62 @@ export default function HandleForm() {
                 <Typography
                   sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
                 >
-                  Cotisation annuelle : 15 000€
+                  Cotisation annuelle : 5 00€
                 </Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} md={0.4}></Grid>
-          <Grid item xs={12} md={5.8}></Grid>
+          <Grid item xs={12} md={5.8} sx={{ border: "1px solid #E2E4E5", borderRadius: "10px", padding: 2 }}>
+            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+              <Grid item xs={12} md={2}>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Radio value="a" name="radio-buttons" />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={10}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  Personne morale
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+              <Grid item xs={12} md={2}>
+                <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <DoneIcon style={{ color: "#9A9EA5" }} />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={10}>
+                <Typography
+                  sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                >
+                  <span style={{ color: "#007A47" }}>comptant moins de 4 salariés</span> <br />
+                  Un référent
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+              <Grid item xs={12} md={2}>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <EuroIcon style={{ color: "#9A9EA5" }} />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={10}>
+                <Typography
+                  sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                >
+                  Cotisation annuelle : 150€
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
       <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
@@ -968,6 +1048,7 @@ export default function HandleForm() {
                   fontSize: { md: "14px", xs: "12px" },
                   color: "#222D55",
                   fontWeight: 600,
+                  textWrap: "nowrap",
                 }}
               >
                 <span style={{ color: "#007A47" }}>Utilisateur</span> de services de cybersécurité
