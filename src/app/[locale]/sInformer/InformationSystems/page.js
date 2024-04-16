@@ -17,6 +17,18 @@ export default function InformationSystems() {
     <Box>
       <Container disableGutters maxWidth={"xl"}>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
+          <Typography
+            sx={{
+              padding: "0 20px",
+              fontSize: { md: "12px", xs: "10px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontWeight: 500,
+              mt: 2,
+            }}
+          >
+            NOM THÉMATIQUE
+          </Typography>
           <Accordion
             sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel1"}
@@ -29,8 +41,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -41,8 +52,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -76,13 +86,11 @@ export default function InformationSystems() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ratione, ex aspernatur! Quisquam illum, fuga ipsam facere
-                    molestias dolores labore assumenda error deleniti nesciunt
-                    doloribus natus reprehenderit distinctio voluptatum ipsa
-                    cumque odit veniam hic atque iure quas consequatur. Neque
-                    voluptate aspernatur voluptas. Voluptatibus similique iste
-                    totam rem nesciunt facilis obcaecati beatae!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ex aspernatur! Quisquam illum,
+                    fuga ipsam facere molestias dolores labore assumenda error deleniti nesciunt doloribus natus
+                    reprehenderit distinctio voluptatum ipsa cumque odit veniam hic atque iure quas consequatur. Neque
+                    voluptate aspernatur voluptas. Voluptatibus similique iste totam rem nesciunt facilis obcaecati
+                    beatae!
                   </Typography>
                 </Grid>
               </Grid>
@@ -100,6 +108,18 @@ export default function InformationSystems() {
           />
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
+          <Typography
+            sx={{
+              padding: "0 20px",
+              fontSize: { md: "12px", xs: "10px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontWeight: 500,
+              mt: 2,
+            }}
+          >
+            NOM THÉMATIQUE
+          </Typography>
           <Accordion
             sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel2"}
@@ -112,8 +132,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -124,8 +143,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -159,13 +177,11 @@ export default function InformationSystems() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ratione, ex aspernatur! Quisquam illum, fuga ipsam facere
-                    molestias dolores labore assumenda error deleniti nesciunt
-                    doloribus natus reprehenderit distinctio voluptatum ipsa
-                    cumque odit veniam hic atque iure quas consequatur. Neque
-                    voluptate aspernatur voluptas. Voluptatibus similique iste
-                    totam rem nesciunt facilis obcaecati beatae!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ex aspernatur! Quisquam illum,
+                    fuga ipsam facere molestias dolores labore assumenda error deleniti nesciunt doloribus natus
+                    reprehenderit distinctio voluptatum ipsa cumque odit veniam hic atque iure quas consequatur. Neque
+                    voluptate aspernatur voluptas. Voluptatibus similique iste totam rem nesciunt facilis obcaecati
+                    beatae!
                   </Typography>
                 </Grid>
               </Grid>
@@ -183,6 +199,18 @@ export default function InformationSystems() {
           />
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
+          <Typography
+            sx={{
+              padding: "0 20px",
+              fontSize: { md: "12px", xs: "10px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontWeight: 500,
+              mt: 2,
+            }}
+          >
+            NOM THÉMATIQUE
+          </Typography>
           <Accordion
             sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel3"}
@@ -195,8 +223,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -207,8 +234,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -242,13 +268,11 @@ export default function InformationSystems() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ratione, ex aspernatur! Quisquam illum, fuga ipsam facere
-                    molestias dolores labore assumenda error deleniti nesciunt
-                    doloribus natus reprehenderit distinctio voluptatum ipsa
-                    cumque odit veniam hic atque iure quas consequatur. Neque
-                    voluptate aspernatur voluptas. Voluptatibus similique iste
-                    totam rem nesciunt facilis obcaecati beatae!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ex aspernatur! Quisquam illum,
+                    fuga ipsam facere molestias dolores labore assumenda error deleniti nesciunt doloribus natus
+                    reprehenderit distinctio voluptatum ipsa cumque odit veniam hic atque iure quas consequatur. Neque
+                    voluptate aspernatur voluptas. Voluptatibus similique iste totam rem nesciunt facilis obcaecati
+                    beatae!
                   </Typography>
                 </Grid>
               </Grid>
@@ -266,6 +290,18 @@ export default function InformationSystems() {
           />
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
+          <Typography
+            sx={{
+              padding: "0 20px",
+              fontSize: { md: "12px", xs: "10px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontWeight: 500,
+              mt: 2,
+            }}
+          >
+            NOM THÉMATIQUE
+          </Typography>
           <Accordion
             sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel4"}
@@ -278,8 +314,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -290,8 +325,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -325,13 +359,11 @@ export default function InformationSystems() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ratione, ex aspernatur! Quisquam illum, fuga ipsam facere
-                    molestias dolores labore assumenda error deleniti nesciunt
-                    doloribus natus reprehenderit distinctio voluptatum ipsa
-                    cumque odit veniam hic atque iure quas consequatur. Neque
-                    voluptate aspernatur voluptas. Voluptatibus similique iste
-                    totam rem nesciunt facilis obcaecati beatae!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ex aspernatur! Quisquam illum,
+                    fuga ipsam facere molestias dolores labore assumenda error deleniti nesciunt doloribus natus
+                    reprehenderit distinctio voluptatum ipsa cumque odit veniam hic atque iure quas consequatur. Neque
+                    voluptate aspernatur voluptas. Voluptatibus similique iste totam rem nesciunt facilis obcaecati
+                    beatae!
                   </Typography>
                 </Grid>
               </Grid>
@@ -349,6 +381,18 @@ export default function InformationSystems() {
           />
         </Box>
         <Box container sx={{ mt: { md: 10, xs: 5 } }}>
+          <Typography
+            sx={{
+              padding: "0 20px",
+              fontSize: { md: "12px", xs: "10px" },
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontWeight: 500,
+              mt: 2,
+            }}
+          >
+            NOM THÉMATIQUE
+          </Typography>
           <Accordion
             sx={{ boxShadow: "none", border: "none" }}
             expanded={expanded === "panel5"}
@@ -361,8 +405,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -373,8 +416,7 @@ export default function InformationSystems() {
                     sx={{
                       color: "#ffffff",
                       borderRadius: "50%",
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: { lg: 45, md: 40, xs: 30 },
                       padding: 0.7,
                       height: { lg: 45, md: 40, xs: 30 },
@@ -408,13 +450,11 @@ export default function InformationSystems() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ratione, ex aspernatur! Quisquam illum, fuga ipsam facere
-                    molestias dolores labore assumenda error deleniti nesciunt
-                    doloribus natus reprehenderit distinctio voluptatum ipsa
-                    cumque odit veniam hic atque iure quas consequatur. Neque
-                    voluptate aspernatur voluptas. Voluptatibus similique iste
-                    totam rem nesciunt facilis obcaecati beatae!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, ex aspernatur! Quisquam illum,
+                    fuga ipsam facere molestias dolores labore assumenda error deleniti nesciunt doloribus natus
+                    reprehenderit distinctio voluptatum ipsa cumque odit veniam hic atque iure quas consequatur. Neque
+                    voluptate aspernatur voluptas. Voluptatibus similique iste totam rem nesciunt facilis obcaecati
+                    beatae!
                   </Typography>
                 </Grid>
               </Grid>
