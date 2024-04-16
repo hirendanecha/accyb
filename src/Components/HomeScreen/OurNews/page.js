@@ -499,6 +499,8 @@ export default function OurNews() {
                               backgroundColor: "#007A47",
                               width: "max-content",
                               padding: 1,
+                              fontWeight: 400,
+                              fontSize: "10px",
                               padding: "8px 15px 8px 15px",
                               cursor: "pointer",
                               color: "#ffffff",
