@@ -9,7 +9,7 @@ export default function App() {
       <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" } }}>
         <Box
           sx={{
-            backgroundImage: "url('/News/Slider1.svg')",
+            backgroundImage: "url('/News/Study.png')",
             backgroundRepeat: "no-repeat",
             backgroundSize: { lg: "contain", md: "cover", xs: "cover" },
             backgroundPosition: "fixed",

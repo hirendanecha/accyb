@@ -42,6 +42,8 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const partners = [
   {
@@ -103,6 +105,8 @@ const Img = styled(Image)(({ theme }) => ({
   height: "auto !important",
 }));
 export default function CaseStudies() {
+  const locales = useLocale();
+  const router = useRouter();
   return (
     <>
       <Box
@@ -285,8 +289,10 @@ export default function CaseStudies() {
                 <Grid container>
                   <Grid item xs={12} md={11}>
                     <Box
+                      onClick={() => router.push(`/${locales}/study`)}
                       sx={{
                         display: "flex",
+                        cursor: "pointer",
                         gap: 3,
                         flexDirection: { lg: "row", md: "column", xs: "column" },
                       }}
@@ -372,8 +378,10 @@ export default function CaseStudies() {
                 <Grid container>
                   <Grid item xs={12} md={11}>
                     <Box
+                      onClick={() => router.push(`/${locales}/study`)}
                       sx={{
                         display: "flex",
+                        cursor: "pointer",
                         gap: 3,
                         flexDirection: { lg: "row", md: "column", xs: "column" },
                       }}
@@ -406,8 +414,8 @@ export default function CaseStudies() {
                         </Typography>
                         <Typography
                           sx={{
-                            fontFamily: inter.style.fontFamily,
                             fontWeight: 600,
+                            fontFamily: inter.style.fontFamily,
                             fontSize: "18px",
                             maxWidth: { lg: "230px", md: "100%" },
                             color: "#FFFFFF",
@@ -459,8 +467,10 @@ export default function CaseStudies() {
                 <Grid container>
                   <Grid item xs={12} md={11}>
                     <Box
+                      onClick={() => router.push(`/${locales}/study`)}
                       sx={{
                         display: "flex",
+                        cursor: "pointer",
                         gap: 3,
                         flexDirection: { lg: "row", md: "column", xs: "column" },
                       }}
@@ -493,8 +503,8 @@ export default function CaseStudies() {
                         </Typography>
                         <Typography
                           sx={{
-                            fontFamily: inter.style.fontFamily,
                             fontWeight: 600,
+                            fontFamily: inter.style.fontFamily,
                             fontSize: "18px",
                             maxWidth: { lg: "230px", md: "100%" },
                             color: "#FFFFFF",
@@ -546,8 +556,10 @@ export default function CaseStudies() {
                 <Grid container>
                   <Grid item xs={12} md={11}>
                     <Box
+                      onClick={() => router.push(`/${locales}/study`)}
                       sx={{
                         display: "flex",
+                        cursor: "pointer",
                         gap: 3,
                         flexDirection: { lg: "row", md: "column", xs: "column" },
                       }}
@@ -580,8 +592,8 @@ export default function CaseStudies() {
                         </Typography>
                         <Typography
                           sx={{
-                            fontFamily: inter.style.fontFamily,
                             fontWeight: 600,
+                            fontFamily: inter.style.fontFamily,
                             fontSize: "18px",
                             maxWidth: { lg: "230px", md: "100%" },
                             color: "#FFFFFF",
