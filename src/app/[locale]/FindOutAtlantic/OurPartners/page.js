@@ -186,7 +186,9 @@ export default function OurPartners() {
                           {ele?.count}
                         </Typography>
                       </Box>
-                      <Box sx={{ height: "400px", pt: 10 }}>
+                      <Box
+                        sx={{ height: "400px", pt: 10, display: "flex", flexDirection: "column", alignItems: "start" }}
+                      >
                         {ele?.item?.map((el, idx) => {
                           return (
                             <Box key={`${idx}${idx}`}>
