@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,8 +14,14 @@ import Group3 from "../../../../Icons/Group3.svg";
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function OurService() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("mission");
+  const router = useRouter();
+  const query = router.query;
+  console.log(search, "wwlwlwl");
   const data = [
     {
       icon: Picto,
@@ -61,6 +67,11 @@ export default function OurService() {
       height: "40px !important",
     },
   }));
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("mission").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
   return (
     <>
       <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }} id="mission">
