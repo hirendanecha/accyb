@@ -24,6 +24,8 @@ import "swiper/css/pagination";
 import AddIcon from "@mui/icons-material/Add";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100px !important",
@@ -43,6 +45,8 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurPartners() {
+  const locales = useLocale();
+  const router = useRouter();
   const partners = [
     {
       img: Logo1,
@@ -81,6 +85,7 @@ export default function OurPartners() {
       key: 1,
       item: ["particulier", "TPE", "Association locale"],
       button: "Cybermalveillance.gouv.fr",
+      link: "https://www.cybermalveillance.gouv.fr/",
     },
     {
       count: Findimg2,
@@ -88,6 +93,7 @@ export default function OurPartners() {
       key: 2,
       item: ["PME", "ETI", "Collectivité locale", "Etablissement public", "Association régionale et nationale"],
       button: "declarer un incident",
+      link: `/${locales}/alertreports/HandleFirstForm`,
     },
     {
       count: Findimg3,
@@ -99,6 +105,7 @@ export default function OurPartners() {
         "opérateurs de services essentiels (OSE)",
       ],
       button: "cyber.gouv.fr)",
+      link: "https://www.cert.ssi.gouv.fr/",
     },
   ];
   const [id, setId] = useState([1]);
@@ -200,7 +207,7 @@ export default function OurPartners() {
                       >
                         {ele?.title}
                       </Typography>
-                      <Box sx={{ display: "flex", justifyContent: "center" }}>
+                      <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
                         <Imges src={ele?.count} alt="" width={900} height={900} />
                       </Box>
                       <Box sx={{ height: "400px !important", pt: 10 }}>
@@ -240,7 +247,15 @@ export default function OurPartners() {
                       </Box>
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Button
-                          onClick={() => handleBackgroundChange(idxx)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const link = document.createElement("a");
+                            link.href = `${ele?.link}`;
+                            link.setAttribute("target", "_blank");
+                            document.body.appendChild(link);
+                            link.click();
+                            link.remove();
+                          }}
                           variant="outlined"
                           endIcon={
                             <ArrowForwardIcon
