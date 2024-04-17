@@ -440,7 +440,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -491,7 +491,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -543,7 +543,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -594,7 +594,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -647,7 +647,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -714,7 +714,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -765,7 +765,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -817,7 +817,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -868,7 +868,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -920,7 +920,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -971,7 +971,7 @@ export default function HandleForm() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container sx={{ display: "flex", alignItems: "center" }}>
+            <Grid container sx={{ display: "flex", alignItems: "start" }}>
               <Grid item xs={12} md={2}>
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                   <DoneIcon style={{ color: "#9A9EA5" }} />
@@ -1158,7 +1158,7 @@ export default function HandleForm() {
           },
         }}
       >
-        je veux devenir bénévole
+        suivant
       </Button>
     </Box>
   );

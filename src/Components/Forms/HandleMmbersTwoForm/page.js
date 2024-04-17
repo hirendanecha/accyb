@@ -311,6 +311,11 @@ export default function HandleForm() {
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Quelles sont vos motivations pour adhérer à l’ACCYB ? (obligatoire)
+              </Typography>
               <ValidationTextField
                 multiline
                 rows={3}
@@ -326,7 +331,7 @@ export default function HandleForm() {
                   },
                 }}
                 id="standard-basic"
-                placeholder="Quelles sont vos motivations pour adhérer à l’ACCYB ? (obligatoire)"
+                // placeholder="Quelles sont vos motivations pour adhérer à l’ACCYB ? (obligatoire)"
                 type="email"
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
