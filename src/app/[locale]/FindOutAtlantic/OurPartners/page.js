@@ -184,6 +184,7 @@ export default function OurPartners() {
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       width: "100%",
+                      height: "750px !important",
                       borderRight: "1px solid rgba(217, 217, 217, 0.2)",
                     }}
                   >

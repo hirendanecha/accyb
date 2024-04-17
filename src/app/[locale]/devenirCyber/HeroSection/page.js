@@ -1,14 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  keyframes,
-} from "@mui/material";
+import { Box, Button, Container, Divider, Grid, Typography, keyframes } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -103,8 +95,7 @@ export default function HeroSection() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Favorisez les échanges d’idées et de retours d’expérience
-                    autour de la cybersécurité
+                    Favorisez les échanges d’idées et de retours d’expérience autour de la cybersécurité
                   </Box>
                   <Typography
                     sx={{
@@ -117,10 +108,9 @@ export default function HeroSection() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Devenir bénévole cyber At vero eos et accusamus et iusto
-                    odio dignissimos ducimus qui blanditiis praesentium
-                    voluptatum deleniti atque corrupti quos dolores et quas
-                    molestias excepturi sint occaecati cupidit.
+                    Devenir bénévole cyber At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                    occaecati cupidit.
                   </Typography>
                 </motion.div>
               </Grid>
