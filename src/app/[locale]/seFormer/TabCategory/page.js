@@ -527,7 +527,7 @@ export default function TabCategory() {
         <Grid container mt={{ md: 10, xs: 5 }} justifyContent={"space-between"} rowSpacing={3}>
           {category?.map((data, idx) => {
             return (
-              <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
+              <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10} key={idx}>
                 {data?.data?.map((ele, idxx) => {
                   return (
                     <Grid item xs={12} md={6} key={idxx}>
@@ -599,9 +599,9 @@ export default function TabCategory() {
                           {ele?.price}
                         </Typography>
                         <Grid container>
-                          {ele?.badge?.map((bd) => {
+                          {ele?.badge?.map((bd, id) => {
                             return (
-                              <Grid item xs={12} md={6} mt={2}>
+                              <Grid item xs={12} md={6} mt={2} key={id}>
                                 <Box
                                   sx={{
                                     display: "flex",
