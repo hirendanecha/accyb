@@ -103,7 +103,6 @@ export default function Footer() {
                     sx={{
                       display: "flex",
                       gap: "20px",
-                      mt: 2,
                       justifyContent: { md: "unset", xs: "center" },
                     }}
                   >
