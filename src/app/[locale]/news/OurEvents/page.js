@@ -1,14 +1,6 @@
 "use client";
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
-import React, { useState } from "react";
+import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import Event1 from "../../../../Icons/Event1.svg";
@@ -18,7 +10,10 @@ import Image2 from "../../../../Icons/Image2.png";
 import Image3 from "../../../../Icons/Image3.png";
 import ShareIcon from "@mui/icons-material/Share";
 import { SwiperSlide, Swiper } from "swiper/react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -42,10 +37,24 @@ export default function OurEvents() {
         "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
       time: "13.01.2024",
     },
+    {
+      img: Event1,
+      title: "avril",
+      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+      time: "13.01.2024",
+    },
+    {
+      img: Event2,
+      title: "avril",
+      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+      time: "13.01.2024",
+    },
   ];
-  const [content, setContent] = useState(
-    subCategory?.filter((ele) => ele?.title == "Janvier")
-  );
+  const [content, setContent] = useState(subCategory?.filter((ele) => ele?.title == "Janvier"));
   const [currentCategory, setCurrentCategory] = useState("Janvier");
   const category = [
     "Janvier",
@@ -72,63 +81,109 @@ export default function OurEvents() {
       img: Image1,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image2,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image3,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image1,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image2,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image3,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
   ];
+  useEffect(() => {
+    setCurrentCategory(category[new Date().getMonth()]);
+  }, []);
   return (
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
-        <Typography
-          sx={{
-            color: "#222D55",
-            fontSize: { md: "39px", xs: "24px" },
-            mt: { md: 0, xs: 4 },
-          }}
-        >
-          Nos événements
-        </Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Typography
+            sx={{
+              color: "#222D55",
+              fontSize: { md: "39px", xs: "24px" },
+              mt: { md: 0, xs: 4 },
+            }}
+          >
+            Nos événements
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "start",
+              gap: 1,
+              mt: { md: 0, xs: 4 },
+            }}
+          >
+            <Box
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                className="swiper-button-prev-testimonials"
+                aria-label="Next Slide"
+                title="Next Slide"
+                sx={{
+                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  width: { md: 45, xs: 40 },
+                  height: { md: 45, xs: 40 },
+                }}
+              >
+                <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
+              </IconButton>
+            </Box>
+            <Box
+              className="swiper-button-next-testimonials"
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                aria-label="Next Slide"
+                title="Next Slide"
+                sx={{
+                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  width: { md: 45, xs: 40 },
+                  height: { md: 45, xs: 40 },
+                }}
+              >
+                <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
+              </IconButton>
+            </Box>
+          </Box>
+        </Box>
       </Container>
       <Divider
         variant="middle"
@@ -140,6 +195,7 @@ export default function OurEvents() {
           borderBottomWidth: "1px",
         }}
       />
+
       <Container disableGutters maxWidth={"xl"}>
         <Box
           sx={{
@@ -171,6 +227,12 @@ export default function OurEvents() {
                 slidesPerView: 6.5,
               },
             }}
+            navigation={{
+              nextEl: ".swiper-button-next-testimonials",
+              prevEl: ".swiper-button-prev-testimonials",
+              enabled: true,
+            }}
+            modules={[Navigation, Keyboard, Pagination]}
             loop={true}
             scrollbar={{ draggable: true }}
             className="mySwiper"
@@ -198,8 +260,7 @@ export default function OurEvents() {
                     color: currentCategory === ele ? "#FFFFFF" : "#222D55",
                     borderRadius: "50px",
                     "&:hover": {
-                      backgroundImage:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       color: "#FFFFFF",
                     },
                   }}
@@ -226,8 +287,7 @@ export default function OurEvents() {
                     <Box>
                       <Typography
                         sx={{
-                          backgroundImage:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
                           padding: "8px 15px 8px 15px",
                           fontSize: "12px",
@@ -324,11 +384,7 @@ export default function OurEvents() {
             </Box>
           )}
         </Grid>
-        <Typography
-          sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}
-        >
-          Articles
-        </Typography>
+        <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}>Articles</Typography>
       </Container>
 
       <Divider
@@ -355,12 +411,7 @@ export default function OurEvents() {
                     }}
                   >
                     <Box>
-                      <Img
-                        src={ele?.img}
-                        width={295}
-                        height={220}
-                        alt="image1"
-                      />
+                      <Img src={ele?.img} width={295} height={220} alt="image1" />
                     </Box>
                     <Box
                       sx={{
@@ -371,8 +422,7 @@ export default function OurEvents() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
-                          backgroundImage:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
                           padding: 1,
                           fontSize: "12px",
