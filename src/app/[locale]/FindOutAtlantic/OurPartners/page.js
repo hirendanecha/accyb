@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/Partners/Logo1.svg";
@@ -11,6 +11,9 @@ import Logo6 from "../../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
+import Findimg1 from "../../../../Icons/Findimg1.svg";
+import Findimg2 from "../../../../Icons/Findimg2.svg";
+import Findimg3 from "../../../../Icons/Findimg3.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -25,6 +28,14 @@ import Image from "next/image";
 const Img = styled(Image)(({ theme }) => ({
   width: "100px !important",
   height: "97px !important",
+}));
+const Imges = styled(Image)(({ theme }) => ({
+  width: "100px !important",
+  height: "97px !important",
+  [theme.breakpoints.down("md")]: {
+    width: "80px !important",
+    height: "auto !important",
+  },
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "110px !important",
@@ -65,23 +76,29 @@ export default function OurPartners() {
   ];
   const data = [
     {
-      count: "01",
+      count: Findimg1,
+      title: "cybermalveillance.gouv.fr",
       key: 1,
       item: ["particulier", "TPE", "Association locale"],
+      button: "Cybermalveillance.gouv.fr",
     },
     {
-      count: "02",
+      count: Findimg2,
+      title: "CSIRT-ATLANTIC",
       key: 2,
+      item: ["PME", "ETI", "Collectivité locale", "Etablissement public", "Association régionale et nationale"],
+      button: "declarer un incident",
+    },
+    {
+      count: Findimg3,
+      title: "CERT-FR",
+      key: 3,
       item: [
         "Organismes publics nationaux",
         "opérateurs d’importance vitale (OIV)",
         "opérateurs de services essentiels (OSE)",
       ],
-    },
-    {
-      count: "03",
-      key: 3,
-      item: ["PME", "ETI", "Collectivité locale", "Etablissement public", "Association régionale et nationale"],
+      button: "cyber.gouv.fr)",
     },
   ];
   const [id, setId] = useState([1]);
@@ -155,7 +172,7 @@ export default function OurPartners() {
                     key={idxx}
                     style={{
                       backgroundImage: match ? "url('/Images/Slider/Slider1.png')" : "",
-                      backgroundColor: !match ? "#222D55" : "",
+                      backgroundColor: !match ? "#D24D58" : "",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
@@ -173,18 +190,19 @@ export default function OurPartners() {
                         flexDirection: "column",
                       }}
                     >
-                      <Box>
-                        <Typography
-                          sx={{
-                            fontFamily: inter.style.fontFamily,
-                            display: "flex",
-                            justifyContent: "center",
-                            fontSize: { lg: "22px", md: "18px" },
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          {ele?.count}
-                        </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                          display: "flex",
+                          justifyContent: "center",
+                          fontSize: { lg: "22px", md: "18px" },
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        {ele?.title}
+                      </Typography>
+                      <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        <Imges src={ele?.count} alt="" width={900} height={900} />
                       </Box>
                       <Box sx={{ height: "400px !important", pt: 10 }}>
                         {ele?.item?.map((el, idx) => {
@@ -193,9 +211,7 @@ export default function OurPartners() {
                               <Typography
                                 sx={{
                                   fontFamily: inter.style.fontFamily,
-                                  background: match
-                                    ? "#FFFFFF"
-                                    : "-webkit-linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                  background: "#FFFFFF",
                                   WebkitBackgroundClip: "text",
                                   backgroundClip: "text",
                                   color: "transparent",
@@ -224,7 +240,54 @@ export default function OurPartners() {
                         })}
                       </Box>
                       <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        <AddIcon
+                        <Button
+                          onClick={() => handleBackgroundChange(idxx)}
+                          variant="outlined"
+                          endIcon={
+                            <ArrowForwardIcon
+                              sx={{
+                                backgroundColor: "#FFFFFF",
+                                borderRadius: "50%",
+                                width: { md: "50px", xs: "40px" },
+                                height: { md: "50px", xs: "40px" },
+                                padding: 1.7,
+                                marginRight: -2,
+                                color: "red",
+                                ml: 3,
+                                ":hover": {
+                                  "@keyframes move-left": {
+                                    "0%": {
+                                      rotate: "0deg",
+                                    },
+                                    "100%": {
+                                      rotate: "-35deg",
+                                    },
+                                  },
+                                  animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                                },
+                              }}
+                            />
+                          }
+                          sx={{
+                            color: "#FFFFFF",
+                            border: "1px solid rgba(142, 155, 191, 0.3)",
+                            borderRadius: "61px",
+                            padding: "8px 30px",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            background: "rgba(255, 255, 255, 0.1)",
+                            ":hover": {
+                              borderColor: "#8E9BBF",
+                            },
+                            fontFamily: inter.style.fontFamily,
+                            // "& .MuiButton-endIcon": {
+                            //   marginLeft: 2.2,
+                            // },
+                          }}
+                        >
+                          {ele?.button}
+                        </Button>
+                        {/* <AddIcon
                           onClick={() => handleBackgroundChange(idxx)}
                           sx={{
                             color: match ? "#7DB1FF" : "#ffffff",
@@ -235,7 +298,7 @@ export default function OurPartners() {
                             padding: 0.7,
                             height: { lg: 45, md: 40, xs: 30 },
                           }}
-                        />
+                        /> */}
                       </Box>
                     </Box>
                   </SwiperSlide>
@@ -300,23 +363,24 @@ export default function OurPartners() {
                       sx={{
                         padding: 5,
                         display: "flex",
-                        justifyContent: "space-between",
+                        justifyContent: { md: "space-between", xs: "unset" },
                         height: "100%",
                         flexDirection: "column",
                       }}
                     >
-                      <Box>
-                        <Typography
-                          sx={{
-                            fontFamily: inter.style.fontFamily,
-                            display: "flex",
-                            justifyContent: "center",
-                            fontSize: "40px",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          {ele?.count}
-                        </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                          display: "flex",
+                          justifyContent: "center",
+                          fontSize: { lg: "22px", md: "18px" },
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        {ele?.title}
+                      </Typography>
+                      <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+                        <Imges src={ele?.count} alt="" width={900} height={900} />
                       </Box>
                       <Box>
                         {ele?.item?.map((el, idx) => {
@@ -329,8 +393,8 @@ export default function OurPartners() {
                                   WebkitBackgroundClip: "text",
                                   backgroundClip: "text",
                                   color: "transparent",
-                                  fontSize: "18px",
-                                  mt: 1,
+                                  fontSize: { md: "18px", xs: "14px" },
+                                  mt: 3,
                                   maxWidth: "300px",
                                   textTransform: "uppercase",
                                   fontWeight: 600,
