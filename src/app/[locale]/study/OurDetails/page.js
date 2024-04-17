@@ -4,6 +4,7 @@ import { Box, Container, Grid, Typography, Divider, styled } from "@mui/material
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import ClientMeeting from "../../../../../public/ClientMeeting.svg";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
@@ -22,7 +23,24 @@ export default function page() {
     >
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
-          <Grid item xs={12} md={3}></Grid>
+          <Grid item xs={12} md={3} sx={{ position: "relative" }}>
+            <Box sx={{ position: "absolute", top: "50%" }}>
+              <Box
+                sx={{
+                  backgroundColor: "#222D55",
+                  padding: 3,
+                  borderRadius: "50%",
+                  height: "46px",
+                  width: "46px",
+                  display: { md: "flex", xs: "none" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <ArrowUpwardIcon sx={{ color: "#fff" }} />
+              </Box>
+            </Box>
+          </Grid>
           <Grid item xs={12} md={6}>
             <Box sx={{ textAlign: "center" }}>
               <Typography

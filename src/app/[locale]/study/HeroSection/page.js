@@ -2,6 +2,7 @@
 import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
+import ShareIcon from "@mui/icons-material/Share";
 
 export default function App() {
   return (
@@ -114,6 +115,27 @@ export default function App() {
                 >
                   Jean Dohn
                 </Typography>
+              </Box>
+              <Box
+                sx={{
+                  mt: 3,
+                  border: "1px solid #FFFFFF",
+                  width: "42px",
+                  height: "42px",
+                  borderRadius: "50%",
+                  justifyContent: "center",
+                  display: "flex",
+                  alignItems: "center", // This centers the icon vertically
+                }}
+              >
+                <ShareIcon
+                  sx={{
+                    height: "19px",
+                    width: "19px",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                  }}
+                />
               </Box>
             </Grid>
           </Grid>
