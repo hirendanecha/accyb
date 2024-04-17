@@ -18,6 +18,14 @@ const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
 }));
+const Imgs = styled(Image)(({ theme }) => ({
+  width: "292px !important",
+  height: "auto !important",
+  [theme.breakpoints.down("md")]: {
+    width: "100% !important",
+    height: "auto !important",
+  },
+}));
 
 export default function OurEvents() {
   const subCategory = [
@@ -411,7 +419,7 @@ export default function OurEvents() {
                     }}
                   >
                     <Box>
-                      <Img src={ele?.img} width={295} height={220} alt="image1" />
+                      <Imgs src={ele?.img} width={295} height={220} alt="image1" />
                     </Box>
                     <Box
                       sx={{
@@ -482,6 +490,7 @@ export default function OurEvents() {
                             sx={{
                               border: "1px solid #222D55",
                               width: "36px",
+                              mr: 3,
                               height: "36px",
                               borderRadius: "50%",
                               display: "flex",
