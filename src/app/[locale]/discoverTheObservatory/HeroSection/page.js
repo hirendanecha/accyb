@@ -35,14 +35,6 @@ export default function HeroSection() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  color: "#FFFFFF",
-                }}
-              >
-                Découvrir l’ACCYB
-              </Typography>
               <Box
                 mt={1}
                 sx={{
@@ -90,15 +82,17 @@ export default function HeroSection() {
                   sx={{
                     fontFamily: inter.style.fontFamily,
                     color: "#FFFFFF",
+                    fontWeight: "normal",
                     fontSize: { md: "15px", xs: "13px" },
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  L’observatoire cyber des territoires français d’Amérique vise
-                  à établir et suivre le niveau de maturité des acteurs privés
-                  et publics sur la cybersécurité, la protection des données et
-                  les bonnes pratiques associées pour la conformité et la
-                  maitrise des risques.
+                  L’Observatoire fournit aux pouvoirs publics, aux décideurs économiques et, plus généralement, au
+                  public une information régulière{" "}
+                  <span style={{ fontWeight: 600 }}>
+                    sur l’état et l’évolution de la confiance numérique, de la menace, de la maturité liées à la
+                    cybersécurité.
+                  </span>
                 </Typography>
               </Box>
               <Box

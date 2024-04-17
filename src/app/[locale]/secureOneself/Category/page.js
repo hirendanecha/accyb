@@ -97,7 +97,7 @@ export default function NewForms() {
         mt: 20,
       }}
     >
-      <Container disableGutters maxWidth={"xl"}>
+      <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
         <Grid container>
           <Grid item xs={12} md={2.8} sx={{ border: "1px solid rgba(0, 0, 0, 0.3)" }}>
             {category?.map((item, index) => {

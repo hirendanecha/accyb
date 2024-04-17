@@ -4,7 +4,7 @@ import React from "react";
 import { inter } from "../../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 export default function CategoryDetails() {
   const category = [
     {
@@ -121,9 +121,26 @@ export default function CategoryDetails() {
           paddingTop: { md: 50, xs: 20 },
         }}
       >
-        <Container disableGutters maxWidth={"xl"}>
+        <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
           <Grid container>
-            <Grid item xs={12} md={3}></Grid>
+            <Grid item xs={12} md={3} sx={{ position: "relative" }}>
+              <Box sx={{ position: "absolute", top: "50%" }}>
+                <Box
+                  sx={{
+                    backgroundColor: "#222D55",
+                    padding: 3,
+                    borderRadius: "50%",
+                    height: "46px",
+                    width: "46px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <ArrowUpwardIcon sx={{ color: "#fff" }} />
+                </Box>
+              </Box>
+            </Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography
