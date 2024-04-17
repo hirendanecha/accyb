@@ -176,7 +176,7 @@ export default function OurPartners() {
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
-                      height: "750px",
+                      height: "750px !important",
                       width: "100%",
                       borderRight: "1px solid rgba(217, 217, 217, 0.2)",
                     }}
