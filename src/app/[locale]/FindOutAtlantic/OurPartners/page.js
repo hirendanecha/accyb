@@ -189,6 +189,7 @@ export default function OurPartners() {
                   >
                     <Box
                       sx={{
+                        backgroundColor: "rgba(210, 77, 88, 0.2)",
                         padding: 5,
                         display: "flex",
                         justifyContent: "space-between",

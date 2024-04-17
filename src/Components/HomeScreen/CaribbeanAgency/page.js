@@ -169,7 +169,7 @@ export default function CaribbeanAgency() {
                         color: "#FFFFFF",
                         fontWeight: 400,
                         lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "550px !important",
+                        maxWidth: "800px !important",
                         mt: 3,
                         fontFamily: inter.style.fontFamily,
                       }}
@@ -341,7 +341,7 @@ export default function CaribbeanAgency() {
                         color: "#FFFFFF",
                         fontWeight: 400,
                         lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "550px !important",
+                        maxWidth: "800px !important",
                         mt: 3,
                         fontFamily: inter.style.fontFamily,
                       }}
@@ -513,7 +513,7 @@ export default function CaribbeanAgency() {
                         color: "#FFFFFF",
                         fontWeight: 400,
                         lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "550px !important",
+                        maxWidth: "800px !important",
                         mt: 3,
                         fontFamily: inter.style.fontFamily,
                       }}
@@ -685,7 +685,7 @@ export default function CaribbeanAgency() {
                         color: "#FFFFFF",
                         fontWeight: 400,
                         lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "550px !important",
+                        maxWidth: "800px !important",
                         mt: 3,
                         fontFamily: inter.style.fontFamily,
                       }}
