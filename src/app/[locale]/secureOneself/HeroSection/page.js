@@ -67,7 +67,16 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Sécuriser <span style={{ color: "#7DB1FF" }}>son organisation</span>
+                Sécuriser{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  son organisation
+                </span>
               </Box>
             </Grid>
             <Grid item md={2}></Grid>

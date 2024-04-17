@@ -59,7 +59,16 @@ export default function HeroSection() {
                   maxWidth: "680px !important",
                 }}
               >
-                Les <span style={{ color: "#7DB1FF" }}>Formations</span>
+                Les{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  Formations
+                </span>
               </Box>
             </Grid>
             <Grid item md={2}></Grid>

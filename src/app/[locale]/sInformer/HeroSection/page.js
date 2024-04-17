@@ -61,7 +61,16 @@ export default function HeroSection() {
               >
                 S’informer
                 <p>
-                  sur la <span style={{ color: "#7DB1FF" }}>sécurité</span>
+                  sur la{" "}
+                  <span
+                    style={{
+                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    sécurité
+                  </span>
                 </p>{" "}
                 de vos systèmes
               </Box>
