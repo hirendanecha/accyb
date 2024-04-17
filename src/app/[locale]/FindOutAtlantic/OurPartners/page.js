@@ -184,7 +184,7 @@ export default function OurPartners() {
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       width: "100%",
-                      height: "750px !important",
+                      // height: "750px !important",
                       borderRight: "1px solid rgba(217, 217, 217, 0.2)",
                     }}
                   >
@@ -495,6 +495,7 @@ export default function OurPartners() {
         disableGutters
         maxWidth="xl"
         sx={{
+          mb: 15,
           mt: { md: 10, xs: 2 },
           display: "flex",
           overflowX: "scroll",
