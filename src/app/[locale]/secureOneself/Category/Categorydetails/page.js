@@ -118,7 +118,7 @@ export default function CategoryDetails() {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          paddingTop: { md: 50, xs: 20 },
+          paddingTop: { md: 30, xs: 20 },
         }}
       >
         <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>

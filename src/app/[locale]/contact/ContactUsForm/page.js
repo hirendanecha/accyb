@@ -13,7 +13,7 @@ export default function ContactUsForm() {
         paddingTop: { md: 30, xs: 20 },
       }}
     >
-      <Container disableGutters maxWidth={"xl"}>
+      <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 20px" }}>
         <Box>
           <Typography
             sx={{
@@ -251,13 +251,15 @@ export default function ContactUsForm() {
                 sx={{
                   fontFamily: inter.style.fontFamily,
                   fontWeight: 400,
-                  fontSize: { md: "39px", xs: "26px" },
+                  fontSize: { md: "35px", xs: "26px" },
                   color: "#222D55",
                   lineHeight: { md: "56px", xs: "36px" },
                   maxWidth: { md: "80%", xs: "100%" },
                 }}
               >
-                Du lundi au vendredi (hors jours fériés) de 8h30 à 12h30 - 14h00 à 17h00
+                Du lundi au vendredi <br />
+                (hors jours fériés) <br />
+                de 8h30 à 12h30 - 14h00 à 17h00
               </Typography>
             </Box>
           </Grid>

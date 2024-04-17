@@ -92,6 +92,13 @@ export default function CaribbeanAgency() {
             w: 10,
             h: 4,
             mx: "0.5rem !important",
+            width: "8px !important",
+            height: "8px !important",
+            opacity: "1 !important",
+            background: "#8B8D9C !important",
+          },
+          "& .swiper-pagination-bullet-active": {
+            background: "#FFFFFF !important",
           },
         }}
         slidesPerView={1}
