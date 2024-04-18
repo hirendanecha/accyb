@@ -180,21 +180,11 @@ export default function CaseStudies() {
             >
               <Grid item xs={12} md={6}>
                 <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    justifyContent: "start",
-                    display: "flex",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Nos projets
-                </Typography>
-                <Typography
                   variant="h2"
                   color="#007A47"
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    textTransform: "capitalize",
+                    // textTransform: "capitalize",
                     display: "flex",
                     justifyContent: "start",
                     textAlign: "start",
@@ -203,7 +193,7 @@ export default function CaseStudies() {
                     fontSize: { lg: "64px", md: "50px", xs: "40px" },
                   }}
                 >
-                  Études de cas
+                  Nos études
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>

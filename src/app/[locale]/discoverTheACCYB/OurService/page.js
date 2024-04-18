@@ -176,14 +176,29 @@ export default function OurService() {
                           sx={{
                             color: "#222D55",
                             fontSize: { lg: "38px", md: "30px", xs: "20px" },
-                            fontWeight: 500,
+                            // maxWidth: "263px",
+                            fontWeight: 400,
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
                             rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
                           }}
                         >
-                          {ele?.title}
+                          {ele?.title?.split(" ")[0]}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "#222D55",
+                            fontSize: { lg: "38px", md: "30px", xs: "20px" },
+                            // maxWidth: "263px",
+                            fontWeight: 400,
+                            lineHeight: { md: "42px", xs: "22px" },
+                            fontFamily: inter.style.fontFamily,
+                            marginLeft: { md: "-150px", xs: "-60px" },
+                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
+                          }}
+                        >
+                          {ele?.title?.split(" ").slice(1).join(" ")}
                         </Typography>
                       </Box>
                       <Box

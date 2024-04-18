@@ -353,21 +353,26 @@ export default function HandleForm() {
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
-              Commune de [Territory_name]
+              Commune de
             </Typography>
             <Box mt={3}>
-              <FormControl variant="standard" fullWidth>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  sx={{ fontFamily: inter.style.fontFamily }}
-                  defaultValue={"Lorem ipsum"}
-                >
-                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Lorem ipsum"}>
-                    Lorem ipsum
-                  </MenuItem>
-                </Select>
-              </FormControl>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="standard-basic"
+                type="text"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
             </Box>
           </Grid>
           <Grid item xs={12} md={12} mt={5}>

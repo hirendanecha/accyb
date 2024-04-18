@@ -327,10 +327,15 @@ export default function HandleForm() {
             </FormControl>
           </Grid>
           <Grid item xs={12} md={12} mt={5}>
+            <Typography
+              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "15px", xs: "12px" }, color: "#222D55" }}
+            >
+              Description des événements observés 
+            </Typography>
             <ValidationTextField
               fullWidth
               multiline
-              rows={3}
+              rows={6}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -342,7 +347,11 @@ export default function HandleForm() {
                 },
               }}
               id="standard-basic"
-              placeholder="Description des événements observés "
+              placeholder={`-        Comment avez-vous découvert l incident ? 
+-        Avez-vous connaissance du vecteur de compromission ?
+-        Avez-vous mis en place des mesures de protection ?
+-        Quelles sont les conséquences sur vos métiers et sur vos services IT ?
+              `}
               type="text"
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}

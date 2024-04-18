@@ -169,7 +169,7 @@ export default function OurService() {
                           sx={{
                             color: "#222D55",
                             fontSize: { lg: "38px", md: "30px", xs: "20px" },
-                            fontWeight: 500,
+                            fontWeight: 400,
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
