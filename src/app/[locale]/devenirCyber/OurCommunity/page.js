@@ -5,20 +5,25 @@ import { inter } from "../../../../fonts/fonts";
 export default function OurCommunity() {
   const data = [
     {
-      title: "90%",
-      description: "De renouvellement d’adhésion",
+      description: "Consultation stratégique",
     },
     {
-      title: "+200",
-      description: "Attaques gérées",
+      description: "Suivi de maturité cyber",
     },
     {
-      title: "90%",
-      description: "De renouvellement d’adhésion",
+      description: "Veille d'exposition internet",
     },
     {
-      title: "-65%",
-      description: "De fraude informatique",
+      description: "Assistance en gestion de crise",
+    },
+    {
+      description: "Sensibilisation des adhérents",
+    },
+    {
+      description: "Alertes avancées",
+    },
+    {
+      description: "Exercice de crise",
     },
   ];
   return (
@@ -96,16 +101,15 @@ export default function OurCommunity() {
                 lineHeight: { md: "60px", sm: "50px", xs: "35px" },
                 color: "#222D55",
                 maxWidth: { lg: "57%", md: "100%" },
-                background:
-                  "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Bien plus qu’une adhésion... une communauté, un réseau !
+              Des services exclusifs
             </Typography>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -155,7 +159,52 @@ export default function OurCommunity() {
                 </>
               );
             })}
-          </Box>
+          </Box> */}
+          <Grid container rowSpacing={5} justifyContent={"center"} sx={{ py: 8 }}>
+            {data?.map((ele, idx) => {
+              return (
+                <>
+                  {idx === 0 && <Grid item lg={1} xs={0}></Grid>}
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    lg={2.5}
+                    sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+                  >
+                    <Box
+                      sx={{
+                        border: "1px solid #B3D7C8",
+                        borderRadius: "50%",
+                        height: { md: "220px", sm: "220px", xs: "200px" },
+                        width: { md: "220px", sm: "220px", xs: "200px" },
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { md: "14px", sm: "12px", xs: "10px" },
+                          fontWQeight: 500,
+                          color: "#FFFFFF",
+                          maxWidth: "150px",
+                          textTransform: "uppercase",
+                          mt: 1,
+                        }}
+                      >
+                        {ele?.description}
+                      </Typography>
+                    </Box>
+                  </Grid>
+                  {idx == 3 && <Grid item lg={1} xs={0}></Grid>}
+                </>
+              );
+            })}
+          </Grid>
         </Container>
       </Box>
     </>

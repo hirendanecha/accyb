@@ -61,7 +61,7 @@ export default function HeroSection() {
     >
       <Box
         sx={{
-          backgroundImage: "url('/Images/BackgroundImg.png')",
+          backgroundImage: "url('/Images/BackgroundImg.jpg')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -95,7 +95,8 @@ export default function HeroSection() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Favorisez les échanges d’idées et de retours d’expérience autour de la cybersécurité
+                    Rejoindre la communauté <br />
+                    de l'ACCYB
                   </Box>
                   <Typography
                     sx={{
@@ -108,9 +109,8 @@ export default function HeroSection() {
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    Devenir bénévole cyber At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                    occaecati cupidit.
+                    Devenir un membre actif de la cohésion des territoires et avancer ensemble dans la sécurisation de
+                    nos organisations.
                   </Typography>
                 </motion.div>
               </Grid>
@@ -120,18 +120,17 @@ export default function HeroSection() {
         <Divider
           variant="middle"
           sx={{
-            display: { md: "block", xs: "none" },
             bgcolor: "#FFFFFF",
-            mt: 5,
+            mt: { md: 25, xs: 15 },
             opacity: "20%",
             borderBottomWidth: "1px",
           }}
         />
         <Container disableGutters maxWidth={"xl"}>
-          <Grid item xs={12} md={12} position={"relative"} mt={3}>
+          <Grid item xs={12} md={12} position={"relative"} mt={3} sx={{ display: "flex", justifyContent: "end" }}>
             <Box
               sx={{
-                display: { lg: "flex", xs: "none" },
+                display: "flex",
                 gap: 2,
                 cursor: "pointer",
                 alignItems: "center",

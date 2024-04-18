@@ -90,7 +90,7 @@ export default function OurMission() {
     // },
   ];
   return (
-    <Box sx={{ position: "relative" }} id="services">
+    <Box sx={{ position: "relative" }} id="services" pb={15}>
       <Container disableGutters maxWidth={"xl"}>
         <Box
           ref={ref}

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -9,110 +9,13 @@ export default function HarumQuidem() {
       <Container disableGutters maxWidth={"xl"}>
         <Box
           sx={{
-            padding: "0 16px",
-            mt: 15,
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Grid container columnSpacing={10}>
-            <Grid item xs={12} md={5} display={"flex"} justifyContent={"end"}>
-              <Box
-                sx={{
-                  height: "441px",
-                  width: "407px",
-                  backgroundColor: "#000000",
-                  borderRadius: "15px",
-                }}
-              ></Box>
-            </Grid>
-            <Grid item xs={12} md={7}>
-              <Typography
-                sx={{
-                  mt: 2,
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { md: "55px", xs: "26px" },
-                  color: "#222D55",
-                  lineHeight: { md: "60px", xs: "33px" },
-                  fontWeight: 400,
-                  maxWidth: { md: "500px", xs: "100%" },
-                }}
-              >
-                Et harum quidem rerum facilis
-              </Typography>
-              <Typography
-                sx={{
-                  mt: 2,
-                  color: "#222D55",
-                  fontSize: { md: "22px", xs: "14px" },
-                  lineHeight: { md: "32px", xs: "20px" },
-                  fontFamily: inter.style.fontFamily,
-                  maxWidth: "600px",
-                }}
-              >
-                Devenir bénévole cyber At vero eos et accusamus et iusto odio
-                dignissimos ducimus qui blanditiis praesentium voluptatum
-                deleniti atque corrupti quos dolores et quas molestias excepturi
-                sint occaecati cupidit.
-              </Typography>
-              <Button
-                variant="outlined"
-                endIcon={
-                  <ArrowForwardIcon
-                    sx={{
-                      backgroundColor: "#222D55",
-                      borderRadius: "50%",
-                      width: "50px",
-                      height: "50px",
-                      color: "#ffffff",
-                      padding: 1.7,
-                      marginRight: -2,
-                      ml: 3,
-                      ":hover": {
-                        "@keyframes move-left": {
-                          "0%": {
-                            rotate: "0deg",
-                          },
-                          "100%": {
-                            rotate: "-35deg",
-                          },
-                        },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                      },
-                    }}
-                  />
-                }
-                sx={{
-                  color: "#222D55",
-                  border: "1px solid #222D55",
-                  borderRadius: "61px",
-                  padding: "8px 30px",
-                  fontSize: { md: "12px", xs: "10px" },
-                  mt: 3,
-                  fontWeight: 600,
-                  background: "rgba(255, 255, 255, 0.1)",
-                  fontFamily: inter.style.fontFamily,
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                je veux devenir bénévole
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-        <Box
-          sx={{
-            background:
-              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+            background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
             borderRadius: "20px",
             overflow: "hidden",
             padding: "0 16px",
             mt: { md: 20, xs: 10 },
             position: "relative",
-            mt: {md : 20 , xs : 10},
+            mt: { md: 20, xs: 10 },
           }}
         >
           <Box
@@ -173,10 +76,10 @@ export default function HarumQuidem() {
                   color: "#FFFFFF",
                   lineHeight: { md: "60px", xs: "33px" },
                   fontWeight: 400,
-                  maxWidth: { md: "500px", xs: "100%" },
+                  maxWidth: { md: "600px", xs: "100%" },
                 }}
               >
-                Je veux devenir bénévole cyber !
+                Rejoindre l'ACCYB en tant qu'Adhérent !
               </Typography>
               <Typography
                 sx={{
@@ -188,8 +91,8 @@ export default function HarumQuidem() {
                   maxWidth: { md: "450px", xs: "100%" },
                 }}
               >
-                Remplissez le formulaire d’adhésion. Durée maximale : 25
-                minutes. Aucune carte de crédit n’est requise. Aucun engagement.
+                Remplissez le formulaire d’adhésion. Durée maximale : 25 minutes. Aucune carte de crédit n’est requise.
+                Aucun engagement.
               </Typography>
             </Grid>
             <Grid
@@ -205,8 +108,7 @@ export default function HarumQuidem() {
                 endIcon={
                   <ArrowForwardIcon
                     sx={{
-                      background:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       borderRadius: "50%",
                       width: "50px",
                       height: "50px",
@@ -223,15 +125,13 @@ export default function HarumQuidem() {
                             rotate: "-35deg",
                           },
                         },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
                 }
                 sx={{
-                  background:
-                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   borderRadius: "61px",
                   padding: "8px 30px",
                   fontSize: { md: "12px", xs: "10px" },
@@ -243,6 +143,130 @@ export default function HarumQuidem() {
                   "&:hover": {
                     backgroundColor: "#FFFFFF",
                     border: "none",
+                  },
+                }}
+              >
+                remplir le formulaire
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+        <Box
+          sx={{
+            padding: "0 16px",
+            mt: { md: 15, xs: 5 },
+            display: "flex",
+            justifyContent: "start",
+          }}
+        >
+          <Typography
+            sx={{
+              fontFamily: inter.style.fontFamily,
+              fontSize: { lg: "39px", md: "35px", xs: "25px" },
+              lineHeight: { lg: "60px", md: "50px", xs: "32px" },
+              color: "#222D55",
+            }}
+          >
+            2 - Devenir Ambassadeur cyber
+          </Typography>{" "}
+        </Box>
+        <Divider
+          variant="middle"
+          sx={{
+            display: { md: "block", xs: "none" },
+            bgcolor: "#222D55",
+            mt: { md: 3, xs: 5 },
+            opacity: 0.3,
+            borderBottomWidth: "1px",
+            mb: 10,
+          }}
+        />
+        <Box
+          sx={{
+            padding: "0 16px",
+            mt: 15,
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Grid container columnSpacing={10}>
+            <Grid item xs={12} md={5} display={"flex"} justifyContent={"end"}>
+              <Box
+                sx={{
+                  height: "441px",
+                  width: "407px",
+                  backgroundColor: "#000000",
+                  borderRadius: "15px",
+                }}
+              ></Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              <Typography
+                sx={{
+                  mt: 2,
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "55px", xs: "26px" },
+                  color: "#222D55",
+                  lineHeight: { md: "60px", xs: "33px" },
+                  fontWeight: 400,
+                  maxWidth: { md: "500px", xs: "100%" },
+                }}
+              >
+                Et harum quidem rerum facilis
+              </Typography>
+              <Typography
+                sx={{
+                  mt: 2,
+                  color: "#222D55",
+                  fontSize: { md: "22px", xs: "14px" },
+                  lineHeight: { md: "32px", xs: "20px" },
+                  fontFamily: inter.style.fontFamily,
+                  maxWidth: "600px",
+                }}
+              >
+                Devenir bénévole cyber At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                cupidit.
+              </Typography>
+              <Button
+                variant="outlined"
+                endIcon={
+                  <ArrowForwardIcon
+                    sx={{
+                      backgroundColor: "#222D55",
+                      borderRadius: "50%",
+                      width: "50px",
+                      height: "50px",
+                      color: "#ffffff",
+                      padding: 1.7,
+                      marginRight: -2,
+                      ml: 3,
+                      ":hover": {
+                        "@keyframes move-left": {
+                          "0%": {
+                            rotate: "0deg",
+                          },
+                          "100%": {
+                            rotate: "-35deg",
+                          },
+                        },
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      },
+                    }}
+                  />
+                }
+                sx={{
+                  color: "#222D55",
+                  border: "1px solid #222D55",
+                  borderRadius: "61px",
+                  padding: "8px 30px",
+                  fontSize: { md: "12px", xs: "10px" },
+                  mt: 3,
+                  fontWeight: 600,
+                  background: "rgba(255, 255, 255, 0.1)",
+                  fontFamily: inter.style.fontFamily,
+                  "&:hover": {
+                    backgroundColor: "transparent",
                   },
                 }}
               >

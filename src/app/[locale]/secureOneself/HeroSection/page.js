@@ -40,14 +40,6 @@ export default function HeroSection() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container sx={{ padding: "0 16px" }}>
             <Grid item xs={12} md={6}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  color: "#222D55",
-                }}
-              >
-                Découvrir l’ACCYB
-              </Typography>
               <Box
                 mt={1}
                 sx={{
@@ -67,7 +59,7 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Sécuriser{" "}
+                Sécuriser <br />
                 <span
                   style={{
                     background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
