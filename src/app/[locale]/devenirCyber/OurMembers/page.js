@@ -13,6 +13,10 @@ import "swiper/css/pagination";
 const Img = styled(Image)(({ theme }) => ({
   width: "258px !important",
   height: "122px !important",
+  [theme.breakpoints.down("md")]: {
+    width: "200px !important",
+    height: "auto !important",
+  },
 }));
 
 export default function OurMembers() {
