@@ -15,7 +15,7 @@ import { inter } from "../../../../fonts/fonts";
 export default function App() {
   return (
     <>
-      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" } }}>
+      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" } , padding : "0 40px" }}>
         <Box
           component={Swiper}
           slidesPerView={1}
@@ -41,7 +41,7 @@ export default function App() {
               maxWidth: "100% !important",
               left: { lg: "140% !important", md: "135% !important", xs: "125% !important" },
               transform: "translateX(-50%)",
-              bottom: { md: "230px !important", xs: "30px !important" },
+              bottom: { md: "260px !important", xs: "30px !important" },
             },
             "& .swiper-pagination-bullet": {
               bgColor: "#5314A9",

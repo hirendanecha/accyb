@@ -135,6 +135,7 @@ export default function HeroSection() {
                     background: "rgba(255, 255, 255, 0.1)",
                     ":hover": {
                       borderColor: "#8E9BBF",
+                      border: "1px solid rgba(255, 255, 255, 0.5)",
                     },
                     fontFamily: inter.style.fontFamily,
                     "& .MuiButton-endIcon": {
@@ -182,6 +183,7 @@ export default function HeroSection() {
                     fontFamily: inter.style.fontFamily,
                     ":hover": {
                       borderColor: "#8E9BBF",
+                      border: "1px solid rgba(255, 255, 255, 0.5)",
                     },
                   }}
                 >
