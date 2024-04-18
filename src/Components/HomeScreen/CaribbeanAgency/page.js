@@ -85,7 +85,7 @@ export default function CaribbeanAgency() {
             maxWidth: "100% !important",
             left: { md: "50% !important", xs: "55% !important" },
             transform: "translateX(-50%)",
-            bottom: { md: "130px !important", xs: "90px !important" },
+            bottom: { md: "130px !important", xs: "55px !important" },
           },
           "& .swiper-pagination-bullet": {
             bgColor: "#5314A9",
@@ -103,6 +103,7 @@ export default function CaribbeanAgency() {
         }}
         slidesPerView={1}
         spaceBetween={10}
+        speed={1200}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -113,14 +114,6 @@ export default function CaribbeanAgency() {
         }}
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
-        // style={{
-        //   "--swiper-pagination-left": "50px",
-        //   "--swiper-pagination-color": "yellow",
-        //   "--swiper-pagination-bullet-inactive-color": "red",
-        //   "--swiper-pagination-bullet-inactive-opacity": "1",
-        //   "--swiper-pagination-bullet-size": "10px",
-        //   "--swiper-pagination-bullet-horizontal-gap": "8px",
-        // }}
       >
         <SwiperSlide>
           <Box
@@ -133,164 +126,6 @@ export default function CaribbeanAgency() {
               width: "100%",
             }}
           >
-            <Container disableGutters maxWidth={"xl"}>
-              <Box sx={{ padding: "0 16px" }}>
-                <Grid container>
-                  <Grid item xs={12} md={12} lg={12} ref={ref}>
-                    {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-                    <Box
-                      sx={{
-                        fontSize: {
-                          lg: "76.5",
-                          md: "75",
-                          sm: "60px",
-                          xs: "35px",
-                        },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: {
-                          lg: "80px",
-                          md: "75px",
-                          sm: "70px",
-                          xs: "50px",
-                        },
-                        maxWidth: { md: "650px !important", xs: "550px" },
-                        paddingTop: { md: 30, xs: 20 },
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("title1")}{" "}
-                      <u
-                        style={{
-                          textDecorationThickness: "3px",
-                          textUnderlineOffset: "10px",
-                        }}
-                      >
-                        {t("title2")}
-                      </u>{" "}
-                      {t("title3")}
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontSize: { lg: "22px", md: "20px", xs: "18px" },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "800px !important",
-                        mt: 3,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("description")}
-                    </Typography>
-                    {/* </motion.div> */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: { md: "row", xs: "column" },
-                        gap: { md: 5, xs: 1 },
-                        mt: 5,
-                        maxWidth: { md: "unset", xs: "320px" },
-                      }}
-                    >
-                      <Button
-                        onClick={() => {
-                          router.push(`${locales}/discoverTheACCYB?mission=true`);
-                        }}
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ml: 3,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          padding: "8px 30px",
-                          fontSize: "12px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                          fontFamily: inter.style.fontFamily,
-                          "& .MuiButton-endIcon": {
-                            marginLeft: 2.2,
-                          },
-                        }}
-                      >
-                        {t("button1")}
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          fontSize: "12px",
-                          padding: "8px 30px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          fontFamily: inter.style.fontFamily,
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                        }}
-                      >
-                        {t("button2")}
-                      </Button>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
-                </Grid>
-              </Box>
-            </Container>
             {/* <Container disableGutters maxWidth={"xl"}></Container> */}
           </Box>
         </SwiperSlide>
@@ -305,164 +140,6 @@ export default function CaribbeanAgency() {
               width: "100%",
             }}
           >
-            <Container disableGutters maxWidth={"xl"}>
-              <Box sx={{ padding: "0 16px" }}>
-                <Grid container>
-                  <Grid item xs={12} md={12} lg={12} ref={ref}>
-                    {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-                    <Box
-                      sx={{
-                        fontSize: {
-                          lg: "76.5",
-                          md: "75",
-                          sm: "60px",
-                          xs: "35px",
-                        },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: {
-                          lg: "80px",
-                          md: "75px",
-                          sm: "70px",
-                          xs: "50px",
-                        },
-                        maxWidth: { md: "650px !important", xs: "550px" },
-                        paddingTop: { md: 30, xs: 20 },
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("title1")}{" "}
-                      <u
-                        style={{
-                          textDecorationThickness: "3px",
-                          textUnderlineOffset: "10px",
-                        }}
-                      >
-                        {t("title2")}
-                      </u>{" "}
-                      {t("title3")}
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontSize: { lg: "22px", md: "20px", xs: "18px" },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "800px !important",
-                        mt: 3,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("description")}
-                    </Typography>
-                    {/* </motion.div> */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: { md: "row", xs: "column" },
-                        gap: { md: 5, xs: 1 },
-                        mt: 5,
-                        maxWidth: { md: "unset", xs: "320px" },
-                      }}
-                    >
-                      <Button
-                        onClick={() => {
-                          router.push(`${locales}/discoverTheACCYB?mission=true`);
-                        }}
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ml: 3,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          padding: "8px 30px",
-                          fontSize: "12px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                          fontFamily: inter.style.fontFamily,
-                          "& .MuiButton-endIcon": {
-                            marginLeft: 2.2,
-                          },
-                        }}
-                      >
-                        {t("button1")}
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          fontSize: "12px",
-                          padding: "8px 30px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          fontFamily: inter.style.fontFamily,
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                        }}
-                      >
-                        {t("button2")}
-                      </Button>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
-                </Grid>
-              </Box>
-            </Container>
             {/* <Container disableGutters maxWidth={"xl"}></Container> */}
           </Box>
         </SwiperSlide>
@@ -477,164 +154,6 @@ export default function CaribbeanAgency() {
               width: "100%",
             }}
           >
-            <Container disableGutters maxWidth={"xl"}>
-              <Box sx={{ padding: "0 16px" }}>
-                <Grid container>
-                  <Grid item xs={12} md={12} lg={12} ref={ref}>
-                    {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-                    <Box
-                      sx={{
-                        fontSize: {
-                          lg: "76.5",
-                          md: "75",
-                          sm: "60px",
-                          xs: "35px",
-                        },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: {
-                          lg: "80px",
-                          md: "75px",
-                          sm: "70px",
-                          xs: "50px",
-                        },
-                        maxWidth: { md: "650px !important", xs: "550px" },
-                        paddingTop: { md: 30, xs: 20 },
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("title1")}{" "}
-                      <u
-                        style={{
-                          textDecorationThickness: "3px",
-                          textUnderlineOffset: "10px",
-                        }}
-                      >
-                        {t("title2")}
-                      </u>{" "}
-                      {t("title3")}
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontSize: { lg: "22px", md: "20px", xs: "18px" },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "800px !important",
-                        mt: 3,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("description")}
-                    </Typography>
-                    {/* </motion.div> */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: { md: "row", xs: "column" },
-                        gap: { md: 5, xs: 1 },
-                        mt: 5,
-                        maxWidth: { md: "unset", xs: "320px" },
-                      }}
-                    >
-                      <Button
-                        onClick={() => {
-                          router.push(`${locales}/discoverTheACCYB?mission=true`);
-                        }}
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ml: 3,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          padding: "8px 30px",
-                          fontSize: "12px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                          fontFamily: inter.style.fontFamily,
-                          "& .MuiButton-endIcon": {
-                            marginLeft: 2.2,
-                          },
-                        }}
-                      >
-                        {t("button1")}
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          fontSize: "12px",
-                          padding: "8px 30px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          fontFamily: inter.style.fontFamily,
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                        }}
-                      >
-                        {t("button2")}
-                      </Button>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
-                </Grid>
-              </Box>
-            </Container>
             {/* <Container disableGutters maxWidth={"xl"}></Container> */}
           </Box>
         </SwiperSlide>
@@ -649,167 +168,169 @@ export default function CaribbeanAgency() {
               width: "100%",
             }}
           >
-            <Container disableGutters maxWidth={"xl"}>
-              <Box sx={{ padding: "0 16px" }}>
-                <Grid container>
-                  <Grid item xs={12} md={12} lg={12} ref={ref}>
-                    {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-                    <Box
-                      sx={{
-                        fontSize: {
-                          lg: "76.5",
-                          md: "75",
-                          sm: "60px",
-                          xs: "35px",
-                        },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: {
-                          lg: "80px",
-                          md: "75px",
-                          sm: "70px",
-                          xs: "50px",
-                        },
-                        maxWidth: { md: "650px !important", xs: "550px" },
-                        paddingTop: { md: 30, xs: 20 },
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("title1")}{" "}
-                      <u
-                        style={{
-                          textDecorationThickness: "3px",
-                          textUnderlineOffset: "10px",
-                        }}
-                      >
-                        {t("title2")}
-                      </u>{" "}
-                      {t("title3")}
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontSize: { lg: "22px", md: "20px", xs: "18px" },
-                        color: "#FFFFFF",
-                        fontWeight: 400,
-                        lineHeight: { md: "32px", xs: "25px" },
-                        maxWidth: "800px !important",
-                        mt: 3,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {t("description")}
-                    </Typography>
-                    {/* </motion.div> */}
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: { md: "row", xs: "column" },
-                        gap: { md: 5, xs: 1 },
-                        mt: 5,
-                        maxWidth: { md: "unset", xs: "320px" },
-                      }}
-                    >
-                      <Button
-                        onClick={() => {
-                          router.push(`${locales}/discoverTheACCYB?mission=true`);
-                        }}
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ml: 3,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          padding: "8px 30px",
-                          fontSize: "12px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                          fontFamily: inter.style.fontFamily,
-                          "& .MuiButton-endIcon": {
-                            marginLeft: 2.2,
-                          },
-                        }}
-                      >
-                        {t("button1")}
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        endIcon={
-                          <ArrowForwardIcon
-                            sx={{
-                              backgroundColor: "#7DB1FF",
-                              background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                              borderRadius: "50%",
-                              width: { md: "50px", xs: "40px" },
-                              height: { md: "50px", xs: "40px" },
-                              padding: 1.7,
-                              marginRight: -2,
-                              ":hover": {
-                                "@keyframes move-left": {
-                                  "0%": {
-                                    rotate: "0deg",
-                                  },
-                                  "100%": {
-                                    rotate: "-35deg",
-                                  },
-                                },
-                                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                              },
-                            }}
-                          />
-                        }
-                        sx={{
-                          color: "#FFFFFF",
-                          border: "1px solid rgba(142, 155, 191, 0.3)",
-                          borderRadius: "61px",
-                          fontSize: "12px",
-                          padding: "8px 30px",
-                          fontWeight: 600,
-                          background: "rgba(255, 255, 255, 0.1)",
-                          fontFamily: inter.style.fontFamily,
-                          ":hover": {
-                            borderColor: "#8E9BBF",
-                          },
-                        }}
-                      >
-                        {t("button2")}
-                      </Button>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
-                </Grid>
-              </Box>
-            </Container>
             {/* <Container disableGutters maxWidth={"xl"}></Container> */}
           </Box>
         </SwiperSlide>
+        <Box sx={{ position: "absolute", zIndex: 100, top: 0, left: 0, width: "100%" }}>
+          <Container disableGutters maxWidth={"xl"}>
+            <Box sx={{ padding: "0 16px" }}>
+              <Grid container>
+                <Grid item xs={12} md={12} lg={12} ref={ref}>
+                  {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+                  <Box
+                    sx={{
+                      fontSize: {
+                        lg: "76.5",
+                        md: "75",
+                        sm: "60px",
+                        xs: "35px",
+                      },
+                      color: "#FFFFFF",
+                      fontWeight: 400,
+                      lineHeight: {
+                        lg: "80px",
+                        md: "75px",
+                        sm: "70px",
+                        xs: "50px",
+                      },
+                      maxWidth: { md: "650px !important", xs: "550px" },
+                      paddingTop: { md: 30, xs: 20 },
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("title1")}{" "}
+                    <u
+                      style={{
+                        textDecorationThickness: "3px",
+                        textUnderlineOffset: "10px",
+                      }}
+                    >
+                      {t("title2")}
+                    </u>{" "}
+                    {t("title3")}
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontSize: { lg: "22px", md: "20px", xs: "18px" },
+                      color: "#FFFFFF",
+                      fontWeight: 400,
+                      lineHeight: { md: "32px", xs: "25px" },
+                      maxWidth: "800px !important",
+                      mt: 3,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  >
+                    {t("description")}
+                  </Typography>
+                  {/* </motion.div> */}
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: { md: "row", xs: "column" },
+                      gap: { md: 5, xs: 1 },
+                      mt: 5,
+                      maxWidth: { md: "unset", xs: "320px" },
+                    }}
+                  >
+                    <Button
+                      onClick={() => {
+                        router.push(`${locales}/discoverTheACCYB?mission=true`);
+                      }}
+                      variant="outlined"
+                      endIcon={
+                        <ArrowForwardIcon
+                          sx={{
+                            backgroundColor: "#7DB1FF",
+                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            borderRadius: "50%",
+                            width: { md: "50px", xs: "40px" },
+                            height: { md: "50px", xs: "40px" },
+                            padding: 1.7,
+                            marginRight: -2,
+                            ml: 3,
+                            ":hover": {
+                              "@keyframes move-left": {
+                                "0%": {
+                                  rotate: "0deg",
+                                },
+                                "100%": {
+                                  rotate: "-35deg",
+                                },
+                              },
+                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                            },
+                          }}
+                        />
+                      }
+                      sx={{
+                        color: "#FFFFFF",
+                        border: "1px solid rgba(142, 155, 191, 0.3)",
+                        borderRadius: "61px",
+                        padding: "8px 30px",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        background: "rgba(255, 255, 255, 0.1)",
+                        ":hover": {
+                          borderColor: "#8E9BBF",
+                        },
+                        fontFamily: inter.style.fontFamily,
+                        "& .MuiButton-endIcon": {
+                          marginLeft: 2.2,
+                        },
+                      }}
+                    >
+                      {t("button1")}
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      endIcon={
+                        <ArrowForwardIcon
+                          sx={{
+                            backgroundColor: "#7DB1FF",
+                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            borderRadius: "50%",
+                            width: { md: "50px", xs: "40px" },
+                            height: { md: "50px", xs: "40px" },
+                            padding: 1.7,
+                            marginRight: -2,
+                            ":hover": {
+                              "@keyframes move-left": {
+                                "0%": {
+                                  rotate: "0deg",
+                                },
+                                "100%": {
+                                  rotate: "-35deg",
+                                },
+                              },
+                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                            },
+                          }}
+                        />
+                      }
+                      sx={{
+                        color: "#FFFFFF",
+                        border: "1px solid rgba(142, 155, 191, 0.3)",
+                        borderRadius: "61px",
+                        fontSize: "12px",
+                        padding: "8px 30px",
+                        fontWeight: 600,
+                        background: "rgba(255, 255, 255, 0.1)",
+                        fontFamily: inter.style.fontFamily,
+                        ":hover": {
+                          borderColor: "#8E9BBF",
+                        },
+                      }}
+                    >
+                      {t("button2")}
+                    </Button>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -818,8 +339,8 @@ export default function CaribbeanAgency() {
             mt: 15,
             position: "absolute",
             zIndex: 10,
-            top: "70%",
-            right: "10%",
+            top: { md: "70%", xs: "75%" },
+            right: { xl: "10%", xs: 30 },
           }}
         >
           <Box
