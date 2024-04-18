@@ -119,7 +119,7 @@ export default function OurPartners() {
   };
 
   return (
-    <Box sx={{ padding: "0 16px" }}>
+    <Box sx={{ padding: "0 16px", pb: 5 }}>
       <Box mt={15}>
         <Typography
           sx={{
@@ -205,6 +205,7 @@ export default function OurPartners() {
                           justifyContent: "center",
                           fontSize: { lg: "22px", md: "18px" },
                           color: "#FFFFFF",
+                          textTransform: "uppercase",
                         }}
                       >
                         {ele?.title}
@@ -389,6 +390,7 @@ export default function OurPartners() {
                           fontFamily: inter.style.fontFamily,
                           display: "flex",
                           justifyContent: "center",
+                          textTransform: "uppercase",
                           fontSize: { lg: "22px", md: "18px" },
                           color: "#FFFFFF",
                         }}
