@@ -348,11 +348,11 @@ export default function HandleForm() {
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
           </Grid>
-          <Grid item xs={12} md={12} mt={5}>
+          <Grid item xs={12} md={8} mt={5}>
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
-              Nature des personnes impactée par l’incident
+              Nature des personnes impactées par l’incident
             </Typography>
             <FormControl sx={{ mt: 3 }}>
               <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
@@ -399,6 +399,19 @@ export default function HandleForm() {
                   value="Prestataires"
                   control={<Radio />}
                   label="Prestataires"
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      color: "#222D55",
+                      fontWeight: 400,
+                    },
+                  }}
+                />
+                <FormControlLabel
+                  value="Partenaires"
+                  control={<Radio />}
+                  label="Partenaires"
                   sx={{
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
@@ -469,7 +482,6 @@ export default function HandleForm() {
         </Grid>
       </Grid> */}
       <Button
-        onClick={() => router.push(`/${locales}/joinAccyb/SecoundForm`)}
         variant="outlined"
         endIcon={
           <ArrowForwardIcon
