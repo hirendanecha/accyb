@@ -20,7 +20,6 @@ const Img = styled(Image)(({ theme }) => ({
 export default function HeroSection() {
   const router = useRouter();
   const locale = useLocale();
-  console.log("done");
   const handleContactUsClick = (event) => {
     event.preventDefault();
     const footerElement = document.getElementById("footer");

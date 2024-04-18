@@ -21,7 +21,6 @@ const steps = [
 ];
 
 export default function VerticalLinearStepper({ activeStep }) {
-  console.log(activeStep, "activeStep");
   const router = useRouter();
   return (
     <>

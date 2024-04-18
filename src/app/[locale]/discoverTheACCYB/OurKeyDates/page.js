@@ -1,12 +1,5 @@
 "use client";
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
@@ -68,20 +61,8 @@ export default function OurKeyDates() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
-                  <svg
-                    width="52"
-                    height="230"
-                    viewBox="0 0 52 230"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                  <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>
@@ -158,20 +139,8 @@ export default function OurKeyDates() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
-                  <svg
-                    width="52"
-                    height="230"
-                    viewBox="0 0 52 230"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                  <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>
@@ -263,20 +232,8 @@ export default function OurKeyDates() {
             <Grid item xs={12} md={4}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
-                  <svg
-                    width="52"
-                    height="230"
-                    viewBox="0 0 52 230"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                  <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>
@@ -383,13 +340,7 @@ export default function OurKeyDates() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>
@@ -489,13 +440,7 @@ export default function OurKeyDates() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>
@@ -534,7 +479,7 @@ export default function OurKeyDates() {
                       textTransform: "uppercase",
                     }}
                   >
-                    LOREM
+                    Création de l'Agence
                   </Typography>
                   <Typography
                     sx={{
@@ -549,7 +494,7 @@ export default function OurKeyDates() {
                       textTransform: "uppercase",
                     }}
                   >
-                    IPSUM DOLORES
+                    Caribéenne pour
                   </Typography>
                   <Typography
                     sx={{
@@ -564,7 +509,7 @@ export default function OurKeyDates() {
                       textTransform: "uppercase",
                     }}
                   >
-                    SIT DEUM
+                    la Cybersécurité
                   </Typography>
                 </Box>
               </Box>
@@ -580,13 +525,7 @@ export default function OurKeyDates() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <line
-                      x1="25.5"
-                      y1="230"
-                      x2="25.5"
-                      y2="80"
-                      stroke="#007A47"
-                    />
+                    <line x1="25.5" y1="230" x2="25.5" y2="80" stroke="#007A47" />
                     <circle cx="26" cy="26" r="25.5" stroke="#007A47" />
                     <circle cx="26" cy="26" r="4" fill="#007A47" />
                   </svg>

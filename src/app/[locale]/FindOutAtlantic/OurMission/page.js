@@ -130,7 +130,6 @@ export default function OurMission() {
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     // Handle the uploaded file, e.g., upload it to a server or process it.
-    console.log("Uploaded file:", file);
   };
   return (
     <Box sx={{ position: "relative" }}>

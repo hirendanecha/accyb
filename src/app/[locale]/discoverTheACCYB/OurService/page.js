@@ -21,7 +21,6 @@ export default function OurService() {
   const search = searchParams.get("mission");
   const router = useRouter();
   const query = router.query;
-  console.log(search, "wwlwlwl");
   const data = [
     {
       icon: Picto,
@@ -130,7 +129,6 @@ export default function OurService() {
         className="mySwiper"
       >
         {data?.map((ele, index) => {
-          console.log(ele, "ele");
           return (
             <>
               <SwiperSlide key={index}>
