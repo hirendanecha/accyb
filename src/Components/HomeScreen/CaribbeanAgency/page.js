@@ -329,53 +329,44 @@ export default function CaribbeanAgency() {
                 <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
               </Grid>
             </Box>
-            <Box sx={{ width: "100%", position: "relative" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mt: 15,
-                  position: "absolute",
-                  zIndex: 10,
-                  // top: { md: "67%", xs: "75%" },
-                  bottom: {
-                    lg: "-152px !important",
-                    md: "-212px !important",
-                    sm: "-295px !important",
-                    xs: "-145px !important",
-                  },
-                  // transform: "translateX(0%)",
-                  right: { lg: -5, md: 0, sm: 20, xs: 20 },
-                }}
-              >
-                <Box
-                  onClick={handleContactUsClick}
-                  sx={{
-                    display: "flex",
-                    gap: 2,
-                    cursor: "pointer",
-                    alignItems: "center",
-                    mr: { md: 3, xs: 0 },
-                  }}
-                >
-                  <Box>
-                    <Typography
-                      sx={{
-                        color: "#FFFFFF",
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      Scroll
-                    </Typography>
-                  </Box>
-                  <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
-                </Box>
-              </Box>
-            </Box>
           </Container>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mt: 15,
+          position: "absolute",
+          zIndex: 10,
+          top: { md: "70%", xs: "75%" },
+          right: { xl: "10%", xs: 30 },
+        }}
+      >
+        <Box
+          onClick={handleContactUsClick}
+          sx={{
+            display: "flex",
+            gap: 2,
+            cursor: "pointer",
+            alignItems: "center",
+            mr: { md: 3, xs: 0 },
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: "20px",
+                fontWeight: 400,
+                fontFamily: inter.style.fontFamily,
+              }}
+            >
+              Scroll
+            </Typography>
+          </Box>
+          <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
         </Box>
       </Box>
     </Box>
