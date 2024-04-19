@@ -83,9 +83,9 @@ export default function CaribbeanAgency() {
             // width: "100% !important",
             width: "1440px !important",
             maxWidth: "100% !important",
-            left: { md: "48% !important", xs: "55% !important" },
-            transform: "translateX(-47%)",
-            bottom: { md: "160px !important", xs: "55px !important" },
+            left: { md: "50% !important", xs: "55% !important" },
+            transform: "translateX(-50%)",
+            bottom: { md: "130px !important", xs: "55px !important" },
           },
           "& .swiper-pagination-bullet": {
             bgColor: "#5314A9",
@@ -329,48 +329,44 @@ export default function CaribbeanAgency() {
                 <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
               </Grid>
             </Box>
-            <Box sx={{ width: "100%", position: "relative" }}>
-              <Box
+          </Container>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mt: 15,
+            position: "absolute",
+            zIndex: 10,
+            top: { md: "70%", xs: "75%" },
+            right: { xl: "10%", xs: 30 },
+          }}
+        >
+          <Box
+            onClick={handleContactUsClick}
+            sx={{
+              display: "flex",
+              gap: 2,
+              cursor: "pointer",
+              alignItems: "center",
+              mr: { md: 3, xs: 0 },
+            }}
+          >
+            <Box>
+              <Typography
                 sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mt: 15,
-                  position: "absolute",
-                  zIndex: 10,
-                  // top: { md: "67%", xs: "75%" },
-                  bottom: { lg: -126, md: -180, sm: -295, xs: -145 },
-                  // transform: "translateX(0%)",
-                  right: { lg: 0, xs: 20 },
+                  color: "#FFFFFF",
+                  fontSize: "20px",
+                  fontWeight: 400,
+                  fontFamily: inter.style.fontFamily,
                 }}
               >
-                <Box
-                  onClick={handleContactUsClick}
-                  sx={{
-                    display: "flex",
-                    gap: 2,
-                    cursor: "pointer",
-                    alignItems: "center",
-                    mr: { md: 3, xs: 0 },
-                  }}
-                >
-                  <Box>
-                    <Typography
-                      sx={{
-                        color: "#FFFFFF",
-                        fontSize: "20px",
-                        fontWeight: 400,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      Scroll
-                    </Typography>
-                  </Box>
-                  <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
-                </Box>
-              </Box>
+                Scroll
+              </Typography>
             </Box>
-          </Container>
+            <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+          </Box>
         </Box>
       </Box>
     </Box>
