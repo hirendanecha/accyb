@@ -194,6 +194,7 @@ export default function NewForms() {
                     <Grid item xs={12} md={6} key={idx}>
                       <Box
                         sx={{
+                          height: "100%",
                           border: "1px solid rgba(0, 0, 0, 0.3)",
                           padding: 5,
                           position: "relative",

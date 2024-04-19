@@ -341,7 +341,7 @@ export default function HeroSection() {
   };
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative"  , padding : "0 16px"}}>
       <div style={{ position: "absolute", right: 0, top: { md: 100, xs: 0 } }}>
         <svg width="461" height="687" viewBox="0 0 461 687" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.1" filter="url(#filter0_f_2564_5375)">
