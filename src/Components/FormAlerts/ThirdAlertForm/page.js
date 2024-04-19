@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import ReCAPTCHA from "react-google-recaptcha";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
@@ -440,6 +441,10 @@ export default function HandleForm() {
           **Les propositions de catégorisation du candidat seront soumises à la validation conseil d’administration.
         </Typography>
       </Box>
+      <Box sx={{ mt: 5 }}>
+        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
+      </Box>
+
       {/* <Grid container columnSpacing={5}>
         <Grid item xs={12} md={6} mt={5}>
           <Typography

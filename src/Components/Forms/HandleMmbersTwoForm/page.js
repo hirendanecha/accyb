@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Box, Typography, Divider, Grid, styled, Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { inter } from "../../../fonts/fonts";
@@ -524,7 +525,7 @@ export default function HandleForm() {
             </Grid>
           </Grid>
         </Box>
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{ mt: 5, padding: "0 16px" }}>
           <Typography
             sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
           >
@@ -532,8 +533,16 @@ export default function HandleForm() {
             Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation.
           </Typography>
         </Box>
-        {/* {"i am not a robot"} */}
-        <Grid container columnSpacing={5}>
+        <Box sx={{ mt: 5, padding: "0 16px" }}>
+          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
+        </Box>
+        <Grid
+          container
+          columnSpacing={5}
+          sx={{
+            padding: "0 16px",
+          }}
+        >
           <Grid item xs={12} md={6} mt={5}>
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "18px", xs: "12px" }, color: "#222D55" }}
@@ -584,51 +593,57 @@ export default function HandleForm() {
           </Grid>
         </Grid>
 
-        <Button
-          variant="outlined"
-          endIcon={
-            <ArrowForwardIcon
-              sx={{
-                backgroundColor: "#7DB1FF",
-                background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                borderRadius: "50%",
-                width: "50px",
-                height: "50px",
-                color: "#ffffff",
-                padding: 1.7,
-                marginRight: -2,
-                ml: 3,
-                ":hover": {
-                  "@keyframes move-left": {
-                    "0%": {
-                      rotate: "0deg",
-                    },
-                    "100%": {
-                      rotate: "-35deg",
-                    },
-                  },
-                  animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                },
-              }}
-            />
-          }
+        <Box
           sx={{
-            color: "#222D55",
-            border: "1px solid #222D55",
-            borderRadius: "61px",
-            padding: "8px 30px",
-            fontSize: { md: "12px", xs: "10px" },
-            mt: 6,
-            fontWeight: 600,
-            background: "rgba(255, 255, 255, 0.1)",
-            fontFamily: inter.style.fontFamily,
-            "&:hover": {
-              backgroundColor: "transparent",
-            },
+            padding: "0 16px",
           }}
         >
-          je veux devenir bénévole
-        </Button>
+          <Button
+            variant="outlined"
+            endIcon={
+              <ArrowForwardIcon
+                sx={{
+                  backgroundColor: "#7DB1FF",
+                  background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                  borderRadius: "50%",
+                  width: "50px",
+                  height: "50px",
+                  color: "#ffffff",
+                  padding: 1.7,
+                  marginRight: -2,
+                  ml: 3,
+                  ":hover": {
+                    "@keyframes move-left": {
+                      "0%": {
+                        rotate: "0deg",
+                      },
+                      "100%": {
+                        rotate: "-35deg",
+                      },
+                    },
+                    animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                  },
+                }}
+              />
+            }
+            sx={{
+              color: "#222D55",
+              border: "1px solid #222D55",
+              borderRadius: "61px",
+              padding: "8px 30px",
+              fontSize: { md: "12px", xs: "10px" },
+              mt: 6,
+              fontWeight: 600,
+              background: "rgba(255, 255, 255, 0.1)",
+              fontFamily: inter.style.fontFamily,
+              "&:hover": {
+                backgroundColor: "transparent",
+              },
+            }}
+          >
+            je veux devenir bénévole
+          </Button>
+        </Box>
       </Box>
     </>
   );

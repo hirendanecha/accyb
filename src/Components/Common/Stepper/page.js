@@ -62,7 +62,7 @@ export default function VerticalLinearStepper({ activeStep }) {
                 },
                 "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
                   // fill: "black", // circle's number (ACTIVE)
-                  display: "none",
+                  // display: "none",
                 },
               }}
             >
