@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Box, Typography, Divider, Grid, styled, Button } from "@mui/material";
+import { Box, Typography, Divider, Grid, styled, Button, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { inter } from "../../../fonts/fonts";
 import TextField from "@mui/material/TextField";
@@ -526,12 +526,23 @@ export default function HandleForm() {
           </Grid>
         </Box>
         <Box sx={{ mt: 5, padding: "0 16px" }}>
-          <Typography
-            sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-          >
-            Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la
-            Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation.
-          </Typography>
+          <FormControl sx={{ mt: 1 }}>
+            <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
+              <FormControlLabel
+                sx={{
+                  "& .MuiFormControlLabel-label": {
+                    fontSize: "14px",
+                    fontFamily: inter.style.fontFamily,
+                    color: "#222D55",
+                    fontWeight: 400,
+                  },
+                }}
+                value="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
+                control={<Radio />}
+                label="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
+              />
+            </RadioGroup>
+          </FormControl>
         </Box>
         <Box sx={{ mt: 5, padding: "0 16px" }}>
           <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
