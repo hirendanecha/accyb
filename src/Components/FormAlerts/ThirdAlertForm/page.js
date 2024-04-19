@@ -344,7 +344,7 @@ export default function HandleForm() {
                 style: {
                   fontFamily: inter.style.fontFamily,
                   fontSize: "14px !important",
-                  fontWeight: 500,
+                  fontWeight: 200,
                 },
               }}
               id="standard-basic"
@@ -496,6 +496,7 @@ export default function HandleForm() {
         </Grid>
       </Grid> */}
       <Button
+        onClick={() => router.push(`/${locales}/alertreports/FinalSubmitForm`)}
         variant="outlined"
         endIcon={
           <ArrowForwardIcon

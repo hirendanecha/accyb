@@ -9,6 +9,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -32,6 +34,8 @@ const ValidationTextField = styled(TextField)({
 });
 export default function HandleForm() {
   const [name, setName] = React.useState("Cat in the Hat");
+  const locales = useLocale();
+  const router = useRouter();
   return (
     <>
       <Box>
@@ -610,6 +614,7 @@ export default function HandleForm() {
           }}
         >
           <Button
+            onClick={() => router.push(`/${locales}/joinAccyb/FinalSubmitForm`)}
             variant="outlined"
             endIcon={
               <ArrowForwardIcon
