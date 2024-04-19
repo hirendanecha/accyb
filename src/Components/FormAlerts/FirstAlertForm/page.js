@@ -86,6 +86,7 @@ export default function HandleForm() {
               id="standard-basic"
               type="date"
               value={new Date().toISOString().slice(0, 10)}
+              disabled
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
