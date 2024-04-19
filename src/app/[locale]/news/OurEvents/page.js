@@ -229,7 +229,7 @@ export default function OurEvents() {
                 slidesPerView: 5.1,
               },
               1400: {
-                slidesPerView: 6.5,
+                slidesPerView: 6.1,
               },
               1600: {
                 slidesPerView: 6.5,
