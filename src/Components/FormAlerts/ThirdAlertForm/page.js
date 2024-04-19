@@ -358,7 +358,7 @@ export default function HandleForm() {
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
           </Grid>
-          <Grid item xs={12} md={8} mt={5}>
+          <Grid item xs={12} md={9.5} mt={5}>
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
