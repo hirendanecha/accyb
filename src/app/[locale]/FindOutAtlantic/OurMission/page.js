@@ -362,28 +362,91 @@ export default function OurMission() {
         </Grid>
       </Container>
       <Container disableGutters maxWidth={"xl"}>
-        <Box mt={{ md: 20, xs: 5, padding: "0 16px" }}>
-          <Typography
-            sx={{
-              fontFamily: inter.style.fontFamily,
-              fontWeight: 400,
-              fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
-              color: "#222D55",
-            }}
-          >
-            Alertes de sécurité
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: inter.style.fontFamily,
-              fontWeight: 400,
-              mt: { md: 3, xs: 1 },
-              fontSize: { md: "14px", xs: "10px", lineHeight: "20px" },
-              color: "#222D55",
-            }}
-          >
-            Les alertes sont des documents destinés à prévenir d'un danger immédiat
-          </Typography>
+        <Box
+          sx={{
+            padding: "0 16px",
+            display: { md: "flex !important", xs: "block !important" },
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+          mt={{
+            md: 20,
+            xs: 5,
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                fontFamily: inter.style.fontFamily,
+                fontWeight: 400,
+                fontSize: { md: "70px", xs: "40px", lineHeight: "50px" },
+                color: "#222D55",
+              }}
+            >
+              Alertes de sécurité
+            </Typography>
+            <Typography
+              sx={{
+                fontFamily: inter.style.fontFamily,
+                fontWeight: 400,
+                mt: { md: 3, xs: 1 },
+                fontSize: { md: "14px", xs: "10px", lineHeight: "20px" },
+                color: "#222D55",
+              }}
+            >
+              Les alertes sont des documents destinés à prévenir d'un danger immédiat
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: { md: "unset", xs: "center" } }}>
+            <Button
+              onClick={() => router.push(`/${locales}/alerteslist`)}
+              variant="outlined"
+              endIcon={
+                <ArrowForwardIcon
+                  sx={{
+                    backgroundColor: "#7DB1FF",
+                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    borderRadius: "50%",
+                    width: "50px",
+                    height: "50px",
+                    color: "#ffffff",
+                    padding: 1.7,
+                    marginRight: -2,
+                    ml: 3,
+                    ":hover": {
+                      "@keyframes move-left": {
+                        "0%": {
+                          rotate: "0deg",
+                        },
+                        "100%": {
+                          rotate: "-35deg",
+                        },
+                      },
+                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                    },
+                  }}
+                />
+              }
+              sx={{
+                color: "#fff",
+                border: "1px solid #222D55",
+                borderRadius: "61px",
+                padding: "8px 30px",
+                fontSize: { md: "12px", xs: "10px" },
+                mt: 3,
+                fontWeight: 600,
+                background: "#222D55",
+                fontFamily: inter.style.fontFamily,
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  border: "1px solid #222D55",
+                  color: "#222D55",
+                },
+              }}
+            >
+              toutes les alertes
+            </Button>
+          </Box>
         </Box>
       </Container>
       <Divider

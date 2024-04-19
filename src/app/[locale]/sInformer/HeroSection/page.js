@@ -95,9 +95,9 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea.
+                  Informer les organismes publics, privés et les particuliers de leurs droits et des règlementations en
+                  vigueur dans le domaine de la cybersécurité au sein de l'écosystème normatif et juridique national et
+                  européen.
                 </Typography>
               </Box>
             </Grid>

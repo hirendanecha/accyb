@@ -50,14 +50,6 @@ export default function HeroSection() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container display={"flex"} justifyContent={"space-between"}>
             <Grid item xs={12} md={6} sx={{ padding: "0 16px" }}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  color: "#FFFFFF",
-                }}
-              >
-                Découvrir l’ACCYB
-              </Typography>
               <Box
                 mt={1}
                 sx={{
@@ -229,6 +221,7 @@ export default function HeroSection() {
                     mt: 2,
                     fontSize: { md: "14px", xs: "12px" },
                     lineHeight: { md: "22px", xs: "20px" },
+                    textTransform: "uppercase",
                   }}
                 >
                   Horaires d'ouverture :
