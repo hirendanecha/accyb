@@ -85,6 +85,7 @@ export default function HandleForm() {
               }}
               id="standard-basic"
               type="date"
+              value={new Date().toISOString().slice(0, 10)}
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
@@ -303,9 +304,9 @@ export default function HandleForm() {
                       fontWeight: 600,
                     },
                   }}
-                  value="Guadeloupe"
+                  value="Saint-berthélemy"
                   control={<Radio />}
-                  label="Guadeloupe"
+                  label="Saint-berthélemy"
                 />
                 <FormControlLabel
                   value="Saint-Barthélemy"

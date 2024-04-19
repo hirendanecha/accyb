@@ -53,7 +53,7 @@ export default function HandleForm() {
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
-              Prénom
+              Date
             </Typography>
             <ValidationTextField
               fullWidth
@@ -68,7 +68,8 @@ export default function HandleForm() {
                 },
               }}
               id="standard-basic"
-              type="text"
+              type="date"
+              value={new Date().toISOString().split("T")[0]}
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
@@ -77,7 +78,7 @@ export default function HandleForm() {
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
-              Nom
+              Heure
             </Typography>
             <ValidationTextField
               fullWidth
@@ -93,6 +94,7 @@ export default function HandleForm() {
               }}
               id="standard-basic"
               type="time"
+              value={new Date().toLocaleTimeString()}
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
