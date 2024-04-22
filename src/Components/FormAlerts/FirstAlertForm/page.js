@@ -305,22 +305,9 @@ export default function HandleForm() {
                       fontWeight: 600,
                     },
                   }}
-                  value="Saint-berthélemy"
-                  control={<Radio />}
-                  label="Saint-berthélemy"
-                />
-                <FormControlLabel
                   value="Saint-Barthélemy"
                   control={<Radio />}
                   label="Saint-Barthélemy"
-                  sx={{
-                    "& .MuiFormControlLabel-label": {
-                      fontSize: "14px",
-                      fontFamily: inter.style.fontFamily,
-                      color: "#222D55",
-                      fontWeight: 600,
-                    },
-                  }}
                 />
                 <FormControlLabel
                   value="Saint-Martin"

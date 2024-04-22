@@ -119,28 +119,32 @@ export default function CategoryDetails() {
           alignItems: "center",
           height: "100%",
           paddingTop: { md: 30, xs: 20 },
+          position: "relative",
         }}
       >
         <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
+          <Box sx={{ position: "fixed", bottom: 30, left: 30 }}>
+            <Box
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              sx={{
+                cursor: "pointer",
+                backgroundColor: "#222D55",
+                padding: 3,
+                borderRadius: "50%",
+                height: "46px",
+                width: "46px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <ArrowUpwardIcon sx={{ color: "#fff" }} />
+            </Box>
+          </Box>
           <Grid container>
-            <Grid item xs={12} md={3} sx={{ position: "relative" }}>
-              <Box sx={{ position: "absolute", top: "50%" }}>
-                <Box
-                  sx={{
-                    backgroundColor: "#222D55",
-                    padding: 3,
-                    borderRadius: "50%",
-                    height: "46px",
-                    width: "46px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <ArrowUpwardIcon sx={{ color: "#fff" }} />
-                </Box>
-              </Box>
-            </Grid>
+            <Grid item xs={12} md={3}></Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography
@@ -316,7 +320,7 @@ export default function CategoryDetails() {
               }}
             />
           </Box>
-          <Grid container mt={5} columnSpacing={2}>
+          <Grid container mt={5} columnSpacing={2} mb={15}>
             {category[0]?.data?.map((data, idx) => {
               return (
                 <Grid item xs={12} md={6} key={idx}>
