@@ -81,7 +81,7 @@ export default function HandleForm() {
                   fontFamily: inter.style.fontFamily,
                   fontSize: "14px !important",
                   fontWeight: 500,
-                },  
+                },
               }}
               id="standard-basic"
               type="date"
@@ -275,7 +275,7 @@ export default function HandleForm() {
               </FormControl>
             </Box>
           </Grid>
-          <Grid item xs={12} md={12} mt={5}>
+          <Grid item xs={12} md={10} mt={5}>
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
@@ -308,19 +308,6 @@ export default function HandleForm() {
                   value="Saint-berthélemy"
                   control={<Radio />}
                   label="Saint-berthélemy"
-                />
-                <FormControlLabel
-                  value="Saint-Barthélemy"
-                  control={<Radio />}
-                  label="Saint-Barthélemy"
-                  sx={{
-                    "& .MuiFormControlLabel-label": {
-                      fontSize: "14px",
-                      fontFamily: inter.style.fontFamily,
-                      color: "#222D55",
-                      fontWeight: 600,
-                    },
-                  }}
                 />
                 <FormControlLabel
                   value="Saint-Barthélemy"

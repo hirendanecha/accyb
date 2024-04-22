@@ -134,8 +134,8 @@ export default function HandleForm() {
             <Typography
               sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
             >
-              Nombre de salarié du groupe
-            </Typography>
+              Nombre de salariés du groupe
+            </Typography> 
             <ValidationTextField
               fullWidth
               InputLabelProps={{
