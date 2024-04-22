@@ -54,6 +54,7 @@ export default function VerticalLinearStepper({ activeStep }) {
                 },
                 "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel": {
                   color: "yellow", // Just text label (COMPLETED)
+                  fontSize: "20px !important",
                 },
                 "& .MuiStepLabel-root .Mui-active": {
                   color: "#222D55", // circle color (ACTIVE)
@@ -62,7 +63,18 @@ export default function VerticalLinearStepper({ activeStep }) {
                 "& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel": {
                   color: "green", // Just text label (ACTIVE)
                 },
+                "& .MuiStepLabel-root .Mui-disabled .MuiStepIcon-root": {
+                  // display: "none",
+                  fill: "#222D55",
+                  border: "1px solid #222D55",
+                  opacity: 0.2,
+                  borderRadius: "50%",
+                },
                 "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
+                  // fill: "black", // circle's number (ACTIVE)
+                  display: "none",
+                },
+                "& .MuiStepLabel-root .Mui-disabled .MuiStepIcon-text": {
                   // fill: "black", // circle's number (ACTIVE)
                   display: "none",
                 },
