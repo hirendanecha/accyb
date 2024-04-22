@@ -69,7 +69,7 @@ export default function HandleForm() {
               }}
               id="standard-basic"
               type="date"
-              value={new Date().toISOString().split("T")[0]}
+              // value={new Date().toISOString().split("T")[0]}
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />
@@ -94,7 +94,7 @@ export default function HandleForm() {
               }}
               id="standard-basic"
               type="time"
-              value={new Date().toLocaleTimeString()}
+              // value={new Date().toLocaleTimeString()} 
               variant="standard"
               sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
             />

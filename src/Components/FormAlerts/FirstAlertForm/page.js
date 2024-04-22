@@ -81,7 +81,7 @@ export default function HandleForm() {
                   fontFamily: inter.style.fontFamily,
                   fontSize: "14px !important",
                   fontWeight: 500,
-                },
+                },  
               }}
               id="standard-basic"
               type="date"
