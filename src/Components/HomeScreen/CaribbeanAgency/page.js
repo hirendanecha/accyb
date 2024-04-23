@@ -160,7 +160,7 @@ export default function CaribbeanAgency() {
         <SwiperSlide>
           <Box
             sx={{
-              backgroundImage: "url('/Images/Bg1.png')",
+              backgroundImage: "url('/Images/Img4.png')",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",
