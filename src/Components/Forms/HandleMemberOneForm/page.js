@@ -175,13 +175,13 @@ export default function HandleForm() {
               Nature
             </Typography>
             <FormControl sx={{ mt: 3 }}>
-              <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
+              <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group" >
                 <FormControlLabel
                   sx={{
+                    width: "170px",
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
                       fontFamily: inter.style.fontFamily,
-                      mr: 2,
                     },
                   }}
                   value="Administration"
@@ -193,10 +193,10 @@ export default function HandleForm() {
                   control={<Radio />}
                   label="Collectivité"
                   sx={{
+                    width: "170px",
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
                       fontFamily: inter.style.fontFamily,
-                      mr: 2,
                     },
                   }}
                 />
@@ -205,10 +205,10 @@ export default function HandleForm() {
                   control={<Radio />}
                   label="Organisme public"
                   sx={{
+                    width: "170px",
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
                       fontFamily: inter.style.fontFamily,
-                      mr: 2,
                     },
                   }}
                 />
@@ -217,10 +217,10 @@ export default function HandleForm() {
                   control={<Radio />}
                   label="Association"
                   sx={{
+                    width: "170px",
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
                       fontFamily: inter.style.fontFamily,
-                      mr: 2,
                     },
                   }}
                 />
@@ -229,10 +229,10 @@ export default function HandleForm() {
                   control={<Radio />}
                   label="Entreprise"
                   sx={{
+                    width: "170px",
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
                       fontFamily: inter.style.fontFamily,
-                      mr: 2,
                     },
                   }}
                 />
