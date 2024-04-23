@@ -134,265 +134,9 @@ export default function OurEvents() {
   return (
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Typography
-            sx={{
-              color: "#222D55",
-              fontSize: { md: "39px", xs: "24px" },
-              mt: { md: 0, xs: 4 },
-            }}
-          >
-            Nos événements
-          </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "start",
-              gap: 1,
-              mt: { md: 0, xs: 4 },
-            }}
-          >
-            <Box
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                className="swiper-button-prev-testimonials"
-                aria-label="Next Slide"
-                title="Next Slide"
-                sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                  width: { md: 45, xs: 40 },
-                  height: { md: 45, xs: 40 },
-                }}
-              >
-                <ArrowBackIcon sx={{ color: "#FFFFFF" }} />
-              </IconButton>
-            </Box>
-            <Box
-              className="swiper-button-next-testimonials"
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                aria-label="Next Slide"
-                title="Next Slide"
-                sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                  width: { md: 45, xs: 40 },
-                  height: { md: 45, xs: 40 },
-                }}
-              >
-                <ArrowForwardIcon sx={{ color: "#FFFFFF" }} />
-              </IconButton>
-            </Box>
-          </Box>
-        </Box>
-      </Container>
-      <Divider
-        variant="middle"
-        sx={{
-          display: { md: "block", xs: "none" },
-          bgcolor: "#222D55",
-          mt: 1,
-          opacity: "20%",
-          borderBottomWidth: "1px",
-        }}
-      />
-
-      <Container disableGutters maxWidth={"xl"}>
-        <Box
-          sx={{
-            mt: 4,
-            cursor: "grab",
-          }}
-        >
-          <Swiper
-            spaceBetween={10} // Adjust as needed
-            slidesPerView={6.5} // Adjust as needed
-            grabCursor={true}
-            breakpoints={{
-              0: {
-                slidesPerView: 2.5,
-              },
-              600: {
-                slidesPerView: 3.5,
-              },
-              960: {
-                slidesPerView: 4.5,
-              },
-              1200: {
-                slidesPerView: 5.1,
-              },
-              1400: {
-                slidesPerView: 6.1,
-              },
-              1600: {
-                slidesPerView: 6.5,
-              },
-            }}
-            navigation={{
-              nextEl: ".swiper-button-next-testimonials",
-              prevEl: ".swiper-button-prev-testimonials",
-              enabled: true,
-            }}
-            modules={[Navigation, Keyboard, Pagination]}
-            loop={true}
-            scrollbar={{ draggable: true }}
-            className="mySwiper"
-          >
-            {category?.map((ele, idx) => (
-              <SwiperSlide key={idx}>
-                <Button
-                  onClick={() => handleClick(ele)}
-                  sx={{
-                    width: {
-                      lg: "220px",
-                      md: "200px",
-                      sm: "150px",
-                      xs: "100%",
-                    },
-                    fontFamily: inter.style.fontFamily,
-                    backgroundImage:
-                      currentCategory === ele
-                        ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
-                        : "transparent",
-                    border: currentCategory === ele ? "" : "1px solid #D3D5DD",
-                    textTransform: "uppercase",
-                    padding: "15px 40px",
-                    fontSize: { md: "14px", xs: "12px" },
-                    color: currentCategory === ele ? "#FFFFFF" : "#222D55",
-                    borderRadius: "50px",
-                    "&:hover": {
-                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      color: "#FFFFFF",
-                    },
-                  }}
-                >
-                  {ele}
-                </Button>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Box>
-        <Grid
-          container
-          mt={{ md: 10, xs: 5 }}
-          justifyContent={"center"}
-          columnSpacing={3}
-          rowSpacing={{ md: 0, xs: 3 }}
-        >
-          {content?.length > 0 ? (
-            content?.map((ele) => {
-              return (
-                <>
-                  <Grid item xs={12} md={6} lg={6}>
-                    <Img src={ele?.img} width={900} height={900} alt="img" />
-                    <Box>
-                      <Typography
-                        sx={{
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          width: "max-content",
-                          padding: "8px 15px 8px 15px",
-                          fontSize: "12px",
-                          mt: 3,
-                          color: "#FFFFFF",
-                          textTransform: "uppercase",
-                          cursor: "pointer",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "24px",
-                          mt: 1,
-                          width: { md: "450px", xs: "100%" },
-                          lineHeight: "36px",
-                          color: "#222D55",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        {ele?.heading}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                          mt: 1,
-                          width: { md: "450px", xs: "100%" },
-                          lineHeight: "22px",
-                          color: "#222D55",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        {ele?.description}
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontWeight: 500,
-                            mt: 2,
-                            fontSize: "14px",
-                            color: "#222D55",
-                            fontFamily: inter.style.fontFamily,
-                          }}
-                        >
-                          {ele?.time}
-                        </Typography>
-                        <Box
-                          sx={{
-                            border: "1px solid #222D55",
-                            width: "35px",
-                            height: "35px",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center", // This centers the icon vertically
-                          }}
-                        >
-                          <ShareIcon
-                            sx={{
-                              height: "20px",
-                              width: "20px",
-                              color: "#222D55",
-                              cursor: "pointer",
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Grid>
-                </>
-              );
-            })
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                textAlign: "center",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                }}
-              >
-                No Event Found
-              </Typography>
-            </Box>
-          )}
-        </Grid>
-        <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}>Articles</Typography>
+        <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 10 }}>
+          Découvrez nos autres événements
+        </Typography>
       </Container>
 
       <Divider
@@ -516,6 +260,152 @@ export default function OurEvents() {
             );
           })}
         </Grid>
+      </Container>
+      <Container disableGutters maxWidth={"xl"}>
+        <Box
+          sx={{
+            background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+            borderRadius: "20px",
+            overflow: "hidden",
+            padding: "0 16px",
+            mt: { md: 20, xs: 10 },
+            position: "relative",
+            mt: { md: 20, xs: 10 },
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: "50px",
+              height: "50px",
+              bgcolor: "#ffffff",
+              borderBottomLeftRadius: "1rem",
+              zIndex: 5,
+              "::before": {
+                content: "''",
+                position: "absolute",
+                width: "20px",
+                height: "20px",
+                top: "10px",
+                left: "-10px",
+                transform: "translateX(-100%)",
+                boxShadow: "5px -5px 0 5px #97E6FF",
+                borderTopRightRadius: "0.75rem",
+              },
+              "::after": {
+                content: "''",
+                position: "absolute",
+                width: "20px",
+                height: "20px",
+                bottom: "-10px",
+                right: "10px",
+                transform: "translateY(100%)",
+                boxShadow: "5px -5px 0 5px #97E6FF",
+                borderTopRightRadius: "0.75rem",
+              },
+            }}
+          ></Box>
+          <Box
+            sx={{
+              content: "''",
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: "25px",
+              height: "100px",
+              bgcolor: "#ffffff",
+              transform: "rotateZ(-45deg)",
+              transformOrigin: "-25px 50px",
+            }}
+          ></Box>
+          <Grid container padding={{ md: 8, xs: 3 }}>
+            <Grid item xs={12} md={6}>
+              {" "}
+              <Typography
+                sx={{
+                  mt: 2,
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "55px", xs: "26px" },
+                  color: "#FFFFFF",
+                  lineHeight: { md: "60px", xs: "33px" },
+                  fontWeight: 400,
+                  maxWidth: { md: "800px", xs: "100%" },
+                }}
+              >
+                Formulaire d'inscription pour les événements
+              </Typography>
+              <Typography
+                sx={{
+                  mt: { md: 2, xs: 3 },
+                  color: "#FFFFFF",
+                  fontSize: { md: "22px", xs: "14px" },
+                  lineHeight: { md: "32px", xs: "22px" },
+                  fontFamily: inter.style.fontFamily,
+                  maxWidth: { md: "450px", xs: "100%" },
+                }}
+              >
+                Remplissez le formulaire d’adhésion. Durée maximale : 25 minutes. Aucune carte de crédit n’est requise.
+                Aucun engagement.
+              </Typography>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              display={"flex"}
+              justifyContent={{ md: "center", xs: "start" }}
+              alignItems={"flex-end"}
+            >
+              <Button
+                variant="outlined"
+                endIcon={
+                  <ArrowForwardIcon
+                    sx={{
+                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "50%",
+                      width: "50px",
+                      height: "50px",
+                      color: "#ffffff",
+                      padding: 1.7,
+                      marginRight: -2,
+                      ml: 3,
+                      ":hover": {
+                        "@keyframes move-left": {
+                          "0%": {
+                            rotate: "0deg",
+                          },
+                          "100%": {
+                            rotate: "-35deg",
+                          },
+                        },
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      },
+                    }}
+                  />
+                }
+                sx={{
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  borderRadius: "61px",
+                  padding: "8px 30px",
+                  fontSize: { md: "12px", xs: "10px" },
+                  mt: { md: 3, xs: 5 },
+                  fontWeight: 600,
+                  background: "#ffffff",
+                  fontFamily: inter.style.fontFamily,
+                  border: "none",
+                  "&:hover": {
+                    backgroundColor: "#FFFFFF",
+                    border: "none",
+                  },
+                }}
+              >
+                remplir le formulaire
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
       </Container>
     </Box>
   );

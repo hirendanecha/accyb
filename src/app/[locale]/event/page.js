@@ -8,8 +8,8 @@ export default function Event() {
     <>
       {/* {"hero section"} */}
       <HeroSection />
-      {/* <OurDetails /> */}
-      {/* <OurEvent /> */}
+      <OurDetails />
+      <OurEvent />
     </>
   );
 }
