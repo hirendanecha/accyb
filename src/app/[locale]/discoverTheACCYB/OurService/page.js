@@ -10,6 +10,7 @@ import Picto from "../../../../Icons/Picto.svg";
 import Group1 from "../../../../Icons/Group1.svg";
 import Group2 from "../../../../Icons/Group2.svg";
 import Group3 from "../../../../Icons/Group3.svg";
+import Group4 from "../../../../Icons/Group4.svg";
 // import required modules
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
@@ -47,7 +48,7 @@ export default function OurService() {
         "Contribuer à la réflexion stratégique des institutions publiques et privées sur les enjeux liés à la cybersécurité et à l’organisation d’un écosystème de proximité de confiance, répondant aux enjeux de nos territoires.",
     },
     {
-      icon: Group3,
+      icon: Group4,
       title: "Réponse aux incidents",
       description:
         "Traiter les demandes d’assistance des acteurs de taille intermédiaire et mettre en relation avec des partenaires de proximité.",

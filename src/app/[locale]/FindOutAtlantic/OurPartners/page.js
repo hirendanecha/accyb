@@ -287,7 +287,7 @@ export default function OurPartners() {
                           }
                           sx={{
                             color: "#FFFFFF",
-                            border: "1px solid rgba(142, 155, 191, 0.3)",
+                            border: "1px solid #FFFFFF",
                             borderRadius: "61px",
                             padding: "8px 30px",
                             fontSize: "12px",
@@ -295,6 +295,7 @@ export default function OurPartners() {
                             background: "rgba(255, 255, 255, 0.1)",
                             ":hover": {
                               borderColor: "#8E9BBF",
+                              border: "1px solid rgba(255, 255, 255, 0.5)",
                             },
                             fontFamily: inter.style.fontFamily,
                             // "& .MuiButton-endIcon": {
