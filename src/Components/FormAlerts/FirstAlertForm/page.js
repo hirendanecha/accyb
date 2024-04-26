@@ -18,6 +18,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { constrainedMemory } from "process";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setGeneralInformation } from "../../../app/redux/slices/formSlice";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -41,21 +43,23 @@ const ValidationTextField = styled(TextField)({
 });
 const schema = yup
   .object({
-    dateOfDeclaration: yup.date().required("Date is required"),
-    companyName: yup.string().required("Company name is required"),
-    memberOfAccyb: yup.string().required("Member of ACCYB is required"),
-    structureType: yup.string().required("Structure type is required"),
-    activityArea: yup.string().required("Activity area is required"),
-    territory: yup.string().required("Territory is required"),
-    communeOfOne: yup.string().required("Commune is required"),
-    communeOfTwo: yup.string().required("Commune is required"),
+    // dateOfDeclaration: yup.date().required("Date is required"),
+    // companyName: yup.string().required("Company name is required"),
+    // memberOfAccyb: yup.string().required("Member of ACCYB is required"),
+    // structureType: yup.string().required("Structure type is required"),
+    // activityArea: yup.string().required("Activity area is required"),
+    // territory: yup.string().required("Territory is required"),
+    // communeOfOne: yup.string().required("Commune is required"),
+    // communeOfTwo: yup.string().required("Commune is required"),
   })
   .required();
 export default function HandleForm() {
+  const dispatch = useDispatch();
   const locales = useLocale();
   const router = useRouter();
   const {
     register,
+    setValue,
     handleSubmit,
     watch,
     control,
@@ -65,7 +69,7 @@ export default function HandleForm() {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      dateOfDeclaration: new Date(),
+      dateOfDeclaration: new Date().toISOString().slice(0, 10),
       companyName: "",
       memberOfAccyb: "",
       structureType: "",
@@ -77,9 +81,9 @@ export default function HandleForm() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(setGeneralInformation(data));
+    router.push(`/${locales}/alertreports/HandleSecoundForm`);
   };
-  console.log(errors);
   return (
     <Box>
       <form
@@ -136,6 +140,7 @@ export default function HandleForm() {
                 error={errors.dateOfDeclaration}
                 name="dateOfDeclaration"
                 value={new Date().toISOString().slice(0, 10)}
+                {...register("dateOfDeclaration")}
                 disabled
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
@@ -161,6 +166,7 @@ export default function HandleForm() {
                     fontWeight: 500,
                   },
                 }}
+                {...register("companyName")}
                 name="companyName"
                 id="standard-basic"
                 type="text"
@@ -174,7 +180,14 @@ export default function HandleForm() {
               >
                 Êtes-vous adhérent à l’ACCYB ?
               </Typography>
-              <RadioGroup aria-labelledby="demo-radio-buttons-group-label" name="memberOfAccyb" sx={{ mt: 2 }}>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="memberOfAccyb"
+                sx={{ mt: 2 }}
+                onChange={(e) => {
+                  setValue("memberOfAccyb", e.target.value);
+                }}
+              >
                 <FormControlLabel
                   value="OUI"
                   control={<Radio />}
@@ -215,6 +228,9 @@ export default function HandleForm() {
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
                     name="structureType"
+                    onChange={(e) => {
+                      setValue("structureType", e.target.value);
+                    }}
                     sx={{ fontFamily: inter.style.fontFamily }}
                     defaultValue={"PME"}
                   >
@@ -256,6 +272,9 @@ export default function HandleForm() {
                 <FormControl variant="standard" fullWidth>
                   <Select
                     name="activityArea"
+                    onChange={(e) => {
+                      setValue("activityArea", e.target.value);
+                    }}
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
                     sx={{ fontFamily: inter.style.fontFamily }}
@@ -335,7 +354,14 @@ export default function HandleForm() {
                 Territoire
               </Typography>
               <FormControl sx={{ mt: 3 }}>
-                <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="territory">
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="territory"
+                  onChange={(e) => {
+                    setValue("territory", e.target.value);
+                  }}
+                >
                   <FormControlLabel
                     sx={{
                       "& .MuiFormControlLabel-label": {
@@ -398,6 +424,7 @@ export default function HandleForm() {
                     },
                   }}
                   id="standard-basic"
+                  {...register("communeOfOne")}
                   name="communeOfOne"
                   type="text"
                   variant="standard"
@@ -424,6 +451,7 @@ export default function HandleForm() {
                       fontWeight: 500,
                     },
                   }}
+                  {...register("communeOfTwo")}
                   id="standard-basic"
                   type="text"
                   name="communeOfTwo"
@@ -435,7 +463,7 @@ export default function HandleForm() {
           </Grid>
         </Box>
         <Button
-          onClick={() => router.push(`/${locales}/alertreports/HandleSecoundForm`)}
+          // onClick={() => router.push(`/${locales}/alertreports/HandleSecoundForm`)}
           variant="outlined"
           type="submit"
           endIcon={

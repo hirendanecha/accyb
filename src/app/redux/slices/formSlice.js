@@ -6,21 +6,23 @@ const formSlice = createSlice({
     loading: false,
     error: null,
     success: false,
+    generalInformation : null,
+    registrantInformation : null,
+    descriptionOfTheIncident : null
   },
   reducers: {
-    setLoading: (state, action) => {
-      state.loading = action.payload;
+    setGeneralInformation: (state, action) => {
+      state.generalInformation = action.payload;
     },
-    setError: (state, action) => {
-      state.error = action.payload;
+    setRegistrantInformation: (state, action) => {
+      state.registrantInformation = action.payload;
     },
-    setSuccess: (state, action) => {
-      state.success = action.payload;
+    setDescriptionOfTheIncident: (state, action) => {
+      state.descriptionOfTheIncident = action.payload;
     },
   },
 });
 
-export const { setLoading, setError , setSuccess } = formSlice.actions;
+export const { setGeneralInformation , setRegistrantInformation , setDescriptionOfTheIncident } = formSlice.actions;
 
 export default formSlice.reducer;
-

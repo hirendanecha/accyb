@@ -5,6 +5,12 @@ import { inter } from "../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { constrainedMemory } from "process";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setRegistrantInformation } from "../../../app/redux/slices/formSlice";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -27,214 +33,273 @@ const ValidationTextField = styled(TextField)({
   },
 });
 
+const schema = yup
+  .object({
+    // firstName: yup.string().required("First name is required"),
+    // name: yup.string().required("Last name is required"),
+    // email: yup.string().email("Invalid email").required("Email is required"),
+    // telephone: yup.string().required("Phone number is required"),
+    // service: yup.string().required("service is required"),
+    // fonction: yup.string().required("Fonction is required"),
+  })
+  .required();
+
 export default function HandleForm() {
   const router = useRouter();
   const locales = useLocale();
+  const dispatch = useDispatch();
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+
+    defaultValues: {
+      firstName: "",
+      name: "",
+      email: "",
+      telephone: "",
+      service: "",
+      fonction: "",
+    },
+  });
+
+
+  const onSubmit = (data) => {
+    dispatch(setRegistrantInformation(data));
+    router.push(`/${locales}/alertreports/HandleThirdForm`);
+  };
   return (
     <>
-      <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
-        <Typography
-          sx={{
-            fontFamily: inter.style.fontFamily,
-            fontSize: { md: "16px", xs: "12px" },
-            color: "#222D55",
-            fontWeight: 600,
-          }}
-        >
-          Informations sur le déclarant
-        </Typography>
-        <Grid container columnSpacing={5}>
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Prénom
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="text"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Nom
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="text"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Service
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="number"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Fonction
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="number"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={12} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Téléphone
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="number"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={12} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-            >
-              Adresse e-mail
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="email"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-            />
-          </Grid>
-        </Grid>
-      </Box>
-      <Button
-        onClick={() => router.push(`/${locales}/alertreports/HandleThirdForm`)}
-        variant="outlined"
-        endIcon={
-          <ArrowForwardIcon
-            sx={{
-              backgroundColor: "transparent",
-              borderRadius: "50%",
-              width: "50px",
-              height: "50px",
-              color: "#222D55",
-              padding: 1.7,
-              marginRight: -2,
-              ml: 3,
-              ":hover": {
-                "@keyframes move-left": {
-                  "0%": {
-                    rotate: "0deg",
-                  },
-                  "100%": {
-                    rotate: "-35deg",
-                  },
-                },
-                animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-              },
-            }}
-          />
-        }
-        sx={{
-          color: "#222D55",
-          border: "1px solid #222D55",
-          borderRadius: "61px",
-          padding: "4px 30px",
-          fontSize: { md: "12px", xs: "10px" },
-          mt: 6,
-          fontWeight: 600,
-          background: "rgba(255, 255, 255, 0.1)",
-          fontFamily: inter.style.fontFamily,
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(onSubmit)();
+          // setLoader(true);
         }}
       >
-        Suivant
-      </Button>
+        <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
+          <Typography
+            sx={{
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "16px", xs: "12px" },
+              color: "#222D55",
+              fontWeight: 600,
+            }}
+          >
+            Informations sur le déclarant
+          </Typography>
+          <Grid container columnSpacing={5}>
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Prénom
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="standard-basic"
+                type="text"
+                {...register("firstName")}
+                name="firstName"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Nom
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="standard-basic"
+                type="text"
+                {...register("name")}
+                name="name"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Service
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="standard-basic"
+                type="number"
+                name="service"
+                {...register("service")}
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Fonction
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="standard-basic"
+                type="number"
+                {...register("fonction")}
+                name="fonction"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+            <Grid item xs={12} md={12} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Téléphone
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                name="telephone"
+                id="standard-basic"
+                {...register("telephone")}
+                type="number"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+            <Grid item xs={12} md={12} mt={5}>
+              <Typography
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+              >
+                Adresse e-mail
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                name="email"
+                {...register("email")}
+                id="standard-basic"
+                type="email"
+                variant="standard"
+                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+        <Button
+          // onClick={() => router.push(`/${locales}/alertreports/HandleThirdForm`)}
+          variant="outlined"
+          type="submit"
+          endIcon={
+            <ArrowForwardIcon
+              sx={{
+                backgroundColor: "transparent",
+                borderRadius: "50%",
+                width: "50px",
+                height: "50px",
+                color: "#222D55",
+                padding: 1.7,
+                marginRight: -2,
+                ml: 3,
+                ":hover": {
+                  "@keyframes move-left": {
+                    "0%": {
+                      rotate: "0deg",
+                    },
+                    "100%": {
+                      rotate: "-35deg",
+                    },
+                  },
+                  animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                },
+              }}
+            />
+          }
+          sx={{
+            color: "#222D55",
+            border: "1px solid #222D55",
+            borderRadius: "61px",
+            padding: "4px 30px",
+            fontSize: { md: "12px", xs: "10px" },
+            mt: 6,
+            fontWeight: 600,
+            background: "rgba(255, 255, 255, 0.1)",
+            fontFamily: inter.style.fontFamily,
+            "&:hover": {
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          Suivant
+        </Button>
+      </form>
     </>
   );
 }
