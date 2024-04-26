@@ -435,7 +435,7 @@ export default function HandleForm() {
           </Grid>
         </Box>
         <Button
-          // onClick={() => router.push(`/${locales}/alertreports/HandleSecoundForm`)}
+          onClick={() => router.push(`/${locales}/alertreports/HandleSecoundForm`)}
           variant="outlined"
           type="submit"
           endIcon={
