@@ -220,7 +220,7 @@ export default function OurNews() {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontWeight: 500,
+                  // fontWeight: 500,
                   fontSize: { md: "75px", xs: "40px", lineHeight: "50px" },
                   color: textColor,
                 }}
@@ -355,7 +355,7 @@ export default function OurNews() {
                     mt: 1,
                     width: { md: "450px", xs: "100%" },
                     lineHeight: "36px",
-                    fontWeight: 500,
+                    fontWeight: 600,
                     color: textColor,
                     fontFamily: inter.style.fontFamily,
                   }}
