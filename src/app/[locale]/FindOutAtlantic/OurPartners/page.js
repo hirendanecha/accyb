@@ -120,7 +120,7 @@ export default function OurPartners() {
 
   return (
     <Box sx={{ padding: "0 16px", pb: 5 }}>
-      <Box mt={15}>
+      <Box mt={20}>
         <Typography
           sx={{
             fontFamily: inter.style.fontFamily,

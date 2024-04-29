@@ -716,7 +716,7 @@ export default function OurMission() {
         >
           En cas d'incident, les bons réflexes en cas d'intrusion sur un système d'information sont à retrouver ici.
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", mt: { md: 10, xs: 5 } }}>
+        {/* <Box sx={{ display: "flex", justifyContent: "center", mt: { md: 10, xs: 5 } }}>
           <Button
             onClick={() => router.push(`/${locales}/alerteslist`)}
             variant="outlined"
@@ -765,7 +765,7 @@ export default function OurMission() {
           >
             toutes les alertes
           </Button>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );
