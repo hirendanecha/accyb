@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Box, Button, Container, Divider, Grid, Typography, keyframes } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -18,6 +18,28 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useLocale, useTranslations } from "next-intl";
 import { title } from "process";
 import { useRouter } from "next/navigation";
+
+export const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) setTargetReached(true);
+    else setTargetReached(false);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener("change", updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) setTargetReached(true);
+
+    return () => media.removeEventListener("change", updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
 export default function CaribbeanAgency() {
   const locales = useLocale();
   const router = useRouter();
@@ -25,6 +47,9 @@ export default function CaribbeanAgency() {
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const lgUp = useMediaQuery(425);
+
+  console.log(lgUp, "lgUp");
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -326,47 +351,46 @@ export default function CaribbeanAgency() {
                     </Button> */}
                   </Box>
                 </Grid>
-                <Grid item xs={12} md={12} position={"relative"} sx={{ display: { md: "block", xs: "none" } }}></Grid>
+                <Grid item xs={12} md={12} position={"relative"}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      position: "absolute",
+                      right: 0,
+                      bottom: { lg: -150, md: -215, sm: -285, xs: -285 },
+                    }}
+                  >
+                    <Box
+                      onClick={handleContactUsClick}
+                      sx={{
+                        display: "flex",
+                        gap: 2,
+                        cursor: "pointer",
+                        alignItems: "center",
+                        mr: { md: 3, xs: 0 },
+                      }}
+                    >
+                      <Box>
+                        <Typography
+                          sx={{
+                            color: "#FFFFFF",
+                            fontSize: "20px",
+                            fontWeight: 400,
+                            fontFamily: inter.style.fontFamily,
+                          }}
+                        >
+                          Scroll
+                        </Typography>
+                      </Box>
+                      <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
+                    </Box>
+                  </Box>
+                </Grid>
               </Grid>
             </Box>
           </Container>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          mt: 15,
-          position: "absolute",
-          zIndex: 10,
-          top: { md: "70%", xs: "75%" },
-          right: { xl: "10%", xs: 30 },
-        }}
-      >
-        <Box
-          onClick={handleContactUsClick}
-          sx={{
-            display: "flex",
-            gap: 2,
-            cursor: "pointer",
-            alignItems: "center",
-            mr: { md: 3, xs: 0 },
-          }}
-        >
-          <Box>
-            <Typography
-              sx={{
-                color: "#FFFFFF",
-                fontSize: "20px",
-                fontWeight: 400,
-                fontFamily: inter.style.fontFamily,
-              }}
-            >
-              Scroll
-            </Typography>
-          </Box>
-          <ArrowDownwardIcon sx={{ color: "#FFFFFF" }} />
         </Box>
       </Box>
     </Box>
