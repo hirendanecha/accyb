@@ -218,7 +218,7 @@ export default function CaribbeanAgency() {
                         sm: "70px",
                         xs: "50px",
                       },
-                      maxWidth: { md: "650px !important", xs: "550px" },
+                      maxWidth: { md: "700px !important", xs: "550px" },
                       paddingTop: { md: 30, xs: 20 },
                       fontFamily: inter.style.fontFamily,
                     }}
@@ -236,10 +236,10 @@ export default function CaribbeanAgency() {
                   </Box>
                   <Typography
                     sx={{
-                      fontSize: { lg: "22px", md: "20px", xs: "18px" },
+                      fontSize: { lg: "20px", md: "20px", xs: "18px" },
                       color: "#FFFFFF",
                       fontWeight: 400,
-                      lineHeight: { md: "32px", xs: "25px" },
+                      lineHeight: { md: "30px", xs: "25px" },
                       maxWidth: "800px !important",
                       mt: 3,
                       fontFamily: inter.style.fontFamily,

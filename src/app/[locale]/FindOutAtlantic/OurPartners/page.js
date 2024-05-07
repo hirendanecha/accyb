@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/Partners/Logo1.svg";
 import Logo2 from "../../../../Icons/Partners/Logo2.svg";
@@ -25,7 +25,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100px !important",
@@ -47,6 +47,8 @@ const Imgs = styled(Image)(({ theme }) => ({
 export default function OurPartners() {
   const locales = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const search = searchParams.get("vosinterlocuteurs");
   const partners = [
     {
       img: Logo1,
@@ -118,8 +120,16 @@ export default function OurPartners() {
     }
   };
 
+  useEffect(() => {
+    if (search == "true") {
+      document
+        .getElementById("vosinterlocuteurs")
+        .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
+
   return (
-    <Box sx={{ padding: "0 16px", pb: 5 }}>
+    <Box sx={{ padding: "0 16px", pb: 5 }} id="vosinterlocuteurs">
       <Box mt={20}>
         <Typography
           sx={{

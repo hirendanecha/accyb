@@ -12,7 +12,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Import Swiper React components
@@ -43,7 +43,7 @@ import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const partners = [
   {
@@ -107,9 +107,17 @@ const Img = styled(Image)(({ theme }) => ({
 export default function CaseStudies() {
   const locales = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const search = searchParams.get("etudes");
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("etudes").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
   return (
     <>
       <Box
+        id="etudes"
         sx={{
           backgroundColor: "#222D55",
           position: "relative",

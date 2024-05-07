@@ -14,7 +14,7 @@ import { Box, Button, Container, Divider, Grid, Typography, styled } from "@mui/
 import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "45px !important",
@@ -28,6 +28,9 @@ export default function OurMission() {
   const router = useRouter();
   const locales = useLocale();
   const controls = useAnimation();
+  const searchParams = useSearchParams();
+  const search = searchParams.get("services");
+
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -50,6 +53,12 @@ export default function OurMission() {
         observer.unobserve(ref.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("services").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
   }, []);
 
   useEffect(() => {
@@ -132,7 +141,7 @@ export default function OurMission() {
     // Handle the uploaded file, e.g., upload it to a server or process it.
   };
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative" }} id="services">
       <Container disableGutters maxWidth={"xl"}>
         <Box
           ref={ref}

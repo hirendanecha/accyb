@@ -124,7 +124,11 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheACCYB?NosDatesCles=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontWeight: 400,
                       mt: 1,
@@ -134,7 +138,11 @@ export default function Footer() {
                     {t("t2sub1")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheACCYB?mission=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontWeight: 400,
                       mt: 1,
@@ -144,8 +152,12 @@ export default function Footer() {
                     {t("t2sub2")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheACCYB?services=true`);
+                    }}
                     sx={{
                       fontSize: "12px",
+                      cursor: "pointer",
                       fontWeight: 400,
                       mt: 1,
                       fontFamily: inter.style.fontFamily,
@@ -158,6 +170,7 @@ export default function Footer() {
               <Grid item lg={2} md={2.4} sm={6} xs={12} mt={{ md: 0, xs: 5 }} textAlign={{ md: "unset", xs: "center" }}>
                 <Typography
                   sx={{
+                    cursor: "pointer",
                     fontSize: "12px",
                     fontWeight: 600,
                     pb: 2,
@@ -169,7 +182,11 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/FindOutAtlantic?mission=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontFamily: inter.style.fontFamily,
                       fontWeight: 400,
@@ -179,7 +196,11 @@ export default function Footer() {
                     {t("t3sub1")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/FindOutAtlantic?services=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontFamily: inter.style.fontFamily,
                       fontSize: "12px",
                       fontWeight: 400,
@@ -201,7 +222,11 @@ export default function Footer() {
                     {t("t3sub3")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/FindOutAtlantic?vosinterlocuteurs=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontFamily: inter.style.fontFamily,
                       fontSize: "12px",
                       fontWeight: 400,
@@ -225,7 +250,11 @@ export default function Footer() {
                 </Typography>
                 <Box>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheObservatory?mission=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontFamily: inter.style.fontFamily,
                       fontSize: "12px",
                       fontWeight: 400,
@@ -235,7 +264,11 @@ export default function Footer() {
                     {t("t4sub1")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheObservatory?services=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontWeight: 400,
                       mt: 1,
@@ -245,7 +278,11 @@ export default function Footer() {
                     {t("t4sub2")}
                   </Typography>
                   <Typography
+                    onClick={() => {
+                      router.push(`/${locales}/discoverTheObservatory?etudes=true`);
+                    }}
                     sx={{
+                      cursor: "pointer",
                       fontSize: "12px",
                       fontWeight: 400,
                       mt: 1,

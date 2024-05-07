@@ -12,6 +12,7 @@ import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material
 import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
+import { useSearchParams } from "next/navigation";
 const Img = styled(Image)(({ theme }) => ({
   width: "39px !important",
   height: "auto !important",
@@ -24,6 +25,14 @@ export default function OurMission() {
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("services");
+
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("services").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

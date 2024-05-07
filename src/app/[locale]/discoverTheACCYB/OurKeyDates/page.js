@@ -1,6 +1,6 @@
 "use client";
 import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
 import Logo2 from "../../../../Icons/KeyDates/Image2.svg";
@@ -11,19 +11,28 @@ import Logo6 from "../../../../Icons/KeyDates/Image6.svg";
 import Image from "next/image";
 import Timeline from "../../../../Icons/TimeLine.svg";
 import Timeline2 from "../../../../../public/Timeline2.svg";
+import { useSearchParams } from "next/navigation";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
 }));
 export default function OurKeyDates() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("NosDatesCles");
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("NosDatesCles").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
   return (
     <Box
-    // sx={{
-    //   backgroundImage: "url('/Images/BackgroundImg2.svg')",
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundSize: "cover",
-    //   backgroundPosition: "center",
-    // }}
+      id="NosDatesCles"
+      // sx={{
+      //   backgroundImage: "url('/Images/BackgroundImg2.svg')",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      // }}
     >
       <Container disableGutters maxWidth={"xl"}>
         <Box

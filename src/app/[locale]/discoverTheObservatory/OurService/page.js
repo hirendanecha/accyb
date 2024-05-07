@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Container, Divider, Grid, Icon, Typography, styled } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,8 +13,16 @@ import Discover3 from "../../../../Icons/Discover3.svg";
 import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 export default function OurService() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("mission");
+  useEffect(() => {
+    if (search == "true") {
+      document.getElementById("mission").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+  }, []);
   const data = [
     {
       icon: Discover3,
@@ -66,7 +74,7 @@ export default function OurService() {
   }));
   return (
     <>
-      <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }}>
+      <Box mt={{ md: 30, xs: 10 }} sx={{ padding: "0 16px" }} id="mission">
         <Container disableGutters maxWidth={"xl"}>
           <Box
             mt={1}

@@ -88,10 +88,13 @@ export default function OurMembers() {
             slidesPerView: 3.5,
           },
           1024: {
+            slidesPerView: 3.5,
+          },
+          1260: {
             slidesPerView: 4.5,
           },
           1440: {
-            slidesPerView: 6.2,
+            slidesPerView: 5.2,
           },
           1920: {
             slidesPerView: 6.2,
