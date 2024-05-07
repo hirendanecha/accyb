@@ -414,31 +414,21 @@ export default function Header() {
                 <MenuItem sx={{ gap: 1 }}>
                   <Avatar
                     sx={{
-                      background: isActiveFr ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "#FFFFFF",
+                      background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                       fontSize: "16px",
                       padding: 3,
-                      ":hover": {
-                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                      },
                     }}
-                    onClick={() => setIsActiveFr(true)}
                   >
                     FR
                   </Avatar>
                   <Avatar
                     sx={{
-                      bgcolor: isActiveFr ? "#FFFFFF" : "#7DB1FF",
-                      border: isActiveFr ? "1px solid #7DB1FF" : "none",
+                      bgcolor: "transparent",
+                      border: "1px solid #7DB1FF",
                       fontSize: "16px",
-                      color: isActiveFr ? "#7DB1FF" : "#FFFFFF",
+                      color: "#7DB1FF",
                       padding: 3,
-                      ":hover": {
-                        bgcolor: "#7DB1FF",
-                        border: "none",
-                        color: "#FFFFFF",
-                      },
                     }}
-                    onClick={() => setIsActiveFr(false)}
                   >
                     EN
                   </Avatar>
