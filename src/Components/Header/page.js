@@ -361,7 +361,10 @@ export default function Header() {
                 {pages.map((page, idx) => (
                   <MenuItem
                     key={idx}
-                    onClick={() => router?.push(page?.path)}
+                    onClick={() => {
+                      router?.push(page?.path);
+                      handleCloseNavMenu();
+                    }}
                     sx={{
                       fontSize: "13px",
                       backgroundColor: "#222D55",
@@ -385,7 +388,10 @@ export default function Header() {
                 {link.map((page, idx) => (
                   <MenuItem
                     key={idx}
-                    onClick={() => router?.push(page?.path)}
+                    onClick={() => {
+                      router?.push(page?.path);
+                      handleCloseNavMenu();
+                    }}
                     sx={{
                       backgroundColor: "#222D55",
                       color: "#fff",
@@ -408,21 +414,31 @@ export default function Header() {
                 <MenuItem sx={{ gap: 1 }}>
                   <Avatar
                     sx={{
-                      background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      background: isActiveFr ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "#FFFFFF",
                       fontSize: "16px",
                       padding: 3,
+                      ":hover": {
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      },
                     }}
+                    onClick={() => setIsActiveFr(true)}
                   >
                     FR
                   </Avatar>
                   <Avatar
                     sx={{
-                      bgcolor: "transparent",
-                      border: "1px solid #7DB1FF",
+                      bgcolor: isActiveFr ? "#FFFFFF" : "#7DB1FF",
+                      border: isActiveFr ? "1px solid #7DB1FF" : "none",
                       fontSize: "16px",
-                      color: "#7DB1FF",
+                      color: isActiveFr ? "#7DB1FF" : "#FFFFFF",
                       padding: 3,
+                      ":hover": {
+                        bgcolor: "#7DB1FF",
+                        border: "none",
+                        color: "#FFFFFF",
+                      },
                     }}
+                    onClick={() => setIsActiveFr(false)}
                   >
                     EN
                   </Avatar>
