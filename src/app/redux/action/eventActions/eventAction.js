@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAllEvents = createAsyncThunk("admin/getAllEvents", async (data, { rejectWithValue }) => {
   try {
-    // console.log(data);
+    console.log(data);
     let response;
     if (data?.month) {
       response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events?month=${data?.month}`);

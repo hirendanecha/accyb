@@ -115,7 +115,7 @@ export default function OurNews() {
   }, []);
 
   useEffect(() => {
-    dispatch(getAllEvents({}))
+    dispatch(getAllEvents({ month: 5 }))
       .unwrap()
       .then((res) => {
         // console.log(res);
