@@ -12,6 +12,9 @@ import { motion, useAnimation } from "framer-motion";
 import { inter } from "../../../fonts/fonts";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEvents } from "../../../app/redux/action/eventActions/eventAction";
+import { getAllNews } from "../../../app/redux/action/newsActions/newsAction";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -20,7 +23,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "310px !important",
-  height: "auto !important",
+  height: "235px !important",
   resize: "stratch",
   [theme.breakpoints.down("sm")]: {
     width: "100% !important",
@@ -51,6 +54,9 @@ export const useMediaQuery = (width) => {
 export default function OurNews() {
   const router = useRouter();
   const locals = useLocale();
+  const dispatch = useDispatch();
+  const { allEvents } = useSelector((state) => state.events);
+  const { allNews } = useSelector((state) => state.news);
   const t = useTranslations("OurNews");
   const controls = useAnimation();
   const ref = useRef(null);
@@ -106,6 +112,19 @@ export default function OurNews() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    dispatch(getAllEvents({}))
+      .unwrap()
+      .then((res) => {
+        // console.log(res);
+      });
+    dispatch(getAllNews())
+      .unwrap()
+      .then((res) => {
+        // console.log(res);
+      });
   }, []);
 
   useEffect(() => {
@@ -299,173 +318,177 @@ export default function OurNews() {
           px={!lgDown ? "50px" : "0px"}
           pt={5}
         >
-          <Grid item xs={12} md={12} lg={6} mt={2}>
-            <Img src={Annousment} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
-            <Box ref={ref}>
-              <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    mt: 3,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      backgroundColor: "#007A47",
-                      width: "max-content",
-                      padding: "8px 15px 8px 15px",
-                      fontSize: "10px",
-                      mt: 3,
-                      color: "#FFFFFF",
-                      textTransform: "uppercase",
-                      cursor: "pointer",
-                      marginTop: "auto",
-                      fontWeight: 400,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  >
-                    {t("events1")}
-                  </Typography>
+          {allEvents?.slice(0, 1).map((ele, idx) => {
+            console.log(ele, "ele");
+            return (
+              <Grid item xs={12} md={12} lg={6} mt={2} key={idx}>
+                <Img src={ele?.pictureLink} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
+                <Box ref={ref}>
+                  {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
                   <Box
                     sx={{
-                      border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                      width: "28px",
-                      height: "28px",
-                      borderRadius: "50%",
-                      display: { md: "none", xs: "flex" },
-                      justifyContent: "center",
-                      alignItems: "center", // This centers the icon vertically
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      mt: 3,
                     }}
                   >
-                    <ShareIcon
+                    <Typography
                       sx={{
-                        height: "13px",
-                        width: "13px",
-                        color: show ? "#007A47" : "#FFFFFF",
+                        backgroundColor: "#007A47",
+                        width: "max-content",
+                        padding: "8px 15px 8px 15px",
+                        fontSize: "10px",
+                        mt: 3,
+                        color: "#FFFFFF",
+                        textTransform: "uppercase",
                         cursor: "pointer",
+                        marginTop: "auto",
+                        fontWeight: 400,
+                        fontFamily: inter.style.fontFamily,
                       }}
-                    />
+                    >
+                      {ele?.title}
+                    </Typography>
+                    <Box
+                      sx={{
+                        border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "50%",
+                        display: { md: "none", xs: "flex" },
+                        justifyContent: "center",
+                        alignItems: "center", // This centers the icon vertically
+                      }}
+                    >
+                      <ShareIcon
+                        sx={{
+                          height: "13px",
+                          width: "13px",
+                          color: show ? "#007A47" : "#FFFFFF",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Box>
                   </Box>
-                </Box>
-                <Typography
-                  sx={{
-                    fontSize: "24px",
-                    mt: 1,
-                    width: { md: "450px", xs: "100%" },
-                    lineHeight: "36px",
-                    fontWeight: 600,
-                    color: textColor,
-                    fontFamily: inter.style.fontFamily,
-                  }}
-                >
-                  {t("heading1")}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    mt: 1,
-                    width: { md: "450px", xs: "100%" },
-                    lineHeight: "22px",
-                    color: textColor,
-                    fontFamily: inter.style.fontFamily,
-                  }}
-                >
-                  {t("description1")}
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
                   <Typography
                     sx={{
-                      fontWeight: 500,
-                      mt: 2,
-                      fontSize: "14px",
+                      fontSize: "24px",
+                      mt: 1,
+                      width: { md: "450px", xs: "100%" },
+                      lineHeight: "36px",
+                      fontWeight: 600,
                       color: textColor,
                       fontFamily: inter.style.fontFamily,
                     }}
                   >
-                    {t("date1")}
+                    {ele?.access}
                   </Typography>
+                  <Typography
+                    dangerouslySetInnerHTML={{ __html: ele?.description }}
+                    sx={{
+                      fontSize: "14px",
+                      mt: 1,
+                      width: { md: "450px", xs: "100%" },
+                      lineHeight: "22px",
+                      color: textColor,
+                      fontFamily: inter.style.fontFamily,
+                    }}
+                  ></Typography>
                   <Box
                     sx={{
-                      border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      display: { md: "flex", xs: "none" },
-                      justifyContent: "center",
-                      alignItems: "center", // This centers the icon vertically
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
                     }}
                   >
-                    <ShareIcon
+                    <Typography
                       sx={{
-                        height: "20px",
-                        width: "20px",
-                        color: show ? "#007A47" : "#FFFFFF",
-                        cursor: "pointer",
+                        fontWeight: 500,
+                        mt: 2,
+                        fontSize: "14px",
+                        color: textColor,
+                        fontFamily: inter.style.fontFamily,
+                      }}
+                    >
+                      {ele?.startDate}
+                    </Typography>
+                    <Box
+                      sx={{
+                        border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        display: { md: "flex", xs: "none" },
+                        justifyContent: "center",
+                        alignItems: "center", // This centers the icon vertically
+                      }}
+                    >
+                      <ShareIcon
+                        sx={{
+                          height: "20px",
+                          width: "20px",
+                          color: show ? "#007A47" : "#FFFFFF",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Box>
+                  </Box>
+                  {/* </motion.div> */}
+                </Box>
+                <Button
+                  onClick={() => router.push(`/${locals}/news`)}
+                  variant="outlined"
+                  endIcon={
+                    <ArrowForwardIcon
+                      sx={{
+                        backgroundColor: "#7DB1FF",
+                        borderRadius: "50%",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        width: "50px",
+                        height: "50px",
+                        color: "#FFFFFF",
+                        padding: 1.7,
+                        marginRight: -2,
+                        ml: 3,
+                        ":hover": {
+                          "@keyframes move-left": {
+                            "0%": {
+                              rotate: "0deg",
+                            },
+                            "100%": {
+                              rotate: "-35deg",
+                            },
+                          },
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        },
                       }}
                     />
-                  </Box>
-                </Box>
-              </motion.div>
-            </Box>
-            <Button
-              onClick={() => router.push(`/${locals}/news`)}
-              variant="outlined"
-              endIcon={
-                <ArrowForwardIcon
+                  }
                   sx={{
-                    backgroundColor: "#7DB1FF",
-                    borderRadius: "50%",
-                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                    width: "50px",
-                    height: "50px",
-                    color: "#FFFFFF",
-                    padding: 1.7,
-                    marginRight: -2,
-                    ml: 3,
+                    mt: { md: 3, xs: 2 },
+                    color: show ? "#FFFFFF" : "#222D55",
+                    backgroundColor: show ? "#222D55" : "#FFFFFF",
+                    border: "1px solid #FFFFFF",
+                    borderRadius: "61px",
+                    padding: "8px 30px",
+                    fontSize: "12px",
+                    fontFamily: inter.style.fontFamily,
+                    fontWeight: 600,
                     ":hover": {
-                      "@keyframes move-left": {
-                        "0%": {
-                          rotate: "0deg",
-                        },
-                        "100%": {
-                          rotate: "-35deg",
-                        },
-                      },
-                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      color: "textColor",
+                      border: "1px solid #FFFFFF",
+                      backgroundColor: show ? "#222D55" : "#FFFFFF",
                     },
                   }}
-                />
-              }
-              sx={{
-                mt: { md: 3, xs: 2 },
-                color: show ? "#FFFFFF" : "#222D55",
-                backgroundColor: show ? "#222D55" : "#FFFFFF",
-                border: "1px solid #FFFFFF",
-                borderRadius: "61px",
-                padding: "8px 30px",
-                fontSize: "12px",
-                fontFamily: inter.style.fontFamily,
-                fontWeight: 600,
-                ":hover": {
-                  color: "textColor",
-                  border: "1px solid #FFFFFF",
-                  backgroundColor: show ? "#222D55" : "#FFFFFF",
-                },
-              }}
-            >
-              {t("buttonBlog")}
-            </Button>
-          </Grid>
+                >
+                  {t("buttonBlog")}
+                </Button>
+              </Grid>
+            );
+          })}
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
-            {data?.map((ele, idx) => {
+            {allNews?.map((ele, idx) => {
               return (
                 <Box key={idx}>
                   <Box
@@ -477,7 +500,7 @@ export default function OurNews() {
                     }}
                   >
                     <Box>
-                      <Imgs src={ele?.img} alt="img2" width={900} height={900} />
+                      <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} />
                     </Box>
                     <Box
                       sx={{
@@ -509,7 +532,7 @@ export default function OurNews() {
                               fontFamily: inter.style.fontFamily,
                             }}
                           >
-                            {ele?.title}
+                            {ele?.source[0]}
                           </Typography>
                           <Box
                             sx={{
@@ -542,9 +565,10 @@ export default function OurNews() {
                             color: textColor,
                           }}
                         >
-                          {ele?.heading}
+                          {ele?.title}
                         </Typography>
                         <Typography
+                          dangerouslySetInnerHTML={{ __html: ele?.description }}
                           mt={1}
                           sx={{
                             color: textColor,
@@ -553,9 +577,7 @@ export default function OurNews() {
                             maxWidth: { md: "280px", xs: "100%" },
                             fontFamily: inter.style.fontFamily,
                           }}
-                        >
-                          {ele?.description}
-                        </Typography>
+                        ></Typography>
                         <Box>
                           <Box
                             sx={{
@@ -574,7 +596,7 @@ export default function OurNews() {
                                   fontFamily: inter.style.fontFamily,
                                 }}
                               >
-                                {ele?.time}
+                                {ele?.publishedDate}
                               </Typography>
                             </Box>
                             <Box

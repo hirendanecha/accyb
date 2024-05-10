@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Container, Grid, Typography, Divider, styled, Button } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -10,6 +10,9 @@ import E4 from "../../../../Icons/euro.svg";
 import E5 from "../../../../Icons/home.svg";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { useParams } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
@@ -45,7 +48,15 @@ const data = [
   },
 ];
 
-export default function page() {
+export default function Page() {
+  const params = useParams();
+  const { eventId } = params;
+  const dispatch = useDispatch();
+  const { getEvent } = useSelector((state) => state.events);
+
+  useEffect(() => {
+    dispatch(getEventsById(eventId));
+  }, []);
   return (
     <Box
       sx={{
@@ -134,9 +145,10 @@ export default function page() {
                     textAlign: "start",
                   }}
                 >
-                  Et harum quidem rerum facilis
+                  {getEvent?.access}
                 </Typography>
                 <Typography
+                  dangerouslySetInnerHTML={{ __html: getEvent?.description }}
                   sx={{
                     fontFamily: inter.style.fontFamily,
                     fontWeight: 400,
@@ -150,11 +162,7 @@ export default function page() {
                     },
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur
-                  interdum vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis
-                  tincidunt metus nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit amet
-                  venenatis urna. Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet quis
-                  condimentum at, mollis eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                  {/* {getEvent?.description} */}
                 </Typography>
               </Box>
             </Box>

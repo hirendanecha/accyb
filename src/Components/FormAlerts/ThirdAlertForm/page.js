@@ -92,7 +92,6 @@ const payload = {
   ...registrantInformation,
 }
     router.push(`/${locales}/alertreports/FinalSubmitForm`);
-    console.log(payload, "payload");
   };
   return (
     <>

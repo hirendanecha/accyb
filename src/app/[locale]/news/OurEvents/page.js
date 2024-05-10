@@ -14,9 +14,14 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
+import { getAllNews } from "../../../redux/action/newsActions/newsAction";
+import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
-  height: "auto !important",
+  height: "60% !important",
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",
@@ -28,61 +33,72 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
-  const subCategory = [
-    {
-      img: Event1,
-      title: "Janvier",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event2,
-      title: "Janvier",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event1,
-      title: "avril",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event2,
-      title: "avril",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-  ];
-  const [content, setContent] = useState(subCategory?.filter((ele) => ele?.title == "Janvier"));
-  const [currentCategory, setCurrentCategory] = useState("Janvier");
+  const { allEvents } = useSelector((state) => state.events);
+  const { allNews } = useSelector((state) => state.news);
+  const dispatch = useDispatch();
+  const locales = useLocale();
+  const router = useRouter();
+  const [currentCategory, setCurrentCategory] = useState(new Date().getMonth() + 1);
   const category = [
-    "Janvier",
-    "février",
-    "mars",
-    "avril",
-    "mai",
-    "juin",
-    "juillet",
-    "août",
-    "septembre",
-    "Octobre",
-    "novembre",
-    "décembre",
+    {
+      id: 1,
+      name: "Janvier",
+    },
+    {
+      id: 2,
+      name: "février",
+    },
+    {
+      id: 3,
+      name: "mars",
+    },
+    {
+      id: 4,
+      name: "avril",
+    },
+    {
+      id: 5,
+      name: "mai",
+    },
+    {
+      id: 6,
+      name: "juin",
+    },
+    {
+      id: 7,
+      name: "juillet",
+    },
+    {
+      id: 8,
+      name: "août",
+    },
+    {
+      id: 9,
+      name: "septembre",
+    },
+    {
+      id: 10,
+      name: "Octobre",
+    },
+    {
+      id: 11,
+      name: "novembre",
+    },
+    {
+      id: 12,
+      name: "décembre",
+    },
   ];
 
+  useEffect(() => {
+    dispatch(getAllEvents({ month: currentCategory }));
+    dispatch(getAllNews());
+    // dispatch(getAllEvents());
+  }, []);
+
   const handleClick = (id) => {
+    dispatch(getAllEvents({ month: id }));
     setCurrentCategory(id);
-    const aa = subCategory?.filter((ele) => ele?.title == id);
-    setContent(aa);
   };
   const articles = [
     {
@@ -128,9 +144,6 @@ export default function OurEvents() {
       time: "13.01.2024",
     },
   ];
-  useEffect(() => {
-    setCurrentCategory(category[new Date().getMonth()]);
-  }, []);
   return (
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
@@ -245,38 +258,40 @@ export default function OurEvents() {
             scrollbar={{ draggable: true }}
             className="mySwiper"
           >
-            {category?.map((ele, idx) => (
-              <SwiperSlide key={idx}>
-                <Button
-                  onClick={() => handleClick(ele)}
-                  sx={{
-                    width: {
-                      lg: "220px",
-                      md: "200px",
-                      sm: "150px",
-                      xs: "100%",
-                    },
-                    fontFamily: inter.style.fontFamily,
-                    backgroundImage:
-                      currentCategory === ele
-                        ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
-                        : "transparent",
-                    border: currentCategory === ele ? "" : "1px solid #D3D5DD",
-                    textTransform: "uppercase",
-                    padding: "15px 40px",
-                    fontSize: { md: "14px", xs: "12px" },
-                    color: currentCategory === ele ? "#FFFFFF" : "#222D55",
-                    borderRadius: "50px",
-                    "&:hover": {
-                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      color: "#FFFFFF",
-                    },
-                  }}
-                >
-                  {ele}
-                </Button>
-              </SwiperSlide>
-            ))}
+            {category?.map((ele, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <Button
+                    onClick={() => handleClick(ele?.id)}
+                    sx={{
+                      width: {
+                        lg: "220px",
+                        md: "200px",
+                        sm: "150px",
+                        xs: "100%",
+                      },
+                      fontFamily: inter.style.fontFamily,
+                      backgroundImage:
+                        currentCategory == ele?.id
+                          ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
+                          : "transparent",
+                      border: currentCategory == ele?.id ? "" : "1px solid #D3D5DD",
+                      textTransform: "uppercase",
+                      padding: "15px 40px",
+                      fontSize: { md: "14px", xs: "12px" },
+                      color: currentCategory == ele?.id ? "#FFFFFF" : "#222D55",
+                      borderRadius: "50px",
+                      "&:hover": {
+                        backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                        color: "#FFFFFF",
+                      },
+                    }}
+                  >
+                    {ele?.name}
+                  </Button>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </Box>
         <Grid
@@ -284,14 +299,22 @@ export default function OurEvents() {
           mt={{ md: 10, xs: 5 }}
           justifyContent={"center"}
           columnSpacing={3}
-          rowSpacing={{ md: 0, xs: 3 }}
+          rowSpacing={{ md: 5, xs: 3 }}
         >
-          {content?.length > 0 ? (
-            content?.map((ele) => {
+          {allEvents?.length > 0 ? (
+            allEvents?.map((ele, idx) => {
+              let month = category?.find((el) => el?.id == currentCategory)?.name;
               return (
                 <>
-                  <Grid item xs={12} md={6} lg={6}>
-                    <Img src={ele?.img} width={900} height={900} alt="img" />
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    lg={6}
+                    key={idx}
+                    onClick={() => router?.push(`/${locales}/event/${ele?._id}`)}
+                  >
+                    <Img src={ele?.pictureLink} width={900} height={900} alt="img" />
                     <Box>
                       <Typography
                         sx={{
@@ -306,7 +329,7 @@ export default function OurEvents() {
                           fontFamily: inter.style.fontFamily,
                         }}
                       >
-                        {ele?.title}
+                        {month}
                       </Typography>
                       <Typography
                         sx={{
@@ -318,9 +341,10 @@ export default function OurEvents() {
                           fontFamily: inter.style.fontFamily,
                         }}
                       >
-                        {ele?.heading}
+                        {ele?.title}
                       </Typography>
                       <Typography
+                        dangerouslySetInnerHTML={{ __html: ele?.description }}
                         sx={{
                           fontSize: "14px",
                           mt: 1,
@@ -329,9 +353,7 @@ export default function OurEvents() {
                           color: "#222D55",
                           fontFamily: inter.style.fontFamily,
                         }}
-                      >
-                        {ele?.description}
-                      </Typography>
+                      ></Typography>
                       <Box
                         sx={{
                           display: "flex",
@@ -347,7 +369,7 @@ export default function OurEvents() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          {ele?.time}
+                          {ele?.startDate}
                         </Typography>
                         <Box
                           sx={{
@@ -407,10 +429,10 @@ export default function OurEvents() {
       />
       <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-          {articles?.map((ele, idx) => {
+          {allNews?.map((ele, idx) => {
             return (
               <>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={6} onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}>
                   <Box
                     sx={{
                       display: "flex",
@@ -419,7 +441,7 @@ export default function OurEvents() {
                     }}
                   >
                     <Box>
-                      <Imgs src={ele?.img} width={295} height={220} alt="image1" />
+                      <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
                     </Box>
                     <Box
                       sx={{
@@ -441,20 +463,21 @@ export default function OurEvents() {
                           textTransform: "uppercase",
                         }}
                       >
-                        {ele?.title}
+                        {ele?.source[0]}
                       </Typography>
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
                           fontWeight: 600,
                           fontSize: "18px",
-                          maxWidth: { lg: "230px", md: "100%" },
+                          maxWidth: { lg: "300px", md: "100%" },
                           color: "#222D55",
                         }}
                       >
-                        {ele?.heading}
+                        {ele?.title}
                       </Typography>
                       <Typography
+                        dangerouslySetInnerHTML={{ __html: ele?.description }}
                         mt={1}
                         sx={{
                           fontFamily: inter.style.fontFamily,
@@ -462,9 +485,7 @@ export default function OurEvents() {
                           fontSize: "14px",
                           maxWidth: "350px",
                         }}
-                      >
-                        {ele?.description}
-                      </Typography>
+                      ></Typography>
                       <Box>
                         <Box
                           sx={{
@@ -483,7 +504,7 @@ export default function OurEvents() {
                                 color: "13.01.2024",
                               }}
                             >
-                              {ele?.time}
+                              {ele?.publishedDate}
                             </Typography>
                           </Box>
                           <Box

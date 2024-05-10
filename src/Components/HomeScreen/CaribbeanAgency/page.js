@@ -49,7 +49,6 @@ export default function CaribbeanAgency() {
   const [isVisible, setIsVisible] = useState(false);
   const lgUp = useMediaQuery(425);
 
-  console.log(lgUp, "lgUp");
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

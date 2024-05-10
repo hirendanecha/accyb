@@ -34,6 +34,7 @@ export default function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [activeLink, setActiveLink] = useState("/");
+  const [isActive, setIsActive] = useState(locales);
   const pages = [
     {
       name: t("title"),
@@ -413,20 +414,28 @@ export default function Header() {
                 <Divider orientation="horizontal" variant="middle" sx={{ bgcolor: "#8E9BBF" }} />
                 <MenuItem sx={{ gap: 1 }}>
                   <Avatar
+                    locale="fr"
+                    onClick={() => setIsActive("fr")}
                     sx={{
-                      background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      background:
+                        isActive == "fr" ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "transparent",
                       fontSize: "16px",
+                      color: isActive == "fr" ? "#FFFFFF" : "#7DB1FF",
+                      border: "1px solid #7DB1FF",
                       padding: 3,
                     }}
                   >
                     FR
                   </Avatar>
                   <Avatar
+                    locale="en"
+                    onClick={() => setIsActive("en")}
                     sx={{
-                      bgcolor: "transparent",
+                      background:
+                        isActive == "en" ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "transparent",
                       border: "1px solid #7DB1FF",
                       fontSize: "16px",
-                      color: "#7DB1FF",
+                      color: isActive == "en" ? "#FFFFFF" : "#7DB1FF",
                       padding: 3,
                     }}
                   >
