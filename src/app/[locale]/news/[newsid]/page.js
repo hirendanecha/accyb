@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { Box, Container, Grid, Typography, Divider, styled, CircularProgress } from "@mui/material";
+import { Box, Container, Grid, Typography, Divider, styled, CircularProgress, Button } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
@@ -13,7 +13,18 @@ import Image1 from "../../../../Icons/Image1.png";
 import Image2 from "../../../../Icons/Image2.png";
 import Image3 from "../../../../Icons/Image3.png";
 import { useLocale } from "next-intl";
+import HeroSection from "../HeroSection/page";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
   width: "100% !important",
@@ -90,233 +101,365 @@ export default function Page() {
     // dispatch(getAllEvents());
   }, []);
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100%",
-      }}
-    >
-      <Container disableGutters maxWidth={"xl"}>
-        <Grid container padding={"0 20px"}>
-          <Grid item xs={12} md={3} sx={{ position: "relative" }}>
-            <Box sx={{ position: "absolute", top: "50%" }}>
-              <Box
+    <>
+      <Container
+        disableGutters
+        maxWidth={"xl"}
+        sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: { md: "0 40px", xs: "0 10px" } }}
+      >
+        <Box
+          sx={{
+            backgroundImage: `url(${getNews?.attachment[0]})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: { lg: "cover", md: "cover", sm: "cover", xs: "cover" },
+            backgroundPosition: "fixed",
+            height: { md: "650px", xs: "550px" },
+            width: "100%",
+          }}
+        >
+          <Grid container>
+            <Grid item xs={12} md={8} padding={{ md: "150px 50px", xs: "150px 10px" }}>
+              <Button
                 sx={{
-                  backgroundColor: "#222D55",
-                  padding: 3,
-                  borderRadius: "50%",
-                  height: "46px",
-                  width: "46px",
-                  display: { md: "flex", xs: "none" },
-                  justifyContent: "center",
-                  alignItems: "center",
+                  fontFamily: inter.style.fontFamily,
+                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  textTransform: "uppercase",
+                  padding: "15px 40px 15px 40px",
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#FFFFFF",
+                  display: "flex",
+                  textAlign: "start",
+                  borderRadius: "50px",
+                  "&:hover": {
+                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  },
                 }}
               >
-                <ArrowUpwardIcon sx={{ color: "#fff" }} />
+                événement
+              </Button>
+              <Box
+                mt={1}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: {
+                    lg: "60px",
+                    md: "60px",
+                    sm: "40px",
+                    xs: "30px",
+                  },
+                  flexDirection: "column",
+                  textAlign: "start",
+                  color: "#FFFFFF",
+                  fontWeight: 400,
+                  lineHeight: {
+                    md: "75px",
+                    sm: "50px",
+                    xs: "40px",
+                  },
+                }}
+              >
+                {getNews?.title}
+                {/* <span
+                  style={{
+                    background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  cybercriminalité
+                </span>{" "} */}
               </Box>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6} sx={{ mt: { md: 40, xs: 20 } }}>
-            <Box sx={{ textAlign: "center" }}>
-              <Box>
-                <Typography
+              <Typography
+                dangerouslySetInnerHTML={{ __html: getNews?.description }}
+                sx={{
+                  display: "flex",
+                  textAlign: "start",
+                  fontSize: {
+                    lg: "14px",
+                    md: "13px",
+                    sm: "13px",
+                    xs: "12px",
+                  },
+                  color: "#FFFFFF",
+                  fontWeight: 400,
+                  lineHeight: { md: "25px", sm: "22px", xs: "20px" },
+                  maxWidth: "550px !important",
+                  mt: { md: 3, xs: 1 },
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                {/* {getNews?.description} */}
+              </Typography>
+              <Typography
+                sx={{
+                  display: "flex",
+                  textAlign: "start",
+                  fontSize: "12px",
+                  color: "#FFFFFF",
+                  fontWeight: 400,
+                  lineHeight: { md: "25px", xs: "25px" },
+                  maxWidth: "550px !important",
+                  mt: 2,
+                  fontFamily: inter.style.fontFamily,
+                }}
+              >
+                {dayjs(getNews?.created_at).format("DD MMM YYYY")}
+              </Typography>
+              <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", gap: 3, mt: 3 }}>
+                <Box
                   sx={{
-                    mt: 5,
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 400,
-                    fontSize: { md: "40px", xs: "20px" },
-                    color: "#222D55",
-                    lineHeight: { md: "60px", xs: "40px" },
-                    textAlign: "start",
+                    border: "1px solid #FFFFFF",
+                    width: "42px",
+                    display: "flex",
+                    height: "42px",
+                    borderRadius: "50%",
+                    justifyContent: "center",
+                    alignItems: "center", // This centers the icon vertically
                   }}
                 >
-                  {getNews?.title}
-                </Typography>
-                <Typography
-                  dangerouslySetInnerHTML={{ __html: getNews?.description }}
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 400,
-                    color: "#222D55",
-                    mt: { md: 3, xs: 1 },
-                    fontSize: {
-                      md: "20px",
-                      xs: "12px",
-                      lineHeight: { md: "32px", xs: "20px" },
-                      textAlign: "start",
-                    },
-                  }}
-                >
-                  {/* {getNews?.description} */}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 600,
-                    color: "#222D55",
-                    mt: { md: 3, xs: 1 },
-                    fontSize: {
-                      md: "20px",
-                      xs: "12px",
-                      lineHeight: "32px",
-                      textAlign: "start",
-                    },
-                  }}
-                >
-                  Source : {getNews?.source}
-                </Typography>
+                  <ShareIcon
+                    sx={{
+                      height: "19px",
+                      width: "19px",
+                      color: "#FFFFFF",
+                      cursor: "pointer",
+                    }}
+                  />
+                </Box>
               </Box>
-            </Box>
-            <Box mt={5}>
-              <Img src={getNews?.attachment[0]} height={900} width={900} alt="img" />
-            </Box>
+            </Grid>
+            <Grid item xs={12} md={4} padding={{ md: "150px 0px", xs: "150px 5px" }}></Grid>
           </Grid>
-          <Container disableGutters maxWidth={"xl"}>
-            <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 10 }}>
-              Découvrez nos autres articles
-            </Typography>
-          </Container>
+        </Box>
+      </Container>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        <Container disableGutters maxWidth={"xl"}>
+          <Grid container padding={"0 20px"}>
+            <Grid item xs={12} md={3} sx={{ position: "relative" }}>
+              <Box sx={{ position: "absolute", top: "50%" }}>
+                <Box
+                  sx={{
+                    backgroundColor: "#222D55",
+                    padding: 3,
+                    borderRadius: "50%",
+                    height: "46px",
+                    width: "46px",
+                    display: { md: "flex", xs: "none" },
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <ArrowUpwardIcon sx={{ color: "#fff" }} />
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Box sx={{ textAlign: "center" }}>
+                <Box>
+                  <Typography
+                    sx={{
+                      mt: 5,
+                      fontFamily: inter.style.fontFamily,
+                      fontWeight: 400,
+                      fontSize: { md: "40px", xs: "20px" },
+                      color: "#222D55",
+                      lineHeight: { md: "60px", xs: "40px" },
+                      textAlign: "start",
+                    }}
+                  >
+                    {getNews?.title}
+                  </Typography>
+                  <Typography
+                    dangerouslySetInnerHTML={{ __html: getNews?.description }}
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontWeight: 400,
+                      color: "#222D55",
+                      mt: { md: 3, xs: 1 },
+                      fontSize: {
+                        md: "20px",
+                        xs: "12px",
+                        lineHeight: { md: "32px", xs: "20px" },
+                        textAlign: "start",
+                      },
+                    }}
+                  >
+                    {/* {getNews?.description} */}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontWeight: 600,
+                      color: "#222D55",
+                      mt: { md: 3, xs: 1 },
+                      fontSize: {
+                        md: "20px",
+                        xs: "12px",
+                        lineHeight: "32px",
+                        textAlign: "start",
+                      },
+                    }}
+                  >
+                    Source : {getNews?.source}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box mt={5}>
+                <Img src={getNews?.attachment[0]} height={900} width={900} alt="img" />
+              </Box>
+            </Grid>
+            <Container disableGutters maxWidth={"xl"}>
+              <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 10 }}>
+                Découvrez nos autres articles
+              </Typography>
+            </Container>
 
-          <Divider
-            variant="middle"
-            sx={{
-              display: { md: "block", xs: "none" },
-              bgcolor: "#222D55",
-              mt: 2,
-              opacity: "20%",
-              borderBottomWidth: "1px",
-            }}
-          />
-          <Container disableGutters maxWidth={"xl"}>
-            <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-              {allNews?.length > 0 ? (
-                <>
-                  {allNews?.map((ele, idx) => {
-                    return (
-                      <>
-                        <Grid
-                          item
-                          xs={12}
-                          md={6}
-                          sx={{ cursor: "pointer" }}
-                          onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}
-                        >
-                          <Box
-                            sx={{
-                              display: "flex",
-                              gap: 3,
-                              flexDirection: { lg: "row", md: "column", xs: "column" },
-                            }}
+            <Divider
+              variant="middle"
+              sx={{
+                display: { md: "block", xs: "none" },
+                bgcolor: "#222D55",
+                mt: 2,
+                opacity: "20%",
+                borderBottomWidth: "1px",
+              }}
+            />
+            <Container disableGutters maxWidth={"xl"}>
+              <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
+                {allNews?.length > 0 ? (
+                  <>
+                    {allNews?.map((ele, idx) => {
+                      return (
+                        <>
+                          <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            sx={{ cursor: "pointer" }}
+                            onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}
                           >
-                            <Box>
-                              <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
-                            </Box>
                             <Box
                               sx={{
                                 display: "flex",
-                                flexDirection: "column",
+                                gap: 3,
+                                flexDirection: { lg: "row", md: "column", xs: "column" },
                               }}
                             >
-                              <Typography
-                                sx={{
-                                  fontFamily: inter.style.fontFamily,
-                                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                                  width: "max-content",
-                                  padding: 1,
-                                  fontSize: "12px",
-                                  mb: 1,
-                                  padding: "8px 15px 8px 15px",
-                                  cursor: "pointer",
-                                  color: "#FFFFFF",
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {ele?.source[0]}
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  fontFamily: inter.style.fontFamily,
-                                  fontWeight: 600,
-                                  fontSize: "18px",
-                                  maxWidth: { lg: "300px", md: "100%" },
-                                  color: "#222D55",
-                                }}
-                              >
-                                {ele?.title}
-                              </Typography>
-                              <Typography
-                                dangerouslySetInnerHTML={{ __html: ele?.description }}
-                                mt={1}
-                                sx={{
-                                  fontFamily: inter.style.fontFamily,
-                                  color: "#222D55",
-                                  fontSize: "14px",
-                                  maxWidth: "350px",
-                                }}
-                              ></Typography>
                               <Box>
-                                <Box
+                                <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
+                              </Box>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
                                   sx={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    mt: { md: 3, xs: 2 },
+                                    fontFamily: inter.style.fontFamily,
+                                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                    width: "max-content",
+                                    padding: 1,
+                                    fontSize: "12px",
+                                    mb: 1,
+                                    padding: "8px 15px 8px 15px",
+                                    cursor: "pointer",
+                                    color: "#FFFFFF",
+                                    textTransform: "uppercase",
                                   }}
                                 >
-                                  <Box>
-                                    <Typography
-                                      sx={{
-                                        fontFamily: inter.style.fontFamily,
-                                        fontSize: 14,
-                                        fontWeight: 600,
-                                        color: "13.01.2024",
-                                      }}
-                                    >
-                                      {dayjs(ele?.publishedDate).format("DD MMM YYYY")}
-                                    </Typography>
-                                  </Box>
+                                  {ele?.source[0]}
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    fontFamily: inter.style.fontFamily,
+                                    fontWeight: 600,
+                                    fontSize: "18px",
+                                    maxWidth: { lg: "300px", md: "100%" },
+                                    color: "#222D55",
+                                  }}
+                                >
+                                  {ele?.title}
+                                </Typography>
+                                <Typography
+                                  dangerouslySetInnerHTML={{ __html: ele?.description }}
+                                  mt={1}
+                                  sx={{
+                                    fontFamily: inter.style.fontFamily,
+                                    color: "#222D55",
+                                    fontSize: "14px",
+                                    maxWidth: "350px",
+                                  }}
+                                ></Typography>
+                                <Box>
                                   <Box
                                     sx={{
-                                      border: "1px solid #222D55",
-                                      width: "36px",
-                                      mr: 3,
-                                      height: "36px",
-                                      borderRadius: "50%",
                                       display: "flex",
-                                      justifyContent: "center",
-                                      alignItems: "center", // This centers the icon vertically
+                                      justifyContent: "space-between",
+                                      alignItems: "center",
+                                      mt: { md: 3, xs: 2 },
                                     }}
                                   >
-                                    <ShareIcon
+                                    <Box>
+                                      <Typography
+                                        sx={{
+                                          fontFamily: inter.style.fontFamily,
+                                          fontSize: 14,
+                                          fontWeight: 600,
+                                          color: "13.01.2024",
+                                        }}
+                                      >
+                                        {dayjs(ele?.publishedDate).format("DD MMM YYYY")}
+                                      </Typography>
+                                    </Box>
+                                    <Box
                                       sx={{
-                                        height: "16px",
-                                        width: "16px",
-                                        color: "#222D55",
-                                        cursor: "pointer",
+                                        border: "1px solid #222D55",
+                                        width: "36px",
+                                        mr: 3,
+                                        height: "36px",
+                                        borderRadius: "50%",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center", // This centers the icon vertically
                                       }}
-                                    />
+                                    >
+                                      <ShareIcon
+                                        sx={{
+                                          height: "16px",
+                                          width: "16px",
+                                          color: "#222D55",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </Box>
                                   </Box>
                                 </Box>
                               </Box>
                             </Box>
-                          </Box>
-                        </Grid>
-                      </>
-                    );
-                  })}
-                </>
-              ) : (
-                <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
-                  <CircularProgress sx={{ color: "#007A47" }} />
-                </Grid>
-              )}
-            </Grid>
-          </Container>
-          <Grid item xs={12} md={3}></Grid>
-        </Grid>
-      </Container>
-    </Box>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </>
+                ) : (
+                  <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+                    <CircularProgress sx={{ color: "#007A47" }} />
+                  </Grid>
+                )}
+              </Grid>
+            </Container>
+            <Grid item xs={12} md={3}></Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </>
   );
 }
