@@ -170,7 +170,7 @@ export default function OurEvents() {
               {allEvents?.events?.map((ele, idx) => {
                 return (
                   <>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} key={idx}>
                       <Box
                         sx={{
                           display: "flex",
