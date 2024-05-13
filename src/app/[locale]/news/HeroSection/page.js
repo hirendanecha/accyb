@@ -15,7 +15,7 @@ import { inter } from "../../../../fonts/fonts";
 export default function App() {
   return (
     <>
-      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: "0 40px" }}>
+      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: {md : "0 40px" , xs : "0 20px"} }}>
         <Box
           component={Swiper}
           slidesPerView={1}

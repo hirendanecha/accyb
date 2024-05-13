@@ -19,6 +19,7 @@ import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
 import { getAllNews } from "../../../redux/action/newsActions/newsAction";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
+import dayjs from "dayjs";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "60% !important",
@@ -296,10 +297,10 @@ export default function OurEvents() {
         </Box>
         <Grid
           container
-          mt={{ md: 10, xs: 5 }}
+          mt={{ md: 10, xs: 0 }}
           justifyContent={"center"}
           columnSpacing={3}
-          rowSpacing={{ md: 5, xs: 3 }}
+          rowSpacing={{ md: 5, xs: 10 }}
         >
           {eventLoading ? (
             <Grid
@@ -384,7 +385,7 @@ export default function OurEvents() {
                                 fontFamily: inter.style.fontFamily,
                               }}
                             >
-                              {ele?.startDate}
+                              {dayjs(ele?.date).format("DD MMM YYYY")}
                             </Typography>
                             <Box
                               sx={{
@@ -529,7 +530,7 @@ export default function OurEvents() {
                                     color: "13.01.2024",
                                   }}
                                 >
-                                  {ele?.publishedDate}
+                                  {dayjs(ele?.publishedDate).format("DD MMM YYYY")}
                                 </Typography>
                               </Box>
                               <Box

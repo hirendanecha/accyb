@@ -27,6 +27,7 @@ import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../../../app/redux/action/eventActions/eventAction";
 import { getAllNews } from "../../../app/redux/action/newsActions/newsAction";
+import dayjs from "dayjs";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -334,7 +335,16 @@ export default function OurNews() {
             <>
               {allEvents?.slice(0, 1).map((ele, idx) => {
                 return (
-                  <Grid item xs={12} md={12} lg={6} mt={2} key={idx}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={6}
+                    mt={2}
+                    key={idx}
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
+                  >
                     <Img src={ele?.pictureLink} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
                     <Box ref={ref}>
                       {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
@@ -424,7 +434,7 @@ export default function OurNews() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          {ele?.startDate}
+                          {dayjs(ele?.startDate).format("DD MMM YYYY")}
                         </Typography>
                         <Box
                           sx={{
@@ -450,7 +460,7 @@ export default function OurNews() {
                       {/* </motion.div> */}
                     </Box>
                     <Button
-                      onClick={() => router.push(`/${locals}/news`)}
+                      onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
@@ -518,7 +528,11 @@ export default function OurNews() {
               <>
                 {allNews?.map((ele, idx) => {
                   return (
-                    <Box key={idx}>
+                    <Box
+                      key={idx}
+                      sx={{ cursor: "pointer" }}
+                      onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
+                    >
                       <Box
                         sx={{
                           display: { md: "flex", xs: "block" },
@@ -624,7 +638,7 @@ export default function OurNews() {
                                       fontFamily: inter.style.fontFamily,
                                     }}
                                   >
-                                    {ele?.publishedDate}
+                                    {dayjs(ele?. publishedDate).format("DD MMM, YYYY")}
                                   </Typography>
                                 </Box>
                                 <Box

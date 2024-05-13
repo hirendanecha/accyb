@@ -18,14 +18,18 @@ import { inter } from "../../../../fonts/fonts";
 export default function App() {
   return (
     <>
-      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: "0 40px" }}>
+      <Container
+        disableGutters
+        maxWidth={"xl"}
+        sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: { md: "0 40px", xs: "0 10px" } }}
+      >
         <Box
           sx={{
             backgroundImage: "url('/News/Slider1.svg')",
             backgroundRepeat: "no-repeat",
             backgroundSize: { lg: "contain", md: "cover", xs: "cover" },
             backgroundPosition: "fixed",
-            height: { md: "800px", xs: "550px" },
+            height: { md: "800px", xs: "580px" },
             width: "100%",
           }}
         >
@@ -191,11 +195,70 @@ export default function App() {
                   Ajouter au calendrier
                 </Button>
               </Box>
+              <Box
+                sx={{
+                  display: { md: "none", xs: "flex" },
+                  justifyContent: "center",
+                  mt: 3,
+                }}
+              >
+                <Button
+                  onClick={() => router.push(`/${locale}/alerteslist`)}
+                  variant="outlined"
+                  endIcon={
+                    <ArrowForwardIcon
+                      sx={{
+                        backgroundColor: "#7DB1FF",
+                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        borderRadius: "50%",
+                        width: { md: "45px", xs: "40px" },
+                        height: { md: "45px", xs: "40px" },
+                        padding: 1.7,
+                        color: "#FFFFFF",
+                        marginRight: -2,
+                        ml: 3,
+                        ":hover": {
+                          "@keyframes move-left": {
+                            "0%": {
+                              rotate: "0deg",
+                            },
+                            "100%": {
+                              rotate: "-35deg",
+                            },
+                          },
+                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        },
+                      }}
+                    />
+                  }
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    color: "#7DB1FF",
+                    border: "1px solid rgba(142, 155, 191, 0.3)",
+                    borderRadius: "61px",
+                    padding: "8px 30px",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    background: "#FFFFFF",
+                    ":hover": {
+                      borderColor: "#8E9BBF",
+                      border: "1px solid rgba(255, 255, 255, 0.5)",
+                    },
+                    fontFamily: inter.style.fontFamily,
+                    "& .MuiButton-endIcon": {
+                      marginLeft: 2.2,
+                    },
+                  }}
+                >
+                  s’inscrire à l’événement
+                </Button>
+              </Box>
             </Grid>
             <Grid item xs={12} md={4} padding={{ md: "150px 0px", xs: "150px 5px" }}>
               <Box
                 sx={{
-                  display: "flex",
+                  display: { md: "flex", xs: "none" },
                   justifyContent: "start",
                   alignItems: "end",
                   height: "100%",

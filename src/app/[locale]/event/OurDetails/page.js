@@ -62,6 +62,7 @@ export default function Page() {
   return (
     <Box
       sx={{
+        mt: 10,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -97,7 +98,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "16px",
+                    fontSize: {md : "16px" , xs : "14px"},
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -127,7 +128,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "16px",
+                    fontSize: {md : "16px" , xs : "14px"},
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -156,7 +157,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "16px",
+                    fontSize: {md : "16px" , xs : "14px"},
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -185,12 +186,12 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "16px",
+                    fontSize: {md : "16px" , xs : "14px"},
                     color: "#222D55",
                     fontWeight: 600,
                   }}
                 >
-                  {getEvent?.access}
+                  {getEvent?.eventType || "-"}
                 </Typography>
               </Box>
             </Box>
@@ -214,7 +215,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "16px",
+                    fontSize: {md : "16px" , xs : "14px"},
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -239,12 +240,12 @@ export default function Page() {
               <Box>
                 <Typography
                   sx={{
-                    mt: 5,
+                    mt: 10,
                     fontFamily: inter.style.fontFamily,
                     fontWeight: 400,
-                    fontSize: { md: "70px", xs: "20px", lineHeight: "50px" },
+                    fontSize: { md: "40px", xs: "20px" },
                     color: "#222D55",
-                    lineHeight: "90px",
+                    lineHeight: {md : "60px" , xs : "30px"},
                     textAlign: "start",
                   }}
                 >
@@ -258,9 +259,9 @@ export default function Page() {
                     color: "#222D55",
                     mt: 3,
                     fontSize: {
-                      md: "20px",
+                      md: "18px",
                       xs: "10px",
-                      lineHeight: "32px",
+                      lineHeight: { md: "32px", xs: "40px" },
                       textAlign: "start",
                     },
                   }}
@@ -290,8 +291,8 @@ export default function Page() {
                   background: "transparent",
                   borderRadius: "61px",
                   padding: "8px 30px",
-                  fontSize: { md: "12px", xs: "10px" },
-                  mt: { md: 3, xs: 5 },
+                  fontSize: { md: "12px", xs: "11px" },
+                  mt: { md: 3, xs: 2 },
                   fontWeight: 600,
                   background: "#ffffff",
                   fontFamily: inter.style.fontFamily,
@@ -307,6 +308,7 @@ export default function Page() {
             </Box>
           </Grid>
         </Grid>
+
         <Grid container>
           <Grid item md={0.5}></Grid>
           <Grid item xs={12} md={5.25}>
@@ -316,7 +318,7 @@ export default function Page() {
                 position: "relative",
                 borderRadius: "20px 20px 20px 20px",
                 overflow: "hidden",
-                mt: { md: 20, xs: 13 },
+                mt: { md: 20, xs: 10 },
               }}
             >
               <Box
@@ -368,7 +370,7 @@ export default function Page() {
               ></Box>
               <Box
                 sx={{
-                  padding: "50px 80px",
+                  padding: { md: "50px 80px", xs: "10px 30px" },
                   mt: 10,
                   mb: 10,
                 }}
@@ -669,7 +671,7 @@ export default function Page() {
               ></Box>
               <Box
                 sx={{
-                  padding: "50px 80px",
+                  padding: { md: "50px 80px", xs: "10px 30px" },
                   mt: 10,
                   mb: 10,
                 }}
