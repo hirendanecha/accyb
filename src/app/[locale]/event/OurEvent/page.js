@@ -17,6 +17,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -33,6 +35,8 @@ const Imgs = styled(Image)(({ theme }) => ({
 export default function OurEvents() {
   const { allEvents } = useSelector((state) => state.events);
   const dispatch = useDispatch();
+  const router = useRouter();
+  const locale = useLocale();
 
   const subCategory = [
     {
@@ -170,7 +174,14 @@ export default function OurEvents() {
               {allEvents?.events?.map((ele, idx) => {
                 return (
                   <>
-                    <Grid item xs={12} md={6} key={idx}>
+                    <Grid
+                      item
+                      xs={12}
+                      md={6}
+                      key={idx}
+                      sx={{ cursor: "pointer" }}
+                      onClick={() => router.push(`/${locale}/event/${ele?._id}`)}
+                    >
                       <Box
                         sx={{
                           display: "flex",
