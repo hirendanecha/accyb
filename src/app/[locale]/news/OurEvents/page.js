@@ -146,7 +146,7 @@ export default function OurEvents() {
     },
   ];
   return (
-    <Box sx={{ padding: "0 16px" }}>
+    <Box sx={{ padding: "0 16px", mt: 4 }}>
       <Container disableGutters maxWidth={"xl"}>
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Typography
@@ -316,8 +316,8 @@ export default function OurEvents() {
             </Grid>
           ) : (
             <>
-              {allEvents?.length > 0 ? (
-                allEvents?.map((ele, idx) => {
+              {allEvents?.events?.length > 0 ? (
+                allEvents?.events?.map((ele, idx) => {
                   let month = category?.find((el) => el?.id == currentCategory)?.name;
                   return (
                     <>

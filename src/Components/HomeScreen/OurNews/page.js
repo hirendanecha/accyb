@@ -331,9 +331,9 @@ export default function OurNews() {
           px={!lgDown ? "50px" : "0px"}
           pt={5}
         >
-          {allEvents?.length > 0 ? (
+          {allEvents?.events?.length > 0 ? (
             <>
-              {allEvents?.slice(0, 1).map((ele, idx) => {
+              {allEvents?.events?.slice(0, 1).map((ele, idx) => {
                 return (
                   <Grid
                     item
@@ -638,7 +638,7 @@ export default function OurNews() {
                                       fontFamily: inter.style.fontFamily,
                                     }}
                                   >
-                                    {dayjs(ele?. publishedDate).format("DD MMM, YYYY")}
+                                    {dayjs(ele?.publishedDate).format("DD MMM, YYYY")}
                                   </Typography>
                                 </Box>
                                 <Box

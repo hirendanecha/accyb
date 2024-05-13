@@ -8,7 +8,7 @@ export const getAllEvents = createAsyncThunk("admin/getAllEvents", async (data, 
     if (data?.month) {
       response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events?month=${data?.month}`);
     } else {
-      response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events}`);
+      response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events`);
     }
     return response.data;
   } catch (error) {

@@ -26,7 +26,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 export default function OurMission() {
   const router = useRouter();
-  const locales = useLocale();
+  const locales = useLocale();  
   const controls = useAnimation();
   const searchParams = useSearchParams();
   const search = searchParams.get("services");
