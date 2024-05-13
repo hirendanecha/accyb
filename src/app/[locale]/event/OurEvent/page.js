@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -14,6 +14,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
+import { useDispatch, useSelector } from "react-redux";
+import dayjs from "dayjs";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -28,6 +31,9 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
+  const { allEvents } = useSelector((state) => state.events);
+  const dispatch = useDispatch();
+
   const subCategory = [
     {
       img: Event1,
@@ -78,6 +84,14 @@ export default function OurEvents() {
     "novembre",
     "décembre",
   ];
+
+  useEffect(() => {
+    dispatch(getAllEvents())
+      .unwrap()
+      .then((res) => {
+        // console.log(res);
+      });
+  }, []);
 
   const handleClick = (id) => {
     setCurrentCategory(id);
@@ -151,114 +165,123 @@ export default function OurEvents() {
       />
       <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-          {articles?.map((ele, idx) => {
-            return (
-              <>
-                <Grid item xs={12} md={6}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: 3,
-                      flexDirection: { lg: "row", md: "column", xs: "column" },
-                    }}
-                  >
-                    <Box>
-                      <Imgs src={ele?.img} width={295} height={220} alt="image1" />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <Typography
+          {allEvents?.events?.length > 0 ? (
+            <>
+              {allEvents?.events?.map((ele, idx) => {
+                return (
+                  <>
+                    <Grid item xs={12} md={6}>
+                      <Box
                         sx={{
-                          fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          width: "max-content",
-                          padding: 1,
-                          fontSize: "12px",
-                          mb: 1,
-                          padding: "8px 15px 8px 15px",
-                          cursor: "pointer",
-                          color: "#FFFFFF",
-                          textTransform: "uppercase",
+                          display: "flex",
+                          gap: 3,
+                          flexDirection: { lg: "row", md: "column", xs: "column" },
                         }}
                       >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          fontWeight: 600,
-                          fontSize: "18px",
-                          maxWidth: { lg: "230px", md: "100%" },
-                          color: "#222D55",
-                        }}
-                      >
-                        {ele?.heading}
-                      </Typography>
-                      <Typography
-                        mt={1}
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          color: "#222D55",
-                          fontSize: "14px",
-                          maxWidth: "350px",
-                        }}
-                      >
-                        {ele?.description}
-                      </Typography>
-                      <Box>
+                        <Box>
+                          <Imgs src={ele?.pictureLink} width={295} height={220} alt="image1" />
+                        </Box>
                         <Box
                           sx={{
                             display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            mt: { md: 3, xs: 2 },
+                            flexDirection: "column",
                           }}
                         >
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontFamily: inter.style.fontFamily,
-                                fontSize: 14,
-                                fontWeight: 600,
-                                color: "13.01.2024",
-                              }}
-                            >
-                              {ele?.time}
-                            </Typography>
-                          </Box>
-                          <Box
+                          <Typography
                             sx={{
-                              border: "1px solid #222D55",
-                              width: "36px",
-                              mr: 3,
-                              height: "36px",
-                              borderRadius: "50%",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center", // This centers the icon vertically
+                              fontFamily: inter.style.fontFamily,
+                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                              width: "max-content",
+                              padding: 1,
+                              fontSize: "12px",
+                              mb: 1,
+                              padding: "8px 15px 8px 15px",
+                              cursor: "pointer",
+                              color: "#FFFFFF",
+                              textTransform: "uppercase",
                             }}
                           >
-                            <ShareIcon
+                            {ele?.title}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontFamily: inter.style.fontFamily,
+                              fontWeight: 600,
+                              fontSize: "18px",
+                              maxWidth: { lg: "230px", md: "100%" },
+                              color: "#222D55",
+                            }}
+                          >
+                            {ele?.access}
+                          </Typography>
+                          <Typography
+                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            mt={1}
+                            sx={{
+                              fontFamily: inter.style.fontFamily,
+                              color: "#222D55",
+                              fontSize: "14px",
+                              maxWidth: "350px",
+                            }}
+                          >
+                            {/* {ele?.description} */}
+                          </Typography>
+                          <Box>
+                            <Box
                               sx={{
-                                height: "16px",
-                                width: "16px",
-                                color: "#222D55",
-                                cursor: "pointer",
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                mt: { md: 3, xs: 2 },
                               }}
-                            />
+                            >
+                              <Box>
+                                <Typography
+                                  sx={{
+                                    fontFamily: inter.style.fontFamily,
+                                    fontSize: 14,
+                                    fontWeight: 600,
+                                    color: "13.01.2024",
+                                  }}
+                                >
+                                  {dayjs(ele?.startDate).format("DD.MM.YYYY")}
+                                </Typography>
+                              </Box>
+                              <Box
+                                sx={{
+                                  border: "1px solid #222D55",
+                                  width: "36px",
+                                  mr: 3,
+                                  height: "36px",
+                                  borderRadius: "50%",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center", // This centers the icon vertically
+                                }}
+                              >
+                                <ShareIcon
+                                  sx={{
+                                    height: "16px",
+                                    width: "16px",
+                                    color: "#222D55",
+                                    cursor: "pointer",
+                                  }}
+                                />
+                              </Box>
+                            </Box>
                           </Box>
                         </Box>
                       </Box>
-                    </Box>
-                  </Box>
-                </Grid>
-              </>
-            );
-          })}
+                    </Grid>
+                  </>
+                );
+              })}
+            </>
+          ) : (
+            <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+              <CircularProgress sx={{ color: "#007A47" }} />
+            </Grid>
+          )}
         </Grid>
       </Container>
       <Container disableGutters maxWidth={"xl"}>
