@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -33,7 +33,7 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
-  const { allEvents } = useSelector((state) => state.events);
+  const { allEvents, eventLoading } = useSelector((state) => state.events);
   const { allNews } = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const locales = useLocale();
@@ -301,117 +301,134 @@ export default function OurEvents() {
           columnSpacing={3}
           rowSpacing={{ md: 5, xs: 3 }}
         >
-          {allEvents?.length > 0 ? (
-            allEvents?.map((ele, idx) => {
-              let month = category?.find((el) => el?.id == currentCategory)?.name;
-              return (
-                <>
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    lg={6}
-                    key={idx}
-                    onClick={() => router?.push(`/${locales}/event/${ele?._id}`)}
-                  >
-                    <Img src={ele?.pictureLink} width={900} height={900} alt="img" />
-                    <Box>
-                      <Typography
-                        sx={{
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          width: "max-content",
-                          padding: "8px 15px 8px 15px",
-                          fontSize: "12px",
-                          mt: 3,
-                          color: "#FFFFFF",
-                          textTransform: "uppercase",
-                          cursor: "pointer",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        {month}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: "24px",
-                          mt: 1,
-                          width: { md: "450px", xs: "100%" },
-                          lineHeight: "36px",
-                          color: "#222D55",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        dangerouslySetInnerHTML={{ __html: ele?.description }}
-                        sx={{
-                          fontSize: "14px",
-                          mt: 1,
-                          width: { md: "450px", xs: "100%" },
-                          lineHeight: "22px",
-                          color: "#222D55",
-                          fontFamily: inter.style.fontFamily,
-                        }}
-                      ></Typography>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontWeight: 500,
-                            mt: 2,
-                            fontSize: "14px",
-                            color: "#222D55",
-                            fontFamily: inter.style.fontFamily,
-                          }}
-                        >
-                          {ele?.startDate}
-                        </Typography>
-                        <Box
-                          sx={{
-                            border: "1px solid #222D55",
-                            width: "35px",
-                            height: "35px",
-                            borderRadius: "50%",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center", // This centers the icon vertically
-                          }}
-                        >
-                          <ShareIcon
-                            sx={{
-                              height: "20px",
-                              width: "20px",
-                              color: "#222D55",
-                              cursor: "pointer",
-                            }}
-                          />
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Grid>
-                </>
-              );
-            })
-          ) : (
-            <Box
+          {eventLoading ? (
+            <Grid
+              item
+              xs={12}
               sx={{
                 display: "flex",
-                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: "18px",
-                }}
-              >
-                No Event Found
-              </Typography>
-            </Box>
+              <CircularProgress />
+            </Grid>
+          ) : (
+            <>
+              {allEvents?.length > 0 ? (
+                allEvents?.map((ele, idx) => {
+                  let month = category?.find((el) => el?.id == currentCategory)?.name;
+                  return (
+                    <>
+                      <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        lg={6}
+                        key={idx}
+                        onClick={() => router?.push(`/${locales}/event/${ele?._id}`)}
+                        sx={{ cursor: "pointer" }}
+                      >
+                        <Img src={ele?.pictureLink} width={900} height={900} alt="img" />
+                        <Box>
+                          <Typography
+                            sx={{
+                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                              width: "max-content",
+                              padding: "8px 15px 8px 15px",
+                              fontSize: "12px",
+                              mt: 3,
+                              color: "#FFFFFF",
+                              textTransform: "uppercase",
+                              cursor: "pointer",
+                              fontFamily: inter.style.fontFamily,
+                            }}
+                          >
+                            {month}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontSize: "24px",
+                              mt: 1,
+                              width: { md: "450px", xs: "100%" },
+                              lineHeight: "36px",
+                              color: "#222D55",
+                              fontFamily: inter.style.fontFamily,
+                            }}
+                          >
+                            {ele?.title}
+                          </Typography>
+                          <Typography
+                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            sx={{
+                              fontSize: "14px",
+                              mt: 1,
+                              width: { md: "450px", xs: "100%" },
+                              lineHeight: "22px",
+                              color: "#222D55",
+                              fontFamily: inter.style.fontFamily,
+                            }}
+                          ></Typography>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontWeight: 500,
+                                mt: 2,
+                                fontSize: "14px",
+                                color: "#222D55",
+                                fontFamily: inter.style.fontFamily,
+                              }}
+                            >
+                              {ele?.startDate}
+                            </Typography>
+                            <Box
+                              sx={{
+                                border: "1px solid #222D55",
+                                width: "35px",
+                                height: "35px",
+                                borderRadius: "50%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center", // This centers the icon vertically
+                              }}
+                            >
+                              <ShareIcon
+                                sx={{
+                                  height: "20px",
+                                  width: "20px",
+                                  color: "#222D55",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            </Box>
+                          </Box>
+                        </Box>
+                      </Grid>
+                    </>
+                  );
+                })
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: "18px",
+                    }}
+                  >
+                    No Event Found
+                  </Typography>
+                </Box>
+              )}
+            </>
           )}
         </Grid>
         <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}>Articles</Typography>
@@ -429,113 +446,127 @@ export default function OurEvents() {
       />
       <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-          {allNews?.map((ele, idx) => {
-            return (
-              <>
-                <Grid item xs={12} md={6} onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: 3,
-                      flexDirection: { lg: "row", md: "column", xs: "column" },
-                    }}
-                  >
-                    <Box>
-                      <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
+          {allNews?.length > 0 ? (
+            <>
+              {allNews?.map((ele, idx) => {
+                return (
+                  <>
+                    <Grid
+                      item
+                      xs={12}
+                      md={6}
+                      sx={{ cursor: "pointer" }}
+                      onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}
                     >
-                      <Typography
+                      <Box
                         sx={{
-                          fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          width: "max-content",
-                          padding: 1,
-                          fontSize: "12px",
-                          mb: 1,
-                          padding: "8px 15px 8px 15px",
-                          cursor: "pointer",
-                          color: "#FFFFFF",
-                          textTransform: "uppercase",
+                          display: "flex",
+                          gap: 3,
+                          flexDirection: { lg: "row", md: "column", xs: "column" },
                         }}
                       >
-                        {ele?.source[0]}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          fontWeight: 600,
-                          fontSize: "18px",
-                          maxWidth: { lg: "300px", md: "100%" },
-                          color: "#222D55",
-                        }}
-                      >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        dangerouslySetInnerHTML={{ __html: ele?.description }}
-                        mt={1}
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          color: "#222D55",
-                          fontSize: "14px",
-                          maxWidth: "350px",
-                        }}
-                      ></Typography>
-                      <Box>
+                        <Box>
+                          <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
+                        </Box>
                         <Box
                           sx={{
                             display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            mt: { md: 3, xs: 2 },
+                            flexDirection: "column",
                           }}
                         >
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontFamily: inter.style.fontFamily,
-                                fontSize: 14,
-                                fontWeight: 600,
-                                color: "13.01.2024",
-                              }}
-                            >
-                              {ele?.publishedDate}
-                            </Typography>
-                          </Box>
-                          <Box
+                          <Typography
                             sx={{
-                              border: "1px solid #222D55",
-                              width: "36px",
-                              mr: 3,
-                              height: "36px",
-                              borderRadius: "50%",
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center", // This centers the icon vertically
+                              fontFamily: inter.style.fontFamily,
+                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                              width: "max-content",
+                              padding: 1,
+                              fontSize: "12px",
+                              mb: 1,
+                              padding: "8px 15px 8px 15px",
+                              cursor: "pointer",
+                              color: "#FFFFFF",
+                              textTransform: "uppercase",
                             }}
                           >
-                            <ShareIcon
+                            {ele?.source[0]}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              fontFamily: inter.style.fontFamily,
+                              fontWeight: 600,
+                              fontSize: "18px",
+                              maxWidth: { lg: "300px", md: "100%" },
+                              color: "#222D55",
+                            }}
+                          >
+                            {ele?.title}
+                          </Typography>
+                          <Typography
+                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            mt={1}
+                            sx={{
+                              fontFamily: inter.style.fontFamily,
+                              color: "#222D55",
+                              fontSize: "14px",
+                              maxWidth: "350px",
+                            }}
+                          ></Typography>
+                          <Box>
+                            <Box
                               sx={{
-                                height: "16px",
-                                width: "16px",
-                                color: "#222D55",
-                                cursor: "pointer",
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                mt: { md: 3, xs: 2 },
                               }}
-                            />
+                            >
+                              <Box>
+                                <Typography
+                                  sx={{
+                                    fontFamily: inter.style.fontFamily,
+                                    fontSize: 14,
+                                    fontWeight: 600,
+                                    color: "13.01.2024",
+                                  }}
+                                >
+                                  {ele?.publishedDate}
+                                </Typography>
+                              </Box>
+                              <Box
+                                sx={{
+                                  border: "1px solid #222D55",
+                                  width: "36px",
+                                  mr: 3,
+                                  height: "36px",
+                                  borderRadius: "50%",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center", // This centers the icon vertically
+                                }}
+                              >
+                                <ShareIcon
+                                  sx={{
+                                    height: "16px",
+                                    width: "16px",
+                                    color: "#222D55",
+                                    cursor: "pointer",
+                                  }}
+                                />
+                              </Box>
+                            </Box>
                           </Box>
                         </Box>
                       </Box>
-                    </Box>
-                  </Box>
-                </Grid>
-              </>
-            );
-          })}
+                    </Grid>
+                  </>
+                );
+              })}
+            </>
+          ) : (
+            <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+              <CircularProgress sx={{ color: "#007A47" }} />
+            </Grid>
+          )}
         </Grid>
       </Container>
     </Box>

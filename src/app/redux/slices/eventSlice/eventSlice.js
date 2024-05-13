@@ -7,6 +7,7 @@ const eventSlice = createSlice({
     loading: false,
     allEvents: null,
     error: null,
+    eventLoading: false,
     getEvent: null,
     success: false,
   },
@@ -14,17 +15,17 @@ const eventSlice = createSlice({
   extraReducers: (builder) => {
     // get admin details
     builder.addCase(getAllEvents.pending, (state, { payload }) => {
-      state.loading = true;
+      state.eventLoading = true;
     });
 
     builder.addCase(getAllEvents.fulfilled, (state, { payload }) => {
-      state.loading = false;
+      state.eventLoading = false;
       state.allEvents = payload.data;
       state.success = true;
     });
 
     builder.addCase(getAllEvents.rejected, (state, { payload }) => {
-      state.loading = false;
+      state.eventLoading = false;
       state.error = payload;
     });
 

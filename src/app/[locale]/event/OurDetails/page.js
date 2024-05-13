@@ -13,6 +13,8 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { useParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
+import { daysToWeeks } from "date-fns";
+import dayjs from "dayjs";
 
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
@@ -87,51 +89,153 @@ export default function Page() {
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
-            {data?.map((ele, idx) => {
-              return (
-                <>
-                  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
-                    <Box>
-                      <Img src={ele?.icon} />
-                    </Box>
-                    <Box sx={{ display: "flex" }}>
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          fontSize: "16px",
-                          color: "#222D55",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {ele?.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          fontSize: "16px",
-                          color: "#222D55",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {ele?.time}
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Divider
-                    variant="middle"
-                    sx={{
-                      bgcolor: "#222D55",
-                      mt: 2,
-                      mb: 2,
-                      opacity: 0.3,
-                      marginLeft: 0,
-                      marginRight: 0,
-                      borderBottomWidth: "1px",
-                    }}
-                  />
-                </>
-              );
-            })}
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
+              <Box>
+                <Img src={E1} />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "16px",
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  {dayjs(getEvent?.startDate).format("DD/MM/YYYY")}
+                  {"\n"} To {`\n`} {dayjs(getEvent?.endDate).format("DD/MM/YYYY")}
+                </Typography>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              sx={{
+                bgcolor: "#222D55",
+                mt: 2,
+                mb: 2,
+                opacity: 0.3,
+                marginLeft: 0,
+                marginRight: 0,
+                borderBottomWidth: "1px",
+              }}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
+              <Box>
+                <Img src={E2} />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "16px",
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  {dayjs(getEvent?.startDate).format("DD/MM/YYYY")}
+                  {"\n"} To {`\n`} {dayjs(getEvent?.endDate).format("DD/MM/YYYY")}
+                </Typography>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              sx={{
+                bgcolor: "#222D55",
+                mt: 2,
+                mb: 2,
+                opacity: 0.3,
+                marginLeft: 0,
+                marginRight: 0,
+                borderBottomWidth: "1px",
+              }}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
+              <Box>
+                <Img src={E3} />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "16px",
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  {getEvent?.targetAudience[0]}
+                </Typography>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              sx={{
+                bgcolor: "#222D55",
+                mt: 2,
+                mb: 2,
+                opacity: 0.3,
+                marginLeft: 0,
+                marginRight: 0,
+                borderBottomWidth: "1px",
+              }}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
+              <Box>
+                <Img src={E4} />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "16px",
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  {getEvent?.access}
+                </Typography>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              sx={{
+                bgcolor: "#222D55",
+                mt: 2,
+                mb: 2,
+                opacity: 0.3,
+                marginLeft: 0,
+                marginRight: 0,
+                borderBottomWidth: "1px",
+              }}
+            />
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "start", gap: 2 }}>
+              <Box>
+                <Img src={E5} />
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "16px",
+                    color: "#222D55",
+                    fontWeight: 600,
+                  }}
+                >
+                  {getEvent?.access}
+                </Typography>
+              </Box>
+            </Box>
+            <Divider
+              variant="middle"
+              sx={{
+                bgcolor: "#222D55",
+                mt: 2,
+                mb: 2,
+                opacity: 0.3,
+                marginLeft: 0,
+                marginRight: 0,
+                borderBottomWidth: "1px",
+              }}
+            />
             <Box sx={{ textAlign: "center" }}>
               <Box>
                 <Typography

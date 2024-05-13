@@ -1,5 +1,17 @@
 "use client";
-import { Box, Button, Card, CardContent, CardMedia, Container, Divider, Grid, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  CircularProgress,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
@@ -55,7 +67,7 @@ export default function OurNews() {
   const router = useRouter();
   const locals = useLocale();
   const dispatch = useDispatch();
-  const { allEvents } = useSelector((state) => state.events);
+  const { allEvents, eventLoading } = useSelector((state) => state.events);
   const { allNews } = useSelector((state) => state.news);
   const t = useTranslations("OurNews");
   const controls = useAnimation();
@@ -318,329 +330,351 @@ export default function OurNews() {
           px={!lgDown ? "50px" : "0px"}
           pt={5}
         >
-          {allEvents?.slice(0, 1).map((ele, idx) => {
-            console.log(ele, "ele");
-            return (
-              <Grid item xs={12} md={12} lg={6} mt={2} key={idx}>
-                <Img src={ele?.pictureLink} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
-                <Box ref={ref}>
-                  {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      mt: 3,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        backgroundColor: "#007A47",
-                        width: "max-content",
-                        padding: "8px 15px 8px 15px",
-                        fontSize: "10px",
-                        mt: 3,
-                        color: "#FFFFFF",
-                        textTransform: "uppercase",
-                        cursor: "pointer",
-                        marginTop: "auto",
-                        fontWeight: 400,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {ele?.title}
-                    </Typography>
-                    <Box
-                      sx={{
-                        border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                        width: "28px",
-                        height: "28px",
-                        borderRadius: "50%",
-                        display: { md: "none", xs: "flex" },
-                        justifyContent: "center",
-                        alignItems: "center", // This centers the icon vertically
-                      }}
-                    >
-                      <ShareIcon
+          {allEvents?.length > 0 ? (
+            <>
+              {allEvents?.slice(0, 1).map((ele, idx) => {
+                return (
+                  <Grid item xs={12} md={12} lg={6} mt={2} key={idx}>
+                    <Img src={ele?.pictureLink} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
+                    <Box ref={ref}>
+                      {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
+                      <Box
                         sx={{
-                          height: "13px",
-                          width: "13px",
-                          color: show ? "#007A47" : "#FFFFFF",
-                          cursor: "pointer",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          mt: 3,
                         }}
-                      />
-                    </Box>
-                  </Box>
-                  <Typography
-                    sx={{
-                      fontSize: "24px",
-                      mt: 1,
-                      width: { md: "450px", xs: "100%" },
-                      lineHeight: "36px",
-                      fontWeight: 600,
-                      color: textColor,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  >
-                    {ele?.access}
-                  </Typography>
-                  <Typography
-                    dangerouslySetInnerHTML={{ __html: ele?.description }}
-                    sx={{
-                      fontSize: "14px",
-                      mt: 1,
-                      width: { md: "450px", xs: "100%" },
-                      lineHeight: "22px",
-                      color: textColor,
-                      fontFamily: inter.style.fontFamily,
-                    }}
-                  ></Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontWeight: 500,
-                        mt: 2,
-                        fontSize: "14px",
-                        color: textColor,
-                        fontFamily: inter.style.fontFamily,
-                      }}
-                    >
-                      {ele?.startDate}
-                    </Typography>
-                    <Box
-                      sx={{
-                        border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        display: { md: "flex", xs: "none" },
-                        justifyContent: "center",
-                        alignItems: "center", // This centers the icon vertically
-                      }}
-                    >
-                      <ShareIcon
-                        sx={{
-                          height: "20px",
-                          width: "20px",
-                          color: show ? "#007A47" : "#FFFFFF",
-                          cursor: "pointer",
-                        }}
-                      />
-                    </Box>
-                  </Box>
-                  {/* </motion.div> */}
-                </Box>
-                <Button
-                  onClick={() => router.push(`/${locals}/news`)}
-                  variant="outlined"
-                  endIcon={
-                    <ArrowForwardIcon
-                      sx={{
-                        backgroundColor: "#7DB1FF",
-                        borderRadius: "50%",
-                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                        width: "50px",
-                        height: "50px",
-                        color: "#FFFFFF",
-                        padding: 1.7,
-                        marginRight: -2,
-                        ml: 3,
-                        ":hover": {
-                          "@keyframes move-left": {
-                            "0%": {
-                              rotate: "0deg",
-                            },
-                            "100%": {
-                              rotate: "-35deg",
-                            },
-                          },
-                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                        },
-                      }}
-                    />
-                  }
-                  sx={{
-                    mt: { md: 3, xs: 2 },
-                    color: show ? "#FFFFFF" : "#222D55",
-                    backgroundColor: show ? "#222D55" : "#FFFFFF",
-                    border: "1px solid #FFFFFF",
-                    borderRadius: "61px",
-                    padding: "8px 30px",
-                    fontSize: "12px",
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 600,
-                    ":hover": {
-                      color: "textColor",
-                      border: "1px solid #FFFFFF",
-                      backgroundColor: show ? "#222D55" : "#FFFFFF",
-                    },
-                  }}
-                >
-                  {t("buttonBlog")}
-                </Button>
-              </Grid>
-            );
-          })}
-          <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
-            {allNews?.map((ele, idx) => {
-              return (
-                <Box key={idx}>
-                  <Box
-                    sx={{
-                      display: { md: "flex", xs: "block" },
-                      flexDirection: { md: "row", xs: "column" },
-                      gap: 3,
-                      alignItems: "center",
-                    }}
-                  >
-                    <Box>
-                      <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <CardContent sx={{ flex: "1 0 auto", padding: 0 }}>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            py: 2,
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              backgroundColor: "#007A47",
-                              width: "max-content",
-                              padding: 1,
-                              fontWeight: 400,
-                              fontSize: "10px",
-                              padding: "8px 15px 8px 15px",
-                              cursor: "pointer",
-                              color: "#ffffff",
-                              textTransform: "uppercase",
-                              fontFamily: inter.style.fontFamily,
-                            }}
-                          >
-                            {ele?.source[0]}
-                          </Typography>
-                          <Box
-                            sx={{
-                              border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                              width: "28px",
-                              height: "28px",
-                              borderRadius: "50%",
-                              display: { md: "none", xs: "flex" },
-                              justifyContent: "center",
-                              alignItems: "center", // This centers the icon vertically
-                            }}
-                          >
-                            <ShareIcon
-                              sx={{
-                                height: "13px",
-                                width: "13px",
-                                color: show ? "#007A47" : "#FFFFFF",
-                                cursor: "pointer",
-                              }}
-                            />
-                          </Box>
-                        </Box>
+                      >
                         <Typography
                           sx={{
-                            fontWeight: 600,
+                            backgroundColor: "#007A47",
+                            width: "max-content",
+                            padding: "8px 15px 8px 15px",
+                            fontSize: "10px",
+                            mt: 3,
+                            color: "#FFFFFF",
+                            textTransform: "uppercase",
+                            cursor: "pointer",
+                            marginTop: "auto",
+                            fontWeight: 400,
                             fontFamily: inter.style.fontFamily,
-                            fontSize: "18px",
-                            lineHeight: "25px",
-                            maxWidth: { lg: "360px", md: "100%" },
-                            color: textColor,
                           }}
                         >
                           {ele?.title}
                         </Typography>
-                        <Typography
-                          dangerouslySetInnerHTML={{ __html: ele?.description }}
-                          mt={1}
+                        <Box
                           sx={{
+                            border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                            width: "28px",
+                            height: "28px",
+                            borderRadius: "50%",
+                            display: { md: "none", xs: "flex" },
+                            justifyContent: "center",
+                            alignItems: "center", // This centers the icon vertically
+                          }}
+                        >
+                          <ShareIcon
+                            sx={{
+                              height: "13px",
+                              width: "13px",
+                              color: show ? "#007A47" : "#FFFFFF",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "24px",
+                          mt: 1,
+                          width: { md: "450px", xs: "100%" },
+                          lineHeight: "36px",
+                          fontWeight: 600,
+                          color: textColor,
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      >
+                        {ele?.access}
+                      </Typography>
+                      <Typography
+                        dangerouslySetInnerHTML={{ __html: ele?.description }}
+                        sx={{
+                          fontSize: "14px",
+                          mt: 1,
+                          width: { md: "450px", xs: "100%" },
+                          lineHeight: "22px",
+                          color: textColor,
+                          fontFamily: inter.style.fontFamily,
+                        }}
+                      ></Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontWeight: 500,
+                            mt: 2,
+                            fontSize: "14px",
                             color: textColor,
-                            fontSize: "15px",
-                            lineHeight: "20px",
-                            maxWidth: { md: "280px", xs: "100%" },
                             fontFamily: inter.style.fontFamily,
                           }}
-                        ></Typography>
-                        <Box>
-                          <Box
+                        >
+                          {ele?.startDate}
+                        </Typography>
+                        <Box
+                          sx={{
+                            border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                            width: "40px",
+                            height: "40px",
+                            borderRadius: "50%",
+                            display: { md: "flex", xs: "none" },
+                            justifyContent: "center",
+                            alignItems: "center", // This centers the icon vertically
+                          }}
+                        >
+                          <ShareIcon
                             sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                              mt: 1,
+                              height: "20px",
+                              width: "20px",
+                              color: show ? "#007A47" : "#FFFFFF",
+                              cursor: "pointer",
                             }}
-                          >
-                            <Box>
+                          />
+                        </Box>
+                      </Box>
+                      {/* </motion.div> */}
+                    </Box>
+                    <Button
+                      onClick={() => router.push(`/${locals}/news`)}
+                      variant="outlined"
+                      endIcon={
+                        <ArrowForwardIcon
+                          sx={{
+                            backgroundColor: "#7DB1FF",
+                            borderRadius: "50%",
+                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            width: "50px",
+                            height: "50px",
+                            color: "#FFFFFF",
+                            padding: 1.7,
+                            marginRight: -2,
+                            ml: 3,
+                            ":hover": {
+                              "@keyframes move-left": {
+                                "0%": {
+                                  rotate: "0deg",
+                                },
+                                "100%": {
+                                  rotate: "-35deg",
+                                },
+                              },
+                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                            },
+                          }}
+                        />
+                      }
+                      sx={{
+                        mt: { md: 3, xs: 2 },
+                        color: show ? "#FFFFFF" : "#222D55",
+                        backgroundColor: show ? "#222D55" : "#FFFFFF",
+                        border: "1px solid #FFFFFF",
+                        borderRadius: "61px",
+                        padding: "8px 30px",
+                        fontSize: "12px",
+                        fontFamily: inter.style.fontFamily,
+                        fontWeight: 600,
+                        ":hover": {
+                          color: "textColor",
+                          border: "1px solid #FFFFFF",
+                          backgroundColor: show ? "#222D55" : "#FFFFFF",
+                        },
+                      }}
+                    >
+                      {t("buttonBlog")}
+                    </Button>
+                  </Grid>
+                );
+              })}
+            </>
+          ) : (
+            <Grid
+              item
+              xs={12}
+              md={12}
+              lg={6}
+              mt={2}
+              sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+            >
+              <CircularProgress sx={{ color: "#007A47" }} />
+            </Grid>
+          )}
+          <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
+            {allNews?.length > 0 ? (
+              <>
+                {allNews?.map((ele, idx) => {
+                  return (
+                    <Box key={idx}>
+                      <Box
+                        sx={{
+                          display: { md: "flex", xs: "block" },
+                          flexDirection: { md: "row", xs: "column" },
+                          gap: 3,
+                          alignItems: "center",
+                        }}
+                      >
+                        <Box>
+                          <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} />
+                        </Box>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            borderRadius: "16px",
+                          }}
+                        >
+                          <CardContent sx={{ flex: "1 0 auto", padding: 0 }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                py: 2,
+                              }}
+                            >
                               <Typography
                                 sx={{
-                                  fontSize: 14,
-                                  fontWeight: 600,
-                                  color: textColor,
+                                  backgroundColor: "#007A47",
+                                  width: "max-content",
+                                  padding: 1,
+                                  fontWeight: 400,
+                                  fontSize: "10px",
+                                  padding: "8px 15px 8px 15px",
+                                  cursor: "pointer",
+                                  color: "#ffffff",
+                                  textTransform: "uppercase",
                                   fontFamily: inter.style.fontFamily,
                                 }}
                               >
-                                {ele?.publishedDate}
+                                {ele?.source[0]}
                               </Typography>
+                              <Box
+                                sx={{
+                                  border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                                  width: "28px",
+                                  height: "28px",
+                                  borderRadius: "50%",
+                                  display: { md: "none", xs: "flex" },
+                                  justifyContent: "center",
+                                  alignItems: "center", // This centers the icon vertically
+                                }}
+                              >
+                                <ShareIcon
+                                  sx={{
+                                    height: "13px",
+                                    width: "13px",
+                                    color: show ? "#007A47" : "#FFFFFF",
+                                    cursor: "pointer",
+                                  }}
+                                />
+                              </Box>
                             </Box>
-                            <Box
+                            <Typography
                               sx={{
-                                border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
-                                width: "40px",
-                                height: "40px",
-                                borderRadius: "50%",
-                                display: { md: "flex", xs: "none" },
-                                justifyContent: "center",
-                                alignItems: "center", // This centers the icon vertically
+                                fontWeight: 600,
+                                fontFamily: inter.style.fontFamily,
+                                fontSize: "18px",
+                                lineHeight: "25px",
+                                maxWidth: { lg: "360px", md: "100%" },
+                                color: textColor,
                               }}
                             >
-                              <ShareIcon
+                              {ele?.title}
+                            </Typography>
+                            <Typography
+                              dangerouslySetInnerHTML={{ __html: ele?.description }}
+                              mt={1}
+                              sx={{
+                                color: textColor,
+                                fontSize: "15px",
+                                lineHeight: "20px",
+                                maxWidth: { md: "280px", xs: "100%" },
+                                fontFamily: inter.style.fontFamily,
+                              }}
+                            ></Typography>
+                            <Box>
+                              <Box
                                 sx={{
-                                  height: "18px",
-                                  width: "18px",
-                                  color: show ? "#007A47" : "#FFFFFF",
-                                  cursor: "pointer",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "center",
+                                  mt: 1,
                                 }}
-                              />
+                              >
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      fontSize: 14,
+                                      fontWeight: 600,
+                                      color: textColor,
+                                      fontFamily: inter.style.fontFamily,
+                                    }}
+                                  >
+                                    {ele?.publishedDate}
+                                  </Typography>
+                                </Box>
+                                <Box
+                                  sx={{
+                                    border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                                    width: "40px",
+                                    height: "40px",
+                                    borderRadius: "50%",
+                                    display: { md: "flex", xs: "none" },
+                                    justifyContent: "center",
+                                    alignItems: "center", // This centers the icon vertically
+                                  }}
+                                >
+                                  <ShareIcon
+                                    sx={{
+                                      height: "18px",
+                                      width: "18px",
+                                      color: show ? "#007A47" : "#FFFFFF",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </Box>
+                              </Box>
                             </Box>
-                          </Box>
+                          </CardContent>
                         </Box>
-                      </CardContent>
+                      </Box>
+                      {idx !== data.length - 1 ? (
+                        <Divider
+                          variant="middle"
+                          sx={{
+                            bgcolor: "#FFFFFF",
+                            mt: 1,
+                            mb: 1,
+                            opacity: show ? "100%" : "20%",
+                            borderBottomWidth: "1px",
+                          }}
+                        />
+                      ) : (
+                        ""
+                      )}
                     </Box>
-                  </Box>
-                  {idx !== data.length - 1 ? (
-                    <Divider
-                      variant="middle"
-                      sx={{
-                        bgcolor: "#FFFFFF",
-                        mt: 1,
-                        mb: 1,
-                        opacity: show ? "100%" : "20%",
-                        borderBottomWidth: "1px",
-                      }}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </Box>
-              );
-            })}
+                  );
+                })}
+              </>
+            ) : (
+              <Box mt={2} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <CircularProgress sx={{ color: "#007A47" }} />
+              </Box>
+            )}
           </Grid>
         </Grid>
         {/* {"button"} */}
