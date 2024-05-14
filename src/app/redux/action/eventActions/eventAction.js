@@ -6,10 +6,11 @@ export const getAllEvents = createAsyncThunk("admin/getAllEvents", async (data, 
     let response;
     if (data?.month) {
       response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events?month=${data?.month}`);
+      return {...response.data, isAll: false};
     } else {
       response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events`);
+      return {...response.data, isAll: true};
     }
-    return response.data;
   } catch (error) {
     if (error.response && error.response.data.message) {
       return rejectWithValue(error.response.data.message);

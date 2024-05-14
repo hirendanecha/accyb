@@ -133,6 +133,7 @@ export default function App({ allEvents }) {
                           <Box
                             mt={1}
                             sx={{
+                              textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                               fontFamily: inter.style.fontFamily,
                               fontSize: {
                                 lg: "70px",
@@ -165,6 +166,7 @@ export default function App({ allEvents }) {
                           <Typography
                             dangerouslySetInnerHTML={{ __html: data }}
                             sx={{
+                              textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                               display: "flex",
                               textAlign: "start",
                               fontSize: {
@@ -183,9 +185,10 @@ export default function App({ allEvents }) {
                           ></Typography>
                           <Typography
                             sx={{
+                              textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                               display: "flex",
                               textAlign: "start",
-                              fontSize: "12px",
+                              fontSize: "14px",
                               color: "#FFFFFF",
                               fontWeight: 400,
                               lineHeight: { md: "25px", xs: "25px" },

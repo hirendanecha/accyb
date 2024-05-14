@@ -38,7 +38,7 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
-  const { allEvents, eventLoading } = useSelector((state) => state.events);
+  const { monthEvents, eventLoading } = useSelector((state) => state.events);
   const { allNews } = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const locales = useLocale();
@@ -323,8 +323,8 @@ export default function OurEvents() {
             </Grid>
           ) : (
             <>
-              {allEvents?.events?.length > 0 ? (
-                allEvents?.events?.map((ele, idx) => {
+              {monthEvents?.events?.length > 0 ? (
+                monthEvents?.events?.map((ele, idx) => {
                   const data = ele?.description
                     .split("\n")
                     .slice(0, 4)

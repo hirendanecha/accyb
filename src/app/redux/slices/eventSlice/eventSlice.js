@@ -6,6 +6,7 @@ const eventSlice = createSlice({
   initialState: {
     loading: false,
     allEvents: null,
+    monthEvents: null,
     error: null,
     eventLoading: false,
     getEvent: null,
@@ -19,8 +20,12 @@ const eventSlice = createSlice({
     });
 
     builder.addCase(getAllEvents.fulfilled, (state, { payload }) => {
+      if (payload?.isAll) {
+        state.allEvents = payload.data;
+      } else {
+        state.monthEvents = payload.data;
+      }
       state.eventLoading = false;
-      state.allEvents = payload.data;
       state.success = true;
     });
 
