@@ -32,6 +32,18 @@ export default function App({ loading, getEvent }) {
   };
 
   const firstElementText = getFirstElementText(getEvent?.description);
+
+  const data = getEvent?.title
+    .split("\n")
+    .slice(0, 4)
+    .map((line, index) => {
+      if (index === 0) {
+        return line.substring(0, 50) + "...";
+      } else {
+        return line;
+      }
+    })
+    .join("\n");
   return (
     <>
       <Container
@@ -97,7 +109,7 @@ export default function App({ loading, getEvent }) {
                       },
                     }}
                   >
-                    {getEvent?.title}
+                    {data}
                     {/* <span
                   style={{
                     background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",

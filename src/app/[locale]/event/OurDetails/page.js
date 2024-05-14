@@ -95,8 +95,8 @@ export default function Page({ getEvent }) {
                     fontWeight: 600,
                   }}
                 >
-                  {dayjs(getEvent?.startDate).format("DD/MM/YYYY")}
-                  {"\n"} To {`\n`} {dayjs(getEvent?.endDate).format("DD/MM/YYYY")}
+                  {dayjs(getEvent?.startDate).format("DD/MM/YYYY HH:mm")}
+                  {"\n"} To {`\n`} {dayjs(getEvent?.endDate).format("DD/MM/YYYY HH:mm")}
                 </Typography>
               </Box>
             </Box>
@@ -125,7 +125,7 @@ export default function Page({ getEvent }) {
                     fontWeight: 600,
                   }}
                 >
-                  location
+                  {getEvent?.location || "-"}
                 </Typography>
               </Box>
             </Box>
