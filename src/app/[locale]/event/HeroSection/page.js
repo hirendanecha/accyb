@@ -20,6 +20,18 @@ import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
 
 export default function App({ loading, getEvent }) {
+  const getFirstElementText = (htmlString) => {
+    const tagMatch = htmlString?.match(/<(\w+)>/);
+    if (!tagMatch) return "";
+
+    const tagName = tagMatch[1];
+    const regex = new RegExp(`<${tagName}>(.*?)<\/${tagName}>`);
+    const match = htmlString?.match(regex);
+
+    return match ? match[1] : "";
+  };
+
+  const firstElementText = getFirstElementText(getEvent?.description);
   return (
     <>
       <Container
@@ -41,6 +53,7 @@ export default function App({ loading, getEvent }) {
                 backgroundPosition: "fixed",
                 height: { md: "700px", xs: "580px" },
                 width: "100%",
+                borderRadius: "20px",
               }}
             >
               <Grid container>
@@ -84,7 +97,7 @@ export default function App({ loading, getEvent }) {
                       },
                     }}
                   >
-                    {getEvent?.access}
+                    {getEvent?.title}
                     {/* <span
                   style={{
                     background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
@@ -96,6 +109,7 @@ export default function App({ loading, getEvent }) {
                 </span>{" "} */}
                   </Box>
                   <Typography
+                    dangerouslySetInnerHTML={{ __html: firstElementText }}
                     sx={{
                       display: "flex",
                       textAlign: "start",
@@ -112,9 +126,7 @@ export default function App({ loading, getEvent }) {
                       mt: { md: 3, xs: 1 },
                       fontFamily: inter.style.fontFamily,
                     }}
-                  >
-                    {getEvent?.description}
-                  </Typography>
+                  ></Typography>
                   <Typography
                     sx={{
                       display: "flex",

@@ -22,11 +22,11 @@ import { useLocale } from "next-intl";
 import dayjs from "dayjs";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
-  height: "60% !important",
+  height: "500px !important",
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",
-  height: "auto !important",
+  height: "200px !important",
   [theme.breakpoints.down("md")]: {
     width: "100% !important",
     height: "auto !important",
@@ -321,6 +321,17 @@ export default function OurEvents() {
             <>
               {allEvents?.events?.length > 0 ? (
                 allEvents?.events?.map((ele, idx) => {
+                  const data = ele?.description
+                    .split("\n")
+                    .slice(0, 4)
+                    .map((line, index) => {
+                      if (index === 0) {
+                        return line.substring(0, 150) + "...";
+                      } else {
+                        return line;
+                      }
+                    })
+                    .join("\n");
                   let month = category?.find((el) => el?.id == currentCategory)?.name;
                   return (
                     <>
@@ -333,7 +344,15 @@ export default function OurEvents() {
                         onClick={() => router?.push(`/${locales}/event/${ele?._id}`)}
                         sx={{ cursor: "pointer" }}
                       >
-                        <Img src={ele?.pictureLink} width={900} height={900} alt="img" />
+                        <Img
+                          src={ele?.pictureLink}
+                          width={900}
+                          height={900}
+                          alt="img"
+                          sx={{
+                            borderRadius: "20px",
+                          }}
+                        />
                         <Box>
                           <Typography
                             sx={{
@@ -363,7 +382,7 @@ export default function OurEvents() {
                             {ele?.title}
                           </Typography>
                           <Typography
-                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            dangerouslySetInnerHTML={{ __html: data }}
                             sx={{
                               fontSize: "14px",
                               mt: 1,
@@ -453,6 +472,28 @@ export default function OurEvents() {
           {allNews?.length > 0 ? (
             <>
               {allNews?.map((ele, idx) => {
+                const data = ele?.description
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 100) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
+                const title = ele?.title
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 40) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
                 return (
                   <>
                     <Grid
@@ -492,7 +533,7 @@ export default function OurEvents() {
                               textTransform: "uppercase",
                             }}
                           >
-                            {ele?.source[0]}
+                            ACTUALITÉ
                           </Typography>
                           <Typography
                             sx={{
@@ -503,10 +544,10 @@ export default function OurEvents() {
                               color: "#222D55",
                             }}
                           >
-                            {ele?.title}
+                            {title}
                           </Typography>
                           <Typography
-                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            dangerouslySetInnerHTML={{ __html: data }}
                             mt={1}
                             sx={{
                               fontFamily: inter.style.fontFamily,

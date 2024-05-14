@@ -81,6 +81,17 @@ export default function App({ allEvents }) {
           {allEvents?.events?.length > 0 ? (
             <>
               {allEvents?.events?.slice(0, 3)?.map((ele, idx) => {
+                const data = ele?.description
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 100) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
                 return (
                   <SwiperSlide>
                     <Box
@@ -96,6 +107,7 @@ export default function App({ allEvents }) {
                         backgroundPosition: "fixed",
                         height: "auto",
                         width: "100%",
+                        borderRadius: "20px",
                       }}
                     >
                       <Grid container>
@@ -116,7 +128,7 @@ export default function App({ allEvents }) {
                               },
                             }}
                           >
-                            événement
+                            Actualité
                           </Button>
                           <Box
                             mt={1}
@@ -139,7 +151,7 @@ export default function App({ allEvents }) {
                               },
                             }}
                           >
-                            {ele?.access}
+                            {ele?.title}
                             {/* <span
                           style={{
                             background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
@@ -151,7 +163,7 @@ export default function App({ allEvents }) {
                         </span>{" "} */}
                           </Box>
                           <Typography
-                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            dangerouslySetInnerHTML={{ __html: data }}
                             sx={{
                               display: "flex",
                               textAlign: "start",

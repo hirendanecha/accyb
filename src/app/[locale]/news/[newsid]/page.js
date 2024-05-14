@@ -100,6 +100,21 @@ export default function Page() {
     dispatch(getAllNews());
     // dispatch(getAllEvents());
   }, []);
+  console.log(getNews, "getNews");
+
+  const getFirstElementText = (htmlString) => {
+    const tagMatch = htmlString?.match(/<(\w+)>/);
+    if (!tagMatch) return "";
+
+    const tagName = tagMatch[1];
+    const regex = new RegExp(`<${tagName}>(.*?)<\/${tagName}>`);
+    const match = htmlString?.match(regex);
+
+    return match ? match[1] : "";
+  };
+
+  const firstElementText = getFirstElementText(getNews?.description);
+
   return (
     <>
       <Container
@@ -115,6 +130,7 @@ export default function Page() {
             backgroundPosition: "fixed",
             height: { md: "650px", xs: "550px" },
             width: "100%",
+            borderRadius: "20px",
           }}
         >
           <Grid container>
@@ -135,7 +151,7 @@ export default function Page() {
                   },
                 }}
               >
-                événement
+                Actualité 
               </Button>
               <Box
                 mt={1}
@@ -158,7 +174,17 @@ export default function Page() {
                   },
                 }}
               >
-                {getNews?.title}
+                {getNews?.title
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 52) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n")}
                 {/* <span
                   style={{
                     background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
@@ -170,7 +196,7 @@ export default function Page() {
                 </span>{" "} */}
               </Box>
               <Typography
-                dangerouslySetInnerHTML={{ __html: getNews?.description }}
+                dangerouslySetInnerHTML={{ __html: firstElementText }}
                 sx={{
                   display: "flex",
                   textAlign: "start",
@@ -336,6 +362,17 @@ export default function Page() {
                 {allNews?.length > 0 ? (
                   <>
                     {allNews?.map((ele, idx) => {
+                      const data = getNews?.title
+                        .split("\n")
+                        .slice(0, 4)
+                        .map((line, index) => {
+                          if (index === 0) {
+                            return line.substring(0, 150) + "...";
+                          } else {
+                            return line;
+                          }
+                        })
+                        .join("\n");
                       return (
                         <>
                           <Grid
@@ -386,10 +423,20 @@ export default function Page() {
                                     color: "#222D55",
                                   }}
                                 >
-                                  {ele?.title}
+                                  {ele?.title
+                                    .split("\n")
+                                    .slice(0, 4)
+                                    .map((line, index) => {
+                                      if (index === 0) {
+                                        return line.substring(0, 52) + "...";
+                                      } else {
+                                        return line;
+                                      }
+                                    })
+                                    .join("\n")}
                                 </Typography>
                                 <Typography
-                                  dangerouslySetInnerHTML={{ __html: ele?.description }}
+                                  dangerouslySetInnerHTML={{ __html: data }}
                                   mt={1}
                                   sx={{
                                     fontFamily: inter.style.fontFamily,

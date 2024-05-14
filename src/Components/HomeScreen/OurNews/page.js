@@ -31,7 +31,7 @@ import dayjs from "dayjs";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
-  height: "auto !important",
+  height: "500px !important",
   resize: "stratch",
 }));
 const Imgs = styled(Image)(({ theme }) => ({
@@ -334,6 +334,17 @@ export default function OurNews() {
           {allEvents?.events?.length > 0 ? (
             <>
               {allEvents?.events?.slice(0, 1).map((ele, idx) => {
+                const data = ele?.description
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 200) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
                 return (
                   <Grid
                     item
@@ -371,7 +382,7 @@ export default function OurNews() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          {ele?.title}
+                          Événement
                         </Typography>
                         <Box
                           sx={{
@@ -405,10 +416,10 @@ export default function OurNews() {
                           fontFamily: inter.style.fontFamily,
                         }}
                       >
-                        {ele?.access}
+                        {ele?.title}
                       </Typography>
                       <Typography
-                        dangerouslySetInnerHTML={{ __html: ele?.description }}
+                        dangerouslySetInnerHTML={{ __html: data }}
                         sx={{
                           fontSize: "14px",
                           mt: 1,
@@ -526,7 +537,18 @@ export default function OurNews() {
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
             {allNews?.length > 0 ? (
               <>
-                {allNews?.map((ele, idx) => {
+                {allNews?.slice(0, 2).map((ele, idx) => {
+                  const data = ele?.description
+                    .split("\n")
+                    .slice(0, 4)
+                    .map((line, index) => {
+                      if (index === 0) {
+                        return line.substring(0, 100) + "...";
+                      } else {
+                        return line;
+                      }
+                    })
+                    .join("\n");
                   return (
                     <Box
                       key={idx}
@@ -610,7 +632,7 @@ export default function OurNews() {
                               {ele?.title}
                             </Typography>
                             <Typography
-                              dangerouslySetInnerHTML={{ __html: ele?.description }}
+                              dangerouslySetInnerHTML={{ __html: data }}
                               mt={1}
                               sx={{
                                 color: textColor,

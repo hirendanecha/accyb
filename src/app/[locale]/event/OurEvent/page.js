@@ -25,7 +25,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",
-  height: "auto !important",
+  height: "220px !important",
   [theme.breakpoints.down("md")]: {
     width: "100% !important",
     height: "auto !important",
@@ -93,6 +93,17 @@ export default function OurEvents() {
           {allEvents?.events?.length > 0 ? (
             <>
               {allEvents?.events?.map((ele, idx) => {
+                const data = ele?.description
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 150) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
                 return (
                   <>
                     <Grid
@@ -111,7 +122,15 @@ export default function OurEvents() {
                         }}
                       >
                         <Box>
-                          <Imgs src={ele?.pictureLink} width={295} height={220} alt="image1" />
+                          <Imgs
+                            src={ele?.pictureLink}
+                            width={295}
+                            height={220}
+                            alt="image1"
+                            sx={{
+                              borderRadius: "10px",
+                            }}
+                          />
                         </Box>
                         <Box
                           sx={{
@@ -133,7 +152,7 @@ export default function OurEvents() {
                               textTransform: "uppercase",
                             }}
                           >
-                            {ele?.title}
+                            Actualité
                           </Typography>
                           <Typography
                             sx={{
@@ -144,10 +163,10 @@ export default function OurEvents() {
                               color: "#222D55",
                             }}
                           >
-                            {ele?.access}
+                            {ele?.title}
                           </Typography>
                           <Typography
-                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                            dangerouslySetInnerHTML={{ __html: data }}
                             mt={1}
                             sx={{
                               fontFamily: inter.style.fontFamily,
