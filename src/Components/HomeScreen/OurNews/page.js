@@ -564,7 +564,7 @@ export default function OurNews() {
                         }}
                       >
                         <Box>
-                          <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} />
+                          <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} sx={{ borderRadius: "10px" }}/>
                         </Box>
                         <Box
                           sx={{

@@ -146,9 +146,7 @@ export default function page() {
                       textAlign: "start",
                     },
                   }}
-                >
-                  Source : lorem ipsum dolores sit amet
-                </Typography>
+                ></Typography>
               </Box>
             </Box>
             <Box mt={5}>
