@@ -26,7 +26,7 @@ const Img = styled(Image)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     width: "100% !important",
     height: "250px !important",
-  }
+  },
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",
@@ -515,7 +515,15 @@ export default function OurEvents() {
                         }}
                       >
                         <Box>
-                          <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
+                          <Imgs
+                            src={ele?.attachment[0]}
+                            width={295}
+                            height={220}
+                            alt="image1"
+                            sx={{
+                              borderRadius: "10px",
+                            }}
+                          />
                         </Box>
                         <Box
                           sx={{

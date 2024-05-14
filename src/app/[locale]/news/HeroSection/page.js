@@ -20,7 +20,6 @@ import { useRouter } from "next/navigation";
 export default function App({ allEvents }) {
   const locales = useLocale();
   const router = useRouter();
-  
 
   return (
     <>
@@ -102,11 +101,11 @@ export default function App({ allEvents }) {
                       key={idx}
                       sx={{
                         cursor: "pointer",
-                        backgroundImage: `url(${ele?.pictureLink})`,
+                        backgroundImage: `linear-gradient(rgba(0, 0, 255, 0.1), rgba(0, 0, 255, 0.1)), url(${ele?.pictureLink})`,
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "100% 100%",
                         backgroundPosition: "fixed",
-                        height: {md : "700px" , xs : "400px"},
+                        height: { md: "700px", xs: "400px" },
                         width: "100%",
                         borderRadius: "20px",
                       }}

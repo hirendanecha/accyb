@@ -59,7 +59,7 @@ export default function App({ loading, getEvent }) {
           <>
             <Box
               sx={{
-                backgroundImage: `url(${getEvent?.pictureLink})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 255, 0.1), rgba(0, 0, 255, 0.1)), url(${getEvent?.pictureLink})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: { lg: "cover", md: "cover", sm: "cover", xs: "cover" },
                 backgroundPosition: "fixed",
