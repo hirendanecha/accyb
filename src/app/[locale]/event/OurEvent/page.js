@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import Event1 from "../../../../Icons/Event1.svg";
@@ -37,42 +37,7 @@ export default function OurEvents() {
   const dispatch = useDispatch();
   const router = useRouter();
   const locale = useLocale();
-
-  const subCategory = [
-    {
-      img: Event1,
-      title: "Janvier",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event2,
-      title: "Janvier",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event1,
-      title: "avril",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-    {
-      img: Event2,
-      title: "avril",
-      heading: "24e Panorama de la cybercriminalité Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-      time: "13.01.2024",
-    },
-  ];
-  const [content, setContent] = useState(subCategory?.filter((ele) => ele?.title == "Janvier"));
+  const initialized = useRef(false);
   const [currentCategory, setCurrentCategory] = useState("Janvier");
   const category = [
     "Janvier",
@@ -88,64 +53,20 @@ export default function OurEvents() {
     "novembre",
     "décembre",
   ];
-
   useEffect(() => {
-    dispatch(getAllEvents())
-      .unwrap()
-      .then((res) => {
-        // console.log(res);
-      });
+    if (initialized.current) {
+      return;
+    } else {
+      initialized.current = true;
+      dispatch(getAllEvents())
+        .unwrap()
+        .then((res) => {
+          // console.log(res);
+        });
+    }
   }, []);
 
-  const handleClick = (id) => {
-    setCurrentCategory(id);
-    const aa = subCategory?.filter((ele) => ele?.title == id);
-    setContent(aa);
-  };
-  const articles = [
-    {
-      img: Image1,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image2,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image3,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image1,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image2,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image3,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-  ];
+  useEffect(() => {}, []);
   useEffect(() => {
     setCurrentCategory(category[new Date().getMonth()]);
   }, []);

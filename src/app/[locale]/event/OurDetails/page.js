@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Container, Grid, Typography, Divider, styled, Button } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -50,15 +50,7 @@ const data = [
   },
 ];
 
-export default function Page() {
-  const params = useParams();
-  const { eventId } = params;
-  const dispatch = useDispatch();
-  const { getEvent } = useSelector((state) => state.events);
-
-  useEffect(() => {
-    dispatch(getEventsById(eventId));
-  }, []);
+export default function Page({ getEvent }) {
   return (
     <Box
       sx={{
@@ -98,7 +90,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: {md : "16px" , xs : "14px"},
+                    fontSize: { md: "16px", xs: "14px" },
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -128,7 +120,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: {md : "16px" , xs : "14px"},
+                    fontSize: { md: "16px", xs: "14px" },
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -157,7 +149,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: {md : "16px" , xs : "14px"},
+                    fontSize: { md: "16px", xs: "14px" },
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -186,7 +178,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: {md : "16px" , xs : "14px"},
+                    fontSize: { md: "16px", xs: "14px" },
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -215,7 +207,7 @@ export default function Page() {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: {md : "16px" , xs : "14px"},
+                    fontSize: { md: "16px", xs: "14px" },
                     color: "#222D55",
                     fontWeight: 600,
                   }}
@@ -245,7 +237,7 @@ export default function Page() {
                     fontWeight: 400,
                     fontSize: { md: "40px", xs: "20px" },
                     color: "#222D55",
-                    lineHeight: {md : "60px" , xs : "30px"},
+                    lineHeight: { md: "60px", xs: "30px" },
                     textAlign: "start",
                   }}
                 >

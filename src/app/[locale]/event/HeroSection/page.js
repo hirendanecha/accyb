@@ -19,15 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
 
-export default function App() {
-  const params = useParams();
-  const { eventId } = params;
-  const dispatch = useDispatch();
-  const { getEvent, loading } = useSelector((state) => state.events);
-
-  useEffect(() => {
-    dispatch(getEventsById(eventId));
-  }, []);
+export default function App({ loading, getEvent }) {
   return (
     <>
       <Container

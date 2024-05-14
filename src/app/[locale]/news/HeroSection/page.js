@@ -17,19 +17,9 @@ import dayjs from "dayjs";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
-export default function App() {
+export default function App({ allEvents }) {
   const locales = useLocale();
   const router = useRouter();
-  const { allEvents } = useSelector((state) => state.events);
-  console.log(allEvents?.featuredEvents, "elelelelele");
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllEvents())
-      .unwrap()
-      .then((res) => {
-        // console.log(res);
-      });
-  }, []);
 
   return (
     <>

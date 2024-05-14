@@ -1,6 +1,6 @@
 "use client";
 import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import Event1 from "../../../../Icons/Event1.svg";
@@ -39,6 +39,7 @@ export default function OurEvents() {
   const dispatch = useDispatch();
   const locales = useLocale();
   const router = useRouter();
+  const initialized = useRef(false);
   const [currentCategory, setCurrentCategory] = useState(new Date().getMonth() + 1);
   const category = [
     {
@@ -92,9 +93,11 @@ export default function OurEvents() {
   ];
 
   useEffect(() => {
+    if (initialized.current) return;
+
+    initialized.current = true;
     dispatch(getAllEvents({ month: currentCategory }));
     dispatch(getAllNews());
-    // dispatch(getAllEvents());
   }, []);
 
   const handleClick = (id) => {
