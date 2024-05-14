@@ -32,7 +32,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",
-  height: "auto !important",
+  height: "200px !important",
   [theme.breakpoints.down("md")]: {
     width: "100% !important",
     height: "auto !important",
@@ -151,7 +151,7 @@ export default function Page() {
                   },
                 }}
               >
-                Actualité 
+                Actualité
               </Button>
               <Box
                 mt={1}
@@ -390,7 +390,13 @@ export default function Page() {
                               }}
                             >
                               <Box>
-                                <Imgs src={ele?.attachment[0]} width={295} height={220} alt="image1" />
+                                <Imgs
+                                  src={ele?.attachment[0]}
+                                  width={295}
+                                  height={220}
+                                  alt="image1"
+                                  sx={{ borderRadius: "10px" }}
+                                />
                               </Box>
                               <Box
                                 sx={{

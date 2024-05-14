@@ -23,6 +23,10 @@ import dayjs from "dayjs";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "500px !important",
+  [theme.breakpoints.down("md")]: {
+    width: "100% !important",
+    height: "250px !important",
+  }
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "292px !important",

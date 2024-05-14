@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 export default function App({ allEvents }) {
   const locales = useLocale();
   const router = useRouter();
+  
 
   return (
     <>
@@ -103,9 +104,9 @@ export default function App({ allEvents }) {
                         cursor: "pointer",
                         backgroundImage: `url(${ele?.pictureLink})`,
                         backgroundRepeat: "no-repeat",
-                        backgroundSize: { md: "cover", sm: "contain", xs: "cover" },
+                        backgroundSize: "100% 100%",
                         backgroundPosition: "fixed",
-                        height: "auto",
+                        height: {md : "700px" , xs : "400px"},
                         width: "100%",
                         borderRadius: "20px",
                       }}
