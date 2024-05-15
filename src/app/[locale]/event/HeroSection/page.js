@@ -14,12 +14,16 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Box, Button, CircularProgress, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
+import { useLocale } from "next-intl";
 
 export default function App({ loading, getEvent }) {
+  const router = useRouter();
+  const locales = useLocale();
+  console.log(getEvent?.registerLink, "elelelelelelekl");
   const getFirstElementText = (htmlString) => {
     const tagMatch = htmlString?.match(/<(\w+)>/);
     if (!tagMatch) return "";
@@ -176,7 +180,7 @@ export default function App({ loading, getEvent }) {
                       />
                     </Box>
                     <Button
-                      onClick={() => router.push(`/${locale}/alerteslist`)}
+                      onClick={() => router.push(`/${locales}/alerteslist`)}
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
@@ -234,7 +238,15 @@ export default function App({ loading, getEvent }) {
                     }}
                   >
                     <Button
-                      onClick={() => router.push(`/${locale}/alerteslist`)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const link = document.createElement("a");
+                        link.href = `${getEvent?.registerLink}`;
+                        link.setAttribute("target", "_blank");
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                      }}
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
@@ -296,7 +308,15 @@ export default function App({ loading, getEvent }) {
                     }}
                   >
                     <Button
-                      onClick={() => router.push(`/${locale}/alerteslist`)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const link = document.createElement("a");
+                        link.href = `${getEvent?.registerLink}`;
+                        link.setAttribute("target", "_blank");
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                      }}
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
