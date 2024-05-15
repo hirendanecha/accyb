@@ -380,226 +380,71 @@ export default function Page({ getEvent }) {
                 >
                   Programme
                 </Typography>
-                <Box
-                  sx={{
-                    mt: 2,
-                    display: "flex",
-                    justifyContent: "start",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box>
-                    <svg width="33" height="24" viewBox="0 0 43 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g filter="url(#filter0_d_2564_3543)">
-                        <path
-                          d="M16.4969 24.7498L4.85938 13.1123L7.76875 10.2029L16.4969 18.931L35.2292 0.19873L38.1385 3.10811L16.4969 24.7498Z"
-                          fill="#007A47"
-                        />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_d_2564_3543"
-                          x="0.859375"
-                          y="0.19873"
-                          width="41.2793"
-                          height="32.5513"
-                          filterUnits="userSpaceOnUse"
-                          color-interpolation-filters="sRGB"
-                        >
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="4" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite in2="hardAlpha" operator="out" />
-                          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2564_3543" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2564_3543" result="shape" />
-                        </filter>
-                      </defs>
-                    </svg>
-                  </Box>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      textAlign: "start",
-                      fontSize: { lg: "22px", md: "18px", xs: "14px" },
-                      color: "#ffffff",
-                    }}
-                  >
-                    Lorem ispum dolores
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    mt: 2,
-                    display: "flex",
-                    justifyContent: "start",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box>
-                    <svg width="33" height="24" viewBox="0 0 43 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g filter="url(#filter0_d_2564_3543)">
-                        <path
-                          d="M16.4969 24.7498L4.85938 13.1123L7.76875 10.2029L16.4969 18.931L35.2292 0.19873L38.1385 3.10811L16.4969 24.7498Z"
-                          fill="#007A47"
-                        />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_d_2564_3543"
-                          x="0.859375"
-                          y="0.19873"
-                          width="41.2793"
-                          height="32.5513"
-                          filterUnits="userSpaceOnUse"
-                          color-interpolation-filters="sRGB"
-                        >
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="4" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite in2="hardAlpha" operator="out" />
-                          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2564_3543" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2564_3543" result="shape" />
-                        </filter>
-                      </defs>
-                    </svg>
-                  </Box>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      textAlign: "start",
-                      fontSize: { lg: "22px", md: "18px", xs: "14px" },
-                      color: "#ffffff",
-                    }}
-                  >
-                    Lorem ispum dolores
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    mt: 2,
-                    display: "flex",
-                    justifyContent: "start",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box>
-                    <svg width="33" height="24" viewBox="0 0 43 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g filter="url(#filter0_d_2564_3543)">
-                        <path
-                          d="M16.4969 24.7498L4.85938 13.1123L7.76875 10.2029L16.4969 18.931L35.2292 0.19873L38.1385 3.10811L16.4969 24.7498Z"
-                          fill="#007A47"
-                        />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_d_2564_3543"
-                          x="0.859375"
-                          y="0.19873"
-                          width="41.2793"
-                          height="32.5513"
-                          filterUnits="userSpaceOnUse"
-                          color-interpolation-filters="sRGB"
-                        >
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="4" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite in2="hardAlpha" operator="out" />
-                          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2564_3543" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2564_3543" result="shape" />
-                        </filter>
-                      </defs>
-                    </svg>
-                  </Box>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      textAlign: "start",
-                      fontSize: { lg: "22px", md: "18px", xs: "14px" },
-                      color: "#ffffff",
-                    }}
-                  >
-                    Lorem ispum dolores
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    mt: 2,
-                    display: "flex",
-                    justifyContent: "start",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Box>
-                    <svg width="33" height="24" viewBox="0 0 43 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g filter="url(#filter0_d_2564_3543)">
-                        <path
-                          d="M16.4969 24.7498L4.85938 13.1123L7.76875 10.2029L16.4969 18.931L35.2292 0.19873L38.1385 3.10811L16.4969 24.7498Z"
-                          fill="#007A47"
-                        />
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_d_2564_3543"
-                          x="0.859375"
-                          y="0.19873"
-                          width="41.2793"
-                          height="32.5513"
-                          filterUnits="userSpaceOnUse"
-                          color-interpolation-filters="sRGB"
-                        >
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dy="4" />
-                          <feGaussianBlur stdDeviation="2" />
-                          <feComposite in2="hardAlpha" operator="out" />
-                          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2564_3543" />
-                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2564_3543" result="shape" />
-                        </filter>
-                      </defs>
-                    </svg>
-                  </Box>
-                  <Typography
-                    sx={{
-                      fontFamily: inter.style.fontFamily,
-                      textAlign: "start",
-                      fontSize: { lg: "22px", md: "18px", xs: "14px" },
-                      color: "#ffffff",
-                    }}
-                  >
-                    Lorem ispum dolores
-                  </Typography>
-                </Box>
+                {getEvent?.programType?.map((ele, idx) => {
+                  return (
+                    <Box
+                      key={idx}
+                      sx={{
+                        mt: 2,
+                        display: "flex",
+                        justifyContent: "start",
+                        alignItems: "center",
+                        gap: 1,
+                      }}
+                    >
+                      <Box>
+                        <svg width="33" height="24" viewBox="0 0 43 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g filter="url(#filter0_d_2564_3543)">
+                            <path
+                              d="M16.4969 24.7498L4.85938 13.1123L7.76875 10.2029L16.4969 18.931L35.2292 0.19873L38.1385 3.10811L16.4969 24.7498Z"
+                              fill="#007A47"
+                            />
+                          </g>
+                          <defs>
+                            <filter
+                              id="filter0_d_2564_3543"
+                              x="0.859375"
+                              y="0.19873"
+                              width="41.2793"
+                              height="32.5513"
+                              filterUnits="userSpaceOnUse"
+                              color-interpolation-filters="sRGB"
+                            >
+                              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                              <feColorMatrix
+                                in="SourceAlpha"
+                                type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                result="hardAlpha"
+                              />
+                              <feOffset dy="4" />
+                              <feGaussianBlur stdDeviation="2" />
+                              <feComposite in2="hardAlpha" operator="out" />
+                              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2564_3543" />
+                              <feBlend
+                                mode="normal"
+                                in="SourceGraphic"
+                                in2="effect1_dropShadow_2564_3543"
+                                result="shape"
+                              />
+                            </filter>
+                          </defs>
+                        </svg>
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                          textAlign: "start",
+                          fontSize: { lg: "22px", md: "18px", xs: "14px" },
+                          color: "#ffffff",
+                        }}
+                      >
+                        {ele}
+                      </Typography>
+                    </Box>
+                  );
+                })}
               </Box>
             </Box>
           </Grid>
