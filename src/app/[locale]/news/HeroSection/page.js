@@ -101,12 +101,10 @@ export default function App({ allEvents }) {
                       key={idx}
                       sx={{
                         cursor: "pointer",
-                        backgroundImage: `linear-gradient(rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0.3)), url(${ele?.pictureLink})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "100% 100%",
-                        backgroundPosition: "fixed",
+                        background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${ele?.pictureLink}) no-repeat center center / cover`,
                         height: { md: "700px", xs: "400px" },
                         width: "100%",
+                        mt: { md: "0px", xs: "80px" },
                         borderRadius: "20px",
                       }}
                     >

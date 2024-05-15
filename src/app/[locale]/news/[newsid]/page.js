@@ -124,12 +124,11 @@ export default function Page() {
       >
         <Box
           sx={{
-            backgroundImage: `url(${getNews?.attachment[0]})`,
+            background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${getNews?.attachment[0]}) no-repeat center center / cover`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: { lg: "cover", md: "cover", sm: "cover", xs: "cover" },
-            backgroundPosition: "fixed",
-            height: { md: "650px", xs: "550px" },
+            height: { md: "650px", xs: "560px" },
             width: "100%",
+            mt: { md: "0px", xs: "100px" },
             borderRadius: "20px",
           }}
         >
