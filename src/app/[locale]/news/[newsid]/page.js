@@ -294,7 +294,7 @@ export default function Page() {
                       mt: 5,
                       fontFamily: inter.style.fontFamily,
                       fontWeight: 400,
-                      fontSize: { md: "40px", xs: "20px" },
+                      fontSize: { md: "40px", xs: "18px" },
                       color: "#222D55",
                       lineHeight: { md: "60px", xs: "30px" },
                       textAlign: "start",
@@ -311,7 +311,7 @@ export default function Page() {
                       mt: { md: 3, xs: 1 },
                       fontSize: {
                         md: "20px",
-                        xs: "12px",
+                        xs: "11px",
                         lineHeight: { md: "32px", xs: "20px" },
                         textAlign: "start",
                       },
