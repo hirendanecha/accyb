@@ -296,7 +296,7 @@ export default function Page() {
                       fontWeight: 400,
                       fontSize: { md: "40px", xs: "20px" },
                       color: "#222D55",
-                      lineHeight: { md: "60px", xs: "40px" },
+                      lineHeight: { md: "60px", xs: "30px" },
                       textAlign: "start",
                     }}
                   >
@@ -333,7 +333,7 @@ export default function Page() {
                       },
                     }}
                   >
-                    Source : {getNews?.source}
+                    {/* Source : {getNews?.source} */}
                   </Typography>
                 </Box>
               </Box>
