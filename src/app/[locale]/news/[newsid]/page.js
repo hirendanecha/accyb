@@ -124,7 +124,8 @@ export default function Page() {
       >
         <Box
           sx={{
-            background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${getNews?.attachment[0]}) no-repeat center center / cover`,
+            // background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${getNews?.attachment[0]}) no-repeat center center / cover`,
+            background: `linear-gradient(rgba(34, 45, 85, 0.4), rgba(34, 45, 85, 0.4)), url(${getNews?.attachment[0]}) no-repeat center center / cover`,
             backgroundRepeat: "no-repeat",
             height: { md: "650px", xs: "560px" },
             width: "100%",

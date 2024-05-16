@@ -101,7 +101,8 @@ export default function App({ allEvents }) {
                       key={idx}
                       sx={{
                         cursor: "pointer",
-                        background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${ele?.pictureLink}) no-repeat center center / cover`,
+                        // background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${ele?.pictureLink}) no-repeat center center / cover`,
+                        background: `linear-gradient(rgba(34, 45, 85, 0.4), rgba(34, 45, 85, 0.4)), url(${ele?.pictureLink}) no-repeat center center / cover`,
                         height: { md: "700px", xs: "400px" },
                         width: "100%",
                         mt: { md: "0px", xs: "80px" },
@@ -126,7 +127,7 @@ export default function App({ allEvents }) {
                               },
                             }}
                           >
-                            Actualité
+                            événement
                           </Button>
                           <Box
                             mt={1}
