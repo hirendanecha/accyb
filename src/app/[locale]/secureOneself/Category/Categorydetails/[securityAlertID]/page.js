@@ -1,99 +1,115 @@
 "use client";
 import { Box, Container, Grid, Typography, Divider } from "@mui/material";
-import React from "react";
-import { inter } from "../../../../../fonts/fonts";
+import React, { useEffect } from "react";
+import { inter } from "../../../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { useDispatch, useSelector } from "react-redux";
+import { getSecurityAlertsById } from "../../../../../redux/action/securityAlerts/securityAlertAction";
+import { useParams } from "next/navigation";
+import dayjs from "dayjs";
+import { getAllNews } from "../../../../../redux/action/newsActions/newsAction";
+
 export default function CategoryDetails() {
-  const category = [
-    {
-      data: [
-        {
-          title: "Les fondamentaux pour se sécuriser",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Connaitre la menace",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Définir la gouvernance de sécurité numérique adaptée à son organisation",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Intégrer la sécurité  dans les projets",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Structurer ses mesures de sécurité",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-      ],
-      key: "Category 1",
-    },
-    {
-      data: [
-        {
-          title: "Les fondamentaux pour se sécuriser",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Connaitre la menace",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Définir la gouvernance de sécurité numérique adaptée à son organisation",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Intégrer la sécurité  dans les projets",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-        {
-          title: "Structurer ses mesures de sécurité",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: "Lorem ipsum",
-        },
-      ],
-      key: "Category 2",
-    },
-  ];
+  const dispatch = useDispatch();
+  const params = useParams();
+
+  const { securityAlertID } = params;
+  console.log(securityAlertID, "id");
+
+  const { getSecurityAlert } = useSelector((state) => state.securityAlerts);
+  console.log(getSecurityAlert, "securityAlerts");
+
+  const { allNews } = useSelector((state) => state.news);
+  console.log(allNews, "allNews");
+
+  useEffect(() => {
+    dispatch(getSecurityAlertsById(securityAlertID))
+      .unwrap()
+      .then((res) => {
+        console.log(res, "res");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    dispatch(getAllNews())
+      .unwrap()
+      .then((res) => {
+        console.log(res, "News response");
+      })
+      .catch((err) => {
+        console.log(err, "err");
+      });
+  }, []);
+
+  // const category = [
+  //   {
+  //     data: securityAlerts,
+  //     key: "Category 1",
+  //   },
+  //   {
+  //     data: [
+  //       {
+  //         title: "Les fondamentaux pour se sécuriser",
+  //         description:
+  //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+  //         time: "13.01.2024",
+  //         heading: "Lorem ipsum",
+  //       },
+  //       {
+  //         title: "Connaitre la menace",
+  //         description:
+  //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+  //         time: "13.01.2024",
+  //         heading: "Lorem ipsum",
+  //       },
+  //       {
+  //         title:
+  //           "Définir la gouvernance de sécurité numérique adaptée à son organisation",
+  //         description:
+  //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+  //         time: "13.01.2024",
+  //         heading: "Lorem ipsum",
+  //       },
+  //       {
+  //         title: "Intégrer la sécurité  dans les projets",
+  //         description:
+  //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+  //         time: "13.01.2024",
+  //         heading: "Lorem ipsum",
+  //       },
+  //       {
+  //         title: "Structurer ses mesures de sécurité",
+  //         description:
+  //           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+  //         time: "13.01.2024",
+  //         heading: "Lorem ipsum",
+  //       },
+  //     ],
+  //     key: "Category 2",
+  //   },
+  // ];
   return (
     <Box sx={{ position: "relative" }}>
       <div style={{ position: "absolute", right: 0, top: { md: 100, xs: 0 } }}>
-        <svg width="597" height="499" viewBox="0 0 597 499" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="597"
+          height="499"
+          viewBox="0 0 597 499"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <g opacity="0.25" filter="url(#filter0_f_1430_1889)">
-            <ellipse cx="364.5" cy="134.5" rx="204.5" ry="204.5" transform="rotate(-180 364.5 134.5)" fill="#61F4C0" />
+            <ellipse
+              cx="364.5"
+              cy="134.5"
+              rx="204.5"
+              ry="204.5"
+              transform="rotate(-180 364.5 134.5)"
+              fill="#61F4C0"
+            />
           </g>
           <defs>
             <filter
@@ -106,8 +122,16 @@ export default function CategoryDetails() {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="80" result="effect1_foregroundBlur_1430_1889" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="80"
+                result="effect1_foregroundBlur_1430_1889"
+              />
             </filter>
           </defs>
         </svg>
@@ -147,16 +171,27 @@ export default function CategoryDetails() {
             <Grid item xs={12} md={3}></Grid>
             <Grid item xs={12} md={6}>
               <Box sx={{ textAlign: "center" }}>
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 400,
-                    fontSize: { md: "16px", xs: "10px", lineHeight: "50px" },
-                    color: "#222D55",
-                  }}
-                >
-                  Lorem ipsum
-                </Typography>
+                {getSecurityAlert?.Heading?.map((heading) => {
+                  return (
+                    <>
+                      <Typography
+                        sx={{
+                          fontFamily: inter.style.fontFamily,
+                          fontWeight: 400,
+                          fontSize: {
+                            md: "16px",
+                            xs: "10px",
+                            lineHeight: "50px",
+                          },
+                          color: "#222D55",
+                        }}
+                      >
+                        {heading}
+                      </Typography>
+                    </>
+                  );
+                })}
+
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
@@ -166,9 +201,17 @@ export default function CategoryDetails() {
                     lineHeight: "90px",
                   }}
                 >
-                  Les fondamentaux pour se sécuriser
+                  {getSecurityAlert?.title}
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", mt: 5 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "20px",
+                    mt: 5,
+                  }}
+                >
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
@@ -177,7 +220,7 @@ export default function CategoryDetails() {
                       color: "#222D55",
                     }}
                   >
-                    01.01.2024
+                    {dayjs(getSecurityAlert?.date).format("DD.MM.YYYY")}
                   </Typography>
                   <Box
                     sx={{
@@ -213,14 +256,13 @@ export default function CategoryDetails() {
                       textAlign: "start",
                     },
                   }}
+                  dangerouslySetInnerHTML={{
+                    __html: getSecurityAlert?.description,
+                  }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur
-                  interdum vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis
-                  tincidunt metus nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit amet
-                  venenatis urna. Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet quis
-                  condimentum at, mollis eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                  {/* {getSecurityAlert.description} */}
                 </Typography>
-                <Box>
+                {/* <Box>
                   <Typography
                     sx={{
                       mt: 5,
@@ -248,11 +290,15 @@ export default function CategoryDetails() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur
-                    interdum vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis
-                    tincidunt metus nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit
-                    amet venenatis urna. Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet
-                    quis condimentum at, mollis eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras at risus vitae magna consectetur interdum vel vitae
+                    sem. Pellentesque vel dolor sit amet orci condimentum
+                    vehicula. Cras lobortis tincidunt metus nec malesuada.
+                    Aliquam rutrum felis dui, et efficitur nulla congue ut.
+                    Fusce sit amet venenatis urna. Sed in consectetur purus, nec
+                    fermentum massa. Praesent erat odio, imperdiet quis
+                    condimentum at, mollis eget purus. Donec vel aliquet tortor,
+                    sit amet egestas nisi.
                   </Typography>
                 </Box>
                 <Box>
@@ -283,13 +329,17 @@ export default function CategoryDetails() {
                       },
                     }}
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur
-                    interdum vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis
-                    tincidunt metus nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit
-                    amet venenatis urna. Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet
-                    quis condimentum at, mollis eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras at risus vitae magna consectetur interdum vel vitae
+                    sem. Pellentesque vel dolor sit amet orci condimentum
+                    vehicula. Cras lobortis tincidunt metus nec malesuada.
+                    Aliquam rutrum felis dui, et efficitur nulla congue ut.
+                    Fusce sit amet venenatis urna. Sed in consectetur purus, nec
+                    fermentum massa. Praesent erat odio, imperdiet quis
+                    condimentum at, mollis eget purus. Donec vel aliquet tortor,
+                    sit amet egestas nisi.
                   </Typography>
-                </Box>
+                </Box> */}
               </Box>
             </Grid>
             <Grid item xs={12} md={3}></Grid>
@@ -321,7 +371,18 @@ export default function CategoryDetails() {
             />
           </Box>
           <Grid container mt={5} columnSpacing={2} mb={15}>
-            {category[0]?.data?.map((data, idx) => {
+            {allNews?.map((data, idx) => {
+              const DescriptionData = data?.description
+              .split("\n")
+              .slice(0, 4)
+              .map((line, index) => {
+                if (index === 0) {
+                  return line.substring(0, 150) + "...";
+                } else {
+                  return line;
+                }
+              })
+              .join("\n");
               return (
                 <Grid item xs={12} md={6} key={idx}>
                   <Box
@@ -329,7 +390,10 @@ export default function CategoryDetails() {
                       border: "1px solid rgba(0, 0, 0, 0.3)",
                       padding: 5,
                       position: "relative",
-                      borderTop: idx !== 0 && idx !== 1 ? "none" : "1px solid rgba(0, 0, 0, 0.3)",
+                      borderTop:
+                        idx !== 0 && idx !== 1
+                          ? "none"
+                          : "1px solid rgba(0, 0, 0, 0.3)",
                     }}
                   >
                     <Typography
@@ -341,7 +405,7 @@ export default function CategoryDetails() {
                         textTransform: "uppercase",
                       }}
                     >
-                      {data?.heading}
+                      {data?.source}
                     </Typography>
                     <Typography
                       sx={{
@@ -363,8 +427,9 @@ export default function CategoryDetails() {
                         fontWeight: 500,
                         mt: 2,
                       }}
+                      dangerouslySetInnerHTML={{ __html: DescriptionData }}
                     >
-                      {data?.description}
+                      {/* {data?.description} */}
                     </Typography>
                     <Typography
                       sx={{
@@ -376,7 +441,7 @@ export default function CategoryDetails() {
                         mt: 2,
                       }}
                     >
-                      {data?.time}
+                      {dayjs(data?.publishedDate).format("DD.MM.YYYY")}
                     </Typography>
                     <Box
                       sx={{
@@ -401,7 +466,13 @@ export default function CategoryDetails() {
                           alignItems: "center",
                         }}
                       >
-                        <ArrowForwardIcon sx={{ color: "#222D55", width: "20px", height: "20px" }} />
+                        <ArrowForwardIcon
+                          sx={{
+                            color: "#222D55",
+                            width: "20px",
+                            height: "20px",
+                          }}
+                        />
                       </Box>
                     </Box>
                   </Box>

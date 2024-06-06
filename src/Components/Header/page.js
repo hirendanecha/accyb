@@ -200,7 +200,7 @@ export default function Header() {
               >
                 {t("nav1")}
               </Typography>
-              <Typography
+              {/* <Typography
                 onClick={() => router.push(`/${locale}/devenirCyber`)}
                 variant="h7"
                 color="inherit"
@@ -213,7 +213,7 @@ export default function Header() {
                 }}
               >
                 {t("nav2")}
-              </Typography>
+              </Typography> */}
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
@@ -386,7 +386,7 @@ export default function Header() {
                   </MenuItem>
                 ))}
                 <Divider orientation="horizontal" variant="middle" sx={{ bgcolor: "#8E9BBF" }} />
-                {link.map((page, idx) => (
+                {/* {link.map((page, idx) => (
                   <MenuItem
                     key={idx}
                     onClick={() => {
@@ -410,7 +410,7 @@ export default function Header() {
                       {page.name}
                     </Typography>
                   </MenuItem>
-                ))}
+                ))} */}
                 <Divider orientation="horizontal" variant="middle" sx={{ bgcolor: "#8E9BBF" }} />
                 <MenuItem sx={{ gap: 1 }}>
                   <Avatar
@@ -463,7 +463,7 @@ export default function Header() {
                   >
                     actualités
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     sx={{
                       color: "#222D55",
                       textTransform: "uppercase",
@@ -472,7 +472,7 @@ export default function Header() {
                     }}
                   >
                     Devenir Bénévole Cyber
-                  </Typography>
+                  </Typography> */}
                 </MenuItem>
                 <MenuItem
                   sx={{
@@ -560,7 +560,7 @@ export default function Header() {
                 gap: 2,
               }}
             >
-              {link.map((page, idx) => (
+              {/* {link.map((page, idx) => (
                 <Button
                   key={idx}
                   onClick={() => handleClick(page)}
@@ -575,7 +575,7 @@ export default function Header() {
                 >
                   {page.name}
                 </Button>
-              ))}
+              ))} */}
               <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "red" }} />
             </Box>
             <Divider

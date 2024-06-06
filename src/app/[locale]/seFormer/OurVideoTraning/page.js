@@ -12,7 +12,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Import Swiper React components
@@ -28,48 +28,24 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
-const data = [
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-  {
-    img: VideoTraning,
-    title: "TAG",
-    heading: "Calendrier de l’Avent Cyber 2023",
-  },
-];
+import { useDispatch } from "react-redux";
+import { getAllVieos } from "../../../redux/action/videoActions/videoAction";
+
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
-  height: "auto !important",
+  height: "300px !important",
 }));
 export default function CaseStudies() {
+  const dispatch = useDispatch();
+
+  const [videos,setVideos]=useState([]);
+
+  useEffect(() => {
+    dispatch(getAllVieos()).unwrap().then((res) => {
+      console.log(res,'res');
+      setVideos(res.data);
+    });
+  }, []);
   return (
     <Box
       sx={{
@@ -238,7 +214,7 @@ export default function CaseStudies() {
               },
             }}
           >
-            {data?.map((ele) => {
+            {videos?.map((ele) => {
               return (
                 <>
                   <SwiperSlide>
@@ -247,10 +223,14 @@ export default function CaseStudies() {
                     >
                       <Box>
                         <Img
-                          src={ele?.img}
+                          src={ele?.thumbnail}
                           width={900}
                           height={900}
                           alt="video-traning"
+                          sx={{cursor: "pointer"}}
+                          onClick={() => {
+                            window.location.href = ele?.link;
+                          }}
                         />
                       </Box>
                       <Box
@@ -276,7 +256,7 @@ export default function CaseStudies() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          {ele?.title}
+                          TAG
                         </Typography>
                         <Typography
                           sx={{
@@ -285,7 +265,7 @@ export default function CaseStudies() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          {ele?.heading}
+                          {ele?.name}
                         </Typography>
                       </Box>
                     </Box>

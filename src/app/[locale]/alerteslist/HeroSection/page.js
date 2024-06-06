@@ -1,6 +1,15 @@
 "use client";
-import { Box, Container, Divider, Grid, InputBase, Typography, alpha, styled } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  InputBase,
+  Typography,
+  alpha,
+  styled,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,6 +21,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllSecurityAlerts } from "../../../redux/action/securityAlerts/securityAlertAction";
+import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,6 +71,24 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 export default function HeroSection() {
+  const dispathch = useDispatch();
+  // const [alertData, setAlertData] = useState([]);
+  const router = useRouter();
+
+  const {allSecurityAlerts}=useSelector((state)=>state.securityAlerts)
+console.log(allSecurityAlerts,"allSecurityAlerts");
+  useEffect(() => {
+    dispathch(getAllSecurityAlerts())
+      .unwrap()
+      .then((res) => {
+        console.log(res, "res");
+        // setAlertData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
@@ -72,260 +103,29 @@ export default function HeroSection() {
       );
     },
   };
+
+  // let category = [];
+
+  // if(alertData){
+  //   alertData.map((data)=>{
+  //     category = [
+  //       {
+  //         data: data,
+  //         key: "Category 1",
+  //       }]
+  //   });
+  // }
   const category = [
     {
-      data: [
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-      ],
+      data: allSecurityAlerts,
       key: "Category 1",
     },
     {
-      data: [
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-      ],
+      data: allSecurityAlerts,
       key: "Category 1",
     },
     {
-      data: [
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-        {
-          title: "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
-          time: "13.01.2024",
-          heading: {
-            heading1: "Lorem ipsum",
-            heading2: "Lorem ipsum2",
-          },
-        },
-      ],
+      data: allSecurityAlerts,
       key: "Category 1",
     },
   ];
@@ -341,9 +141,15 @@ export default function HeroSection() {
   };
 
   return (
-    <Box sx={{ position: "relative"  , padding : "0 16px"}}>
+    <Box sx={{ position: "relative", padding: "0 16px" }}>
       <div style={{ position: "absolute", right: 0, top: { md: 100, xs: 0 } }}>
-        <svg width="461" height="687" viewBox="0 0 461 687" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="461"
+          height="687"
+          viewBox="0 0 461 687"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <g opacity="0.1" filter="url(#filter0_f_2564_5375)">
             <ellipse
               cx="407.424"
@@ -365,8 +171,16 @@ export default function HeroSection() {
               color-interpolation-filters="sRGB"
             >
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="68.1766" result="effect1_foregroundBlur_2564_5375" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="68.1766"
+                result="effect1_foregroundBlur_2564_5375"
+              />
             </filter>
           </defs>
         </svg>
@@ -413,7 +227,8 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  Les alertes sont des documents destinés à prévenir d'un danger immédiat
+                  Les alertes sont des documents destinés à prévenir d'un danger
+                  immédiat
                 </Typography>
               </Box>
             </Grid>
@@ -426,9 +241,18 @@ export default function HeroSection() {
               borderBottomWidth: "1px",
             }}
           />
-          <Grid container sx={{ display: "flex", alignItems: "center", mt: 5, pb: 5 }}>
+          <Grid
+            container
+            sx={{ display: "flex", alignItems: "center", mt: 5, pb: 5 }}
+          >
             <Grid item xs={12} md={12}>
-              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
                 <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                   <Typography
                     sx={{
@@ -446,7 +270,8 @@ export default function HeroSection() {
                       m: 1,
                       minWidth: 180,
                       color: "#222D55",
-                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       // border: "1px solid rgba(34, 45, 85, 0.3)",
                       borderRadius: "50px",
                       fontSize: { md: "12px", xs: "10px" },
@@ -465,12 +290,14 @@ export default function HeroSection() {
                       sx={{
                         boxShadow: "none",
                         ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-                          border: 0,
-                        },
-                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                          border: 0,
-                        },
+                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                          {
+                            border: 0,
+                          },
+                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                          {
+                            border: 0,
+                          },
                         color: "#fff !important",
                         fontWeight: 600,
                       }}
@@ -511,12 +338,14 @@ export default function HeroSection() {
                       sx={{
                         boxShadow: "none",
                         ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-                          border: 0,
-                        },
-                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                          border: 0,
-                        },
+                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                          {
+                            border: 0,
+                          },
+                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                          {
+                            border: 0,
+                          },
                         textTransform: "uppercase",
                         fontWeight: 500,
                       }}
@@ -539,7 +368,10 @@ export default function HeroSection() {
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>
-                    <StyledInputBase placeholder="Recherche" inputProps={{ "aria-label": "search" }} />
+                    <StyledInputBase
+                      placeholder="Recherche"
+                      inputProps={{ "aria-label": "search" }}
+                    />
                   </Search>
                 </Box>
               </Box>
@@ -553,7 +385,13 @@ export default function HeroSection() {
               display: { md: "block", xs: "none" },
             }}
           >
-            <svg width="467" height="815" viewBox="0 0 467 815" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="467"
+              height="815"
+              viewBox="0 0 467 815"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g opacity="0.1" filter="url(#filter0_f_1856_4145)">
                 <path
                   d="M-211 407.576C-211 258.141 -89.8588 137 59.5761 137C209.011 137 330.152 258.141 330.152 407.576C330.152 557.011 209.011 678.152 59.576 678.152C-89.8589 678.152 -211 557.011 -211 407.576Z"
@@ -571,17 +409,35 @@ export default function HeroSection() {
                   color-interpolation-filters="sRGB"
                 >
                   <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur stdDeviation="68.1766" result="effect1_foregroundBlur_1856_4145" />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  />
+                  <feGaussianBlur
+                    stdDeviation="68.1766"
+                    result="effect1_foregroundBlur_1856_4145"
+                  />
                 </filter>
               </defs>
             </svg>
           </Box>
-          <Swiper slidesPerView={1} pagination={pagination} modules={[Pagination]} className="mySwiper">
+          <Swiper
+            slidesPerView={1}
+            pagination={pagination}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
             {category?.map((data, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
+                  <Grid
+                    container
+                    columnSpacing={2}
+                    sx={{ display: "flex" }}
+                    pb={10}
+                  >
                     {data?.data?.map((ele, idxx) => {
                       return (
                         <Grid item xs={12} md={6} key={idxx}>
@@ -590,33 +446,32 @@ export default function HeroSection() {
                               border: "1px solid rgba(0, 0, 0, 0.3)",
                               padding: 5,
                               position: "relative",
-                              borderTop: idxx !== 0 && idxx !== 1 ? "none" : "1px solid rgba(0, 0, 0, 0.3)",
+                              borderTop:
+                                idxx !== 0 && idxx !== 1
+                                  ? "none"
+                                  : "1px solid rgba(0, 0, 0, 0.3)",
                             }}
                           >
                             <Box sx={{ display: "flex", gap: 3 }}>
-                              <Typography
-                                sx={{
-                                  fontSize: { md: "12px", xs: "10px" },
-                                  color: "#BE0011",
-                                  fontFamily: inter.style.fontFamily,
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {ele?.heading?.heading1}
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  fontSize: { md: "12px", xs: "10px" },
-                                  color: "#BE0011",
-                                  fontFamily: inter.style.fontFamily,
-                                  fontWeight: 600,
-                                  textTransform: "uppercase",
-                                }}
-                              >
-                                {ele?.heading?.heading2}
-                              </Typography>
+                              {ele.Heading.map((ele, idx) => {
+                                return (
+                                  <>
+                                    <Typography
+                                      sx={{
+                                        fontSize: { md: "12px", xs: "10px" },
+                                        color: "#BE0011",
+                                        fontFamily: inter.style.fontFamily,
+                                        fontWeight: 600,
+                                        textTransform: "uppercase",
+                                      }}
+                                    >
+                                      {ele}
+                                    </Typography>
+                                  </>
+                                );
+                              })}
                             </Box>
+
                             <Typography
                               sx={{
                                 fontSize: { md: "24px", xs: "18px" },
@@ -629,6 +484,7 @@ export default function HeroSection() {
                               {ele?.title}
                             </Typography>
                             <Typography
+                            dangerouslySetInnerHTML={{ __html: ele?.description }}
                               sx={{
                                 fontSize: { md: "14px", xs: "12px" },
                                 lineHeight: "22px",
@@ -636,9 +492,10 @@ export default function HeroSection() {
                                 fontFamily: inter.style.fontFamily,
                                 fontWeight: 500,
                                 mt: 2,
+                                
                               }}
                             >
-                              {ele?.description}
+                              {/* {ele?.description} */}
                             </Typography>
                             <Typography
                               sx={{
@@ -650,7 +507,7 @@ export default function HeroSection() {
                                 mt: 2,
                               }}
                             >
-                              {ele?.time}
+                              {dayjs(ele?.date).format("DD.MM.YYYY")}
                             </Typography>
                             <Box
                               sx={{
@@ -673,9 +530,17 @@ export default function HeroSection() {
                                   display: "flex",
                                   justifyContent: "center",
                                   alignItems: "center",
+                                  cursor: "pointer",
                                 }}
+                                onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)}
                               >
-                                <ArrowForwardIcon sx={{ color: "#222D55", width: "20px", height: "20px" }} />
+                                <ArrowForwardIcon
+                                  sx={{
+                                    color: "#222D55",
+                                    width: "20px",
+                                    height: "20px",
+                                  }}
+                                />
                               </Box>
                             </Box>
                           </Box>
