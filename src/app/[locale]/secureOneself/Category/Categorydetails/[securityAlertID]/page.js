@@ -370,8 +370,8 @@ export default function CategoryDetails() {
               }}
             />
           </Box>
-          <Grid container mt={5} columnSpacing={2} mb={15}>
-            {allNews?.map((data, idx) => {
+          <Grid container mt={5} columnSpacing={2} mb={15} >
+            {allNews?.slice(0, 6)?.map((data, idx) => {
               const DescriptionData = data?.description
               .split("\n")
               .slice(0, 4)
@@ -384,9 +384,10 @@ export default function CategoryDetails() {
               })
               .join("\n");
               return (
-                <Grid item xs={12} md={6} key={idx}>
+                <Grid item xs={12} md={6} key={idx} >
                   <Box
                     sx={{
+                      height: "100%",
                       border: "1px solid rgba(0, 0, 0, 0.3)",
                       padding: 5,
                       position: "relative",
@@ -453,6 +454,7 @@ export default function CategoryDetails() {
                         alignItems: "center",
                         padding: 2,
                         backgroundColor: "white",
+                        zIndex: 1,
                       }}
                     >
                       <Box

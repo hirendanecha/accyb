@@ -440,7 +440,7 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
                   >
                     {data?.data?.map((ele, idxx) => {
                       return (
-                        <Grid item xs={12} md={6} key={idxx}>
+                        <Grid item xs={12} md={6} key={idxx} onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)} sx={{ cursor: "pointer" }} >
                           <Box
                             sx={{
                               border: "1px solid rgba(0, 0, 0, 0.3)",
@@ -532,7 +532,7 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
                                   alignItems: "center",
                                   cursor: "pointer",
                                 }}
-                                onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)}
+                                // onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)}
                               >
                                 <ArrowForwardIcon
                                   sx={{
