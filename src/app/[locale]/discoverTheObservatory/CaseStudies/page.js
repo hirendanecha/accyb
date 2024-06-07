@@ -44,6 +44,9 @@ import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCaseStudies } from "../../../redux/action/caseStudiesActions/caseStudiesAction";
+import dayjs from "dayjs";
 
 const partners = [
   {
@@ -82,21 +85,24 @@ const data = [
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
 ];
@@ -109,10 +115,24 @@ export default function CaseStudies() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("etudes");
+  const dispatch = useDispatch();
+
+  const { allcaseStudies } = useSelector((state) => state.caseStudies);
+  console.log(allcaseStudies, "allcaseStudies");
+
   useEffect(() => {
     if (search == "true") {
-      document.getElementById("etudes").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      document.getElementById("etudes").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
+    dispatch(getAllCaseStudies())
+      .unwrap()
+      .then((res) => {
+        console.log(res);
+      });
   }, []);
   return (
     <>
@@ -218,7 +238,8 @@ export default function CaseStudies() {
                       aria-label="Next Slide"
                       title="Next Slide"
                       sx={{
-                        backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                        backgroundImage:
+                          "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                         width: 45,
                         height: 45,
                       }}
@@ -238,7 +259,8 @@ export default function CaseStudies() {
                       aria-label="Next Slide"
                       title="Next Slide"
                       sx={{
-                        backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                        backgroundImage:
+                          "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                         width: 45,
                         height: 45,
                       }}
@@ -283,7 +305,127 @@ export default function CaseStudies() {
                 },
               }}
             >
-              <SwiperSlide>
+              {allcaseStudies?.map((studies, index) => {
+                const DescriptionData = studies?.description
+                .split("\n")
+                .slice(0, 4)
+                .map((line, index) => {
+                  if (index === 0) {
+                    return line.substring(0, 130) + "...";
+                  } else {
+                    return line;
+                  }
+                })
+                .join("\n");
+                return (
+                  <>
+                    <SwiperSlide>
+                      <Grid container>
+                        <Grid item xs={12} md={11}>
+                          <Box
+                            onClick={() => router.push(`/${locales}/study/${studies?._id}`)}
+                            sx={{
+                              display: "flex",
+                              cursor: "pointer",
+                              gap: 3,
+                              flexDirection: {
+                                lg: "row",
+                                md: "column",
+                                xs: "column",
+                              },
+                            }}
+                          >
+                            <Box>
+                              <Image
+                                src={studies?.image}
+                                width={295}
+                                height={220}
+                                alt="image1"
+                                style={{borderRadius:'15px'}}
+                              />
+                            </Box>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                borderRadius: "16px",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  fontFamily: inter.style.fontFamily,
+                                  backgroundImage:
+                                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                  width: "max-content",
+                                  padding: 1,
+                                  fontSize: "12px",
+                                  mb: 1,
+                                  padding: "8px 15px 8px 15px",
+                                  cursor: "pointer",
+                                  color: "#FFFFFF",
+                                  textTransform: "uppercase",
+                                }}
+                              >
+                                tag
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontWeight: 600,
+                                  fontFamily: inter.style.fontFamily,
+                                  fontSize: "18px",
+                                  maxWidth: { lg: "230px", md: "100%" },
+                                  color: "#FFFFFF",
+                                }}
+                              >
+                                {studies?.title}
+                              </Typography>
+                              <Typography
+                                mt={1}
+                                sx={{
+                                  fontFamily: inter.style.fontFamily,
+                                  color: "#FFFFFF",
+                                  fontSize: "14px",
+                                  maxWidth: "350px",
+                                }}
+                                dangerouslySetInnerHTML={{ __html: DescriptionData }}
+                              >
+                               {/* {DescriptionData} */}
+                              </Typography>
+                              <Box>
+                                <Box
+                                  sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
+                                    mt: 1,
+                                  }}
+                                >
+                                  <Box>
+                                    <Typography
+                                      sx={{
+                                        fontFamily: inter.style.fontFamily,
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        color: "#FFFFFF",
+                                      }}
+                                    >
+                                      {dayjs(studies?.createdAt).format(
+                                        "DD.MM.YYYY"
+                                      )}
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </Box>
+                            </Box>
+                          </Box>
+                        </Grid>
+                      </Grid>
+                    </SwiperSlide>
+                  </>
+                );
+              })}
+
+              {/* <SwiperSlide>
                 <Grid container>
                   <Grid item xs={12} md={11}>
                     <Box
@@ -292,11 +434,20 @@ export default function CaseStudies() {
                         display: "flex",
                         cursor: "pointer",
                         gap: 3,
-                        flexDirection: { lg: "row", md: "column", xs: "column" },
+                        flexDirection: {
+                          lg: "row",
+                          md: "column",
+                          xs: "column",
+                        },
                       }}
                     >
                       <Box>
-                        <Image src={Image1} width={295} height={220} alt="image1" />
+                        <Image
+                          src={Image1}
+                          width={295}
+                          height={220}
+                          alt="image1"
+                        />
                       </Box>
                       <Box
                         sx={{
@@ -308,7 +459,8 @@ export default function CaseStudies() {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                            backgroundImage:
+                              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                             width: "max-content",
                             padding: 1,
                             fontSize: "12px",
@@ -341,8 +493,9 @@ export default function CaseStudies() {
                             maxWidth: "350px",
                           }}
                         >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore ...
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore ...
                         </Typography>
                         <Box>
                           <Box
@@ -381,11 +534,20 @@ export default function CaseStudies() {
                         display: "flex",
                         cursor: "pointer",
                         gap: 3,
-                        flexDirection: { lg: "row", md: "column", xs: "column" },
+                        flexDirection: {
+                          lg: "row",
+                          md: "column",
+                          xs: "column",
+                        },
                       }}
                     >
                       <Box>
-                        <Image src={Image1} width={295} height={220} alt="image1" />
+                        <Image
+                          src={Image1}
+                          width={295}
+                          height={220}
+                          alt="image1"
+                        />
                       </Box>
                       <Box
                         sx={{
@@ -397,7 +559,8 @@ export default function CaseStudies() {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                            backgroundImage:
+                              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                             width: "max-content",
                             padding: 1,
                             fontSize: "12px",
@@ -430,8 +593,9 @@ export default function CaseStudies() {
                             maxWidth: "350px",
                           }}
                         >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore ...
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore ...
                         </Typography>
                         <Box>
                           <Box
@@ -470,11 +634,20 @@ export default function CaseStudies() {
                         display: "flex",
                         cursor: "pointer",
                         gap: 3,
-                        flexDirection: { lg: "row", md: "column", xs: "column" },
+                        flexDirection: {
+                          lg: "row",
+                          md: "column",
+                          xs: "column",
+                        },
                       }}
                     >
                       <Box>
-                        <Image src={Image1} width={295} height={220} alt="image1" />
+                        <Image
+                          src={Image1}
+                          width={295}
+                          height={220}
+                          alt="image1"
+                        />
                       </Box>
                       <Box
                         sx={{
@@ -486,7 +659,8 @@ export default function CaseStudies() {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                            backgroundImage:
+                              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                             width: "max-content",
                             padding: 1,
                             fontSize: "12px",
@@ -519,8 +693,9 @@ export default function CaseStudies() {
                             maxWidth: "350px",
                           }}
                         >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore ...
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore ...
                         </Typography>
                         <Box>
                           <Box
@@ -549,98 +724,11 @@ export default function CaseStudies() {
                     </Box>
                   </Grid>
                 </Grid>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Grid container>
-                  <Grid item xs={12} md={11}>
-                    <Box
-                      onClick={() => router.push(`/${locales}/study`)}
-                      sx={{
-                        display: "flex",
-                        cursor: "pointer",
-                        gap: 3,
-                        flexDirection: { lg: "row", md: "column", xs: "column" },
-                      }}
-                    >
-                      <Box>
-                        <Image src={Image1} width={295} height={220} alt="image1" />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          borderRadius: "16px",
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontFamily: inter.style.fontFamily,
-                            backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                            width: "max-content",
-                            padding: 1,
-                            fontSize: "12px",
-                            mb: 1,
-                            padding: "8px 15px 8px 15px",
-                            cursor: "pointer",
-                            color: "#FFFFFF",
-                            textTransform: "uppercase",
-                          }}
-                        >
-                          tag
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontWeight: 600,
-                            fontFamily: inter.style.fontFamily,
-                            fontSize: "18px",
-                            maxWidth: { lg: "230px", md: "100%" },
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          Calendrier de l’Avent Cyber 2023
-                        </Typography>
-                        <Typography
-                          mt={1}
-                          sx={{
-                            fontFamily: inter.style.fontFamily,
-                            color: "#FFFFFF",
-                            fontSize: "14px",
-                            maxWidth: "350px",
-                          }}
-                        >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore ...
-                        </Typography>
-                        <Box>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                              mt: 1,
-                            }}
-                          >
-                            <Box>
-                              <Typography
-                                sx={{
-                                  fontFamily: inter.style.fontFamily,
-                                  fontSize: 14,
-                                  fontWeight: 600,
-                                  color: "#FFFFFF",
-                                }}
-                              >
-                                13.01.2024
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Grid>
-                </Grid>
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 1, pb: 8 }}>
+            <Box
+              sx={{ display: "flex", justifyContent: "center", gap: 1, pb: 8 }}
+            >
               <Box
                 sx={{
                   display: { md: "none", xs: "block" },
@@ -653,7 +741,8 @@ export default function CaseStudies() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -673,7 +762,8 @@ export default function CaseStudies() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -720,7 +810,11 @@ export default function CaseStudies() {
           >
             Partenaires majeurs
           </Typography>
-          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
           {partners?.map((ele, idx) => {
             return (
               <Box
@@ -759,7 +853,11 @@ export default function CaseStudies() {
           >
             Avec le soutien de
           </Typography>
-          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
           {supported?.map((ele, idx) => {
             return (
               <Box

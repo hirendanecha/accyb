@@ -3,27 +3,52 @@ import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
+import dayjs from "dayjs";
 
-export default function App() {
+export default function App(studyDetails) {
+  console.log(studyDetails, "studyDetails");
+
+  const data = studyDetails?.studyDetails?.description
+    .split("\n")
+    .slice(0, 4)
+    .map((line, index) => {
+      if (index === 0) {
+        return line.substring(0, 150) + "...";
+      } else {
+        return line;
+      }
+    })
+    .join("\n");
   return (
     <>
-      <Container disableGutters maxWidth={"xl"} sx={{ mt: { md: "125px", sm: "50px", xs: "10px" } }}>
+      <Container
+        disableGutters
+        maxWidth={"xl"}
+        sx={{ mt: { md: "125px", sm: "50px", xs: "10px" } }}
+      >
         <Box
           sx={{
-            backgroundImage: "url('/News/Study.png')",
+            backgroundImage: `url(${studyDetails?.studyDetails?.image})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: { lg: "contain", md: "cover", xs: "cover" },
+            backgroundSize: { lg: "cover", md: "cover", xs: "cover" },
             backgroundPosition: "fixed",
-            height: { md: "800px", xs: "550px" },
+            height: { md: "650px", xs: "550px" },
             width: "100%",
+            borderRadius:'20px'
           }}
         >
           <Grid container>
-            <Grid item xs={12} md={10} padding={{ md: "150px 50px", xs: "150px 10px" }}>
+            <Grid
+              item
+              xs={12}
+              md={10}
+              padding={{ md: "150px 50px", xs: "150px 10px" }}
+            >
               <Button
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   textTransform: "uppercase",
                   padding: "15px 40px 15px 40px",
                   fontSize: { md: "14px", xs: "12px" },
@@ -32,7 +57,8 @@ export default function App() {
                   textAlign: "start",
                   borderRadius: "50px",
                   "&:hover": {
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   },
                 }}
               >
@@ -60,7 +86,7 @@ export default function App() {
                   maxWidth: "700px !important",
                 }}
               >
-                Calendrier de l’avant cyber 2023
+                {studyDetails?.studyDetails?.title}
               </Box>
               <Typography
                 sx={{
@@ -79,10 +105,11 @@ export default function App() {
                   mt: { md: 3, xs: 1 },
                   fontFamily: inter.style.fontFamily,
                 }}
+                dangerouslySetInnerHTML={{
+                  __html: data,
+                }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea.
+                {/* {studyDetails?.studyDetails?.description} */}
               </Typography>
               <Box sx={{ display: "flex", gap: 2 }}>
                 <Typography
@@ -98,7 +125,7 @@ export default function App() {
                     fontFamily: inter.style.fontFamily,
                   }}
                 >
-                  01.01.2024
+                  {dayjs(studyDetails?.studyDetails?.createdAt).format("DD.MM.YYYY")}
                 </Typography>
                 <Typography
                   sx={{
@@ -114,7 +141,7 @@ export default function App() {
                     fontFamily: inter.style.fontFamily,
                   }}
                 >
-                  Jean Dohn
+                  {studyDetails?.studyDetails?.publishedBy}
                 </Typography>
               </Box>
               <Box

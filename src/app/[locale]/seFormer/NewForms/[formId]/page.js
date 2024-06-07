@@ -1,65 +1,93 @@
 "use client";
-import { Box, Container, Grid, Typography, Divider, Button, styled } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Divider,
+  Button,
+  styled,
+} from "@mui/material";
 import Image from "next/image";
-import React from "react";
-import { inter } from "../../../../fonts/fonts";
-import Location from "../../../../Icons/Sinformer/Location.svg";
-import Bag from "../../../../Icons/Sinformer/Bag.svg";
-import Watch from "../../../../Icons/Sinformer/Watch.svg";
-import Round from "../../../../Icons/Sinformer/Round.svg";
-import Cap from "../../../../Icons/Sinformer/Cap.svg";
-import Coin from "../../../../Icons/Sinformer/Coin.svg";
+import React, { useEffect } from "react";
+import { inter } from "../../../../../fonts/fonts";
+import Location from "../../../../../Icons/Sinformer/Location.svg";
+import Bag from "../../../../../Icons/Sinformer/Bag.svg";
+import Watch from "../../../../../Icons/Sinformer/Watch.svg";
+import Round from "../../../../../Icons/Sinformer/Round.svg";
+import Cap from "../../../../../Icons/Sinformer/Cap.svg";
+import Coin from "../../../../../Icons/Sinformer/Coin.svg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "next/navigation";
+import { getFormationsById } from "../../../../redux/action/formationActions/formationAction";
 
 export default function NewForms() {
+  const dispatch = useDispatch();
+  const param = useParams();
+  const { formId } = param;
+  console.log(formId, "formId");
+
+  const { getFormation } = useSelector((state) => state.formations);
+  console.log(getFormation, "getFormation");
+
+  useEffect(() => {
+    dispatch(getFormationsById(formId))
+      .unwrap()
+      .then((res) => {
+        console.log(res, "res");
+      });
+  }, []);
+
   const data = [
     {
       name: "territoire",
-      title: "Lorem ipsum",
+      title: getFormation?.territory,
       icon: Location,
     },
     {
       name: "Lieu de formation",
-      title: "Lorem ipsum",
+      title: getFormation?.trainingSite,
       icon: Location,
     },
     {
       name: "Domaine",
-      title: "Logiciel",
+      title: getFormation?.domain,
       icon: Bag,
     },
     {
       name: "Durée",
-      title: "30 mois",
+      title: getFormation?.duration,
       icon: Watch,
     },
     {
       name: "Type de formation",
-      title: "Initialie",
+      title: getFormation?.typeOfFormation,
       icon: Round,
     },
     {
       name: "Niveau d’étude visé",
-      title: "Bac +4",
+      title: getFormation?.targetedLevel,
       icon: Cap,
     },
     {
       name: "titre obtenue",
-      title: "Cyber Analist",
+      title: getFormation?.titleObtained,
       icon: Location,
     },
     {
       name: "Coût de la formation",
-      title: "3.000€",
+      title: `${getFormation?.cost} €`,
       icon: Coin,
     },
     {
       name: "Solution de financement",
-      title: "Formation initiale",
+      title: getFormation?.financingSolution,
       icon: Coin,
     },
   ];
+
   return (
     <Box
       sx={{
@@ -98,7 +126,7 @@ export default function NewForms() {
                   mt: 10,
                 }}
               >
-                Manager de l'innovation numérique Web School Factory - Grande École de Management du Numérique
+                {getFormation?.title}
               </Typography>
 
               <Divider
@@ -121,15 +149,12 @@ export default function NewForms() {
                   fontFamily: inter.style.fontFamily,
                   fontWeight: 400,
                 }}
+                dangerouslySetInnerHTML={{ __html: getFormation?.description }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur interdum
-                vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis tincidunt metus
-                nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit amet venenatis urna.
-                Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet quis condimentum at, mollis
-                eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                {/* {getFormation?.description} */}
               </Typography>
 
-              <Box>
+              {/* <Box>
                 <Typography
                   sx={{
                     mt: 5,
@@ -287,17 +312,28 @@ export default function NewForms() {
                 >
                   Télécharger la plaquette
                 </Button>
-              </Box>
+              </Box> */}
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Box sx={{ backgroundColor: "#222D55", padding: 8, borderRadius: "20px" }}>
+            <Box
+              sx={{
+                backgroundColor: "#222D55",
+                padding: 8,
+                borderRadius: "20px",
+              }}
+            >
               {data?.map((item) => (
                 <>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
                     <Box>
                       <Typography>
-                        <Image src={item?.icon} alt="location" width={40} height={40} />
+                        <Image
+                          src={item?.icon}
+                          alt="location"
+                          width={40}
+                          height={40}
+                        />
                       </Typography>
                     </Box>
                     <Box>
@@ -353,21 +389,36 @@ export default function NewForms() {
               >
                 Métiers ciblé
               </Typography>
-              <Typography
-                sx={{
-                  fontSize: { md: "16px", xs: "14px" },
-                  color: "#222D55",
-                  mt: 1,
-                  lineHeight: "30px",
-                  fontFamily: inter.style.fontFamily,
-                  fontWeight: 400,
-                }}
-              >
-                #cyberanalist - #Cryptologue - #ResponsableSOC #Architecte en cybersécurité
-              </Typography>
+              <Box sx={{display:'flex'}}>
+              {getFormation?.targetedProfessions?.map((professions, index) => {
+                return (
+                  <Typography
+                    sx={{
+                      fontSize: { md: "16px", xs: "14px" },
+                      color: "#222D55",
+                      mt: 1,
+                      lineHeight: "30px",
+                      fontFamily: inter.style.fontFamily,
+                      fontWeight: 400,
+                    }}
+                    key={index}
+                  >
+                    {/* #cyberanalist - #Cryptologue - #ResponsableSOC #Architecte en cybersécurité */}
+                    #{professions} &nbsp;
+                  </Typography>
+                );
+              })}
+              </Box>
             </Box>
 
-            <Box sx={{ border: "1px solid rgba(34, 45, 85, 0.3)", padding: "40px", mt: 5, borderRadius: "25px" }}>
+            <Box
+              sx={{
+                border: "1px solid rgba(34, 45, 85, 0.3)",
+                padding: "40px",
+                mt: 5,
+                borderRadius: "25px",
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: { md: "24px", xs: "14px" },

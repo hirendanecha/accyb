@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Grid, Typography, Divider } from "@mui/material";
+import { Box, Container, Grid, Typography, Divider, Button } from "@mui/material";
 import React, { useEffect } from "react";
 import { inter } from "../../../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
@@ -10,6 +10,8 @@ import { getSecurityAlertsById } from "../../../../../redux/action/securityAlert
 import { useParams } from "next/navigation";
 import dayjs from "dayjs";
 import { getAllNews } from "../../../../../redux/action/newsActions/newsAction";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+
 
 export default function CategoryDetails() {
   const dispatch = useDispatch();
@@ -262,6 +264,51 @@ export default function CategoryDetails() {
                 >
                   {/* {getSecurityAlert.description} */}
                 </Typography>
+                <Button
+                variant="outlined"
+                endIcon={
+                  <FileDownloadIcon
+                    sx={{
+                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "50%",
+                      width: "50px",
+                      height: "50px",
+                      color: "#ffffff",
+                      padding: 1.7,
+                      marginRight: -2,
+                      ml: 3,
+                      ":hover": {
+                        "@keyframes move-left": {
+                          "0%": {
+                            rotate: "0deg",
+                          },
+                          "100%": {
+                            rotate: "-35deg",
+                          },
+                        },
+                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      },
+                    }}
+                  />
+                }
+                sx={{
+                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  borderRadius: "61px",
+                  padding: "8px 30px",
+                  fontSize: { md: "12px", xs: "10px" },
+                  mt: { md: 3, xs: 5 },
+                  fontWeight: 600,
+                  background: "#ffffff",
+                  fontFamily: inter.style.fontFamily,
+                  border: "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
+                  "&:hover": {
+                    backgroundColor: "#FFFFFF",
+                    border: "none",
+                  },
+                }}
+              >
+                Score CVSS v3.1: 8.8
+              </Button>
                 {/* <Box>
                   <Typography
                     sx={{

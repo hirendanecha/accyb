@@ -9,9 +9,10 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
   width: "100% !important",
-  height: "auto !important",
+  height: "550px !important",
 }));
-export default function page() {
+export default function page(studyDetails) {
+  console.log(studyDetails, "studyDetails111");
   return (
     <Box
       sx={{
@@ -43,7 +44,7 @@ export default function page() {
           </Grid>
           <Grid item xs={12} md={6}>
             <Box sx={{ textAlign: "center" }}>
-              <Typography
+              {/* <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
                   fontWeight: 400,
@@ -55,13 +56,10 @@ export default function page() {
                     textAlign: "start",
                   },
                 }}
+                // dangerouslySetInnerHTML={{ __html: studyDetails?.studyDetails?.description }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur interdum
-                vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis tincidunt metus
-                nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit amet venenatis urna.
-                Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet quis condimentum at, mollis
-                eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
-              </Typography>
+                {studyDetails?.studyDetails?.title}
+              </Typography> */}
               <Box>
                 <Typography
                   sx={{
@@ -74,7 +72,7 @@ export default function page() {
                     textAlign: "start",
                   }}
                 >
-                  Et harum quidem rerum facilis
+                  {studyDetails?.studyDetails?.title}
                 </Typography>
                 <Typography
                   sx={{
@@ -89,16 +87,13 @@ export default function page() {
                       textAlign: "start",
                     },
                   }}
+                  dangerouslySetInnerHTML={{ __html: studyDetails?.studyDetails?.description }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at risus vitae magna consectetur
-                  interdum vel vitae sem. Pellentesque vel dolor sit amet orci condimentum vehicula. Cras lobortis
-                  tincidunt metus nec malesuada. Aliquam rutrum felis dui, et efficitur nulla congue ut. Fusce sit amet
-                  venenatis urna. Sed in consectetur purus, nec fermentum massa. Praesent erat odio, imperdiet quis
-                  condimentum at, mollis eget purus. Donec vel aliquet tortor, sit amet egestas nisi.
+                  {/* {studyDetails?.studyDetails?.title} */}
                 </Typography>
               </Box>
             </Box>
-            <Box sx={{ textAlign: "center" }}>
+            {/* <Box sx={{ textAlign: "center" }}>
               <Box>
                 <Typography
                   sx={{
@@ -148,9 +143,9 @@ export default function page() {
                   }}
                 ></Typography>
               </Box>
-            </Box>
+            </Box> */}
             <Box mt={5}>
-              <Img src={ClientMeeting} height={900} width={900} alt="img" />
+              <Img src={studyDetails?.studyDetails?.image} height={600} width={900} alt="img" />
             </Box>
           </Grid>
           <Grid item xs={12} md={3}></Grid>

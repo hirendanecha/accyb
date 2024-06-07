@@ -12,7 +12,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Import Swiper React components
@@ -27,26 +27,34 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCaseStudies } from "../../../redux/action/caseStudiesActions/caseStudiesAction";
+import dayjs from "dayjs";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 const data = [
   {
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image1,
     title: "ACTUALITÉ",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
 ];
@@ -55,6 +63,20 @@ const Img = styled(Image)(({ theme }) => ({
   height: "auto !important",
 }));
 export default function OtherStudies() {
+  const dispatch = useDispatch();
+  const locales = useLocale();
+  const router = useRouter();
+
+  const { allcaseStudies } = useSelector((state) => state.caseStudies);
+  console.log(allcaseStudies, "allcaseStudies");
+
+  useEffect(() => {
+    dispatch(getAllCaseStudies())
+      .unwrap()
+      .then((res) => {
+        console.log(res, "res");
+      });
+  }, []);
   return (
     <Box
       sx={{
@@ -157,7 +179,8 @@ export default function OtherStudies() {
                     aria-label="Next Slide"
                     title="Next Slide"
                     sx={{
-                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: 45,
                       height: 45,
                     }}
@@ -177,7 +200,8 @@ export default function OtherStudies() {
                     aria-label="Next Slide"
                     title="Next Slide"
                     sx={{
-                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       width: 45,
                       height: 45,
                     }}
@@ -222,7 +246,126 @@ export default function OtherStudies() {
               },
             }}
           >
-            <SwiperSlide>
+            {allcaseStudies?.map((study, index) => {
+              const DescriptionData = study?.description
+                .split("\n")
+                .slice(0, 4)
+                .map((line, index) => {
+                  if (index === 0) {
+                    return line.substring(0, 130) + "...";
+                  } else {
+                    return line;
+                  }
+                })
+                .join("\n");
+              return (
+                <>
+                  <SwiperSlide key={index}>
+                    <Grid container>
+                      <Grid item xs={12} md={11}>
+                        <Box
+                        onClick={() => router.push(`/${locales}/study/${study?._id}`)}
+                          sx={{
+                            cursor: "pointer",
+                            display: "flex",
+                            gap: 3,
+                            flexDirection: {
+                              lg: "row",
+                              md: "column",
+                              xs: "column",
+                            },
+                          }}
+                        >
+                          <Box>
+                            <Image
+                              src={study?.image}
+                              width={295}
+                              height={220}
+                              alt="image1"
+                            />
+                          </Box>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              borderRadius: "16px",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontFamily: inter.style.fontFamily,
+                                backgroundImage:
+                                  "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                width: "max-content",
+                                padding: 1,
+                                fontSize: "12px",
+                                mb: 1,
+                                padding: "8px 15px 8px 15px",
+                                cursor: "pointer",
+                                color: "#FFFFFF",
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              tag
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontWeight: 600,
+                                fontFamily: inter.style.fontFamily,
+                                fontSize: "18px",
+                                maxWidth: { lg: "230px", md: "100%" },
+                                color: "#FFFFFF",
+                              }}
+                            >
+                              {study?.title}
+                            </Typography>
+                            <Typography
+                              mt={1}
+                              sx={{
+                                fontFamily: inter.style.fontFamily,
+                                color: "#FFFFFF",
+                                fontSize: "14px",
+                                maxWidth: "350px",
+                              }}
+                              dangerouslySetInnerHTML={{
+                                __html: DescriptionData,
+                              }}
+                            >
+                              {/* {study?.description} */}
+                            </Typography>
+                            <Box>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "center",
+                                  mt: 1,
+                                }}
+                              >
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      fontFamily: inter.style.fontFamily,
+                                      fontSize: 14,
+                                      fontWeight: 600,
+                                      color: "#FFFFFF",
+                                    }}
+                                  >
+                                    {dayjs(study?.date).format("DD.MM.YYYY")}
+                                  </Typography>
+                                </Box>
+                              </Box>
+                            </Box>
+                          </Box>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </SwiperSlide>
+                </>
+              );
+            })}
+
+            {/* <SwiperSlide>
               <Grid container>
                 <Grid item xs={12} md={11}>
                   <Box
@@ -233,7 +376,12 @@ export default function OtherStudies() {
                     }}
                   >
                     <Box>
-                      <Image src={Image1} width={295} height={220} alt="image1" />
+                      <Image
+                        src={Image1}
+                        width={295}
+                        height={220}
+                        alt="image1"
+                      />
                     </Box>
                     <Box
                       sx={{
@@ -245,7 +393,8 @@ export default function OtherStudies() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          backgroundImage:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
                           padding: 1,
                           fontSize: "12px",
@@ -260,8 +409,8 @@ export default function OtherStudies() {
                       </Typography>
                       <Typography
                         sx={{
-                          fontWeight: 600,
                           fontFamily: inter.style.fontFamily,
+                          fontWeight: 600,
                           fontSize: "18px",
                           maxWidth: { lg: "230px", md: "100%" },
                           color: "#FFFFFF",
@@ -278,8 +427,8 @@ export default function OtherStudies() {
                           maxWidth: "350px",
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore ...
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore ...
                       </Typography>
                       <Box>
                         <Box
@@ -320,7 +469,12 @@ export default function OtherStudies() {
                     }}
                   >
                     <Box>
-                      <Image src={Image1} width={295} height={220} alt="image1" />
+                      <Image
+                        src={Image1}
+                        width={295}
+                        height={220}
+                        alt="image1"
+                      />
                     </Box>
                     <Box
                       sx={{
@@ -332,7 +486,8 @@ export default function OtherStudies() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          backgroundImage:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
                           padding: 1,
                           fontSize: "12px",
@@ -365,8 +520,8 @@ export default function OtherStudies() {
                           maxWidth: "350px",
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore ...
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore ...
                       </Typography>
                       <Box>
                         <Box
@@ -407,7 +562,12 @@ export default function OtherStudies() {
                     }}
                   >
                     <Box>
-                      <Image src={Image1} width={295} height={220} alt="image1" />
+                      <Image
+                        src={Image1}
+                        width={295}
+                        height={220}
+                        alt="image1"
+                      />
                     </Box>
                     <Box
                       sx={{
@@ -419,7 +579,8 @@ export default function OtherStudies() {
                       <Typography
                         sx={{
                           fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          backgroundImage:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                           width: "max-content",
                           padding: 1,
                           fontSize: "12px",
@@ -452,8 +613,8 @@ export default function OtherStudies() {
                           maxWidth: "350px",
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore ...
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore ...
                       </Typography>
                       <Box>
                         <Box
@@ -482,96 +643,11 @@ export default function OtherStudies() {
                   </Box>
                 </Grid>
               </Grid>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Grid container>
-                <Grid item xs={12} md={11}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      gap: 3,
-                      flexDirection: { lg: "row", md: "column", xs: "column" },
-                    }}
-                  >
-                    <Box>
-                      <Image src={Image1} width={295} height={220} alt="image1" />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          width: "max-content",
-                          padding: 1,
-                          fontSize: "12px",
-                          mb: 1,
-                          padding: "8px 15px 8px 15px",
-                          cursor: "pointer",
-                          color: "#FFFFFF",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        tag
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          fontWeight: 600,
-                          fontSize: "18px",
-                          maxWidth: { lg: "230px", md: "100%" },
-                          color: "#FFFFFF",
-                        }}
-                      >
-                        Calendrier de l’Avent Cyber 2023
-                      </Typography>
-                      <Typography
-                        mt={1}
-                        sx={{
-                          fontFamily: inter.style.fontFamily,
-                          color: "#FFFFFF",
-                          fontSize: "14px",
-                          maxWidth: "350px",
-                        }}
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore ...
-                      </Typography>
-                      <Box>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            mt: 1,
-                          }}
-                        >
-                          <Box>
-                            <Typography
-                              sx={{
-                                fontFamily: inter.style.fontFamily,
-                                fontSize: 14,
-                                fontWeight: 600,
-                                color: "#FFFFFF",
-                              }}
-                            >
-                              13.01.2024
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Box>
-                </Grid>
-              </Grid>
-            </SwiperSlide>
+            </SwiperSlide> */}
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "center", gap: 1, pb: 8 }}>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", gap: 1, pb: 8 }}
+          >
             <Box
               sx={{
                 display: { md: "none", xs: "block" },
@@ -584,7 +660,8 @@ export default function OtherStudies() {
                 aria-label="Next Slide"
                 title="Next Slide"
                 sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   width: 45,
                   height: 45,
                 }}
@@ -604,7 +681,8 @@ export default function OtherStudies() {
                 aria-label="Next Slide"
                 title="Next Slide"
                 sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   width: 45,
                   height: 45,
                 }}

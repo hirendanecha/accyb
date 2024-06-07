@@ -263,40 +263,7 @@ export default function Page({ getEvent }) {
               </Box>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-              <Button
-                variant="outlined"
-                endIcon={
-                  <FileDownloadIcon
-                    sx={{
-                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      borderRadius: "50%",
-                      width: "50px",
-                      height: "50px",
-                      color: "#ffffff",
-                      padding: 1.7,
-                      marginRight: -2,
-                      ml: 3,
-                    }}
-                  />
-                }
-                sx={{
-                  background: "transparent",
-                  borderRadius: "61px",
-                  padding: "8px 30px",
-                  fontSize: { md: "12px", xs: "11px" },
-                  mt: { md: 3, xs: 2 },
-                  fontWeight: 600,
-                  background: "#ffffff",
-                  fontFamily: inter.style.fontFamily,
-                  border: "1px solid rgba(34, 45, 85, 0.3)",
-                  "&:hover": {
-                    background: "#ffffff",
-                    border: "1px solid rgba(34, 45, 85, 0.3)",
-                  },
-                }}
-              >
-                remplir le formulaire
-              </Button>
+           
             </Box>
           </Grid>
         </Grid>
