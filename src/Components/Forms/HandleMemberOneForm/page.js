@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Typography, Divider, Grid, styled, Button } from "@mui/material";
+import { Box, Typography, Divider, Grid, styled, Button, FormLabel } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { inter } from "../../../fonts/fonts";
 import TextField from "@mui/material/TextField";
@@ -1016,45 +1016,46 @@ export default function HandleForm() {
           Catégorisation de l’activité du candidat** (Affectation à un collège d’adhérent)
         </Typography>
         <Grid item xs={12} md={6} sx={{ borderRadius: "10px", padding: 2 }}>
-          <Grid container sx={{ display: "flex", alignItems: "center" }}>
-            <Grid item xs={12} md={2}>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Radio value="a" name="radio-buttons" />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={10}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { md: "14px", xs: "12px" },
-                  color: "#222D55",
-                  fontWeight: 600,
-                }}
-              >
-                <span style={{ color: "#007A47" }}>Offreur</span> de services cybersécurité
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid container sx={{ display: "flex", alignItems: "center" }}>
-            <Grid item xs={12} md={2}>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Radio value="a" name="radio-buttons" />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={10}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { md: "14px", xs: "12px" },
-                  color: "#222D55",
-                  fontWeight: 600,
-                  textWrap: "nowrap",
-                }}
-              >
-                <span style={{ color: "#007A47" }}>Utilisateur</span> de services de cybersécurité
-              </Typography>
-            </Grid>
-          </Grid>
+          <FormControl component="fieldset">
+            <FormLabel component="legend" sx={{ fontFamily: inter.style.fontFamily }}>
+              Catégorisation de l’activité du candidat
+            </FormLabel>
+            <RadioGroup row aria-label="category">
+              <FormControlLabel
+                value="a"
+                control={<Radio color="primary" />}
+                label={
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { md: "14px", xs: "12px" },
+                      color: "#222D55",
+                      fontWeight: 600,
+                    }}
+                  >
+                    <span style={{ color: "#007A47" }}>Offreur</span> de services cybersécurité
+                  </Typography>
+                }
+              />
+              <FormControlLabel
+                value="b"
+                control={<Radio color="primary" />}
+                label={
+                  <Typography
+                    sx={{
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: { md: "14px", xs: "12px" },
+                      color: "#222D55",
+                      fontWeight: 600,
+                      textWrap: "nowrap",
+                    }}
+                  >
+                    <span style={{ color: "#007A47" }}>Utilisateur</span> de services de cybersécurité
+                  </Typography>
+                }
+              />
+            </RadioGroup>
+          </FormControl>
         </Grid>
       </Box>
       <Box sx={{ mt: 5 }}>

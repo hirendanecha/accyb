@@ -75,8 +75,8 @@ export default function HeroSection() {
   // const [alertData, setAlertData] = useState([]);
   const router = useRouter();
 
-  const {allSecurityAlerts}=useSelector((state)=>state.securityAlerts)
-console.log(allSecurityAlerts,"allSecurityAlerts");
+  const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
+  console.log(allSecurityAlerts, "allSecurityAlerts");
   useEffect(() => {
     dispathch(getAllSecurityAlerts())
       .unwrap()
@@ -430,6 +430,7 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
             className="mySwiper"
           >
             {category?.map((data, idx) => {
+              
               return (
                 <SwiperSlide key={idx}>
                   <Grid
@@ -439,10 +440,34 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
                     pb={10}
                   >
                     {data?.data?.map((ele, idxx) => {
+                      const DescriptionData = ele?.description
+                      .split("\n")
+                      .slice(0, 4)
+                      .map((line, index) => {
+                        if (index === 0) {
+                          return line.substring(0, 150) + "...";
+                        } else {
+                          return line;
+                        }
+                      })
+                      .join("\n");
+                      
                       return (
-                        <Grid item xs={12} md={6} key={idxx} onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)} sx={{ cursor: "pointer" }} >
+                        <Grid
+                          item
+                          xs={12}
+                          md={6}
+                          key={idxx}
+                          onClick={() =>
+                            router.push(
+                              `secureOneself/Category/Categorydetails/${ele?._id}`
+                            )
+                          }
+                          sx={{ cursor: "pointer" }}
+                        >
                           <Box
                             sx={{
+                              height: '100%',
                               border: "1px solid rgba(0, 0, 0, 0.3)",
                               padding: 5,
                               position: "relative",
@@ -484,7 +509,9 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
                               {ele?.title}
                             </Typography>
                             <Typography
-                            dangerouslySetInnerHTML={{ __html: ele?.description }}
+                              dangerouslySetInnerHTML={{
+                                __html: DescriptionData,
+                              }}
                               sx={{
                                 fontSize: { md: "14px", xs: "12px" },
                                 lineHeight: "22px",
@@ -492,7 +519,6 @@ console.log(allSecurityAlerts,"allSecurityAlerts");
                                 fontFamily: inter.style.fontFamily,
                                 fontWeight: 500,
                                 mt: 2,
-                                
                               }}
                             >
                               {/* {ele?.description} */}
