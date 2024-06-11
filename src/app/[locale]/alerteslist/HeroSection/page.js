@@ -1,6 +1,7 @@
 "use client";
 import {
   Box,
+  Button,
   Container,
   Divider,
   Grid,
@@ -70,10 +71,16 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 }));
+
 export default function HeroSection() {
   const dispathch = useDispatch();
   // const [alertData, setAlertData] = useState([]);
   const router = useRouter();
+  const [pagination, setPagination] = useState([]);
+  console.log(pagination, "pagination");
+
+  const itemsPerPage = 4; // Number of items per page
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
   console.log(allSecurityAlerts, "allSecurityAlerts");
@@ -82,53 +89,22 @@ export default function HeroSection() {
       .unwrap()
       .then((res) => {
         console.log(res, "res");
-        // setAlertData(res.data);
+        setPagination(res.pagination);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return (
-        '<span style="background-color: #FFFFFF; color: #000000; font-family: ' +
-        inter.style.fontFamily +
-        ';" class="' +
-        className +
-        '">' +
-        (index + 1) +
-        "</span>"
-      );
-    },
+  const totalPages = Math.ceil(allSecurityAlerts?.length / itemsPerPage);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
-  // let category = [];
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = allSecurityAlerts?.slice(startIndex, endIndex);
 
-  // if(alertData){
-  //   alertData.map((data)=>{
-  //     category = [
-  //       {
-  //         data: data,
-  //         key: "Category 1",
-  //       }]
-  //   });
-  // }
-  const category = [
-    {
-      data: allSecurityAlerts,
-      key: "Category 1",
-    },
-    {
-      data: allSecurityAlerts,
-      key: "Category 1",
-    },
-    {
-      data: allSecurityAlerts,
-      key: "Category 1",
-    },
-  ];
   const [source, setSocurce] = React.useState("");
   const [type, setType] = React.useState("");
 
@@ -249,11 +225,11 @@ export default function HeroSection() {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+                {/* <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                   <Typography
                     sx={{
                       color: "#222D55",
@@ -362,7 +338,7 @@ export default function HeroSection() {
                       <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                   </FormControl>
-                </Box>
+                </Box> */}
                 <Box>
                   <Search>
                     <SearchIconWrapper>
@@ -423,161 +399,156 @@ export default function HeroSection() {
               </defs>
             </svg>
           </Box>
-          <Swiper
-            slidesPerView={1}
-            pagination={pagination}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {category?.map((data, idx) => {
-              
-              return (
-                <SwiperSlide key={idx}>
-                  <Grid
-                    container
-                    columnSpacing={2}
-                    sx={{ display: "flex" }}
-                    pb={10}
-                  >
-                    {data?.data?.map((ele, idxx) => {
-                      const DescriptionData = ele?.description
-                      .split("\n")
-                      .slice(0, 4)
-                      .map((line, index) => {
-                        if (index === 0) {
-                          return line.substring(0, 150) + "...";
-                        } else {
-                          return line;
-                        }
-                      })
-                      .join("\n");
-                      
-                      return (
-                        <Grid
-                          item
-                          xs={12}
-                          md={6}
-                          key={idxx}
-                          onClick={() =>
-                            router.push(
-                              `secureOneself/Category/Categorydetails/${ele?._id}`
-                            )
-                          }
-                          sx={{ cursor: "pointer" }}
-                        >
-                          <Box
-                            sx={{
-                              height: '100%',
-                              border: "1px solid rgba(0, 0, 0, 0.3)",
-                              padding: 5,
-                              position: "relative",
-                              borderTop:
-                                idxx !== 0 && idxx !== 1
-                                  ? "none"
-                                  : "1px solid rgba(0, 0, 0, 0.3)",
-                            }}
-                          >
-                            <Box sx={{ display: "flex", gap: 3 }}>
-                              {ele.Heading.map((ele, idx) => {
-                                return (
-                                  <>
-                                    <Typography
-                                      sx={{
-                                        fontSize: { md: "12px", xs: "10px" },
-                                        color: "#BE0011",
-                                        fontFamily: inter.style.fontFamily,
-                                        fontWeight: 600,
-                                        textTransform: "uppercase",
-                                      }}
-                                    >
-                                      {ele}
-                                    </Typography>
-                                  </>
-                                );
-                              })}
-                            </Box>
 
+          <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
+            {paginatedData?.map((ele, idxx) => {
+              const DescriptionData = ele?.description
+                .split("\n")
+                .slice(0, 4)
+                .map((line, index) => {
+                  if (index === 0) {
+                    return line.substring(0, 150) + "...";
+                  } else {
+                    return line;
+                  }
+                })
+                .join("\n");
+
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  key={idxx}
+                  onClick={() =>
+                    router.push(
+                      `secureOneself/Category/Categorydetails/${ele?._id}`
+                    )
+                  }
+                  sx={{ cursor: "pointer" }}
+                >
+                  <Box
+                    sx={{
+                      height: "100%",
+                      border: "1px solid rgba(0, 0, 0, 0.3)",
+                      padding: 5,
+                      position: "relative",
+                      borderTop:
+                        idxx !== 0 && idxx !== 1
+                          ? "none"
+                          : "1px solid rgba(0, 0, 0, 0.3)",
+                    }}
+                  >
+                    <Box sx={{ display: "flex", gap: 3 }}>
+                      {ele.Heading.map((ele, idx) => {
+                        return (
+                          <>
                             <Typography
                               sx={{
-                                fontSize: { md: "24px", xs: "18px" },
-                                color: "#222D55",
+                                fontSize: { md: "12px", xs: "10px" },
+                                color: "#BE0011",
                                 fontFamily: inter.style.fontFamily,
-                                fontWeight: 500,
-                                mt: 2,
+                                fontWeight: 600,
+                                textTransform: "uppercase",
                               }}
                             >
-                              {ele?.title}
+                              {ele}
                             </Typography>
-                            <Typography
-                              dangerouslySetInnerHTML={{
-                                __html: DescriptionData,
-                              }}
-                              sx={{
-                                fontSize: { md: "14px", xs: "12px" },
-                                lineHeight: "22px",
-                                color: "#222D55",
-                                fontFamily: inter.style.fontFamily,
-                                fontWeight: 500,
-                                mt: 2,
-                              }}
-                            >
-                              {/* {ele?.description} */}
-                            </Typography>
-                            <Typography
-                              sx={{
-                                fontSize: { md: "14px", xs: "12px" },
-                                lineHeight: "22px",
-                                color: "#222D55",
-                                fontFamily: inter.style.fontFamily,
-                                fontWeight: 500,
-                                mt: 2,
-                              }}
-                            >
-                              {dayjs(ele?.date).format("DD.MM.YYYY")}
-                            </Typography>
-                            <Box
-                              sx={{
-                                position: "absolute",
-                                left: 50,
-                                bottom: -40,
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                padding: 2,
-                                backgroundColor: "white",
-                              }}
-                            >
-                              <Box
-                                sx={{
-                                  width: "45px",
-                                  height: "45px",
-                                  borderRadius: "50%",
-                                  border: "1px solid rgba(0, 0, 0, 0.3)",
-                                  display: "flex",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  cursor: "pointer",
-                                }}
-                                // onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)}
-                              >
-                                <ArrowForwardIcon
-                                  sx={{
-                                    color: "#222D55",
-                                    width: "20px",
-                                    height: "20px",
-                                  }}
-                                />
-                              </Box>
-                            </Box>
-                          </Box>
-                        </Grid>
-                      );
-                    })}
-                  </Grid>
-                </SwiperSlide>
+                          </>
+                        );
+                      })}
+                    </Box>
+
+                    <Typography
+                      sx={{
+                        fontSize: { md: "24px", xs: "18px" },
+                        color: "#222D55",
+                        fontFamily: inter.style.fontFamily,
+                        fontWeight: 500,
+                        mt: 2,
+                      }}
+                    >
+                      {ele?.title}
+                    </Typography>
+                    <Typography
+                      dangerouslySetInnerHTML={{
+                        __html: DescriptionData,
+                      }}
+                      sx={{
+                        fontSize: { md: "14px", xs: "12px" },
+                        lineHeight: "22px",
+                        color: "#222D55",
+                        fontFamily: inter.style.fontFamily,
+                        fontWeight: 500,
+                        mt: 2,
+                      }}
+                    >
+                      {/* {ele?.description} */}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: { md: "14px", xs: "12px" },
+                        lineHeight: "22px",
+                        color: "#222D55",
+                        fontFamily: inter.style.fontFamily,
+                        fontWeight: 500,
+                        mt: 2,
+                      }}
+                    >
+                      {dayjs(ele?.date).format("DD.MM.YYYY")}
+                    </Typography>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        left: 50,
+                        bottom: -40,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: 2,
+                        backgroundColor: "white",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: "45px",
+                          height: "45px",
+                          borderRadius: "50%",
+                          border: "1px solid rgba(0, 0, 0, 0.3)",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          cursor: "pointer",
+                        }}
+                        // onClick={() => router.push(`secureOneself/Category/Categorydetails/${ele?._id}`)}
+                      >
+                        <ArrowForwardIcon
+                          sx={{
+                            color: "#222D55",
+                            width: "20px",
+                            height: "20px",
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  </Box>
+                </Grid>
               );
             })}
-          </Swiper>
+          </Grid>
+
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 4, flexWrap: "wrap" }}>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <Button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                disabled={currentPage === index + 1}
+                sx={{mr:1,minWidth:'5px',color:'#222D55',borderRadius:'50%'}}
+              >
+                {index + 1}
+              </Button>
+            ))}
+          </Box>
         </Container>
       </Box>
     </Box>

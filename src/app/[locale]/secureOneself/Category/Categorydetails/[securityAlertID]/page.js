@@ -264,6 +264,7 @@ export default function CategoryDetails() {
                 >
                   {/* {getSecurityAlert.description} */}
                 </Typography>
+                <a href={getSecurityAlert?.document}>
                 <Button
                 variant="outlined"
                 endIcon={
@@ -309,6 +310,7 @@ export default function CategoryDetails() {
               >
                 Score CVSS v3.1: 8.8
               </Button>
+              </a>
                 {/* <Box>
                   <Typography
                     sx={{
