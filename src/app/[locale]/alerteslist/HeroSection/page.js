@@ -543,7 +543,15 @@ export default function HeroSection() {
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
                 disabled={currentPage === index + 1}
-                sx={{mr:1,minWidth:'5px',color:'#222D55',borderRadius:'50%'}}
+                sx={{
+                  mr: 1,
+                  minWidth: '5px',
+                  borderRadius: '50%',
+                  color:'#BDC0CC',
+                  '&.Mui-disabled': {
+                    color: '#222D55',
+                  },
+                }}
               >
                 {index + 1}
               </Button>
