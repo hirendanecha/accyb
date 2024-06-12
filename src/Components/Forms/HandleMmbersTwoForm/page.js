@@ -1,7 +1,17 @@
 "use client";
 import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Box, Typography, Divider, Grid, styled, Button, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Divider,
+  Grid,
+  styled,
+  Button,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { inter } from "../../../fonts/fonts";
 import TextField from "@mui/material/TextField";
@@ -11,6 +21,14 @@ import MenuItem from "@mui/material/MenuItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { Interests } from "@mui/icons-material";
+import { setMemberTwoInformation } from "../../../app/redux/slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { sendEmail } from "../../../app/redux/action/sendEmail/sendEmail";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -32,635 +50,985 @@ const ValidationTextField = styled(TextField)({
     fontFamily: inter.style.fontFamily,
   },
 });
+
+const schema = yup
+  .object({
+    civility: yup.string().required("Civility is required"),
+    name: yup.string().required("Name is required"),
+    firstName: yup.string().required("First name is required"),
+    organization: yup.string().required("Organization is required"),
+    function: yup.string().required("Function is required"),
+    mobilePhone: yup.number().required("Mobile phone is required"),
+    phone: yup.number().required("Phone is required"),
+    email: yup.string().email("Invalid email").required("Email is required"),
+    address: yup.string().required("Address is required"),
+    interests: yup.string().required("Interests is required"),
+    comment: yup.string().required("Comment is required"),
+    motivations: yup.string().required("Motivations is required"),
+    substituteCivility: yup.string().required("Civility is required"),
+    substituteName: yup.string().required("Name is required"),
+    substituteFirstname: yup.string().required("First name is required"),
+    substituteFunction: yup.string().required("Function is required"),
+    substituteMobilePhone: yup.number().required("Mobile phone is required"),
+    substitutePhone: yup.number().required("Phone is required"),
+    substituteEmail: yup
+      .string()
+      .email("Invalid email")
+      .required("Email is required"),
+    date: yup.string().required("Date is required"),
+    signature: yup.string().required("Signature is required"),
+  })
+  .required();
+
 export default function HandleForm() {
   const [name, setName] = React.useState("Cat in the Hat");
   const locales = useLocale();
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(schema),
+    defaultValues: {
+      civility: "",
+      name: "",
+      firstName: "",
+      organization: "",
+      function: "",
+      mobilePhone: "",
+      phone: "",
+      email: "",
+      address: "",
+      interests: "",
+      comment: "",
+      motivations: "",
+      substituteCivility: "",
+      substituteName: "",
+      substituteFirstname: "",
+      substituteFunction: "",
+      substituteMobilePhone: "",
+      substitutePhone: "",
+      substituteEmail: "",
+      date: "",
+      signature: "",
+    },
+  });
+
+  const { memberOneInformation, memberTwoInformation } = useSelector(
+    (state) => state.formSlice
+  );
+  console.log(memberOneInformation, "memberOneInformation");
+  console.log(memberTwoInformation, "memberTwoInformation");
+
+  const sendEmail = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/send-email/`,
+        {
+          memberOneInformation,
+          memberTwoInformation,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(
+              "custom-auth-token"
+            )}`,
+          },
+        }
+      );
+      console.log("Email sent:", response.data);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
+  const onSubmit = (data) => {
+    console.log(data, "data");
+    dispatch(setMemberTwoInformation(data));
+    sendEmail();
+    // // console.log(payload, "payload");
+    // dispatch(sendEmail(memberOneInformation, memberTwoInformation))
+    //   .then(() => router.push(`/${locales}/joinAccyb/FinalSubmitForm`))
+    //   .catch((err) => console.log(err,"failed to send email"));
+    router.push(`/${locales}/joinAccyb/FinalSubmitForm`);
+  };
+
   return (
     <>
-      <Box>
-        <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
-          <Grid container columnSpacing={5}>
-            <Grid item xs={12} md={2}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Civilité
-              </Typography>
-              <FormControl variant="standard" fullWidth>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  sx={{ fontFamily: inter.style.fontFamily }}
-                  defaultValue={"M"}
-                >
-                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"M"}>
-                    M
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"L"}>
-                    L
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Nom
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Prénom
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Organisation adhérente
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="text"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Fonction
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="text"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Téléphone Mobile
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Téléphone Fixe
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                E-mail professionnel
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Adresse postale professionnelle
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Intérêts spécifiques en sécurité
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Comment avez-vous connu l’ACCYB ?
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Quelles sont vos motivations pour adhérer à l’ACCYB ? (obligatoire)
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={3}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                // placeholder="Quelles sont vos motivations pour adhérer à l’ACCYB ? (obligatoire)"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
-          <Typography
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(onSubmit)();
+          setValue('');
+        }}
+      >
+        <Box>
+          <Box
             sx={{
-              fontFamily: inter.style.fontFamily,
-              fontSize: { md: "16px", xs: "12px" },
-              color: "#222D55",
-              fontWeight: 600,
+              marginTop: 5,
+              border: "1px solid #E2E4E5",
+              padding: "30px",
+              borderRadius: "10px",
             }}
           >
-            Suppléant
-          </Typography>
-          <Grid container columnSpacing={5} mt={5}>
-            <Grid item xs={12} md={2}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Civilité
-              </Typography>
-              <FormControl variant="standard" fullWidth>
-                <Select
-                  labelId="demo-simple-select-standard-label"
-                  id="demo-simple-select-standard"
-                  sx={{ fontFamily: inter.style.fontFamily }}
-                  defaultValue={"M"}
-                >
-                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"M"}>
-                    M
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"L"}>
-                    L
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Nom
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
+            <Grid container columnSpacing={5}>
+              <Grid item xs={12} md={2}>
+                <Typography
+                  sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Prénom
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Fonction
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={1}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="text"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Téléphone Mobile
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={6} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                Téléphone Fixe
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="number"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-            <Grid item xs={12} md={12} mt={5}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
-              >
-                E-mail professionnel
-              </Typography>
-              <ValidationTextField
-                multiline
-                rows={2}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="email"
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
-            </Grid>
-          </Grid>
-        </Box>
-        <Box sx={{ mt: 5, padding: "0 16px" }}>
-          <FormControl sx={{ mt: 1 }}>
-            <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
-              <FormControlLabel
-                sx={{
-                  "& .MuiFormControlLabel-label": {
-                    fontSize: "14px",
-                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
                     color: "#222D55",
-                    fontWeight: 400,
-                  },
-                }}
-                value="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
-                control={<Radio />}
-                label="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
-              />
-            </RadioGroup>
-          </FormControl>
-        </Box>
-        <Box sx={{ mt: 5, padding: "0 16px" }}>
-          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
-        </Box>
-        <Grid
-          container
-          columnSpacing={5}
-          sx={{
-            padding: "0 16px",
-          }}
-        >
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "18px", xs: "12px" }, color: "#222D55" }}
-            >
-              Date
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="date"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500, mt: 2 }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6} mt={5}>
-            <Typography
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "18px", xs: "12px" }, color: "#222D55" }}
-            >
-              Signature, Lu et approuvé
-            </Typography>
-            <ValidationTextField
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              InputProps={{
-                style: {
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                },
-              }}
-              id="standard-basic"
-              type="text"
-              variant="standard"
-              sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500, mt: 2 }}
-            />
-          </Grid>
-        </Grid>
-
-        <Box
-          sx={{
-            padding: "0 16px",
-          }}
-        >
-          <Button
-            onClick={() => router.push(`/${locales}/joinAccyb/FinalSubmitForm`)}
-            variant="outlined"
-            endIcon={
-              <ArrowForwardIcon
-                sx={{
-                  backgroundColor: "#7DB1FF",
-                  background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
-                  borderRadius: "50%",
-                  width: "50px",
-                  height: "50px",
-                  color: "#ffffff",
-                  padding: 1.7,
-                  marginRight: -2,
-                  ml: 3,
-                  ":hover": {
-                    "@keyframes move-left": {
-                      "0%": {
-                        rotate: "0deg",
-                      },
-                      "100%": {
-                        rotate: "-35deg",
-                      },
+                  }}
+                >
+                  Civilité
+                </Typography>
+                <FormControl variant="standard" fullWidth>
+                  <Select
+                    labelId="civility"
+                    id="civility"
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    defaultValue={"M"}
+                    {...register("civility")}
+                    error={errors?.civility ? true : false}
+                  >
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"M"}
+                    >
+                      M
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"L"}
+                    >
+                      L
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Nom
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
                     },
-                    animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                  },
-                }}
-              />
-            }
+                  }}
+                  id="name"
+                  {...register("name")}
+                  error={errors?.name ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Prénom
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="firstName"
+                  {...register("firstName")}
+                  error={errors?.firstName ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Organisation adhérente
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="organization"
+                  {...register("organization")}
+                  error={errors?.organization ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Fonction
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="function"
+                  {...register("function")}
+                  error={errors?.function ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Téléphone Mobile
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="mobilePhone"
+                  {...register("mobilePhone")}
+                  error={errors?.mobilePhone ? true : false}
+                  type="number"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Téléphone Fixe
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="phone"
+                  {...register("phone")}
+                  error={errors?.phone ? true : false}
+                  type="number"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  E-mail professionnel
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="email"
+                  {...register("email")}
+                  error={errors?.email ? true : false}
+                  type="email"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Adresse postale professionnelle
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="address"
+                  {...register("address")}
+                  error={errors?.address ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Intérêts spécifiques en sécurité
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="interests"
+                  {...register("interests")}
+                  error={errors?.interests ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Comment avez-vous connu l’ACCYB ?
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="comment"
+                  {...register("comment")}
+                  error={errors?.comment ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Quelles sont vos motivations pour adhérer à l’ACCYB ?
+                  (obligatoire)
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={3}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="motivations"
+                  {...register("motivations")}
+                  error={errors?.motivations ? true : false}
+                  type="email"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          <Box
             sx={{
-              color: "#222D55",
-              border: "1px solid #222D55",
-              borderRadius: "61px",
-              padding: "8px 30px",
-              fontSize: { md: "12px", xs: "10px" },
-              mt: 6,
-              fontWeight: 600,
-              background: "rgba(255, 255, 255, 0.1)",
-              fontFamily: inter.style.fontFamily,
-              "&:hover": {
-                backgroundColor: "transparent",
-              },
+              marginTop: 5,
+              border: "1px solid #E2E4E5",
+              padding: "30px",
+              borderRadius: "10px",
             }}
           >
-            je veux devenir bénévole
-          </Button>
+            <Typography
+              sx={{
+                fontFamily: inter.style.fontFamily,
+                fontSize: { md: "16px", xs: "12px" },
+                color: "#222D55",
+                fontWeight: 600,
+              }}
+            >
+              Suppléant
+            </Typography>
+            <Grid container columnSpacing={5} mt={5}>
+              <Grid item xs={12} md={2}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Civilité
+                </Typography>
+                <FormControl variant="standard" fullWidth>
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="substituteCivility"
+                    sx={{ fontFamily: inter.style.fontFamily }}
+                    defaultValue={"M"}
+                    {...register("substituteCivility")}
+                    error={errors?.substituteCivility ? true : false}
+                  >
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"M"}
+                    >
+                      M
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"L"}
+                    >
+                      L
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Nom
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substituteName"
+                  {...register("substituteName")}
+                  error={errors?.substituteName ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Prénom
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substituteFirstname"
+                  {...register("substituteFirstname")}
+                  error={errors?.substituteFirstname ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Fonction
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={1}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substituteFunction"
+                  {...register("substituteFunction")}
+                  error={errors?.substituteFunction ? true : false}
+                  type="text"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Téléphone Mobile
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substituteMobilePhone"
+                  {...register("substituteMobilePhone")}
+                  error={errors?.substituteMobilePhone ? true : false}
+                  type="number"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  Téléphone Fixe
+                </Typography>
+                <ValidationTextField
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substitutePhone"
+                  {...register("substitutePhone")}
+                  error={errors?.substitutePhone ? true : false}
+                  type="number"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} mt={5}>
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#222D55",
+                  }}
+                >
+                  E-mail professionnel
+                </Typography>
+                <ValidationTextField
+                  multiline
+                  rows={2}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    style: {
+                      fontFamily: inter.style.fontFamily,
+                      fontSize: "14px !important",
+                      fontWeight: 500,
+                    },
+                  }}
+                  id="substituteEmail"
+                  {...register("substituteEmail")}
+                  error={errors?.substituteEmail ? true : false}
+                  type="email"
+                  variant="standard"
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+          <Box sx={{ mt: 5, padding: "0 16px" }}>
+            <FormControl sx={{ mt: 1 }}>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+              >
+                <FormControlLabel
+                  sx={{
+                    "& .MuiFormControlLabel-label": {
+                      fontSize: "14px",
+                      fontFamily: inter.style.fontFamily,
+                      color: "#222D55",
+                      fontWeight: 400,
+                    },
+                  }}
+                  value="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
+                  control={<Radio />}
+                  label="Je déclare avoir pris connaissance des statuts et du règlement intérieur de l’Agence Caribéenne pour la Cybersécurité. L’adhésion de mon organisme ne sera effective qu’après le paiement intégral de la cotisation."
+                />
+              </RadioGroup>
+            </FormControl>
+          </Box>
+          <Box sx={{ mt: 5, padding: "0 16px" }}>
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
+          </Box>
+          <Grid
+            container
+            columnSpacing={5}
+            sx={{
+              padding: "0 16px",
+            }}
+          >
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "18px", xs: "12px" },
+                  color: "#222D55",
+                }}
+              >
+                Date
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="date"
+                {...register("date")}
+                error={errors?.date ? true : false}
+                type="date"
+                variant="standard"
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                  mt: 2,
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} mt={5}>
+              <Typography
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "18px", xs: "12px" },
+                  color: "#222D55",
+                }}
+              >
+                Signature, Lu et approuvé
+              </Typography>
+              <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="signature"
+                {...register("signature")}
+                error={errors?.signature ? true : false}
+                type="text"
+                variant="standard"
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                  mt: 2,
+                }}
+              />
+            </Grid>
+          </Grid>
+
+          <Box
+            sx={{
+              padding: "0 16px",
+            }}
+          >
+            <Button
+              type="submit"
+              variant="outlined"
+              endIcon={
+                <ArrowForwardIcon
+                  sx={{
+                    backgroundColor: "#7DB1FF",
+                    background:
+                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    borderRadius: "50%",
+                    width: "50px",
+                    height: "50px",
+                    color: "#ffffff",
+                    padding: 1.7,
+                    marginRight: -2,
+                    ml: 3,
+                    ":hover": {
+                      "@keyframes move-left": {
+                        "0%": {
+                          rotate: "0deg",
+                        },
+                        "100%": {
+                          rotate: "-35deg",
+                        },
+                      },
+                      animation:
+                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                    },
+                  }}
+                />
+              }
+              sx={{
+                color: "#222D55",
+                border: "1px solid #222D55",
+                borderRadius: "61px",
+                padding: "8px 30px",
+                fontSize: { md: "12px", xs: "10px" },
+                mt: 6,
+                fontWeight: 600,
+                background: "rgba(255, 255, 255, 0.1)",
+                fontFamily: inter.style.fontFamily,
+                "&:hover": {
+                  backgroundColor: "transparent",
+                },
+              }}
+            >
+              je veux devenir bénévole
+            </Button>
+          </Box>
         </Box>
-      </Box>
+      </form>
     </>
   );
 }

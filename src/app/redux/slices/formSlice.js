@@ -8,7 +8,9 @@ const formSlice = createSlice({
     success: false,
     generalInformation : null,
     registrantInformation : null,
-    descriptionOfTheIncident : null
+    descriptionOfTheIncident : null,
+    memberOneInformation : null,
+    memberTwoInformation:null,
   },
   reducers: {
     setGeneralInformation: (state, action) => {
@@ -20,9 +22,16 @@ const formSlice = createSlice({
     setDescriptionOfTheIncident: (state, action) => {
       state.descriptionOfTheIncident = action.payload;
     },
+    setMemberOneInformation: (state, action) => {
+      state.memberOneInformation = action.payload;
+    },
+    setMemberTwoInformation: (state, action) => {
+      state.memberTwoInformation = action.payload;
+    },
+
   },
 });
 
-export const { setGeneralInformation , setRegistrantInformation , setDescriptionOfTheIncident } = formSlice.actions;
+export const { setGeneralInformation , setRegistrantInformation , setDescriptionOfTheIncident , setMemberOneInformation, setMemberTwoInformation } = formSlice.actions;
 
 export default formSlice.reducer;

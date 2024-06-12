@@ -1,6 +1,14 @@
 "use client";
 import React from "react";
-import { Box, Typography, Divider, Grid, styled, Button, TextField } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Divider,
+  Grid,
+  styled,
+  Button,
+  TextField,
+} from "@mui/material";
 import { inter } from "../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
@@ -15,7 +23,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { constrainedMemory } from "process";
 import { useForm } from "react-hook-form";
-import { setDescriptionOfTheIncident, setRegistrantInformation } from "../../../app/redux/slices/formSlice";
+import {
+  setDescriptionOfTheIncident,
+  setRegistrantInformation,
+} from "../../../app/redux/slices/formSlice";
+import axios from "axios";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -54,7 +66,9 @@ const schema = yup
   .required();
 
 export default function HandleForm() {
-  const { generalInformation, registrantInformation } = useSelector((state) => state.formSlice);
+  const { generalInformation, registrantInformation } = useSelector(
+    (state) => state.formSlice
+  );
   const router = useRouter();
   const locales = useLocale();
   const dispatch = useDispatch();
@@ -83,14 +97,35 @@ export default function HandleForm() {
     },
   });
 
+  const sendEmail = async (payload) => {
+    console.log(payload, "payloadddddddddddd");
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/send-email/`,
+        { payload },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(
+              "custom-auth-token"
+            )}`,
+          },
+        }
+      );
+      console.log("Email sent:", response.data);
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 
   const onSubmit = (data) => {
     dispatch(setDescriptionOfTheIncident(data));
-const payload = {
-  ...data,
-  ...generalInformation,
-  ...registrantInformation,
-}
+    const payload = {
+      ...data,
+      ...generalInformation,
+      ...registrantInformation,
+    };
+    sendEmail(payload);
+    console.log(payload, "payload");
     router.push(`/${locales}/alertreports/FinalSubmitForm`);
   };
   return (
@@ -102,7 +137,14 @@ const payload = {
           // setLoader(true);
         }}
       >
-        <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
+        <Box
+          sx={{
+            marginTop: 5,
+            border: "1px solid #E2E4E5",
+            padding: "30px",
+            borderRadius: "10px",
+          }}
+        >
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
@@ -116,7 +158,11 @@ const payload = {
           <Grid container columnSpacing={5}>
             <Grid item xs={12} md={6} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Date
               </Typography>
@@ -138,12 +184,20 @@ const payload = {
                 type="date"
                 // value={new Date().toISOString().split("T")[0]}
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={6} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Heure
               </Typography>
@@ -165,12 +219,20 @@ const payload = {
                 type="time"
                 // value={new Date().toLocaleTimeString()}
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Quel est le SI impacté ?
               </Typography>
@@ -193,12 +255,20 @@ const payload = {
                 {...register("impacted")}
                 name="impacted"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Quels sont vos principaux services impactés ?
               </Typography>
@@ -221,20 +291,31 @@ const payload = {
                 {...register("servicesImpacted")}
                 name="servicesImpacted"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={8} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
-                Quelles sont les catégories de données potentiellement impactées ?
+                Quelles sont les catégories de données potentiellement
+                impactées ?
               </Typography>
               <FormControl sx={{ mt: 3 }}>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  {...register("categoriesImpacted")}
+                  onChange={(e) => {
+                    setValue("categoriesImpacted", e.target.value);
+                  }}
                   name="categoriesImpacted"
                 >
                   <FormControlLabel
@@ -307,9 +388,14 @@ const payload = {
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
-                Y a-t-il plusieurs sites impactés ? (Si oui précisez les communes et territoires)
+                Y a-t-il plusieurs sites impactés ? (Si oui précisez les
+                communes et territoires)
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -330,12 +416,20 @@ const payload = {
                 id="standard-basic"
                 type="text"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Combien de personnes sont impactées ?
               </Typography>
@@ -358,12 +452,20 @@ const payload = {
                 id="standard-basic"
                 type="text"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Quel est l’état de votre activité ?
               </Typography>
@@ -418,7 +520,11 @@ const payload = {
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "15px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "15px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Description des événements observés 
               </Typography>
@@ -446,12 +552,20 @@ const payload = {
                 name="eventDescription"
                 type="text"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={9.5} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Nature des personnes impactées par l’incident
               </Typography>
@@ -460,7 +574,7 @@ const payload = {
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="personImpact"
-                  {...register("personImpact")}
+                  onChange={(e) => setValue("personImpact", e.target.value)}
                 >
                   <FormControlLabel
                     sx={{
@@ -534,9 +648,14 @@ const payload = {
         </Box>
         <Box sx={{ mt: 5 }}>
           <Typography
-            sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+            sx={{
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "14px", xs: "12px" },
+              color: "#222D55",
+            }}
           >
-            **Les propositions de catégorisation du candidat seront soumises à la validation conseil d’administration.
+            **Les propositions de catégorisation du candidat seront soumises à
+            la validation conseil d’administration.
           </Typography>
         </Box>
         <Box sx={{ mt: 5 }}>
