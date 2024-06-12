@@ -6,7 +6,6 @@ import securityAlertSlice from "./slices/securityAlertSlice/securityAlertSlice";
 import videoSlice from "./slices/videoSlice/videoSlice";
 import formationSlice from "./slices/formationSLice/formationSlice";
 import caseStudiesSlice from "./slices/caseStudiesSlice/caseStudiesSlice";
-import sendEmailSlice from "./slices/sendEmailSlice/sendEmailSlice";
 
 const combineReducers = {
   formSlice: formSlice,
@@ -16,7 +15,6 @@ const combineReducers = {
   videos : videoSlice,
   formations: formationSlice,
   caseStudies: caseStudiesSlice,
-  email:sendEmailSlice,
 };
 
 export default configureStore({

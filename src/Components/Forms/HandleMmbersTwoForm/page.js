@@ -28,7 +28,6 @@ import { Interests } from "@mui/icons-material";
 import { setMemberTwoInformation } from "../../../app/redux/slices/formSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { sendEmail } from "../../../app/redux/action/sendEmail/sendEmail";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -153,10 +152,6 @@ export default function HandleForm() {
     console.log(data, "data");
     dispatch(setMemberTwoInformation(data));
     sendEmail();
-    // // console.log(payload, "payload");
-    // dispatch(sendEmail(memberOneInformation, memberTwoInformation))
-    //   .then(() => router.push(`/${locales}/joinAccyb/FinalSubmitForm`))
-    //   .catch((err) => console.log(err,"failed to send email"));
     router.push(`/${locales}/joinAccyb/FinalSubmitForm`);
   };
 
