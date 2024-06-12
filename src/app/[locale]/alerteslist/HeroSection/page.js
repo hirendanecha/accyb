@@ -77,7 +77,7 @@ export default function HeroSection() {
   // const [alertData, setAlertData] = useState([]);
   const router = useRouter();
   const [pagination, setPagination] = useState([]);
-  console.log(pagination, "pagination");
+  // console.log(pagination, "pagination");
 
   const itemsPerPage = 4; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
