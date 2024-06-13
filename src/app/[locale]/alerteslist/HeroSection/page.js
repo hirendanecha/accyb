@@ -2,10 +2,12 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
   Divider,
   Grid,
   InputBase,
+  Stack,
   Typography,
   alpha,
   styled,
@@ -82,6 +84,8 @@ export default function HeroSection() {
   const itemsPerPage = 4; // Number of items per page
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [loading, setLoading] = useState(true);
+
   const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
   console.log(allSecurityAlerts, "allSecurityAlerts");
   useEffect(() => {
@@ -90,6 +94,7 @@ export default function HeroSection() {
       .then((res) => {
         console.log(res, "res");
         setPagination(res.pagination);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -401,7 +406,12 @@ export default function HeroSection() {
           </Box>
 
           <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
-            {paginatedData?.map((ele, idxx) => {
+            {loading && (
+              <Stack sx={{ color: 'grey.500',width: '100%',display: 'flex',justifyContent: 'center',alignItems: 'center' }} spacing={2} direction="row">
+              <CircularProgress color="inherit" sx={{color: "#222D55"}} />
+            </Stack>
+            )}
+            {!loading && paginatedData?.map((ele, idxx) => {
               const DescriptionData = ele?.description
                 .split("\n")
                 .slice(0, 4)

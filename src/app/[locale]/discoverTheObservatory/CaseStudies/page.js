@@ -5,20 +5,20 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  CircularProgress,
   Container,
   Divider,
   Grid,
   IconButton,
+  Stack,
   Typography,
   styled,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image1 from "../../../../Icons/Image1.png";
-
 import Logo1 from "../../../../Icons/Partners/Logo1.svg";
 import Logo2 from "../../../../Icons/Partners/Logo2.svg";
 import Logo3 from "../../../../Icons/Partners/Logo3.svg";
@@ -34,11 +34,8 @@ const Imgs = styled(Image)(({ theme }) => ({
   height: "97px !important",
 }));
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -116,6 +113,7 @@ export default function CaseStudies() {
   const searchParams = useSearchParams();
   const search = searchParams.get("etudes");
   const dispatch = useDispatch();
+  const [loading, setLoading] = React.useState(true);
 
   const { allcaseStudies } = useSelector((state) => state.caseStudies);
   console.log(allcaseStudies, "allcaseStudies");
@@ -132,6 +130,7 @@ export default function CaseStudies() {
       .unwrap()
       .then((res) => {
         console.log(res);
+        setLoading(false);
       });
   }, []);
   return (
@@ -305,7 +304,12 @@ export default function CaseStudies() {
                 },
               }}
             >
-              {allcaseStudies?.map((studies, index) => {
+              {loading && (
+                <Stack sx={{ color: 'grey.500',width: '100%',display: 'flex',justifyContent: 'center',alignItems: 'center' }} spacing={2} direction="row">
+                <CircularProgress color="inherit" sx={{color: "#FFFFFF"}} />
+              </Stack>
+              )}
+              {!loading && allcaseStudies?.map((studies, index) => {
                 const DescriptionData = studies?.description
                 .split("\n")
                 .slice(0, 4)

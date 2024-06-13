@@ -36,14 +36,14 @@ export default function VerticalLinearStepper({ activeStep }) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: "70px",
-            height: "70px",
+            width: {xs:'50px',sm:'70px'},
+            height: {xs:'50px',sm:'70px'},
           }}
         >
           <ArrowBackIcon sx={{ width: "15px", height: "15px" }} />
         </Box>
       )}
-      <Box sx={{ maxWidth: 400, mt: 5 }}>
+      <Box sx={{ maxWidth: 400, mt: {xs: 0, md: 5} }}>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step

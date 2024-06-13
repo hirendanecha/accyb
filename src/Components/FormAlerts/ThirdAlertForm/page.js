@@ -140,8 +140,8 @@ export default function HandleForm() {
         <Box
           sx={{
             marginTop: 5,
-            border: "1px solid #E2E4E5",
-            padding: "30px",
+            border: { xs: "none", sm: "1px solid #E2E4E5" },
+            padding: { xs: "none", sm: "30px" },
             borderRadius: "10px",
           }}
         >
@@ -538,15 +538,15 @@ export default function HandleForm() {
                 InputProps={{
                   style: {
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
+                    fontSize: { xs: "12px !important", sm: "14px !important" },
                     fontWeight: 200,
                   },
                 }}
                 id="standard-basic"
-                placeholder={`-        Comment avez-vous découvert l incident ? 
--        Avez-vous connaissance du vecteur de compromission ?
--        Avez-vous mis en place des mesures de protection ?
--        Quelles sont les conséquences sur vos métiers et sur vos services IT ?
+                placeholder={`-    Comment avez-vous découvert l incident ? 
+-     Avez-vous connaissance du vecteur de compromission ?
+-     Avez-vous mis en place des mesures de protection ?
+-     Quelles sont les conséquences sur vos métiers et sur vos services IT ?
               `}
                 {...register("eventDescription")}
                 name="eventDescription"
@@ -658,7 +658,14 @@ export default function HandleForm() {
             la validation conseil d’administration.
           </Typography>
         </Box>
-        <Box sx={{ mt: 5 }}>
+        <Box
+          sx={{
+            mt: 5,
+            display: { xs: "flex", sm: "unset" },
+            justifyContent: { xs: "center", sm: "none" },
+            alignItems: { xs: "center", sm: "none" },
+          }}
+        >
           <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
         </Box>
 

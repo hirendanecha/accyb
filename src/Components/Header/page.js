@@ -485,6 +485,7 @@ export default function Header() {
                 >
                   <NotificationsNoneIcon sx={{ color: "#fff" }} />
                   <Typography
+                  onClick={() => router.push(`/${locale}/alertreports/HandleFirstForm`)}
                     variant="h7"
                     color="inherit"
                     component="div"
@@ -509,7 +510,7 @@ export default function Header() {
                 >
                   <PersonOutlineIcon sx={{ color: "#fff" }} />
                   <Typography
-                    onClick={() => router.push("/joinAccyb")}
+                    onClick={() => router.push(`/${locale}/joinAccyb/FirstForm`)}
                     variant="h7"
                     color="inherit"
                     component="div"

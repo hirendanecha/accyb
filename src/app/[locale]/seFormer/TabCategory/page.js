@@ -2,12 +2,14 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
   Divider,
   FormControl,
   Grid,
   MenuItem,
   Select,
+  Stack,
   Typography,
   styled,
 } from "@mui/material";
@@ -266,6 +268,7 @@ export default function TabCategory() {
   const [type, setType] = React.useState("");
   const [duree, setDuree] = React.useState("");
   const locales = useLocale();
+  const [loading,setLoading] = useState(true);
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -278,6 +281,7 @@ export default function TabCategory() {
       .unwrap()
       .then((res) => {
         console.log(res, "res");
+        setLoading(false);
       });
   }, []);
 
@@ -671,7 +675,12 @@ export default function TabCategory() {
           rowSpacing={3}
         >
           <Grid container columnSpacing={2} sx={{ display: "flex" }} pb={10}>
-            {allFormations?.map((ele, idxx) => {
+            {loading && (
+               <Stack sx={{ color: 'grey.500',width:'100%',display:'flex',justifyContent:'center',alignItems:'center' }} spacing={2} direction="row">
+               <CircularProgress color="inherit" sx={{color:'#222D55'}} />
+             </Stack>
+            )}
+            {!loading && allFormations?.map((ele, idxx) => {
               const DescriptionData = ele?.description
                 .split("\n")
                 .slice(0, 4)

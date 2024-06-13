@@ -23,7 +23,7 @@ import { useLocale } from "next-intl";
 export default function App({ loading, getEvent }) {
   const router = useRouter();
   const locales = useLocale();
-  console.log(getEvent?.registerLink, "elelelelelelekl");
+  console.log(getEvent?.registerLink, "registerLink");
   const getFirstElementText = (htmlString) => {
     const tagMatch = htmlString?.match(/<(\w+)>/);
     if (!tagMatch) return "";

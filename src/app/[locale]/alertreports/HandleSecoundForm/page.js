@@ -22,17 +22,17 @@ export default function HandleSecoundForm() {
   return (
     <Box
       sx={{
-        mt: 20,
+        mt: {xs:15,sm:20},
       }}
     >
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Box sx={{ position: "sticky", top: "20%" , marginLeft : 5 }}>
+            <Box sx={{ position: "sticky", top: "20%" , marginLeft : {xs:2,sm:3,md:5} }}>
               <SecoundStepper activeStep={1} />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{marginTop:{xs:5,sm:0},padding:{xs:2,sm:3,md:0}}}>
             <Box>
               <Typography
                 sx={{

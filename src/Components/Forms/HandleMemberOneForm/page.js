@@ -683,7 +683,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       {/* <Radio value="a" name="radio-buttons" /> */}
@@ -719,7 +719,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -730,7 +730,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={11}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -747,12 +747,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -782,7 +782,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       <FormControlLabel
@@ -817,7 +817,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -828,7 +828,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -845,12 +845,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -881,7 +881,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       <FormControlLabel
@@ -916,7 +916,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -927,7 +927,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -944,12 +944,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -979,7 +979,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       <FormControlLabel
@@ -1014,7 +1014,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1025,7 +1025,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1042,12 +1042,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1078,7 +1078,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       <FormControlLabel
@@ -1113,7 +1113,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1124,7 +1124,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1141,12 +1141,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1181,7 +1181,7 @@ export default function HandleForm() {
               setValue("corporation", e.target.value);
             }}
           >
-            <Grid container mt={5}>
+            <Grid container mt={5} sx={{ display: "flex", gap: {xs:2,md:0} }}>
               <Grid
                 item
                 xs={12}
@@ -1198,7 +1198,7 @@ export default function HandleForm() {
                       sx={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "300px",
+                        width: {xs:'100%',md:"300px"},
                       }}
                     >
                       <FormControlLabel
@@ -1233,7 +1233,7 @@ export default function HandleForm() {
               </Grid> */}
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1244,7 +1244,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1261,12 +1261,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1291,12 +1291,12 @@ export default function HandleForm() {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <Radio value={` « Personne morale »<br>-> groupe inter-régional<br>-> Un référent et jusqu’à 3 participants<br>-> Cotisation annuelle : 7 000€`} name="radio-buttons" />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1310,7 +1310,7 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1321,7 +1321,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1338,12 +1338,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1357,7 +1357,7 @@ export default function HandleForm() {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid container mt={5}>
+            <Grid container mt={5} sx={{ display: "flex", gap: {xs:2,md:0} }}>
               <Grid
                 item
                 xs={12}
@@ -1369,12 +1369,12 @@ export default function HandleForm() {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <Radio value={` « Personne morale »<br>-> comptant plus de 50 salariés<br>-> Un référent et jusqu’à 2 participants<br>-> Cotisation annuelle : 4 500€`} name="radio-buttons" />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1388,7 +1388,7 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1399,7 +1399,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1416,12 +1416,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1446,12 +1446,12 @@ export default function HandleForm() {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <Radio value={` « Personne morale »<br>-> comptant entre 11 et 50 salariés<br>-> Un référent et jusqu’à 1 participants<br>-> Cotisation annuelle : 15 00€`} name="radio-buttons" />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1465,7 +1465,7 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1476,7 +1476,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1493,12 +1493,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1512,7 +1512,7 @@ export default function HandleForm() {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid container mt={5}>
+            <Grid container mt={5} sx={{ display: "flex", gap: {xs:2,md:0} }}>
               <Grid
                 item
                 xs={12}
@@ -1524,12 +1524,12 @@ export default function HandleForm() {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <Radio value={` « Personne morale »<br>-> comptant entre 4 et 10 salariés<br>-> Un référent<br>-> Cotisation annuelle : 5 00€`} name="radio-buttons" />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1543,7 +1543,7 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1554,7 +1554,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1571,12 +1571,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1601,12 +1601,12 @@ export default function HandleForm() {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <Radio value={` « Personne morale »<br>-> comptant moins de 4 salariés<br>-> Un référent<br>-> Cotisation annuelle : 150€`} name="radio-buttons" />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1620,7 +1620,7 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "start" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box
                       sx={{
                         display: "flex",
@@ -1631,7 +1631,7 @@ export default function HandleForm() {
                       <DoneIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
@@ -1648,12 +1648,12 @@ export default function HandleForm() {
                   </Grid>
                 </Grid>
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xs={12} md={2}>
+                  <Grid item xs={12} sm={1}>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                       <EuroIcon style={{ color: "#9A9EA5" }} />
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} sm={10}>
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,

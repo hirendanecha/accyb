@@ -93,7 +93,7 @@ export default function HandleForm() {
           // setLoader(true);
         }}
       >
-        <Box sx={{ marginTop: 5, border: "1px solid #E2E4E5", padding: "30px", borderRadius: "10px" }}>
+        <Box sx={{ marginTop: 5, border: {xs:'none',sm:"1px solid #E2E4E5"}, padding: {xs:0,sm:"30px"}, borderRadius: "10px" }}>
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,

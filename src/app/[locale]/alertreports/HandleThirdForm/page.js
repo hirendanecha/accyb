@@ -27,11 +27,22 @@ export default function HandleSecoundForm() {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <Box sx={{ position: "sticky", top: "20%" , marginLeft : 5 }}>
+            <Box
+              sx={{
+                position: "sticky",
+                top: "20%",
+                marginLeft: { xs: 2,sm:3, md: 5 },
+              }}
+            >
               <SecoundStepper activeStep={2} />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ marginTop: { xs: 5, sm: 0 }, padding: { xs: 2, sm:3,md: 0 } }}
+          >
             <Box>
               <Typography
                 sx={{
@@ -54,7 +65,8 @@ export default function HandleSecoundForm() {
                   color: "#222D55",
                 }}
               >
-                Ce formulaire d’adhésion couvre la période du 01 janvier 2023 au 31 décembre 2024
+                Ce formulaire d’adhésion couvre la période du 01 janvier 2023 au
+                31 décembre 2024
               </Typography>
             </Box>
             <ThirdAlertForm />
