@@ -20,6 +20,7 @@ import { constrainedMemory } from "process";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { setGeneralInformation } from "../../../app/redux/slices/formSlice";
+import dayjs from "dayjs";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -93,7 +94,14 @@ export default function HandleForm() {
           // setLoader(true);
         }}
       >
-        <Box sx={{ marginTop: 5, border: {xs:'none',sm:"1px solid #E2E4E5"}, padding: {xs:0,sm:"30px"}, borderRadius: "10px" }}>
+        <Box
+          sx={{
+            marginTop: 5,
+            border: { xs: "none", sm: "1px solid #E2E4E5" },
+            padding: { xs: 0, sm: "30px" },
+            borderRadius: "10px",
+          }}
+        >
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
@@ -119,37 +127,37 @@ export default function HandleForm() {
           /> */}
           <Grid container columnSpacing={5}>
             <Grid item xs={12} md={12}>
-              <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#575F6E" }}
+              <Box
+                sx={{
+                  border: "1px solid #E2E4E5",
+                  padding: 2,
+                  borderRadius: "10px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap:1
+                }}
               >
-                Date de la déclaration
-              </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
+                <Typography
+                  sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="standard-basic"
-                type="date"
-                error={errors.dateOfDeclaration}
-                name="dateOfDeclaration"
-                value={new Date().toISOString().slice(0, 10)}
-                {...register("dateOfDeclaration")}
-                disabled
-                variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
-              />
+                    fontSize: { md: "14px", xs: "12px" },
+                    color: "#575F6E",
+                  }}
+                >
+                  Date de la déclaration
+                </Typography>
+                <Typography sx={{ fontFamily: inter.style.fontFamily,color: "#575F6E" }}>
+                  {dayjs(Date.now()).format("DD.MM.YYYY")}
+                </Typography>
+              </Box>
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Dénomination de l’entreprise
               </Typography>
@@ -172,12 +180,20 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 variant="standard"
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
               />
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Êtes-vous adhérent à l’ACCYB ?
               </Typography>
@@ -219,7 +235,11 @@ export default function HandleForm() {
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Type de structure
               </Typography>
@@ -235,28 +255,52 @@ export default function HandleForm() {
                     sx={{ fontFamily: inter.style.fontFamily }}
                     defaultValue={"PME"}
                   >
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"PME"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"PME"}
+                    >
                       PME
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"ETI"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"ETI"}
+                    >
                       ETI
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Commune"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Commune"}
+                    >
                       Commune
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Communauté d’agglomération"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Communauté d’agglomération"}
+                    >
                       Communauté d’agglomération
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Collectivité territoriale"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Collectivité territoriale"}
+                    >
                       Collectivité territoriale
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Collectivité d’Outre-Mer"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Collectivité d’Outre-Mer"}
+                    >
                       Collectivité d’Outre-Mer
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Établissements publics"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Établissements publics"}
+                    >
                       Établissements publics
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Associations nationales"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Associations nationales"}
+                    >
                       Associations nationales
                     </MenuItem>
                   </Select>
@@ -265,7 +309,11 @@ export default function HandleForm() {
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Secteur d’activité
               </Typography>
@@ -281,34 +329,61 @@ export default function HandleForm() {
                     sx={{ fontFamily: inter.style.fontFamily }}
                     defaultValue={"Administration publique"}
                   >
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Administration publique"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Administration publique"}
+                    >
                       Administration publique
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Eau potable"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Eau potable"}
+                    >
                       Eau potable
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Eaux usées"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Eaux usées"}
+                    >
                       Eaux usées
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Energie"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Energie"}
+                    >
                       Energie
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Espace"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Espace"}
+                    >
                       Espace
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Fabrication"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Fabrication"}
+                    >
                       Fabrication
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"Fabrication, production et distribution de produits chimiques"}
+                      value={
+                        "Fabrication, production et distribution de produits chimiques"
+                      }
                     >
-                      Fabrication, production et distribution de produits chimiques
+                      Fabrication, production et distribution de produits
+                      chimiques
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Fournisseurs numériques"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Fournisseurs numériques"}
+                    >
                       Fournisseurs numériques
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Gestion des déchets"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Gestion des déchets"}
+                    >
                       Gestion des déchets
                     </MenuItem>
                     <MenuItem
@@ -325,22 +400,36 @@ export default function HandleForm() {
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"Production, transformation et distribution des denrées alimentaires"}
+                      value={
+                        "Production, transformation et distribution des denrées alimentaires"
+                      }
                     >
-                      Production, transformation et distribution des denrées alimentaires
+                      Production, transformation et distribution des denrées
+                      alimentaires
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Recherche"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Recherche"}
+                    >
                       Recherche
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Transport"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Transport"}
+                    >
                       Transport
                     </MenuItem>
-                    <MenuItem sx={{ fontFamily: inter.style.fontFamily }} value={"Santé"}>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Santé"}
+                    >
                       Santé
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"Secteur bancaire Services postaux et d’expédition"}
+                      value={
+                        "Secteur bancaire Services postaux et d’expédition"
+                      }
                     >
                       Secteur bancaire Services postaux et d’expédition
                     </MenuItem>
@@ -350,7 +439,11 @@ export default function HandleForm() {
             </Grid>
             <Grid item xs={12} md={10} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Territoire
               </Typography>
@@ -407,7 +500,11 @@ export default function HandleForm() {
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Commune de
               </Typography>
@@ -429,13 +526,21 @@ export default function HandleForm() {
                   name="communeOfOne"
                   type="text"
                   variant="standard"
-                  sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
                 />
               </Box>
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
               <Typography
-                sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  color: "#222D55",
+                }}
               >
                 Commune de
               </Typography>
@@ -457,7 +562,11 @@ export default function HandleForm() {
                   type="text"
                   name="communeOfTwo"
                   variant="standard"
-                  sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  }}
                 />
               </Box>
             </Grid>
