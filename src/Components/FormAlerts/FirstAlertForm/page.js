@@ -100,11 +100,12 @@ export default function HandleForm() {
               fontSize: { md: "16px", xs: "12px" },
               color: "#222D55",
               fontWeight: 600,
+              marginBottom: { md: 5, xs: 3 },
             }}
           >
             Informations générales
           </Typography>
-          <Divider
+          {/* <Divider
             variant="middle"
             sx={{
               bgcolor: "#222D55",
@@ -115,7 +116,7 @@ export default function HandleForm() {
               opacity: "20%",
               borderBottomWidth: "1px",
             }}
-          />
+          /> */}
           <Grid container columnSpacing={5}>
             <Grid item xs={12} md={12}>
               <Typography
