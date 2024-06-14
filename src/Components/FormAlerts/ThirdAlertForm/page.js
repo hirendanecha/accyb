@@ -66,9 +66,11 @@ const schema = yup
   .required();
 
 export default function HandleForm() {
-  const { generalInformation, registrantInformation } = useSelector(
-    (state) => state.formSlice
-  );
+  const {
+    generalInformation,
+    registrantInformation,
+    descriptionOfTheIncident,
+  } = useSelector((state) => state.formSlice);
   const router = useRouter();
   const locales = useLocale();
   const dispatch = useDispatch();
@@ -97,12 +99,11 @@ export default function HandleForm() {
     },
   });
 
-  const sendEmail = async (payload) => {
-    console.log(payload, "payloadddddddddddd");
+  const sendEmail = async () => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/send-email/`,
-        { payload },
+        { generalInformation, registrantInformation, descriptionOfTheIncident },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem(
@@ -124,7 +125,7 @@ export default function HandleForm() {
       ...generalInformation,
       ...registrantInformation,
     };
-    sendEmail(payload);
+    sendEmail();
     console.log(payload, "payload");
     router.push(`/${locales}/alertreports/FinalSubmitForm`);
   };

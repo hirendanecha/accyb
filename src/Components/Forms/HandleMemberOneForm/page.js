@@ -1768,7 +1768,7 @@ export default function HandleForm() {
                 }}
               >
                 <FormControlLabel
-                  value="a"
+                  value="Offreur services cybersécurité"
                   control={<Radio color="primary" />}
                   label={
                     <Typography
@@ -1785,7 +1785,7 @@ export default function HandleForm() {
                   }
                 />
                 <FormControlLabel
-                  value="b"
+                  value="Utilisateur de services de cybersécurité"
                   control={<Radio color="primary" />}
                   label={
                     <Typography
