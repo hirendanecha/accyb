@@ -93,6 +93,7 @@ export default function App({ allEvents }) {
                   })
                   .join("\n");
                 return (
+                  <>
                   <SwiperSlide>
                     <Box
                       onClick={() => {
@@ -196,12 +197,13 @@ export default function App({ allEvents }) {
                               fontFamily: inter.style.fontFamily,
                             }}
                           >
-                            {dayjs(ele?.startDate).format("DD MMM YYYY")}
+                            {dayjs(ele?.publishedDate).format("DD MMM, YYYY")}
                           </Typography>
                         </Grid>
                       </Grid>
                     </Box>
                   </SwiperSlide>
+                  </>
                 );
               })}
             </>

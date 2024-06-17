@@ -453,7 +453,7 @@ export default function OurNews() {
                             width: "40px",
                             height: "40px",
                             borderRadius: "50%",
-                            display: { md: "flex", xs: "none" },
+                            display: { md: "flex", xs: "none" },  
                             justifyContent: "center",
                             alignItems: "center", // This centers the icon vertically
                           }}

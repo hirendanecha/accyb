@@ -229,7 +229,7 @@ export default function Page() {
                   fontFamily: inter.style.fontFamily,
                 }}
               >
-                {dayjs(getNews?.created_at).format("DD MMM YYYY")}
+                {dayjs(getNews?.publishedDate).format("DD MMM YYYY")}
               </Typography>
               <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", gap: 3, mt: 3 }}>
                 <Box
