@@ -71,6 +71,9 @@ export default function HandleForm() {
     registrantInformation,
     descriptionOfTheIncident,
   } = useSelector((state) => state.formSlice);
+  console.log(generalInformation, "generalInformation");
+  console.log(registrantInformation, "registrantInformation");
+  console.log(descriptionOfTheIncident, "descriptionOfTheIncident");
   const router = useRouter();
   const locales = useLocale();
   const dispatch = useDispatch();
@@ -102,7 +105,7 @@ export default function HandleForm() {
   const sendEmail = async () => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/send-email/`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/web/send-email/`,
         { generalInformation, registrantInformation, descriptionOfTheIncident },
         {
           headers: {
