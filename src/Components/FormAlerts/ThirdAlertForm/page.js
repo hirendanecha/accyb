@@ -102,7 +102,7 @@ export default function HandleForm() {
     },
   });
 
-  const sendEmail = async () => {
+  const sendEmail = async (generalInformation,registrantInformation,descriptionOfTheIncident) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/web/send-email/`,
@@ -128,7 +128,7 @@ export default function HandleForm() {
       ...generalInformation,
       ...registrantInformation,
     };
-    sendEmail();
+    sendEmail(generalInformation,registrantInformation,data);
     console.log(payload, "payload");
     router.push(`/${locales}/alertreports/FinalSubmitForm`);
   };

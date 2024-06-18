@@ -120,13 +120,9 @@ export default function HandleForm() {
     },
   });
 
-  const { memberOneInformation, memberTwoInformation } = useSelector(
-    (state) => state.formSlice
-  );
-  console.log(memberOneInformation, "memberOneInformation");
-  console.log(memberTwoInformation, "memberTwoInformation");
+  ;
 
-  const sendEmail = async () => {
+  const sendEmail = async (memberOneInformation,memberTwoInformation) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/web/send-email/`,
@@ -147,11 +143,16 @@ export default function HandleForm() {
       console.error("Error sending email:", error);
     }
   };
+  const { memberOneInformation, memberTwoInformation } = useSelector(
+    (state) => state.formSlice
+  );
+  console.log(memberOneInformation, "memberOneInformation");
+  console.log(memberTwoInformation, "memberTwoInformation")
 
   const onSubmit = (data) => {
     console.log(data, "data");
     dispatch(setMemberTwoInformation(data));
-    sendEmail();
+    sendEmail(memberOneInformation,data);
     router.push(`/${locales}/joinAccyb/FinalSubmitForm`);
   };
 
