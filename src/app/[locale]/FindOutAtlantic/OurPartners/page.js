@@ -221,7 +221,8 @@ export default function OurPartners() {
                         {ele?.title}
                       </Typography>
                       <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-                        <Imges src={ele?.count} alt="" width={900} height={900} />
+                        {idxx===0 && <Imges src={ele?.count} alt="" width={900} height={900} sx={{width:'200px !important'}} />}
+                        {idxx!==0 && <Imges src={ele?.count} alt="" width={900} height={900} />}
                       </Box>
                       <Box sx={{ height: "400px !important", pt: 10 }}>
                         {ele?.item?.map((el, idx) => {
