@@ -112,6 +112,12 @@ export default function HeroSection() {
 
   const [source, setSocurce] = React.useState("");
   const [type, setType] = React.useState("");
+  const [searchTerm,setSearchTerm]=React.useState("");
+
+  const filteredData = paginatedData?.filter((ele) =>
+    ele.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    ele.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleSourceChange = (event) => {
     setSocurce(event.target.value);
@@ -345,12 +351,13 @@ export default function HeroSection() {
                   </FormControl>
                 </Box> */}
                 <Box>
-                  <Search>
+                  <Search onChange={(e) => setSearchTerm(e.target.value)}>
                     <SearchIconWrapper>
                       <SearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase
                       placeholder="Recherche"
+                      value={searchTerm}
                       inputProps={{ "aria-label": "search" }}
                     />
                   </Search>
@@ -411,7 +418,7 @@ export default function HeroSection() {
               <CircularProgress color="inherit" sx={{color: "#222D55"}} />
             </Stack>
             )}
-            {!loading && paginatedData?.map((ele, idxx) => {
+            {!loading && filteredData?.map((ele, idxx) => {
               const DescriptionData = ele?.description
                 .split("\n")
                 .slice(0, 4)
