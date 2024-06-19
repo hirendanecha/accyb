@@ -10,6 +10,8 @@ import Img7 from "../../../../Icons/Discover/Img7.svg";
 import Img8 from "../../../../Icons/Discover/Alerte1.svg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import dayjs from "dayjs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   Box,
@@ -47,17 +49,14 @@ export default function OurMission() {
   const search = searchParams.get("services");
   const dispatch = useDispatch();
 
-  const [loading,setLoading]=useState(true);
-
+  const [loading, setLoading] = useState(true);
 
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
 
-  const { allSecurityAlerts} = useSelector(
-    (state) => state.securityAlerts
-  );
+  const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
   // const allSecurityAlerts = useSelector((state) => {console.log(state,'state');});
-console.log(loading, "loading");
+  console.log(loading, "loading");
   console.log(allSecurityAlerts, "allSecurityAlerts");
 
   useEffect(() => {
@@ -831,8 +830,21 @@ console.log(loading, "loading");
         />
         {loading && (
           <>
-            <Stack sx={{ color: "grey.500",width: "100%",display: "flex",justifyContent: "center",alignItems: "center" }} spacing={2} direction="row">
-              <CircularProgress color="inherit" sx={{ width: "50px", height: "50px" ,color: "red"}} />
+            <Stack
+              sx={{
+                color: "grey.500",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              spacing={2}
+              direction="row"
+            >
+              <CircularProgress
+                color="inherit"
+                sx={{ width: "50px", height: "50px", color: "red" }}
+              />
             </Stack>
           </>
         )}
@@ -865,7 +877,7 @@ console.log(loading, "loading");
                           // color: "#222D55",
                         }}
                       >
-                        {dayjs(ele?.date).format("DD/MM/YYYY")}
+                        {dayjs(ele?.date).format("DD.MM.YYYY")}
                       </Typography>
                       <Box
                         sx={{
@@ -985,7 +997,18 @@ console.log(loading, "loading");
                       {ele?.status}
                     </Typography>
                   </Grid>
-                  <Grid item md={6} sm={4} xs={12}>
+                  <Grid
+                    item
+                    md={6}
+                    sm={4}
+                    xs={12}
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => {
+                      router.push(
+                        `/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`
+                      );
+                    }}
+                  >
                     <Typography
                       sx={{
                         fontSize: {
@@ -1042,19 +1065,29 @@ console.log(loading, "loading");
                       justifyContent: "space-around",
                     }}
                   >
-                    <input
+                    {/* <input
                       accept="application/pdf"
                       style={{ display: "none" }}
                       id="pdf-upload-button"
                       type="file"
-                      onChange={handleFileUpload}
-                    />
+                      // onChange={handleFileUpload}
+                    /> */}
                     <a
-                      href={ele?.pdf?.url}
+                      href={ele?.document}
                       target="_blank"
                       rel="noreferrer"
                       style={{
                         textDecoration: "none",
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigator.clipboard
+                          .writeText(
+                            `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`
+                          )
+                          .then(() => {
+                            toast.success("Link copied to clipboard");
+                          });
                       }}
                     >
                       <label htmlFor="pdf-upload-button">
@@ -1195,6 +1228,7 @@ console.log(loading, "loading");
           </Button>
         </Box> */}
       </Container>
+      <ToastContainer />
     </Box>
   );
 }

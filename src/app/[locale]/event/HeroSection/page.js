@@ -12,13 +12,21 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { Box, Button, CircularProgress, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
 import { useLocale } from "next-intl";
+import { saveAs } from "file-saver";
 
 export default function App({ loading, getEvent }) {
   const router = useRouter();
@@ -48,15 +56,58 @@ export default function App({ loading, getEvent }) {
       }
     })
     .join("\n");
+
+  const createICSFile = () => {
+    const icsContent =
+      `BEGIN:VCALENDAR\n` +
+      `CALSCALE:GREGORIAN\n` +
+      `METHOD:PUBLISH\n` +
+      `PRODID:-//Test Cal//EN\n` +
+      `VERSION:2.0\n` +
+      `BEGIN:VEVENT\n` +
+      `UID:test-1\n` +
+      `DTSTART:${dayjs(getEvent?.startDate).format("YYYYMMDDTHHmmss")}\n` +
+      `DTEND:${dayjs(getEvent?.endDate).format("YYYYMMDDTHHmmss")}\n` +
+      `SUMMARY:${getEvent?.title}\n` +
+      `DESCRIPTION:${data}\n` +
+      `END:VEVENT\n` +
+      `END:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: "text/calendar" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "event.ics";
+
+    document.body.appendChild(link);
+
+    // Trigger the download by simulating a click
+    link.click();
+
+    // Remove the link from the document
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <Container
         disableGutters
         maxWidth={"xl"}
-        sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: { md: "0 40px", xs: "0 10px" } }}
+        sx={{
+          mt: { md: "125px", sm: "50px", xs: "10px" },
+          padding: { md: "0 40px", xs: "0 10px" },
+        }}
       >
         {loading ? (
-          <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center", mt: 30 }}>
+          <Grid
+            item
+            md={12}
+            sx={{
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "center",
+              mt: 30,
+            }}
+          >
             <CircularProgress sx={{ color: "#007A47" }} />
           </Grid>
         ) : (
@@ -66,7 +117,12 @@ export default function App({ loading, getEvent }) {
                 // background: `linear-gradient(rgba(30, 93, 170, 0.3), rgba(30, 93, 170, 0.3)), url(${getEvent?.pictureLink}) no-repeat center center / cover`,
                 background: `linear-gradient(rgba(34, 45, 85, 0.4), rgba(34, 45, 85, 0.4)), url(${getEvent?.pictureLink}) no-repeat center center / cover`,
 
-                backgroundSize: { lg: "cover", md: "cover", sm: "cover", xs: "cover" },
+                backgroundSize: {
+                  lg: "cover",
+                  md: "cover",
+                  sm: "cover",
+                  xs: "cover",
+                },
                 backgroundPosition: "fixed",
                 height: { md: "700px", xs: "650px" },
                 width: "100%",
@@ -75,11 +131,17 @@ export default function App({ loading, getEvent }) {
               }}
             >
               <Grid container>
-                <Grid item xs={12} md={8} padding={{ md: "150px 50px", xs: "150px 10px" }}>
+                <Grid
+                  item
+                  xs={12}
+                  md={8}
+                  padding={{ md: "150px 50px", xs: "150px 10px" }}
+                >
                   <Button
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      backgroundImage:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       textTransform: "uppercase",
                       padding: "15px 40px 15px 40px",
                       fontSize: { md: "14px", xs: "12px" },
@@ -88,7 +150,8 @@ export default function App({ loading, getEvent }) {
                       textAlign: "start",
                       borderRadius: "50px",
                       "&:hover": {
-                        backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                        backgroundImage:
+                          "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       },
                     }}
                   >
@@ -160,7 +223,14 @@ export default function App({ loading, getEvent }) {
                   >
                     {dayjs(getEvent?.startDate).format("DD MMMM YYYY")}
                   </Typography>
-                  <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", gap: 3 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "start",
+                      alignItems: "center",
+                      gap: 3,
+                    }}
+                  >
                     <Box
                       sx={{
                         border: "1px solid #FFFFFF",
@@ -182,13 +252,14 @@ export default function App({ loading, getEvent }) {
                       />
                     </Box>
                     <Button
-                      onClick={() => router.push(`/${locales}/alerteslist`)}
+                      onClick={createICSFile}
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
                           sx={{
                             backgroundColor: "#7DB1FF",
-                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            background:
+                              "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                             borderRadius: "50%",
                             width: { md: "45px", xs: "40px" },
                             height: { md: "45px", xs: "40px" },
@@ -204,7 +275,8 @@ export default function App({ loading, getEvent }) {
                                   rotate: "-35deg",
                                 },
                               },
-                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                              animation:
+                                "move-left 0.3s ease-in-out 0s 1 normal forwards",
                             },
                           }}
                         />
@@ -254,7 +326,8 @@ export default function App({ loading, getEvent }) {
                         <ArrowForwardIcon
                           sx={{
                             backgroundColor: "#7DB1FF",
-                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            background:
+                              "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                             borderRadius: "50%",
                             width: { md: "45px", xs: "40px" },
                             height: { md: "45px", xs: "40px" },
@@ -271,7 +344,8 @@ export default function App({ loading, getEvent }) {
                                   rotate: "-35deg",
                                 },
                               },
-                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                              animation:
+                                "move-left 0.3s ease-in-out 0s 1 normal forwards",
                             },
                           }}
                         />
@@ -300,7 +374,12 @@ export default function App({ loading, getEvent }) {
                     </Button>
                   </Box>
                 </Grid>
-                <Grid item xs={12} md={4} padding={{ md: "150px 0px", xs: "150px 5px" }}>
+                <Grid
+                  item
+                  xs={12}
+                  md={4}
+                  padding={{ md: "150px 0px", xs: "150px 5px" }}
+                >
                   <Box
                     sx={{
                       display: { md: "flex", xs: "none" },
@@ -324,7 +403,8 @@ export default function App({ loading, getEvent }) {
                         <ArrowForwardIcon
                           sx={{
                             backgroundColor: "#7DB1FF",
-                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            background:
+                              "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                             borderRadius: "50%",
                             width: { md: "45px", xs: "40px" },
                             height: { md: "45px", xs: "40px" },
@@ -341,7 +421,8 @@ export default function App({ loading, getEvent }) {
                                   rotate: "-35deg",
                                 },
                               },
-                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                              animation:
+                                "move-left 0.3s ease-in-out 0s 1 normal forwards",
                             },
                           }}
                         />
