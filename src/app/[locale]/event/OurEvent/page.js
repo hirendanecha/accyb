@@ -93,12 +93,23 @@ export default function OurEvents() {
           {allEvents?.events?.length > 0 ? (
             <>
               {allEvents?.events?.map((ele, idx) => {
+                const title = ele?.title
+                  .split("\n")
+                  .slice(0, 4)
+                  .map((line, index) => {
+                    if (index === 0) {
+                      return line.substring(0, 40) + "...";
+                    } else {
+                      return line;
+                    }
+                  })
+                  .join("\n");
                 const data = ele?.description
                   .split("\n")
                   .slice(0, 4)
                   .map((line, index) => {
                     if (index === 0) {
-                      return line.substring(0, 150) + "...";
+                      return line.substring(0, 100) + "...";
                     } else {
                       return line;
                     }
@@ -114,14 +125,9 @@ export default function OurEvents() {
                       sx={{ cursor: "pointer" }}
                       onClick={() => router.push(`/${locale}/event/${ele?._id}`)}
                     >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          gap: 3,
-                          flexDirection: { lg: "row", md: "column", xs: "column" },
-                        }}
-                      >
-                        <Box>
+                      <Grid container sx={{display: "flex",gap: {xs:5,sm:5,md:6,lg:6,xl:0}}}>
+                        <Grid item xs={12} lg={5}>
+                        <Box sx={{width: "100%"}}>
                           <Imgs
                             src={ele?.pictureLink}
                             width={295}
@@ -132,6 +138,8 @@ export default function OurEvents() {
                             }}
                           />
                         </Box>
+                        </Grid>
+                        <Grid item xs={12} lg={6} >
                         <Box
                           sx={{
                             display: "flex",
@@ -163,7 +171,7 @@ export default function OurEvents() {
                               color: "#222D55",
                             }}
                           >
-                            {ele?.title}
+                            {title}
                           </Typography>
                           <Typography
                             dangerouslySetInnerHTML={{ __html: data }}
@@ -222,7 +230,9 @@ export default function OurEvents() {
                             </Box>
                           </Box>
                         </Box>
-                      </Box>
+                        </Grid>
+                      </Grid>
+                      
                     </Grid>
                   </>
                 );

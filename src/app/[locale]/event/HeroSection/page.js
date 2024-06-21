@@ -26,7 +26,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
 import { useLocale } from "next-intl";
-import { saveAs } from "file-saver";
 
 export default function App({ loading, getEvent }) {
   const router = useRouter();
@@ -80,11 +79,15 @@ export default function App({ loading, getEvent }) {
 
     document.body.appendChild(link);
 
-    // Trigger the download by simulating a click
     link.click();
 
-    // Remove the link from the document
     document.body.removeChild(link);
+
+    //add into calender
+
+    // const blob = new Blob([icsContent], { type: "text/calendar" });
+    // const file = new File([blob], "event.ics", { type: "text/calendar" });
+    // window.open(`data:text/calendar;charset=utf8,${encodeURIComponent(icsContent)}`);
   };
 
   return (
