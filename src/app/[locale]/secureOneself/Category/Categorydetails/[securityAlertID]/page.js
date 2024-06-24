@@ -7,10 +7,11 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useDispatch, useSelector } from "react-redux";
 import { getSecurityAlertsById } from "../../../../../redux/action/securityAlerts/securityAlertAction";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { getAllNews } from "../../../../../redux/action/newsActions/newsAction";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { useLocale } from "next-intl";
 
 
 export default function CategoryDetails() {
@@ -25,6 +26,10 @@ export default function CategoryDetails() {
 
   const { allNews } = useSelector((state) => state.news);
   console.log(allNews, "allNews");
+
+  const router = useRouter();
+
+  const locale = useLocale();
 
   useEffect(() => {
     dispatch(getSecurityAlertsById(securityAlertID))
@@ -436,6 +441,7 @@ export default function CategoryDetails() {
                 <Grid item xs={12} md={6} key={idx} >
                   <Box
                     sx={{
+                      cursor: "pointer",
                       height: "100%",
                       border: "1px solid rgba(0, 0, 0, 0.3)",
                       padding: 5,
@@ -445,6 +451,7 @@ export default function CategoryDetails() {
                           ? "none"
                           : "1px solid rgba(0, 0, 0, 0.3)",
                     }}
+                    onClick={() => router.push(`/${locale}/news/${data?._id}`)}
                   >
                     <Typography
                       sx={{
