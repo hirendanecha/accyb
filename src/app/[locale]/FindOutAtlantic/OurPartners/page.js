@@ -1,5 +1,14 @@
 "use client";
-import { Box, Button, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  IconButton,
+  Typography,
+  styled,
+} from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/Partners/Logo1.svg";
@@ -33,11 +42,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 const Imges = styled(Image)(({ theme }) => ({
   width: "100px !important",
-  height: "97px !important",
-  [theme.breakpoints.down("md")]: {
-    width: "80px !important",
-    height: "auto !important",
-  },
+  height: "120px !important",
 }));
 const Imgs = styled(Image)(({ theme }) => ({
   width: "110px !important",
@@ -93,7 +98,13 @@ export default function OurPartners() {
       count: Findimg2,
       title: "CSIRT-ATLANTIC",
       key: 2,
-      item: ["PME", "ETI", "Collectivité locale", "Etablissement public", "Association régionale et nationale"],
+      item: [
+        "PME",
+        "ETI",
+        "Collectivité locale",
+        "Etablissement public",
+        "Association régionale et nationale",
+      ],
       button: "declarer un incident",
       link: `/${locales}/alertreports/HandleFirstForm`,
     },
@@ -124,7 +135,11 @@ export default function OurPartners() {
     if (search == "true") {
       document
         .getElementById("vosinterlocuteurs")
-        .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
     }
   }, []);
 
@@ -188,7 +203,9 @@ export default function OurPartners() {
                   <SwiperSlide
                     key={idxx}
                     style={{
-                      backgroundImage: match ? "url('/Images/Slider/Slider1.png')" : "",
+                      backgroundImage: match
+                        ? "url('/Images/Slider/Slider1.png')"
+                        : "",
                       backgroundColor: !match ? "#D24D58" : "",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "cover",
@@ -220,9 +237,49 @@ export default function OurPartners() {
                       >
                         {ele?.title}
                       </Typography>
-                      <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-                        {idxx===0 && <Imges src={ele?.count} alt="" width={900} height={900} sx={{width:'200px !important'}} />}
-                        {idxx!==0 && <Imges src={ele?.count} alt="" width={900} height={900} />}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          mt: 3,
+                        }}
+                      >
+                        {idxx === 0 && (
+                          <Imges
+                            src={ele?.count}
+                            alt=""
+                            width={900}
+                            height={900}
+                            sx={{
+                              width: {
+                                xs: "150px !important",
+                                md: "200px !important",
+                              },
+                              height: {
+                                xs: "100px !important",
+                                md: "200px !important",
+                              },
+                            }}
+                          />
+                        )}
+                        {idxx !== 0 && (
+                          <Imges
+                            src={ele?.count}
+                            alt=""
+                            width={900}
+                            height={900}
+                            sx={{
+                              width: {
+                                xs: "150px !important",
+                                md: "120px !important",
+                              },
+                              height: {
+                                xs: "100px !important",
+                                md: "200px !important",
+                              },
+                            }}
+                          />
+                        )}
                       </Box>
                       <Box sx={{ height: "400px !important", pt: 10 }}>
                         {ele?.item?.map((el, idx) => {
@@ -291,7 +348,8 @@ export default function OurPartners() {
                                       rotate: "-35deg",
                                     },
                                   },
-                                  animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                                  animation:
+                                    "move-left 0.3s ease-in-out 0s 1 normal forwards",
                                 },
                               }}
                             />
@@ -337,7 +395,11 @@ export default function OurPartners() {
           </Box>
         </Grid>
       </Grid>
-      <Grid container mt={{ md: 10, xs: 5 }} sx={{ display: { md: "none", xs: "block" } }}>
+      <Grid
+        container
+        mt={{ md: 10, xs: 5 }}
+        sx={{ display: { md: "none", xs: "block" } }}
+      >
         <Grid
           item
           md={2.5}
@@ -409,8 +471,19 @@ export default function OurPartners() {
                       >
                         {ele?.title}
                       </Typography>
-                      <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-                        <Imges src={ele?.count} alt="" width={900} height={900} />
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          mt: 5,
+                        }}
+                      >
+                        <Imges
+                          src={ele?.count}
+                          alt=""
+                          width={900}
+                          height={900}
+                        />
                       </Box>
                       <Box>
                         {ele?.item?.map((el, idx) => {
@@ -473,7 +546,8 @@ export default function OurPartners() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -493,7 +567,8 @@ export default function OurPartners() {
                   aria-label="Next Slide"
                   title="Next Slide"
                   sx={{
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                     width: 45,
                     height: 45,
                   }}
@@ -541,7 +616,11 @@ export default function OurPartners() {
           >
             Partenaires majeurs
           </Typography>
-          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
           {partners?.map((ele, idx) => {
             return (
               <Box
@@ -580,7 +659,11 @@ export default function OurPartners() {
           >
             Avec le soutien de
           </Typography>
-          <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#000000", height: "90px" }} />
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
           {supported?.map((ele, idx) => {
             return (
               <Box

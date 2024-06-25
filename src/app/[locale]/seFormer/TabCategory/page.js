@@ -301,6 +301,15 @@ export default function TabCategory() {
     setDuree(event.target.value);
   };
 
+  const filteredFormations = allFormations?.filter(ele => {
+    return (
+      (territoires === "" || ele.territoires === territoires) &&
+      (domain === "" || ele.domain === domain) &&
+      (type === "" || ele.typeOfFormation === type) &&
+      (duree === "" || ele.duration === duree)
+    );
+  });
+
   return (
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
@@ -680,7 +689,7 @@ export default function TabCategory() {
                <CircularProgress color="inherit" sx={{color:'#222D55'}} />
              </Stack>
             )}
-            {!loading && allFormations?.map((ele, idxx) => {
+            {!loading && filteredFormations?.map((ele, idxx) => {
               const DescriptionData = ele?.description
                 .split("\n")
                 .slice(0, 4)
