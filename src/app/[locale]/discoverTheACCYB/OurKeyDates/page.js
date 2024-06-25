@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
+import { Box, Container, Divider, Grid, Typography, keyframes, styled } from "@mui/material";
 import React, { useEffect } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Logo1 from "../../../../Icons/KeyDates/Image1.svg";
@@ -24,6 +24,16 @@ export default function OurKeyDates() {
       document.getElementById("NosDatesCles").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
   }, []);
+  const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const getAnimationDelay = (index) => `${index * 0.2}s`;
   return (
     <Box
       id="NosDatesCles"
@@ -67,7 +77,7 @@ export default function OurKeyDates() {
       <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
           <Grid container>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(1),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
                   <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +155,8 @@ export default function OurKeyDates() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+              
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(3),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
                   <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -238,7 +249,7 @@ export default function OurKeyDates() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(5),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4 }}>
                 <Box>
                   <svg width="52" height="230" viewBox="0 0 52 230" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -318,27 +329,27 @@ export default function OurKeyDates() {
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(1),opacity:0}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ opacity:0,animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(2)}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(3),opacity:0}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(4),opacity:0}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(5),opacity:0}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item xs={12} md={2} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(6),opacity:0}}>
               <Img src={Timeline} alt="timeline" />
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(2),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
                 <Box>
                   <svg
@@ -438,7 +449,7 @@ export default function OurKeyDates() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(4),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
                 <Box>
                   <svg
@@ -523,7 +534,7 @@ export default function OurKeyDates() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ animation: `${fadeIn} 1s ease-in-out forwards`,animationDelay: getAnimationDelay(6),opacity:0}}>
               <Box sx={{ display: "flex", gap: 4, justifyContent: "end" }}>
                 <Box>
                   <svg
