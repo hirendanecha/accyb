@@ -121,9 +121,7 @@ export default function HandleForm() {
     },
   });
 
-  ;
-
-  const sendEmail = async (memberOneInformation,memberTwoInformation) => {
+  const sendEmail = async (memberOneInformation, memberTwoInformation) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/web/send-email/`,
@@ -148,12 +146,12 @@ export default function HandleForm() {
     (state) => state.formSlice
   );
   console.log(memberOneInformation, "memberOneInformation");
-  console.log(memberTwoInformation, "memberTwoInformation")
+  console.log(memberTwoInformation, "memberTwoInformation");
 
   const onSubmit = (data) => {
     console.log(data, "data");
     dispatch(setMemberTwoInformation(data));
-    sendEmail(memberOneInformation,data);
+    sendEmail(memberOneInformation, data);
     router.push(`/${locales}/joinAccyb/FinalSubmitForm`);
   };
 
@@ -163,7 +161,7 @@ export default function HandleForm() {
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(onSubmit)();
-          setValue('');
+          setValue("");
         }}
       >
         <Box>
@@ -891,14 +889,19 @@ export default function HandleForm() {
           <Box sx={{ mt: 5, padding: "0 16px" }}>
             <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
           </Box>
-          <Grid
-            container
-            columnSpacing={5}
-            sx={{
-              padding: "0 16px",
-            }}
-          >
-            <Grid item xs={12} md={6} mt={5}>
+         
+            <Grid
+              item
+              xs={12}
+              sx={{
+                border: "1px solid #E2E4E5",
+                padding: '30px',
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+                mt:5
+              }}
+            >
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
@@ -908,46 +911,11 @@ export default function HandleForm() {
               >
                 Date
               </Typography>
-             <Typography sx={{mt:1}}>
-              {dayjs(new Date()).format("DD.MM.YYYY")}
-             </Typography>
-            </Grid>
-            {/* <Grid item xs={12} md={6} mt={5}>
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { md: "18px", xs: "12px" },
-                  color: "#222D55",
-                }}
-              >
-                Signature, Lu et approuvé
+              <Typography sx={{ mt: 1 }}>
+                {dayjs(new Date()).format("DD/MM/YYYY")}
               </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="signature"
-                {...register("signature")}
-                error={errors?.signature ? true : false}
-                type="text"
-                variant="standard"
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                  mt: 2,
-                }}
-              />
-            </Grid> */}
-          </Grid>
+            </Grid>
+            
 
           <Box
             sx={{
