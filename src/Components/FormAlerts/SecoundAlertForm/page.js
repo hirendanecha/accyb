@@ -166,7 +166,7 @@ export default function HandleForm() {
                   },
                 }}
                 id="standard-basic"
-                type="number"
+                type="text"
                 name="service"
                 {...register("service")}
                 variant="standard"
@@ -192,7 +192,7 @@ export default function HandleForm() {
                   },
                 }}
                 id="standard-basic"
-                type="number"
+                type="text"
                 {...register("fonction")}
                 name="fonction"
                 variant="standard"

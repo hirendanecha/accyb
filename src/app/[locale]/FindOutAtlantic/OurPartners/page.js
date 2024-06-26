@@ -78,12 +78,12 @@ export default function OurPartners() {
     {
       img: Logo9,
     },
-    {
-      img: Logo5,
-    },
-    {
-      img: Logo6,
-    },
+    // {
+    //   img: Logo5,
+    // },
+    // {
+    //   img: Logo6,
+    // },
   ];
   const data = [
     {
@@ -641,7 +641,7 @@ export default function OurPartners() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-between",
             mt: 3,
             gap: 1,
             flexWrap: "nowrap",
@@ -652,12 +652,12 @@ export default function OurPartners() {
               color: "#222D55",
               fontFamily: inter.style.fontFamily,
               fontSize: { md: "14px", xs: "12px" },
-              maxWidth: "100px",
+              maxWidth: "50px",
               textAlign: "end",
               mr: 1,
             }}
           >
-            Avec le soutien de
+            Soutenu par
           </Typography>
           <Divider
             orientation="vertical"

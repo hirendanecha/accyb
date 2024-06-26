@@ -50,7 +50,7 @@ const schema = yup
     // structureType: yup.string().required("Structure type is required"),
     // activityArea: yup.string().required("Activity area is required"),
     // territory: yup.string().required("Territory is required"),
-    // communeOfOne: yup.string().required("Commune is required"),
+    // commune: yup.string().required("Commune is required"),
     // communeOfTwo: yup.string().required("Commune is required"),
   })
   .required();
@@ -76,8 +76,8 @@ export default function HandleForm() {
       structureType: "",
       activityArea: "",
       territory: "",
-      communeOfOne: "",
-      communeOfTwo: "",
+      commune: "",
+      // communeOfTwo: "",
     },
   });
 
@@ -498,7 +498,7 @@ export default function HandleForm() {
                 </RadioGroup>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={12} mt={5}>
+            {/* <Grid item xs={12} md={12} mt={5}>
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
@@ -533,7 +533,7 @@ export default function HandleForm() {
                   }}
                 />
               </Box>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} md={12} mt={5}>
               <Typography
                 sx={{
@@ -542,7 +542,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Commune de
+                Commune de [Territory_name]
               </Typography>
               <Box mt={3}>
                 <ValidationTextField
@@ -557,10 +557,10 @@ export default function HandleForm() {
                       fontWeight: 500,
                     },
                   }}
-                  {...register("communeOfTwo")}
+                  {...register("commune")}
                   id="standard-basic"
                   type="text"
-                  name="communeOfTwo"
+                  name="commune"
                   variant="standard"
                   sx={{
                     fontFamily: inter.style.fontFamily,

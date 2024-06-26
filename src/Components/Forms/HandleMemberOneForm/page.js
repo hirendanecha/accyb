@@ -58,6 +58,7 @@ const schema = yup
     NumberOfGroupEmployees: yup
       .string()
       .required("Number of group employees is required"),
+      votreEntreprise: yup.string().required("Votre entreprise is required"),
     businessNature: yup.string().required("Business nature is required"),
     activity: yup.string().required("Activity is required"),
     firstName: yup.string().required("First name is required"),
@@ -68,12 +69,12 @@ const schema = yup
     categorizationOfCandidate: yup
       .string()
       .required("Categorization of candidate is required"),
-    corporation: yup.string().required("Corporation is required"),
+    // corporation: yup.string().required("Corporation is required"),
     categoryOfActivity: yup
       .string()
       .required("Category of activity is required"),
-    date: yup.string().required("Date is required"),
-    // signature: yup.string().required("Signature is required"),
+    // date: yup.string().required("Date is required"),
+    signature: yup.string().required("Signature is required"),
   })
   .required();
 export default function HandleForm() {
@@ -98,6 +99,7 @@ export default function HandleForm() {
       siret: "",
       NumberOfEmployees: "",
       NumberOfGroupEmployees: "",
+      votreEntreprise: "",
       businessNature: "",
       activity: "",
       firstName: "",
@@ -106,9 +108,10 @@ export default function HandleForm() {
       email: "",
       billingAddress: "",
       categorizationOfCandidate: "",
-      corporation: "",
+      // corporation: "",
       categoryOfActivity: "",
-      date: "",
+      // date: "",
+      signature: "",
     },
   });
 
@@ -348,6 +351,29 @@ export default function HandleForm() {
           >
             Votre entreprise
           </Typography>
+          <ValidationTextField
+                fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  style: {
+                    fontFamily: inter.style.fontFamily,
+                    fontSize: "14px !important",
+                    fontWeight: 500,
+                  },
+                }}
+                id="votreEntreprise"
+                {...register("votreEntreprise")}
+                error={errors?.votreEntreprise}
+                type="text"
+                variant="standard"
+                sx={{
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: "14px !important",
+                  fontWeight: 500,
+                }}
+              />
           <Grid container columnSpacing={5} mt={5}>
             <Grid item xs={12} md={10}>
               <Typography
@@ -458,6 +484,104 @@ export default function HandleForm() {
                       value={"Administration publique"}
                     >
                       Administration publique
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Eau potable"}
+                    >
+                      Eau potable
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Eaux usées"}
+                    >
+                      Eaux usées
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Energie"}
+                    >
+                      Energie
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Espace"}
+                    >
+                      Espace
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Fabrication"}
+                    >
+                      Fabrication
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={
+                        "Fabrication, production et distribution de produits chimiques"
+                      }
+                    >
+                      Fabrication, production et distribution de produits
+                      chimiques
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Fournisseurs numériques"}
+                    >
+                      Fournisseurs numériques
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Gestion des déchets"}
+                    >
+                      Gestion des déchets
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Gestion des services TIC (interentreprises)"}
+                    >
+                      Gestion des services TIC (interentreprises)
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Infrastructures des marchés financiers"}
+                    >
+                      Infrastructures des marchés financiers
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={
+                        "Production, transformation et distribution des denrées alimentaires"
+                      }
+                    >
+                      Production, transformation et distribution des denrées
+                      alimentaires
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Recherche"}
+                    >
+                      Recherche
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Transport"}
+                    >
+                      Transport
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={"Santé"}
+                    >
+                      Santé
+                    </MenuItem>
+                    <MenuItem
+                      sx={{ fontFamily: inter.style.fontFamily }}
+                      value={
+                        "Secteur bancaire Services postaux et d’expédition"
+                      }
+                    >
+                      Secteur bancaire Services postaux et d’expédition
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -1198,7 +1322,7 @@ export default function HandleForm() {
               <Grid item xs={12} md={0.4}></Grid>
               <Grid item xs={12} md={5.8}></Grid>
             </Grid>
-          </RadioGroup>
+          {/* </RadioGroup> */}
 
           <Divider
             variant="middle"
@@ -1212,11 +1336,11 @@ export default function HandleForm() {
             }}
           />
 
-          <RadioGroup
+          {/* <RadioGroup
             onChange={(e) => {
               setValue("corporation", e.target.value);
             }}
-          >
+          > */}
             <Grid
               container
               mt={5}
@@ -1820,7 +1944,7 @@ export default function HandleForm() {
         </Box>
 
         <Grid container columnSpacing={5}>
-          <Grid item xs={12} md={6} mt={5}>
+          {/* <Grid item xs={12} md={6} mt={5}>
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
@@ -1854,8 +1978,8 @@ export default function HandleForm() {
                 mt: 2,
               }}
             />
-          </Grid>
-          {/* <Grid item xs={12} md={6} mt={5}>
+          </Grid> */}
+           <Grid item xs={12} md={6} mt={5}>
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
@@ -1889,9 +2013,8 @@ export default function HandleForm() {
                 mt: 2,
               }}
             />
-          </Grid> */}
-        </Grid>
-
+          </Grid>
+         </Grid> 
         <Button
           // onClick={() => router.push(`/${locales}/joinAccyb/SecoundForm`)}
           type="submit"

@@ -28,6 +28,7 @@ import { Interests } from "@mui/icons-material";
 import { setMemberTwoInformation } from "../../../app/redux/slices/formSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import dayjs from "dayjs";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -74,8 +75,8 @@ const schema = yup
       .string()
       .email("Invalid email")
       .required("Email is required"),
-    date: yup.string().required("Date is required"),
-    signature: yup.string().required("Signature is required"),
+    // date: yup.string().required("Date is required"),
+    // signature: yup.string().required("Signature is required"),
   })
   .required();
 
@@ -115,8 +116,8 @@ export default function HandleForm() {
       substituteMobilePhone: "",
       substitutePhone: "",
       substituteEmail: "",
-      date: "",
-      signature: "",
+      date: new Date(),
+      // signature: "",
     },
   });
 
@@ -907,32 +908,11 @@ export default function HandleForm() {
               >
                 Date
               </Typography>
-              <ValidationTextField
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                InputProps={{
-                  style: {
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  },
-                }}
-                id="date"
-                {...register("date")}
-                error={errors?.date ? true : false}
-                type="date"
-                variant="standard"
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: "14px !important",
-                  fontWeight: 500,
-                  mt: 2,
-                }}
-              />
+             <Typography sx={{mt:1}}>
+              {dayjs(new Date()).format("DD.MM.YYYY")}
+             </Typography>
             </Grid>
-            <Grid item xs={12} md={6} mt={5}>
+            {/* <Grid item xs={12} md={6} mt={5}>
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
@@ -966,7 +946,7 @@ export default function HandleForm() {
                   mt: 2,
                 }}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
 
           <Box

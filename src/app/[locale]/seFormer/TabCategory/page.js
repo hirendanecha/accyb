@@ -283,7 +283,7 @@ export default function TabCategory() {
         console.log(res, "res");
         setLoading(false);
       });
-  }, []);
+  }, [dispatch]);
 
   const handleSourceChange = (event) => {
     setTerritories(event.target.value);

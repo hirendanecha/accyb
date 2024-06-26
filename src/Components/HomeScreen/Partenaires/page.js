@@ -1,5 +1,12 @@
 "use client";
-import { Box, Container, Divider, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import React from "react";
 import Logo1 from "../../../Icons/Partners/Logo1.svg";
 import Logo2 from "../../../Icons/Partners/Logo2.svg";
@@ -50,12 +57,12 @@ export default function Partenaires() {
     {
       img: Logo9,
     },
-    {
-      img: Logo5,
-    },
-    {
-      img: Logo6,
-    },
+    // {
+    //   img: Logo5,
+    // },
+    // {
+    //   img: Logo6,
+    // },
   ];
   return (
     <Box sx={{ padding: "0 16px" }}>
@@ -73,92 +80,102 @@ export default function Partenaires() {
           },
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            mt: 3,
-            gap: { md: 1, xs: 1 },
-            flexWrap: "nowrap",
-          }}
-        >
-          <Typography
+        <Grid container sx={{display:'flex',justifyContent:'space-between'}}>
+          <Grid
+            item
+            xs={5}
             sx={{
-              color: "#222D55",
-              fontFamily: inter.style.fontFamily,
-              fontSize: { md: "14px", xs: "12px" },
-              maxWidth: "100px",
-              textAlign: "end",
-              mr: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              mt: 3,
+              // gap: { md: 1, xs: 1 },
+              flexWrap: "nowrap",
             }}
           >
-            Partenaires majeurs
-          </Typography>
-          <Divider
-            orientation="vertical"
-            variant="middle"
-            sx={{ bgcolor: "#000000", height: "90px" }}
-          />
-          {partners?.map((ele, idx) => {
-            return (
-              <Box
-                key={idx}
+            <Box sx={{ display: "flex", gap: 1 }}>
+              <Typography
                 sx={{
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: { md: "start", xs: "center" },
-                  mb: 2,
-                  mr: { md: 2, xs: 0 },
+                  color: "#222D55",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  maxWidth: "100px",
+                  textAlign: "end",
+                  mr: 1,
                 }}
               >
-                <Img src={ele.img} width={900} height={900} alt="img" />
-              </Box>
-            );
-          })}
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            mt: 3,
-            gap: 1,
-            flexWrap: "nowrap",
-          }}
-        >
-          <Typography
+                Partenaires majeurs
+              </Typography>
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                sx={{ bgcolor: "#000000", height: "90px" }}
+              />
+            </Box>
+            {partners?.map((ele, idx) => {
+              return (
+                <Box
+                  key={idx}
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: { md: "start", xs: "center" },
+                    mb: 2,
+                    mr: { md: 2, xs: 0 },
+                  }}
+                >
+                  <Img src={ele.img} width={900} height={900} alt="img" />
+                </Box>
+              );
+            })}
+          </Grid>
+          <Grid
+            item
+            xs={5}
             sx={{
-              color: "#222D55",
-              fontFamily: inter.style.fontFamily,
-              fontSize: { md: "14px", xs: "12px" },
-              maxWidth: "100px",
-              textAlign: "end",
-              mr: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              mt: 3,
+              // gap: 1,
+              flexWrap: "nowrap",
             }}
           >
-            Avec le soutien de
-          </Typography>
-          <Divider
-            orientation="vertical"
-            variant="middle"
-            sx={{ bgcolor: "#000000", height: "90px" }}
-          />
-          {supported?.map((ele, idx) => {
-            return (
-              <Box
-                key={idx}
+            <Box sx={{ display: "flex", gap: 1 }}>
+              <Typography
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: { md: "start", xs: "center" },
-                  mb: 2,
-                  mr: { md: 2, xs: 0 },
+                  color: "#222D55",
+                  fontFamily: inter.style.fontFamily,
+                  fontSize: { md: "14px", xs: "12px" },
+                  maxWidth: "50px",
+                  textAlign: "end",
+                  mr: 1,
                 }}
               >
-                <Imgs src={ele.img} width={1200} height={1200} alt="img" />
-              </Box>
-            );
-          })}
-        </Box>
+                Soutenu par
+              </Typography>
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                sx={{ bgcolor: "#000000", height: "90px" }}
+              />
+            </Box>
+            {supported?.map((ele, idx) => {
+              return (
+                <Box
+                  key={idx}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: { md: "start", xs: "center" },
+                    mb: 2,
+                    mr: { md: 2, xs: 0 },
+                  }}
+                >
+                  <Imgs src={ele.img} width={1200} height={1200} alt="img" />
+                </Box>
+              );
+            })}
+          </Grid>
+        </Grid>
       </Container>
       <Divider
         variant="middle"
