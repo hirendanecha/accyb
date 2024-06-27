@@ -69,12 +69,12 @@ const supported = [
   {
     img: Logo9,
   },
-  {
-    img: Logo5,
-  },
-  {
-    img: Logo6,
-  },
+  // {
+  //   img: Logo5,
+  // },
+  // {
+  //   img: Logo6,
+  // },
 ];
 
 const data = [
@@ -841,27 +841,29 @@ export default function CaseStudies() {
             display: "flex",
             justifyContent: "center",
             mt: 3,
-            gap: 1,
+            gap: 2,
             flexWrap: "nowrap",
           }}
         >
+          <Box sx={{ display: "flex",gap:1 }} >
           <Typography
             sx={{
               color: "#222D55",
               fontFamily: inter.style.fontFamily,
               fontSize: { md: "14px", xs: "12px" },
-              maxWidth: "100px",
+              maxWidth: "50px",
               textAlign: "end",
               mr: 1,
             }}
           >
-            Avec le soutien de
+            Soutenu par
           </Typography>
           <Divider
             orientation="vertical"
             variant="middle"
             sx={{ bgcolor: "#000000", height: "90px" }}
           />
+          </Box>
           {supported?.map((ele, idx) => {
             return (
               <Box

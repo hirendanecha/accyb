@@ -529,6 +529,7 @@ export default function OurEvents() {
                           sx={{
                             display: "flex",
                             flexDirection: "column",
+                            width: "100%",
                           }}
                         >
                           <Typography
@@ -565,7 +566,7 @@ export default function OurEvents() {
                               fontFamily: inter.style.fontFamily,
                               color: "#222D55",
                               fontSize: "14px",
-                              maxWidth: "350px",
+                              // maxWidth: "350px",
                             }}
                           ></Typography>
                           <Box>
