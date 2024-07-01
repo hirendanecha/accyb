@@ -58,7 +58,7 @@ const schema = yup
     NumberOfGroupEmployees: yup
       .string()
       .required("Number of group employees is required"),
-      votreEntreprise: yup.string().required("Votre entreprise is required"),
+      // votreEntreprise: yup.string().required("Votre entreprise is required"),
     businessNature: yup.string().required("Business nature is required"),
     activity: yup.string().required("Activity is required"),
     firstName: yup.string().required("First name is required"),
@@ -99,7 +99,7 @@ export default function HandleForm() {
       siret: "",
       NumberOfEmployees: "",
       NumberOfGroupEmployees: "",
-      votreEntreprise: "",
+      // votreEntreprise: "",
       businessNature: "",
       activity: "",
       firstName: "",
@@ -349,9 +349,9 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Votre entreprise
+            Nature
           </Typography>
-          <ValidationTextField
+          {/* <ValidationTextField
                 fullWidth
                 InputLabelProps={{
                   shrink: true,
@@ -373,10 +373,10 @@ export default function HandleForm() {
                   fontSize: "14px !important",
                   fontWeight: 500,
                 }}
-              />
+              /> */}
           <Grid container columnSpacing={5} mt={5}>
             <Grid item xs={12} md={10}>
-              <Typography
+              {/* <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
                   fontSize: { md: "14px", xs: "12px" },
@@ -384,8 +384,8 @@ export default function HandleForm() {
                 }}
               >
                 Nature
-              </Typography>
-              <FormControl sx={{ mt: 3 }}>
+              </Typography> */}
+              <FormControl>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"

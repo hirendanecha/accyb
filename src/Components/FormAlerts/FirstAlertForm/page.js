@@ -542,7 +542,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Commune de [Territory_name]
+                Commune
               </Typography>
               <Box mt={3}>
                 <ValidationTextField
