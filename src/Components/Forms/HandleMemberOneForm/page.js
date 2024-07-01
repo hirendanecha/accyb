@@ -374,7 +374,7 @@ export default function HandleForm() {
                   fontWeight: 500,
                 }}
               /> */}
-          <Grid container columnSpacing={5} mt={5}>
+          <Grid container columnSpacing={5} mt={2}>
             <Grid item xs={12} md={10}>
               {/* <Typography
                 sx={{
