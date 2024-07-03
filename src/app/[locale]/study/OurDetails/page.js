@@ -25,8 +25,11 @@ export default function page(studyDetails) {
       <Container disableGutters maxWidth={"xl"}>
         <Grid container>
           <Grid item xs={12} md={3} sx={{ position: "relative" }}>
-            <Box sx={{ position: "absolute", top: "50%" }}>
+            <Box sx={{ position: "fixed", bottom: 55,left:100 }}>
               <Box
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
                 sx={{
                   backgroundColor: "#222D55",
                   padding: 3,
@@ -36,6 +39,7 @@ export default function page(studyDetails) {
                   display: { md: "flex", xs: "none" },
                   justifyContent: "center",
                   alignItems: "center",
+                  cursor: "pointer",
                 }}
               >
                 <ArrowUpwardIcon sx={{ color: "#fff" }} />

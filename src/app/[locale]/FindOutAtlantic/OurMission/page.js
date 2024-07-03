@@ -460,7 +460,7 @@ export default function OurMission() {
             >
               Alertes de sécurité
             </Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
                 fontWeight: 400,
@@ -471,7 +471,7 @@ export default function OurMission() {
             >
               Les alertes sont des documents destinés à prévenir d'un danger
               immédiat
-            </Typography>
+            </Typography> */}
           </Box>
           <Box
             sx={{
@@ -1043,11 +1043,11 @@ export default function OurMission() {
                         fontFamily: inter.style.fontFamily,
                         fontSize: "12px",
                         color: "#BE0011",
-                        textTransform: "capitalize",
+                        textTransform: "uppercase",
                         fontWeight: 600,
                       }}
                     >
-                      Alerte en cours
+                      {ele?.type}
                     </Typography>
                   </Grid>
                   <Grid
@@ -1164,7 +1164,7 @@ export default function OurMission() {
               </>
             );
           })}
-        <Typography
+        {/* <Typography
           sx={{
             padding: "0 16px",
             fontFamily: inter.style.fontFamily,
@@ -1176,7 +1176,7 @@ export default function OurMission() {
         >
           En cas d'incident, les bons réflexes en cas d'intrusion sur un système
           d'information sont à retrouver ici.
-        </Typography>
+        </Typography> */}
         {/* <Box sx={{ display: "flex", justifyContent: "center", mt: { md: 10, xs: 5 } }}>
           <Button
             onClick={() => router.push(`/${locales}/alerteslist`)}

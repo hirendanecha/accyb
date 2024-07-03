@@ -1,31 +1,43 @@
 "use client";
-import { Box, Container, Grid, Typography, Divider, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Divider,
+  Button,
+} from "@mui/material";
 import React, { useEffect } from "react";
 import { inter } from "../../../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useDispatch, useSelector } from "react-redux";
-import { getSecurityAlertsById } from "../../../../../redux/action/securityAlerts/securityAlertAction";
+import {
+  getAllSecurityAlerts,
+  getSecurityAlertsById,
+} from "../../../../../redux/action/securityAlerts/securityAlertAction";
 import { useParams, useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { getAllNews } from "../../../../../redux/action/newsActions/newsAction";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { useLocale } from "next-intl";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CategoryDetails() {
   const dispatch = useDispatch();
   const params = useParams();
+  const locals = useLocale();
 
   const { securityAlertID } = params;
   console.log(securityAlertID, "id");
 
   const { getSecurityAlert } = useSelector((state) => state.securityAlerts);
-  console.log(getSecurityAlert, "securityAlerts");
+  console.log(getSecurityAlert, "getSecurityAlert");
 
-  const { allNews } = useSelector((state) => state.news);
-  console.log(allNews, "allNews");
+  const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
+  console.log(allSecurityAlerts, "allSecurityAlerts");
 
   const router = useRouter();
 
@@ -41,7 +53,7 @@ export default function CategoryDetails() {
         console.log(err);
       });
 
-    dispatch(getAllNews())
+    dispatch(getAllSecurityAlerts())
       .unwrap()
       .then((res) => {
         console.log(res, "News response");
@@ -154,7 +166,7 @@ export default function CategoryDetails() {
         }}
       >
         <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
-          <Box sx={{ position: "fixed", bottom: 30, left: 30 }}>
+          <Box sx={{ position: "fixed", bottom: 55, left: 100 }}>
             <Box
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -240,16 +252,153 @@ export default function CategoryDetails() {
                       alignItems: "center", // This centers the icon vertically
                     }}
                   >
-                    <ShareIcon
-                      sx={{
-                        height: "20px",
-                        width: "20px",
-                        color: "#222D55",
-                        cursor: "pointer",
+                    <a
+                      // href={ele?.document}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        textDecoration: "none",
+                        display: "flex",
                       }}
-                    />
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigator.clipboard
+                          .writeText(
+                            `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`
+                          )
+                          .then(() => {
+                            toast.success("Link copied to clipboard");
+                          });
+                      }}
+                    >
+                      <ShareIcon
+                        sx={{
+                          height: "20px",
+                          width: "20px",
+                          color: "#222D55",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </a>
                   </Box>
                 </Box>
+
+                <Box sx={{display:'flex',flexDirection:'column',justifyContent:"start",alignItems:'start'}}>
+
+                <a target="_blank" href={getSecurityAlert?.url[0]}>
+                  <Button
+                    variant="outlined"
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{
+                          background:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          borderRadius: "50%",
+                          width: "50px",
+                          height: "50px",
+                          color: "#ffffff",
+                          padding: 1.7,
+                          marginRight: -2,
+                          ml: 3,
+                          ":hover": {
+                            "@keyframes move-left": {
+                              "0%": {
+                                rotate: "0deg",
+                              },
+                              "100%": {
+                                rotate: "-35deg",
+                              },
+                            },
+                            animation:
+                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          },
+                        }}
+                      />
+                    }
+                    sx={{
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "61px",
+                      padding: "8px 30px",
+                      fontSize: { md: "12px", xs: "10px" },
+                      mt: { md: 3, xs: 5 },
+                      fontWeight: 600,
+                      background: "#ffffff",
+                      fontFamily: inter.style.fontFamily,
+                      border:
+                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
+                      "&:hover": {
+                        backgroundColor: "#FFFFFF",
+                        border: "none",
+                      },
+                    }}
+                    // onClick={() => {
+                    //   router.push(`${getSecurityAlert?.url[0]}`);
+                    // }}
+                  >
+                    CVE-2024-26198s
+                    {/* {getSecurityAlert?.url[0]} */}
+                  </Button>
+                </a>
+                <a target="_blank" href={getSecurityAlert?.url[1]}>
+                  <Button
+                    variant="outlined"
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{
+                          background:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          borderRadius: "50%",
+                          width: "50px",
+                          height: "50px",
+                          color: "#ffffff",
+                          padding: 1.7,
+                          marginRight: -2,
+                          ml: 3,
+                          ":hover": {
+                            "@keyframes move-left": {
+                              "0%": {
+                                rotate: "0deg",
+                              },
+                              "100%": {
+                                rotate: "-35deg",
+                              },
+                            },
+                            animation:
+                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          },
+                        }}
+                      />
+                    }
+                    sx={{
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "61px",
+                      padding: "8px 30px",
+                      fontSize: { md: "12px", xs: "10px" },
+                      mt: { md: 3, xs: 5 },
+                      fontWeight: 600,
+                      background: "#ffffff",
+                      fontFamily: inter.style.fontFamily,
+                      border:
+                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
+                      "&:hover": {
+                        backgroundColor: "#FFFFFF",
+                        border: "none",
+                      },
+                    }}
+                    // onClick={() => {
+                    //   router.push(`${getSecurityAlert?.url[0]}`);
+                    // }}
+                  >
+                    Score CVSS v3.1: 8.8
+                    {/* {getSecurityAlert?.url[0]} */}
+                  </Button>
+                </a>
+
+                </Box>
+
+               
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
@@ -269,53 +418,114 @@ export default function CategoryDetails() {
                 >
                   {/* {getSecurityAlert.description} */}
                 </Typography>
-                <a href={getSecurityAlert?.document}>
-                <Button
-                variant="outlined"
-                endIcon={
-                  <FileDownloadIcon
+                <Box sx={{display:'flex',justifyContent:'center',gap:3}}>
+                <a target="_blank" href={getSecurityAlert?.url[2]}>
+                  <Button
+                    variant="outlined"
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{
+                          background:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          borderRadius: "50%",
+                          width: "50px",
+                          height: "50px",
+                          color: "#ffffff",
+                          padding: 1.7,
+                          marginRight: -2,
+                          ml: 3,
+                          ":hover": {
+                            "@keyframes move-left": {
+                              "0%": {
+                                rotate: "0deg",
+                              },
+                              "100%": {
+                                rotate: "-35deg",
+                              },
+                            },
+                            animation:
+                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          },
+                        }}
+                      />
+                    }
                     sx={{
-                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      borderRadius: "50%",
-                      width: "50px",
-                      height: "50px",
-                      color: "#ffffff",
-                      padding: 1.7,
-                      marginRight: -2,
-                      ml: 3,
-                      ":hover": {
-                        "@keyframes move-left": {
-                          "0%": {
-                            rotate: "0deg",
-                          },
-                          "100%": {
-                            rotate: "-35deg",
-                          },
-                        },
-                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "61px",
+                      padding: "8px 30px",
+                      fontSize: { md: "12px", xs: "10px" },
+                      mt: { md: 3, xs: 5 },
+                      fontWeight: 600,
+                      background: "#ffffff",
+                      fontFamily: inter.style.fontFamily,
+                      border:
+                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
+                      "&:hover": {
+                        backgroundColor: "#FFFFFF",
+                        border: "none",
                       },
                     }}
-                  />
-                }
-                sx={{
-                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                  borderRadius: "61px",
-                  padding: "8px 30px",
-                  fontSize: { md: "12px", xs: "10px" },
-                  mt: { md: 3, xs: 5 },
-                  fontWeight: 600,
-                  background: "#ffffff",
-                  fontFamily: inter.style.fontFamily,
-                  border: "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
-                  "&:hover": {
-                    backgroundColor: "#FFFFFF",
-                    border: "none",
-                  },
-                }}
-              >
-                Score CVSS v3.1: 8.8
-              </Button>
-              </a>
+                    // onClick={() => {
+                    //   router.push(`${getSecurityAlert?.url[0]}`);
+                    // }}
+                  >
+                    Mitre CVE-2024-26198
+                    {/* {getSecurityAlert?.url[0]} */}
+                  </Button>
+                </a>
+                <a href={getSecurityAlert?.document}>
+                  <Button
+                    variant="outlined"
+                    endIcon={
+                      <FileDownloadIcon
+                        sx={{
+                          background:
+                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                          borderRadius: "50%",
+                          width: "50px",
+                          height: "50px",
+                          color: "#ffffff",
+                          padding: 1.7,
+                          marginRight: -2,
+                          ml: 3,
+                          ":hover": {
+                            "@keyframes move-left": {
+                              "0%": {
+                                rotate: "0deg",
+                              },
+                              "100%": {
+                                rotate: "-35deg",
+                              },
+                            },
+                            animation:
+                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          },
+                        }}
+                      />
+                    }
+                    sx={{
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      borderRadius: "61px",
+                      padding: "8px 30px",
+                      fontSize: { md: "12px", xs: "10px" },
+                      mt: { md: 3, xs: 5 },
+                      fontWeight: 600,
+                      background: "#ffffff",
+                      fontFamily: inter.style.fontFamily,
+                      border:
+                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
+                      "&:hover": {
+                        backgroundColor: "#FFFFFF",
+                        border: "none",
+                      },
+                    }}
+                  >
+                    BULLETIN MICROSOFT
+                  </Button>
+                </a>
+                </Box>
                 {/* <Box>
                   <Typography
                     sx={{
@@ -410,7 +620,7 @@ export default function CategoryDetails() {
                 mt: 25,
               }}
             >
-              Découvrez nos autres articles
+              Alertes de securité
             </Typography>
             <Divider
               variant="middle"
@@ -424,21 +634,21 @@ export default function CategoryDetails() {
               }}
             />
           </Box>
-          <Grid container mt={5} columnSpacing={2} mb={15} >
-            {allNews?.slice(0, 6)?.map((data, idx) => {
+          <Grid container mt={5} columnSpacing={2} mb={15}>
+            {allSecurityAlerts?.slice(0, 6)?.map((data, idx) => {
               const DescriptionData = data?.description
-              .split("\n")
-              .slice(0, 4)
-              .map((line, index) => {
-                if (index === 0) {
-                  return line.substring(0, 150) + "...";
-                } else {
-                  return line;
-                }
-              })
-              .join("\n");
+                .split("\n")
+                .slice(0, 4)
+                .map((line, index) => {
+                  if (index === 0) {
+                    return line.substring(0, 200) + "...";
+                  } else {
+                    return line;
+                  }
+                })
+                .join("\n");
               return (
-                <Grid item xs={12} md={6} key={idx} >
+                <Grid item xs={12} md={6} key={idx}>
                   <Box
                     sx={{
                       cursor: "pointer",
@@ -451,19 +661,26 @@ export default function CategoryDetails() {
                           ? "none"
                           : "1px solid rgba(0, 0, 0, 0.3)",
                     }}
-                    onClick={() => router.push(`/${locale}/news/${data?._id}`)}
+                    onClick={() => router.push(`/${locale}/secureOneself/Category/Categorydetails/${data?._id}`)}
                   >
-                    <Typography
-                      sx={{
-                        fontSize: { md: "12px", xs: "10px" },
-                        color: "#222D55",
-                        fontFamily: inter.style.fontFamily,
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {data?.source}
-                    </Typography>
+                    <Box sx={{ display: "flex", gap: 2 }}>
+                      {data?.Heading?.map((heading) => (
+                        <>
+                          <Typography
+                            sx={{
+                              fontSize: { md: "14px", xs: "12px" },
+                              lineHeight: "22px",
+                              color: "#222D55",
+                              fontFamily: inter.style.fontFamily,
+                              fontWeight: 600,
+                              // mt: 2,
+                            }}
+                          >
+                            {heading}
+                          </Typography>
+                        </>
+                      ))}
+                    </Box>
                     <Typography
                       sx={{
                         fontSize: { md: "24px", xs: "18px" },
@@ -498,7 +715,7 @@ export default function CategoryDetails() {
                         mt: 2,
                       }}
                     >
-                      {dayjs(data?.publishedDate).format("DD.MM.YYYY")}
+                      {dayjs(data?.date).format("DD.MM.YYYY")}
                     </Typography>
                     <Box
                       sx={{
@@ -539,6 +756,7 @@ export default function CategoryDetails() {
             })}
           </Grid>
         </Container>
+        <ToastContainer />
       </Box>
     </Box>
   );

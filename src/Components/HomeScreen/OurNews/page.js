@@ -28,6 +28,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../../../app/redux/action/eventActions/eventAction";
 import { getAllNews } from "../../../app/redux/action/newsActions/newsAction";
 import dayjs from "dayjs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -267,7 +269,8 @@ export default function OurNews() {
                     sx={{
                       backgroundColor: "#7DB1FF",
                       borderRadius: "50%",
-                      background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                      background:
+                        "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                       width: "50px",
                       height: "50px",
                       color: "#FFFFFF",
@@ -283,7 +286,8 @@ export default function OurNews() {
                             rotate: "-35deg",
                           },
                         },
-                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation:
+                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
@@ -353,10 +357,16 @@ export default function OurNews() {
                     lg={6}
                     mt={2}
                     key={idx}
-                    sx={{ cursor: "pointer" }}
-                    onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
+                    // sx={{ cursor: "pointer" }}
+                    // onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
                   >
-                    <Img src={ele?.pictureLink} width={900} height={900} alt="img" style={{ borderRadius: "15px" }} />
+                    <Img
+                      src={ele?.pictureLink}
+                      width={900}
+                      height={900}
+                      alt="img"
+                      style={{ borderRadius: "15px" }}
+                    />
                     <Box ref={ref}>
                       {/* <motion.div initial={{ opacity: 0, y: 50 }} animate={controls}> */}
                       <Box
@@ -386,7 +396,9 @@ export default function OurNews() {
                         </Typography>
                         <Box
                           sx={{
-                            border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                            border: show
+                              ? "1px solid #007A47"
+                              : "1px solid #FFFFFF",
                             width: "28px",
                             height: "28px",
                             borderRadius: "50%",
@@ -395,14 +407,34 @@ export default function OurNews() {
                             alignItems: "center", // This centers the icon vertically
                           }}
                         >
-                          <ShareIcon
-                            sx={{
-                              height: "13px",
-                              width: "13px",
-                              color: show ? "#007A47" : "#FFFFFF",
-                              cursor: "pointer",
+                            <a
+                            href={ele?.document}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{
+                              textDecoration: "none",
+                              display: "flex",
                             }}
-                          />
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigator.clipboard
+                                .writeText(
+                                  `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
+                                )
+                                .then(() => {
+                                  toast.success("Link copied to clipboard");
+                                });
+                            }}
+                          >
+                            <ShareIcon
+                              sx={{
+                                height: "20px",
+                                width: "20px",
+                                color: show ? "#007A47" : "#FFFFFF",
+                                cursor: "pointer",
+                              }}
+                            />
+                          </a>
                         </Box>
                       </Box>
                       <Typography
@@ -414,7 +446,9 @@ export default function OurNews() {
                           fontWeight: 600,
                           color: textColor,
                           fontFamily: inter.style.fontFamily,
+                          cursor: "pointer",
                         }}
+                    onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
                       >
                         {ele?.title}
                       </Typography>
@@ -449,36 +483,61 @@ export default function OurNews() {
                         </Typography>
                         <Box
                           sx={{
-                            border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                            border: show
+                              ? "1px solid #007A47"
+                              : "1px solid #FFFFFF",
                             width: "40px",
                             height: "40px",
                             borderRadius: "50%",
-                            display: { md: "flex", xs: "none" },  
+                            display: { md: "flex", xs: "none" },
                             justifyContent: "center",
                             alignItems: "center", // This centers the icon vertically
                           }}
                         >
-                          <ShareIcon
-                            sx={{
-                              height: "20px",
-                              width: "20px",
-                              color: show ? "#007A47" : "#FFFFFF",
-                              cursor: "pointer",
+                          <a
+                            href={ele?.document}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{
+                              textDecoration: "none",
+                              display: "flex",
                             }}
-                          />
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigator.clipboard
+                                .writeText(
+                                  `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
+                                )
+                                .then(() => {
+                                  toast.success("Link copied to clipboard");
+                                });
+                            }}
+                          >
+                            <ShareIcon
+                              sx={{
+                                height: "20px",
+                                width: "20px",
+                                color: show ? "#007A47" : "#FFFFFF",
+                                cursor: "pointer",
+                              }}
+                            />
+                          </a>
                         </Box>
                       </Box>
                       {/* </motion.div> */}
                     </Box>
                     <Button
-                      onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
+                      onClick={() =>
+                        router.push(`/${locals}/event/${ele?._id}`)
+                      }
                       variant="outlined"
                       endIcon={
                         <ArrowForwardIcon
                           sx={{
                             backgroundColor: "#7DB1FF",
                             borderRadius: "50%",
-                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            background:
+                              "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                             width: "50px",
                             height: "50px",
                             color: "#FFFFFF",
@@ -494,7 +553,8 @@ export default function OurNews() {
                                   rotate: "-35deg",
                                 },
                               },
-                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                              animation:
+                                "move-left 0.3s ease-in-out 0s 1 normal forwards",
                             },
                           }}
                         />
@@ -529,7 +589,11 @@ export default function OurNews() {
               md={12}
               lg={6}
               mt={2}
-              sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
               <CircularProgress sx={{ color: "#007A47" }} />
             </Grid>
@@ -552,8 +616,8 @@ export default function OurNews() {
                   return (
                     <Box
                       key={idx}
-                      sx={{ cursor: "pointer" }}
-                      onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
+                      // sx={{ cursor: "pointer" }}
+                      // onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
                     >
                       <Box
                         sx={{
@@ -564,7 +628,15 @@ export default function OurNews() {
                         }}
                       >
                         <Box>
-                          <Imgs src={ele?.attachment[0]} alt="img2" width={100} height={100} sx={{ borderRadius: "10px" }}/>
+                          <Imgs
+                            src={ele?.attachment[0]}
+                            alt="img2"
+                            width={100}
+                            height={100}
+                            sx={{ borderRadius: "10px", cursor: "pointer" }}
+                    onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
+
+                          />
                         </Box>
                         <Box
                           sx={{
@@ -600,7 +672,9 @@ export default function OurNews() {
                               </Typography>
                               <Box
                                 sx={{
-                                  border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                                  border: show
+                                    ? "1px solid #007A47"
+                                    : "1px solid #FFFFFF",
                                   width: "28px",
                                   height: "28px",
                                   borderRadius: "50%",
@@ -609,14 +683,35 @@ export default function OurNews() {
                                   alignItems: "center", // This centers the icon vertically
                                 }}
                               >
-                                <ShareIcon
-                                  sx={{
-                                    height: "13px",
-                                    width: "13px",
-                                    color: show ? "#007A47" : "#FFFFFF",
-                                    cursor: "pointer",
+                                <a
+                                  href={ele?.document}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  style={{
+                                    textDecoration: "none",
                                   }}
-                                />
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    navigator.clipboard
+                                      .writeText(
+                                        `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
+                                      )
+                                      .then(() => {
+                                        toast.success(
+                                          "Link copied to clipboard"
+                                        );
+                                      });
+                                  }}
+                                >
+                                  <ShareIcon
+                                    sx={{
+                                      height: "13px",
+                                      width: "13px",
+                                      color: show ? "#007A47" : "#FFFFFF",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </a>
                               </Box>
                             </Box>
                             <Typography
@@ -627,7 +722,9 @@ export default function OurNews() {
                                 lineHeight: "25px",
                                 maxWidth: { lg: "360px", md: "100%" },
                                 color: textColor,
+                                cursor: "pointer",
                               }}
+                    onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
                             >
                               {ele?.title}
                             </Typography>
@@ -660,12 +757,16 @@ export default function OurNews() {
                                       fontFamily: inter.style.fontFamily,
                                     }}
                                   >
-                                    {dayjs(ele?.publishedDate).format("DD MMM, YYYY")}
+                                    {dayjs(ele?.publishedDate).format(
+                                      "DD MMM, YYYY"
+                                    )}
                                   </Typography>
                                 </Box>
                                 <Box
                                   sx={{
-                                    border: show ? "1px solid #007A47" : "1px solid #FFFFFF",
+                                    border: show
+                                      ? "1px solid #007A47"
+                                      : "1px solid #FFFFFF",
                                     width: "40px",
                                     height: "40px",
                                     borderRadius: "50%",
@@ -674,14 +775,36 @@ export default function OurNews() {
                                     alignItems: "center", // This centers the icon vertically
                                   }}
                                 >
+                                  <a
+                                  href={ele?.document}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  style={{
+                                    textDecoration: "none",
+                                    display: "flex",
+                                  }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    navigator.clipboard
+                                      .writeText(
+                                        `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
+                                      )
+                                      .then(() => {
+                                        toast.success(
+                                          "Link copied to clipboard"
+                                        );
+                                      });
+                                  }}
+                                >
                                   <ShareIcon
                                     sx={{
-                                      height: "18px",
-                                      width: "18px",
+                                      height: "15px",
+                                      width: "15px",
                                       color: show ? "#007A47" : "#FFFFFF",
                                       cursor: "pointer",
                                     }}
                                   />
+                                </a>
                                 </Box>
                               </Box>
                             </Box>
@@ -707,7 +830,14 @@ export default function OurNews() {
                 })}
               </>
             ) : (
-              <Box mt={2} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <Box
+                mt={2}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <CircularProgress sx={{ color: "#007A47" }} />
               </Box>
             )}
@@ -722,7 +852,8 @@ export default function OurNews() {
                 sx={{
                   backgroundColor: "#7DB1FF",
                   borderRadius: "50%",
-                  background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                  background:
+                    "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                   width: "50px",
                   height: "50px",
                   color: "#FFFFFF",
@@ -738,7 +869,8 @@ export default function OurNews() {
                         rotate: "-35deg",
                       },
                     },
-                    animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                    animation:
+                      "move-left 0.3s ease-in-out 0s 1 normal forwards",
                   },
                 }}
               />
@@ -765,6 +897,7 @@ export default function OurNews() {
           </Button>
         </Box>
       </Container>
+      <ToastContainer />
     </Box>
   );
 }

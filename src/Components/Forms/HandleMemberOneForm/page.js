@@ -381,7 +381,7 @@ export default function HandleForm() {
                   fontFamily: inter.style.fontFamily,
                   fontSize: { md: "14px", xs: "12px" },
                   color: "#222D55",
-                }}
+                }}  
               >
                 Nature
               </Typography> */}
