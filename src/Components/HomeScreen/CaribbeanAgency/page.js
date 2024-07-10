@@ -1,6 +1,14 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Box, Button, Container, Divider, Grid, Typography, keyframes } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  keyframes,
+} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -18,6 +26,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useLocale, useTranslations } from "next-intl";
 import { title } from "process";
 import { useRouter } from "next/navigation";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 
 export const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -48,7 +57,6 @@ export default function CaribbeanAgency() {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const lgUp = useMediaQuery(425);
-
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -195,8 +203,20 @@ export default function CaribbeanAgency() {
             {/* <Container disableGutters maxWidth={"xl"}></Container> */}
           </Box>
         </SwiperSlide>
-        <Box sx={{ position: "absolute", zIndex: 100, top: 0, left: 0, width: "100%" }}>
-          <Container disableGutters maxWidth={"xl"}>
+        <Box
+          sx={{
+            position: "absolute",
+            zIndex: 100,
+            top: 0,
+            left: 0,
+            width: "100%",
+          }}
+        >
+          <Container
+            disableGutters
+            maxWidth={"xl"}
+            sx={{ position: "relative" }}
+          >
             <Box sx={{ padding: "0 16px" }}>
               <Grid container>
                 <Grid item xs={12} md={12} lg={12} ref={ref}>
@@ -266,7 +286,8 @@ export default function CaribbeanAgency() {
                         <ArrowForwardIcon
                           sx={{
                             backgroundColor: "#7DB1FF",
-                            background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                            background:
+                              "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                             borderRadius: "50%",
                             width: { md: "50px", xs: "40px" },
                             height: { md: "50px", xs: "40px" },
@@ -282,7 +303,8 @@ export default function CaribbeanAgency() {
                                   rotate: "-35deg",
                                 },
                               },
-                              animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                              animation:
+                                "move-left 0.3s ease-in-out 0s 1 normal forwards",
                             },
                           }}
                         />
@@ -388,6 +410,89 @@ export default function CaribbeanAgency() {
                   </Box>
                 </Grid>
               </Grid>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                position: "absolute",
+                bottom: -250,
+                right: -100,
+                zIndex: 1000,
+                backgroundColor: "#FFFFFF",
+                // height: "200px",
+                width: "500px",
+                padding: "20px",
+              }}
+            >
+              <CookieConsent
+                disableStyles={true}
+                // location={OPTIONS.BOTTOM}
+                // enableDeclineButton
+                // declineButtonText="Tout refuser"
+                // buttonText="Tout accepter"
+                // containerClasses="alert alert-warning col-lg-12"
+                // contentClasses="text-capitalize"
+                buttonStyle={{
+                  display: "none",
+                }}
+                style={{
+                  color: "#222D55",
+                  fontWeight: 500,
+                  fontSize: "24px",
+                  fontFamily: inter.style.fontFamily,
+                  // padding: "20px",
+                }}
+              >
+                Vos préferences<br></br>
+                <Typography
+                  sx={{
+                    fontSize: "12px",
+                    color: "#222D55",
+                    fontWeight: 400,
+                    fontFamily: inter.style.fontFamily,
+                    lineHeight:'15px',
+                    marginTop: "10px",
+                  }}
+                >
+                  Ce site internet utilise des cookies, nous vous donnons le
+                  contrôle sur vos préférences
+                </Typography>
+                {/* <br></br> */}
+                <Box sx={{ display: "flex", gap: 2, marginTop: "20px" }}>
+                  <button
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      color: "#222D55",
+                      borderRadius: "4px",
+                      padding: "10px 20px",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontFamily: inter.style.fontFamily,
+                      cursor: "pointer",
+                      border: "1px solid #222D55",
+                    }}
+                  >
+                    Tout refuser
+                  </button>
+                  <button
+                    style={{
+                      backgroundColor: "#222D55",
+                      color: "#FFFFFF",
+                      borderRadius: "4px",
+                      padding: "10px 20px",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontFamily: inter.style.fontFamily,
+                      cursor: "pointer",
+                      border: "none",
+                    }}
+                  >
+                    Tout accepter
+                  </button>
+                </Box>
+              </CookieConsent>
             </Box>
           </Container>
         </Box>

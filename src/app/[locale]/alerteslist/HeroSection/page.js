@@ -204,7 +204,7 @@ export default function HeroSection() {
                 Alertes de sécurité
               </Box>
             </Grid>
-            <Grid item xs={12} md={12}>
+            {/* <Grid item xs={12} md={12}>
               <Box mt={{ md: 5, xs: 2 }}>
                 <Typography
                   sx={{
@@ -218,7 +218,7 @@ export default function HeroSection() {
                   immédiat
                 </Typography>
               </Box>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Divider
             variant="middle"
