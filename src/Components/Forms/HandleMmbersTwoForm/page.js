@@ -184,52 +184,30 @@ export default function HandleForm() {
                 >
                   Civilité
                 </Typography>
-                {/* <FormControl variant="standard" fullWidth>
+                <FormControl variant="standard" fullWidth>
                   <Select
                     labelId="civility"
                     id="civility"
                     sx={{ fontFamily: inter.style.fontFamily }}
-                    defaultValue={"M"}
+                    defaultValue={"Mme."}
                     {...register("civility")}
                     error={errors?.civility ? true : false}
                   >
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"M"}
+                      value={"Mme."}
                     >
-                      M
+                      Mme.
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"L"}
+                      value={"M."}
                     >
-                      L
+                      M.
                     </MenuItem>
                   </Select>
-                </FormControl> */}
-                <ValidationTextField
-                  fullWidth
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  InputProps={{
-                    style: {
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: "14px !important",
-                      fontWeight: 500,
-                    },
-                  }}
-                  id="civility"
-                  {...register("civility")}
-                  error={errors?.civility ? true : false}
-                  type="text"
-                  variant="standard"
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  }}
-                />
+                </FormControl>
+                
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
@@ -652,52 +630,30 @@ export default function HandleForm() {
                 >
                   Civilité
                 </Typography>
-                {/* <FormControl variant="standard" fullWidth>
+                <FormControl variant="standard" fullWidth>
                   <Select
                     labelId="demo-simple-select-standard-label"
                     id="substituteCivility"
                     sx={{ fontFamily: inter.style.fontFamily }}
-                    defaultValue={"M"}
+                    defaultValue={"Mme."}
                     {...register("substituteCivility")}
                     error={errors?.substituteCivility ? true : false}
                   >
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"M"}
+                      value={"Mme."}
                     >
-                      M
+                      Mme.
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
-                      value={"L"}
+                      value={"M."}
                     >
-                      L
+                      M.
                     </MenuItem>
                   </Select>
-                </FormControl> */}
-                <ValidationTextField
-                  fullWidth
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  InputProps={{
-                    style: {
-                      fontFamily: inter.style.fontFamily,
-                      fontSize: "14px !important",
-                      fontWeight: 500,
-                    },
-                  }}
-                  id="substituteCivility"
-                  {...register("substituteCivility")}
-                  error={errors?.substituteCivility ? true : false}
-                  type="text"
-                  variant="standard"
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontSize: "14px !important",
-                    fontWeight: 500,
-                  }}
-                />
+                </FormControl>
+               
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
