@@ -411,7 +411,7 @@ export default function CaribbeanAgency() {
                 </Grid>
               </Grid>
             </Box>
-            <Box
+            {/* <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -481,7 +481,7 @@ export default function CaribbeanAgency() {
                   contrôle sur vos préférences
                 </Typography>
               </CookieConsent>
-            </Box>
+            </Box> */}
           </Container>
         </Box>
       </Box>
