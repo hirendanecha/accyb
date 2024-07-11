@@ -243,8 +243,24 @@ export default function App({ loading, getEvent }) {
                         borderRadius: "50%",
                         justifyContent: "center",
                         alignItems: "center", // This centers the icon vertically
+                        cursor: "pointer",
                       }}
+                      
                     >
+                      <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigator.share({
+                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
+                        text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
+                        title: getEvent?.pictureLink,
+                      });
+                    }}
+                    style={{
+                      display:'flex'
+                    }}
+                      >
+
                       <ShareIcon
                         sx={{
                           height: "19px",
@@ -252,7 +268,8 @@ export default function App({ loading, getEvent }) {
                           color: "#FFFFFF",
                           cursor: "pointer",
                         }}
-                      />
+                        />
+                        </a>
                     </Box>
                     <Button
                       onClick={createICSFile}

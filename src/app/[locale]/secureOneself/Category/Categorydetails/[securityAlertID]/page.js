@@ -262,6 +262,11 @@ export default function CategoryDetails() {
                       }}
                       onClick={(e) => {
                         e.preventDefault();
+                        navigator.share({
+                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
+                          text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
+                          title: getSecurityAlert?.document,
+                        });
                         navigator.clipboard
                           .writeText(
                             `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`

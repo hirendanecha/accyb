@@ -407,7 +407,7 @@ export default function OurNews() {
                             alignItems: "center", // This centers the icon vertically
                           }}
                         >
-                            <a
+                          <a
                             href={ele?.document}
                             target="_blank"
                             rel="noreferrer"
@@ -417,6 +417,11 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
+                              navigator.share({
+                                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                title: ele?.pictureLink,
+                              });
                               navigator.clipboard
                                 .writeText(
                                   `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
@@ -448,7 +453,9 @@ export default function OurNews() {
                           fontFamily: inter.style.fontFamily,
                           cursor: "pointer",
                         }}
-                    onClick={() => router.push(`/${locals}/event/${ele?._id}`)}
+                        onClick={() =>
+                          router.push(`/${locals}/event/${ele?._id}`)
+                        }
                       >
                         {ele?.title}
                       </Typography>
@@ -504,6 +511,11 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
+                              navigator.share({
+                                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                title: ele?.pictureLink,
+                              });
                               navigator.clipboard
                                 .writeText(
                                   `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
@@ -634,8 +646,9 @@ export default function OurNews() {
                             width={100}
                             height={100}
                             sx={{ borderRadius: "10px", cursor: "pointer" }}
-                    onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
-
+                            onClick={() =>
+                              router.push(`/${locals}/news/${ele?._id}`)
+                            }
                           />
                         </Box>
                         <Box
@@ -692,6 +705,11 @@ export default function OurNews() {
                                   }}
                                   onClick={(e) => {
                                     e.preventDefault();
+                                    navigator.share({
+                                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                      text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                      title: ele?.attachment,
+                                    });
                                     navigator.clipboard
                                       .writeText(
                                         `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
@@ -724,7 +742,9 @@ export default function OurNews() {
                                 color: textColor,
                                 cursor: "pointer",
                               }}
-                    onClick={() => router.push(`/${locals}/news/${ele?._id}`)}
+                              onClick={() =>
+                                router.push(`/${locals}/news/${ele?._id}`)
+                              }
                             >
                               {ele?.title}
                             </Typography>
@@ -776,35 +796,41 @@ export default function OurNews() {
                                   }}
                                 >
                                   <a
-                                  href={ele?.document}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  style={{
-                                    textDecoration: "none",
-                                    display: "flex",
-                                  }}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    navigator.clipboard
-                                      .writeText(
-                                        `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
-                                      )
-                                      .then(() => {
-                                        toast.success(
-                                          "Link copied to clipboard"
-                                        );
-                                      });
-                                  }}
-                                >
-                                  <ShareIcon
-                                    sx={{
-                                      height: "15px",
-                                      width: "15px",
-                                      color: show ? "#007A47" : "#FFFFFF",
-                                      cursor: "pointer",
+                                    href={ele?.document}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    style={{
+                                      textDecoration: "none",
+                                      display: "flex",
                                     }}
-                                  />
-                                </a>
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      navigator.share({
+                                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                        text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                        title: ele?.attachment,
+                                        
+                                      })
+                                      navigator.clipboard
+                                        .writeText(
+                                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
+                                        )
+                                        .then(() => {
+                                          toast.success(
+                                            "Link copied to clipboard"
+                                          );
+                                        });
+                                    }}
+                                  >
+                                    <ShareIcon
+                                      sx={{
+                                        height: "15px",
+                                        width: "15px",
+                                        color: show ? "#007A47" : "#FFFFFF",
+                                        cursor: "pointer",
+                                      }}
+                                    />
+                                  </a>
                                 </Box>
                               </Box>
                             </Box>

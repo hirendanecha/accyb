@@ -65,8 +65,7 @@ export default function HandleSecoundForm() {
                   color: "#222D55",
                 }}
               >
-                Ce formulaire d’adhésion couvre la période du 01 janvier 2023 au
-                31 décembre 2024
+                Ce formulaire d’adhésion couvre la période du 01 janvier 2024 au 31 décembre 2025
               </Typography>
             </Box>
             <ThirdAlertForm />

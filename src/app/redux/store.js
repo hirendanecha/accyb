@@ -6,6 +6,7 @@ import securityAlertSlice from "./slices/securityAlertSlice/securityAlertSlice";
 import videoSlice from "./slices/videoSlice/videoSlice";
 import formationSlice from "./slices/formationSLice/formationSlice";
 import caseStudiesSlice from "./slices/caseStudiesSlice/caseStudiesSlice";
+import keyNumberSlice from "./slices/keyNumbersSlice/keyNumberSlice";
 
 const combineReducers = {
   formSlice: formSlice,
@@ -15,6 +16,7 @@ const combineReducers = {
   videos : videoSlice,
   formations: formationSlice,
   caseStudies: caseStudiesSlice,
+  keyNumber:keyNumberSlice
 };
 
 export default configureStore({

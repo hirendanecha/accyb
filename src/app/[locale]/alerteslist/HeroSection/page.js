@@ -201,7 +201,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                Alertes de sécurité
+                Alertes de sécuritéeee
               </Box>
             </Grid>
             {/* <Grid item xs={12} md={12}>

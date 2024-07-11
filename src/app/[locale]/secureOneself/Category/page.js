@@ -260,7 +260,7 @@ export default function NewForms() {
                           }}
                         >
                           <Box
-                            onClick={() => router.push(`/${locales}/secureOneself/Category/Categorydetails`)}
+                            onClick={() => router.push(`/${locales}/secureOneself/Category/Categorydetails/${data?._id}`)}
                             sx={{
                               cursor: "pointer",
                               width: "45px",

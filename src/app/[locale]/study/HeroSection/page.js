@@ -4,8 +4,10 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
 import dayjs from "dayjs";
+import { useLocale } from "next-intl";
 
 export default function App(studyDetails) {
+  const locales = useLocale();
   console.log(studyDetails, "studyDetails");
 
   const data = studyDetails?.studyDetails?.description
@@ -154,6 +156,14 @@ export default function App(studyDetails) {
                   justifyContent: "center",
                   display: "flex",
                   alignItems: "center", // This centers the icon vertically
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigator.share({
+                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${studyDetails?.studyDetails?._id}`,
+                    text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${studyDetails?.studyDetails?._id}`,
+                    title: studyDetails?.studyDetails?.image,
+                  });
                 }}
               >
                 <ShareIcon

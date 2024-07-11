@@ -11,6 +11,8 @@ import Bell from "../../Icons/Bell.svg";
 import CountUp from "react-countup";
 import { inter } from "../../fonts/fonts";
 import { useTranslations } from "next-intl";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllKeyNumbers } from "../../app/redux/action/keyNumberActions/keyNumberAction";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "34px !important",
@@ -20,6 +22,7 @@ const Img = styled(Image)(({ theme }) => ({
 export default function InfoSlider() {
   const t = useTranslations("infoSlider");
   const [scrollPosition, setScrollPosition] = useState(0);
+  const dispatch = useDispatch();
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -40,35 +43,45 @@ export default function InfoSlider() {
     opacity: 1;
   }
 `;
+
+const {allKeyNumbers}=useSelector((state)=>state.keyNumber);
+console.log(allKeyNumbers, "allKeyNumbers");
+
+useEffect(() => {
+  dispatch(getAllKeyNumbers());
+},[])
+
+
+
   const infoslider = [
     {
       img: Dna,
-      title: "85",
+      title: allKeyNumbers?.[0].beneficiaries,
       description: t("slider5"),
     },
     {
       img: Calque,
-      title: "73",
+      title: allKeyNumbers?.[0].ambassadeursCyber,
       description: t("slider2"),
     },
     {
       img: Key,
-      title: "96",
+      title: allKeyNumbers?.[0].cyberDiagnostics,
       description: t("slider4"),
     },
     {
       img: Personnes,
-      title: "175",
+      title: allKeyNumbers?.[0].peopleSensitized,
       description: t("slider1"),
     },
     {
       img: Light,
-      title: "32",
+      title: allKeyNumbers?.[0].alertsBroadcast,
       description: t("slider3"),
     },
     {
       img: Bell,
-      title: "59",
+      title: allKeyNumbers?.[0].vulnerabilitiesDetected,
       description: t("slider6"),
     },
   ];

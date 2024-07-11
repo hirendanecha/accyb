@@ -242,6 +242,14 @@ export default function Page() {
                     justifyContent: "center",
                     alignItems: "center", // This centers the icon vertically
                   }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigator.share({
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                      text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                      title: getNews?.document,
+                    });
+                  }}
                 >
                   <ShareIcon
                     sx={{
@@ -486,6 +494,14 @@ export default function Page() {
                                         display: "flex",
                                         justifyContent: "center",
                                         alignItems: "center", // This centers the icon vertically
+                                      }}
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        navigator.share({
+                                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                                          text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                                          title: getNews?.document,
+                                        });
                                       }}
                                     >
                                       <ShareIcon

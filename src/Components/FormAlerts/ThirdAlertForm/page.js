@@ -28,6 +28,8 @@ import {
   setRegistrantInformation,
 } from "../../../app/redux/slices/formSlice";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const ValidationTextField = styled(TextField)({
   fontFamily: inter.style.fontFamily,
@@ -130,7 +132,11 @@ export default function HandleForm() {
     };
     sendEmail(generalInformation,registrantInformation,data);
     console.log(payload, "payload");
-    router.push(`/${locales}/alertreports/FinalSubmitForm`);
+    toast.success("Votre déclaration d’incident a bien été envoyé.");
+    setTimeout(() => {
+      router.push(`/${locales}/alertreports/FinalSubmitForm`);
+    },[2000])
+    // router.push(`/${locales}/alertreports/FinalSubmitForm`);
   };
   return (
     <>
@@ -767,9 +773,10 @@ export default function HandleForm() {
             },
           }}
         >
-          Déclarer
+          Envoyer ma demande d’adhésion
         </Button>
       </form>
+      <ToastContainer />
     </>
   );
 }

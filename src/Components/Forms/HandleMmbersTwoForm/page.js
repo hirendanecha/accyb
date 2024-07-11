@@ -970,7 +970,7 @@ export default function HandleForm() {
                 },
               }}
             >
-              je veux devenir bénévole
+              Devenir Bénévole
             </Button>
           </Box>
         </Box>

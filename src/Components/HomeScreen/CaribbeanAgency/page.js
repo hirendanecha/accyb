@@ -416,33 +416,54 @@ export default function CaribbeanAgency() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                position: "absolute",
-                bottom: -250,
-                right: -100,
+                position: "fixed",
+                bottom: '50px',
+                // top:0,
+                right: '50px',
                 zIndex: 1000,
                 backgroundColor: "#FFFFFF",
                 // height: "200px",
                 width: "500px",
-                padding: "20px",
+                // padding: "20px",
               }}
             >
               <CookieConsent
                 disableStyles={true}
-                // location={OPTIONS.BOTTOM}
-                // enableDeclineButton
-                // declineButtonText="Tout refuser"
-                // buttonText="Tout accepter"
-                // containerClasses="alert alert-warning col-lg-12"
-                // contentClasses="text-capitalize"
+                enableDeclineButton={true}
+                declineButtonText="Tout refuser"
+                declineButtonStyle={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#222D55",
+                  borderRadius: "4px",
+                  padding: "10px 20px",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: inter.style.fontFamily,
+                  cursor: "pointer",
+                  border: "1px solid #222D55",
+                  marginTop: "20px",
+                }}
+                buttonText="Tout accepter"
                 buttonStyle={{
-                  display: "none",
+                  backgroundColor: "#222D55",
+                  color: "#FFFFFF",
+                  borderRadius: "4px",
+                  padding: "10px 20px",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: inter.style.fontFamily,
+                  cursor: "pointer",
+                  border: "none",
+                  marginLeft: "20px",
                 }}
                 style={{
                   color: "#222D55",
                   fontWeight: 500,
                   fontSize: "24px",
                   fontFamily: inter.style.fontFamily,
-                  // padding: "20px",
+                  lineHeight: "36px",
+                  padding: "30px",
+                  // height:'200px'
                 }}
               >
                 Vos préferences<br></br>
@@ -452,46 +473,13 @@ export default function CaribbeanAgency() {
                     color: "#222D55",
                     fontWeight: 400,
                     fontFamily: inter.style.fontFamily,
-                    lineHeight:'15px',
+                    lineHeight: "15px",
                     marginTop: "10px",
                   }}
                 >
                   Ce site internet utilise des cookies, nous vous donnons le
                   contrôle sur vos préférences
                 </Typography>
-                {/* <br></br> */}
-                <Box sx={{ display: "flex", gap: 2, marginTop: "20px" }}>
-                  <button
-                    style={{
-                      backgroundColor: "#FFFFFF",
-                      color: "#222D55",
-                      borderRadius: "4px",
-                      padding: "10px 20px",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      fontFamily: inter.style.fontFamily,
-                      cursor: "pointer",
-                      border: "1px solid #222D55",
-                    }}
-                  >
-                    Tout refuser
-                  </button>
-                  <button
-                    style={{
-                      backgroundColor: "#222D55",
-                      color: "#FFFFFF",
-                      borderRadius: "4px",
-                      padding: "10px 20px",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      fontFamily: inter.style.fontFamily,
-                      cursor: "pointer",
-                      border: "none",
-                    }}
-                  >
-                    Tout accepter
-                  </button>
-                </Box>
               </CookieConsent>
             </Box>
           </Container>
