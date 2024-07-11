@@ -113,7 +113,7 @@ export default function OurPartners() {
       title: "CERT-FR",
       key: 3,
       item: [
-        "Organismes publics nationaux",
+        "OPÉRATEURS RÉGULÉS",
         " OPERATEURS REGULIERS",
       ],
       button: "cyber.gouv.fr)",
