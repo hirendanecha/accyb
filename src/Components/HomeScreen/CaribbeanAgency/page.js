@@ -417,13 +417,13 @@ export default function CaribbeanAgency() {
                 justifyContent: "center",
                 alignItems: "center",
                 position: "fixed",
-                bottom: '50px',
+                bottom: {xs:'20px',md:'50px'},
                 // top:0,
-                right: '50px',
+                right: {xs:'20px',md:'50px'},
                 zIndex: 1000,
                 backgroundColor: "#FFFFFF",
                 // height: "200px",
-                width: "500px",
+                width: {xs:'350px',sm:'400px',md:'500px'},
                 // padding: "20px",
               }}
             >
