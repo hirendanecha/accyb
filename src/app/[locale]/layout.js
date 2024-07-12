@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
-  const imageurl = `https://accyb.vercel.app/Thumbnail.jpg`
+  const imageurl = `https://accyb.vercel.app/Thumbnail.svg`
   const websiteurl = `https://accyb.vercel.app`
 
   return (
@@ -34,6 +34,8 @@ export default function RootLayout({ children, params: { locale } }) {
         {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:url" content={websiteurl} />
         <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
         <meta property="og:image" content={imageurl} />
 
         {/* <!-- Twitter Meta Tags --> */}
