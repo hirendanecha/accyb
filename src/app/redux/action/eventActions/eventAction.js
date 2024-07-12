@@ -5,10 +5,10 @@ export const getAllEvents = createAsyncThunk("admin/getAllEvents", async (data, 
   try {
     let response;
     if (data?.month) {
-      response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events?month=${data?.month}`);
+      response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/events?month=${data?.month}`);
       return {...response.data, isAll: false};
     } else {
-      response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/events`);
+      response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/events`);
       return {...response.data, isAll: true};
     }
   } catch (error) {
@@ -22,7 +22,7 @@ export const getAllEvents = createAsyncThunk("admin/getAllEvents", async (data, 
 
 export const getEventsById = createAsyncThunk("admin/getEventsById", async (id, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/event/${id}`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/event/${id}`);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data.message) {

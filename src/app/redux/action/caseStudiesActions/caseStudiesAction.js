@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAllCaseStudies = createAsyncThunk("admin/getAllCaseStudies", async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/caseStudies`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/caseStudies`);
         return response.data;
     } catch (error) {
         if (error.response && error.response.data.message) {
@@ -16,7 +16,7 @@ export const getAllCaseStudies = createAsyncThunk("admin/getAllCaseStudies", asy
 
 export const getCaseStudiesById = createAsyncThunk("admin/getCaseStudiesById", async (id, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/caseStudies/${id}`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/caseStudies/${id}`);
         console.log(response, "response");
         return response.data;
     } catch (error) {

@@ -124,7 +124,7 @@ export default function HandleForm() {
   const sendEmail = async (memberOneInformation, memberTwoInformation) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/web/send-email/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/web/send-email/`,
         {
           memberOneInformation,
           memberTwoInformation,

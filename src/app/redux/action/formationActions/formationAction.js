@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAllFormations = createAsyncThunk("admin/getAllFormations", async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/formations`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/formations`);
         return response.data;
     } catch (error) {
         if (error.response && error.response.data.message) {
@@ -16,7 +16,7 @@ export const getAllFormations = createAsyncThunk("admin/getAllFormations", async
 
 export const getFormationsById = createAsyncThunk("admin/getFormationsById", async (id, { rejectWithValue }) => {
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/formation/${id}`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/formation/${id}`);
         return response.data;
     } catch (error) {
         if (error.response && error.response.data.message) {

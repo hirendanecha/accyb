@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getAllVieos = createAsyncThunk("admin/getAllVieos", async (data, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/web/videos`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/web/videos`);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data.message) {
