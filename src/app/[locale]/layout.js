@@ -44,10 +44,10 @@ export default function RootLayout({ children, params: { locale } }) {
         <meta name="twitter:url" content={websiteurl} />
         <meta name="twitter:site" content={websiteurl} />
 
-          {/* <meta name="skype_toolbox" content={'https://accyb.vercel.app/Thumbnail.svg'} />
+          <meta name="skype_toolbox" content={imageurl} />
           <meta name="skype_toolbox" content="title" />
           <meta name="skype_toolbox" content="description" />
-          <meta name="skype_toolbox" content='https://accyb.vercel.app' /> */}
+          <meta name="skype_toolbox" content={websiteurl} />
         </head>
         <body className={inter.className}>
           <ProviderLayout>
