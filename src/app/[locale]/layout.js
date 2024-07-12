@@ -16,8 +16,8 @@ export const metadata = {
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
-  // const imageurl = `https://accyb.vercel.app/Thumbnail.svg`
-  // const websiteurl = `https://accyb.vercel.app`
+  const imageurl = `https://accyb.vercel.app/Thumbnail.svg`
+  const websiteurl = `https://accyb.vercel.app`
 
   return (
     <ThemeProviderWrapper>
@@ -28,14 +28,24 @@ export default function RootLayout({ children, params: { locale } }) {
             property="og:description"
             content="Caribbean Cybersecurity Agency (CCYBA)"
           />
-          <meta property="og:image" content={'https://accyb.vercel.app/Thumbnail.svg'} />
-          <meta property="og:url" content='https://accyb.vercel.app' />
-          <meta property="og:type" content="website" />
+        {/* <!-- Google / Search Engine Tags --> */}
+        <meta itemprop="image" content={imageurl} />
 
-          <meta name="skype_toolbox" content={'https://accyb.vercel.app/Thumbnail.svg'} />
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta property="og:url" content={websiteurl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={imageurl} />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={imageurl} />
+        <meta name="twitter:url" content={websiteurl} />
+        <meta name="twitter:site" content={websiteurl} />
+
+          {/* <meta name="skype_toolbox" content={'https://accyb.vercel.app/Thumbnail.svg'} />
           <meta name="skype_toolbox" content="title" />
           <meta name="skype_toolbox" content="description" />
-          <meta name="skype_toolbox" content='https://accyb.vercel.app' />
+          <meta name="skype_toolbox" content='https://accyb.vercel.app' /> */}
         </head>
         <body className={inter.className}>
           <ProviderLayout>
