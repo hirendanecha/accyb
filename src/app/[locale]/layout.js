@@ -28,14 +28,14 @@ export default function RootLayout({ children, params: { locale } }) {
             property="og:description"
             content="Caribbean Cybersecurity Agency (CCYBA)"
           />
-          <meta property="og:image" content='imageurl' />
-          <meta property="og:url" content='websiteurl' />
+          <meta property="og:image" content={'https://accyb.vercel.app/Thumbnail.svg'} />
+          <meta property="og:url" content='https://accyb.vercel.app' />
           <meta property="og:type" content="website" />
 
-          <meta name="skype_toolbox" content='imageurl' />
+          <meta name="skype_toolbox" content={'https://accyb.vercel.app/Thumbnail.svg'} />
           <meta name="skype_toolbox" content="title" />
           <meta name="skype_toolbox" content="description" />
-          <meta name="skype_toolbox" content='websiteurl' />
+          <meta name="skype_toolbox" content='https://accyb.vercel.app' />
         </head>
         <body className={inter.className}>
           <ProviderLayout>
