@@ -252,7 +252,6 @@ export default function App({ loading, getEvent }) {
                       e.preventDefault();
                       navigator.share({
                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
-                        text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
                         title: getEvent?.pictureLink,
                       });
                     }}

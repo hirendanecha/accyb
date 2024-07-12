@@ -1084,7 +1084,6 @@ export default function OurMission() {
                         e.preventDefault();
                         navigator.share({
                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
-                          text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
                           title: ele?.document,
                         });
                         navigator.clipboard

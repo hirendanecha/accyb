@@ -264,7 +264,6 @@ export default function CategoryDetails() {
                         e.preventDefault();
                         navigator.share({
                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
-                          text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
                           title: getSecurityAlert?.document,
                         });
                         navigator.clipboard

@@ -245,8 +245,7 @@ export default function Page() {
                   onClick={(e) => {
                     e.preventDefault();
                     navigator.share({
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
-                      text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
                       title: getNews?.document,
                     });
                   }}
@@ -498,8 +497,7 @@ export default function Page() {
                                       onClick={(e) => {
                                         e.preventDefault();
                                         navigator.share({
-                                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
-                                          text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getNews?._id}`,
+                                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
                                           title: getNews?.document,
                                         });
                                       }}

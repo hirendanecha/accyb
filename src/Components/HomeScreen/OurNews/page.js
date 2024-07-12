@@ -513,7 +513,6 @@ export default function OurNews() {
                               e.preventDefault();
                               navigator.share({
                                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
-                                text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
                                 title: ele?.pictureLink,
                               });
                               navigator.clipboard
@@ -707,7 +706,6 @@ export default function OurNews() {
                                     e.preventDefault();
                                     navigator.share({
                                       url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
-                                      text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                       title: ele?.attachment,
                                     });
                                     navigator.clipboard
@@ -807,7 +805,6 @@ export default function OurNews() {
                                       e.preventDefault();
                                       navigator.share({
                                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
-                                        text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                         title: ele?.attachment,
                                         
                                       })

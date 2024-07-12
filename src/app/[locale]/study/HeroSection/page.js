@@ -171,8 +171,7 @@ export default function App(studyDetails) {
                   onClick={(e) => {
                     e.preventDefault();
                     navigator.share({
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${studyDetails?.studyDetails?._id}`,
-                      text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${studyDetails?.studyDetails?._id}`,
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/study/${studyDetails?.studyDetails?._id}`,
                       title: studyDetails?.studyDetails?.image,
                     });
                   }}
