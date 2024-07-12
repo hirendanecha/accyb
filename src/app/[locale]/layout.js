@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
-  const imageurl = `https://accyb.vercel.app/Thumbnail.svg`
+  const imageurl = `https://accyb.vercel.app/Thumbnail.jpg`
   const websiteurl = `https://accyb.vercel.app`
 
   return (
