@@ -9,13 +9,15 @@ import Cookie from "../[locale]/cookie";
 export const metadata = {
   title: "ACCYB",
   description: "Caribbean Cybersecurity Agency (CCYBA)",
+  imageurl : `https://accyb.vercel.app/Thumbnail.svg`,
+  websiteurl : `https://accyb.vercel.app`
 };
 
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
-  const imageurl = "https://www.accyb.org/Thumbnail.svg"
-  const websiteurl = "https://www.accyb.org"
+  // const imageurl = `https://accyb.vercel.app/Thumbnail.svg`
+  // const websiteurl = `https://accyb.vercel.app`
 
   return (
     <ThemeProviderWrapper>
@@ -26,14 +28,14 @@ export default function RootLayout({ children, params: { locale } }) {
             property="og:description"
             content="Caribbean Cybersecurity Agency (CCYBA)"
           />
-          <meta property="og:image" content={imageurl} />
-          <meta property="og:url" content={websiteurl} />
+          <meta property="og:image" content='imageurl' />
+          <meta property="og:url" content='websiteurl' />
           <meta property="og:type" content="website" />
 
-          <meta name="skype_toolbox" content={imageurl} />
+          <meta name="skype_toolbox" content='imageurl' />
           <meta name="skype_toolbox" content="title" />
           <meta name="skype_toolbox" content="description" />
-          <meta name="skype_toolbox" content={websiteurl} />
+          <meta name="skype_toolbox" content='websiteurl' />
         </head>
         <body className={inter.className}>
           <ProviderLayout>
