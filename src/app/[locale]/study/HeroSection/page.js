@@ -5,6 +5,8 @@ import { inter } from "../../../../fonts/fonts";
 import ShareIcon from "@mui/icons-material/Share";
 import dayjs from "dayjs";
 import { useLocale } from "next-intl";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App(studyDetails) {
   const locales = useLocale();
@@ -200,6 +202,7 @@ export default function App(studyDetails) {
           </Box>
         </Box>
       </Container>
+      <ToastContainer />
     </>
   );
 }
