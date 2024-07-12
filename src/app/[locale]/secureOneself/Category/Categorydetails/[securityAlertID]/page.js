@@ -262,17 +262,22 @@ export default function CategoryDetails() {
                       }}
                       onClick={(e) => {
                         e.preventDefault();
-                        navigator.share({
-                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
-                          title: getSecurityAlert?.document,
-                        });
-                        navigator.clipboard
+                        if(navigator.share){
+                          navigator.share({
+                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`,
+                            title: getSecurityAlert?.document,
+                          });
+                        }else{
+                          navigator.clipboard
                           .writeText(
                             `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/secureOneself/Category/Categorydetails/${getSecurityAlert?._id}`
                           )
                           .then(() => {
                             toast.success("Link copied to clipboard");
                           });
+                        }
+                        
+                        
                       }}
                     >
                       <ShareIcon
