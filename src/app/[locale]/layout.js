@@ -14,6 +14,9 @@ export const metadata = {
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
+  const imageurl = "https://www.accyb.org/Thumbnail.svg"
+  const websiteurl = "https://www.accyb.org"
+
   return (
     <ThemeProviderWrapper>
       <html lang={locale}>
@@ -23,9 +26,14 @@ export default function RootLayout({ children, params: { locale } }) {
             property="og:description"
             content="Caribbean Cybersecurity Agency (CCYBA)"
           />
-          <meta property="og:image" content="https://www.accyb.org/Thumbnail.svg" />
-          <meta property="og:url" content="https://www.accyb.org" />
+          <meta property="og:image" content={imageurl} />
+          <meta property="og:url" content={websiteurl} />
           <meta property="og:type" content="website" />
+
+          <meta name="skype_toolbox" content={imageurl} />
+          <meta name="skype_toolbox" content="title" />
+          <meta name="skype_toolbox" content="description" />
+          <meta name="skype_toolbox" content={websiteurl} />
         </head>
         <body className={inter.className}>
           <ProviderLayout>
