@@ -1,5 +1,15 @@
 "use client";
-import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Divider,
+  Grid,
+  IconButton,
+  Typography,
+  styled,
+} from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -44,7 +54,9 @@ export default function OurEvents() {
   const locales = useLocale();
   const router = useRouter();
   const initialized = useRef(false);
-  const [currentCategory, setCurrentCategory] = useState(new Date().getMonth() + 1);
+  const [currentCategory, setCurrentCategory] = useState(
+    new Date().getMonth() + 1
+  );
   const category = [
     {
       id: 1,
@@ -113,49 +125,61 @@ export default function OurEvents() {
       img: Image1,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image2,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image3,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image1,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image2,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
     {
       img: Image3,
       title: "Actualité",
       heading: "Calendrier de l’Avent Cyber 2023",
-      description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+      description:
+        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
       time: "13.01.2024",
     },
   ];
   return (
     <Box sx={{ padding: "0 16px", mt: 4 }}>
       <Container disableGutters maxWidth={"xl"}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <Typography
             sx={{
               color: "#222D55",
@@ -184,7 +208,8 @@ export default function OurEvents() {
                 aria-label="Next Slide"
                 title="Next Slide"
                 sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   width: { md: 45, xs: 40 },
                   height: { md: 45, xs: 40 },
                 }}
@@ -203,7 +228,8 @@ export default function OurEvents() {
                 aria-label="Next Slide"
                 title="Next Slide"
                 sx={{
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   width: { md: 45, xs: 40 },
                   height: { md: 45, xs: 40 },
                 }}
@@ -283,14 +309,16 @@ export default function OurEvents() {
                         currentCategory == ele?.id
                           ? "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)"
                           : "transparent",
-                      border: currentCategory == ele?.id ? "" : "1px solid #D3D5DD",
+                      border:
+                        currentCategory == ele?.id ? "" : "1px solid #D3D5DD",
                       textTransform: "uppercase",
                       padding: "15px 40px",
                       fontSize: { md: "14px", xs: "12px" },
                       color: currentCategory == ele?.id ? "#FFFFFF" : "#222D55",
                       borderRadius: "50px",
                       "&:hover": {
-                        backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                        backgroundImage:
+                          "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                         color: "#FFFFFF",
                       },
                     }}
@@ -336,7 +364,9 @@ export default function OurEvents() {
                       }
                     })
                     .join("\n");
-                  let month = category?.find((el) => el?.id == currentCategory)?.name;
+                  let month = category?.find(
+                    (el) => el?.id == currentCategory
+                  )?.name;
                   return (
                     <>
                       <Grid
@@ -345,7 +375,9 @@ export default function OurEvents() {
                         md={6}
                         lg={6}
                         key={idx}
-                        onClick={() => router?.push(`/${locales}/event/${ele?._id}`)}
+                        onClick={() =>
+                          router?.push(`/${locales}/event/${ele?._id}`)
+                        }
                         sx={{ cursor: "pointer" }}
                       >
                         <Img
@@ -360,7 +392,8 @@ export default function OurEvents() {
                         <Box>
                           <Typography
                             sx={{
-                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                              backgroundImage:
+                                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                               width: "max-content",
                               padding: "8px 15px 8px 15px",
                               fontSize: "12px",
@@ -425,10 +458,20 @@ export default function OurEvents() {
                               }}
                               onClick={(e) => {
                                 e.preventDefault();
-                                navigator.share({
-                                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`,
-                                  title: ele?.pictureLink,
-                                });
+                                if (navigator.share) {
+                                  navigator.share({
+                                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`,
+                                    title: ele?.pictureLink,
+                                  });
+                                } else {
+                                  navigator.clipboard
+                                    .writeText(
+                                      `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`
+                                    )
+                                    .then(() => {
+                                      toast.success("Link copied to clipboard");
+                                    });
+                                }
                               }}
                             >
                               <ShareIcon
@@ -465,7 +508,11 @@ export default function OurEvents() {
             </>
           )}
         </Grid>
-        <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}>Articles</Typography>
+        <Typography
+          sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 8 }}
+        >
+          Articles
+        </Typography>
       </Container>
 
       <Divider
@@ -512,13 +559,19 @@ export default function OurEvents() {
                       xs={12}
                       md={6}
                       sx={{ cursor: "pointer" }}
-                      onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}
+                      onClick={() =>
+                        router?.push(`/${locales}/news/${ele?._id}`)
+                      }
                     >
                       <Box
                         sx={{
                           display: "flex",
                           gap: 3,
-                          flexDirection: { lg: "row", md: "column", xs: "column" },
+                          flexDirection: {
+                            lg: "row",
+                            md: "column",
+                            xs: "column",
+                          },
                         }}
                       >
                         <Box>
@@ -542,7 +595,8 @@ export default function OurEvents() {
                           <Typography
                             sx={{
                               fontFamily: inter.style.fontFamily,
-                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                              backgroundImage:
+                                "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                               width: "max-content",
                               padding: 1,
                               fontSize: "12px",
@@ -594,7 +648,9 @@ export default function OurEvents() {
                                     color: "13.01.2024",
                                   }}
                                 >
-                                  {dayjs(ele?.publishedDate).format("DD MMM YYYY")}
+                                  {dayjs(ele?.publishedDate).format(
+                                    "DD MMM YYYY"
+                                  )}
                                 </Typography>
                               </Box>
                               <Box
@@ -610,11 +666,22 @@ export default function OurEvents() {
                                 }}
                                 onClick={(e) => {
                                   e.preventDefault();
-                                  navigator.share({
-                                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`,
-                                    text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`,
-                                    title: ele?.pictureLink,
-                                  });
+                                  if (navigator.share) {
+                                    navigator.share({
+                                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`,
+                                      title: ele?.pictureLink,
+                                    });
+                                  } else {
+                                    navigator.clipboard
+                                      .writeText(
+                                        `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${ele?._id}`
+                                      )
+                                      .then(() => {
+                                        toast.success(
+                                          "Link copied to clipboard"
+                                        );
+                                      });
+                                  }
                                 }}
                               >
                                 <ShareIcon
@@ -636,7 +703,15 @@ export default function OurEvents() {
               })}
             </>
           ) : (
-            <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+            <Grid
+              item
+              md={12}
+              sx={{
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <CircularProgress sx={{ color: "#007A47" }} />
             </Grid>
           )}

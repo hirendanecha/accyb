@@ -417,18 +417,23 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
-                              navigator.share({
-                                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
-                                text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
-                                title: ele?.pictureLink,
-                              });
-                              navigator.clipboard
+                              if(navigator.share){
+                                navigator.share({
+                                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                  text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                  title: ele?.pictureLink,
+                                });
+                              }else{
+                                navigator.clipboard
                                 .writeText(
                                   `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
                                 )
                                 .then(() => {
                                   toast.success("Link copied to clipboard");
                                 });
+                              }
+                              
+                              
                             }}
                           >
                             <ShareIcon
@@ -511,17 +516,22 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
-                              navigator.share({
-                                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
-                                title: ele?.pictureLink,
-                              });
-                              navigator.clipboard
+                              if(navigator.share){
+                                navigator.share({
+                                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
+                                  title: ele?.pictureLink,
+                                });
+                              }else{
+                                navigator.clipboard
                                 .writeText(
                                   `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
                                 )
                                 .then(() => {
                                   toast.success("Link copied to clipboard");
                                 });
+                              }
+                              
+                              
                             }}
                           >
                             <ShareIcon
@@ -704,11 +714,13 @@ export default function OurNews() {
                                   }}
                                   onClick={(e) => {
                                     e.preventDefault();
-                                    navigator.share({
-                                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
-                                      title: ele?.attachment,
-                                    });
-                                    navigator.clipboard
+                                    if(navigator.share){
+                                      navigator.share({
+                                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                        title: ele?.attachment,
+                                      });
+                                    }else{
+                                      navigator.clipboard
                                       .writeText(
                                         `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
                                       )
@@ -717,6 +729,9 @@ export default function OurNews() {
                                           "Link copied to clipboard"
                                         );
                                       });
+                                    }
+                                    
+                                    
                                   }}
                                 >
                                   <ShareIcon
@@ -803,12 +818,14 @@ export default function OurNews() {
                                     }}
                                     onClick={(e) => {
                                       e.preventDefault();
-                                      navigator.share({
-                                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
-                                        title: ele?.attachment,
-                                        
-                                      })
-                                      navigator.clipboard
+                                      if(navigator.share){
+                                        navigator.share({
+                                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                          title: ele?.attachment,
+                                          
+                                        })
+                                      }else{
+                                        navigator.clipboard
                                         .writeText(
                                           `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
                                         )
@@ -817,6 +834,9 @@ export default function OurNews() {
                                             "Link copied to clipboard"
                                           );
                                         });
+                                      }
+                                      
+                                      
                                     }}
                                   >
                                     <ShareIcon

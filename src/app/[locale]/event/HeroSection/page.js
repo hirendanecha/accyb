@@ -245,30 +245,38 @@ export default function App({ loading, getEvent }) {
                         alignItems: "center", // This centers the icon vertically
                         cursor: "pointer",
                       }}
-                      
                     >
                       <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigator.share({
-                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
-                        title: getEvent?.pictureLink,
-                      });
-                    }}
-                    style={{
-                      display:'flex'
-                    }}
-                      >
-
-                      <ShareIcon
-                        sx={{
-                          height: "19px",
-                          width: "19px",
-                          color: "#FFFFFF",
-                          cursor: "pointer",
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (navigator.share) {
+                            navigator.share({
+                              url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`,
+                              title: getEvent?.pictureLink,
+                            });
+                          } else {
+                            navigator.clipboard
+                              .writeText(
+                                `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/event/${getEvent?._id}`
+                              )
+                              .then(() => {
+                                toast.success("Link copied to clipboard");
+                              });
+                          }
                         }}
+                        style={{
+                          display: "flex",
+                        }}
+                      >
+                        <ShareIcon
+                          sx={{
+                            height: "19px",
+                            width: "19px",
+                            color: "#FFFFFF",
+                            cursor: "pointer",
+                          }}
                         />
-                        </a>
+                      </a>
                     </Box>
                     <Button
                       onClick={createICSFile}

@@ -1,5 +1,15 @@
 "use client";
-import { Box, Button, CircularProgress, Container, Divider, Grid, IconButton, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Divider,
+  Grid,
+  IconButton,
+  Typography,
+  styled,
+} from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
@@ -73,7 +83,13 @@ export default function OurEvents() {
   return (
     <Box sx={{ padding: "0 16px" }}>
       <Container disableGutters maxWidth={"xl"}>
-        <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 10 }}>
+        <Typography
+          sx={{
+            color: "#222D55",
+            fontSize: { md: "39px", xs: "24px" },
+            mt: 10,
+          }}
+        >
           Découvrez nos autres événements
         </Typography>
       </Container>
@@ -123,130 +139,158 @@ export default function OurEvents() {
                       md={6}
                       key={idx}
                       sx={{ cursor: "pointer" }}
-                      onClick={() => router.push(`/${locale}/event/${ele?._id}`)}
+                      onClick={() =>
+                        router.push(`/${locale}/event/${ele?._id}`)
+                      }
                     >
-                      <Grid container sx={{display: "flex",gap: {xs:5,sm:5,md:6,lg:6,xl:0}}}>
+                      <Grid
+                        container
+                        sx={{
+                          display: "flex",
+                          gap: { xs: 5, sm: 5, md: 6, lg: 6, xl: 0 },
+                        }}
+                      >
                         <Grid item xs={12} lg={5}>
-                        <Box sx={{width: "100%"}}>
-                          <Imgs
-                            src={ele?.pictureLink}
-                            width={295}
-                            height={220}
-                            alt="image1"
-                            sx={{
-                              borderRadius: "10px",
-                            }}
-                          />
-                        </Box>
-                        </Grid>
-                        <Grid item xs={12} lg={6} >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                              width: "max-content",
-                              padding: 1,
-                              fontSize: "12px",
-                              mb: 1,
-                              padding: "8px 15px 8px 15px",
-                              cursor: "pointer",
-                              color: "#FFFFFF",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            Actualité
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              fontWeight: 600,
-                              fontSize: "18px",
-                              maxWidth: { lg: "230px", md: "100%" },
-                              color: "#222D55",
-                            }}
-                          >
-                            {title}
-                          </Typography>
-                          <Typography
-                            dangerouslySetInnerHTML={{ __html: data }}
-                            mt={1}
-                            sx={{
-                              fontFamily: inter.style.fontFamily,
-                              color: "#222D55",
-                              fontSize: "14px",
-                              maxWidth: "350px",
-                            }}
-                          >
-                            {/* {ele?.description} */}
-                          </Typography>
-                          <Box>
-                            <Box
+                          <Box sx={{ width: "100%" }}>
+                            <Imgs
+                              src={ele?.pictureLink}
+                              width={295}
+                              height={220}
+                              alt="image1"
                               sx={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                mt: { md: 3, xs: 2 },
+                                borderRadius: "10px",
+                              }}
+                            />
+                          </Box>
+                        </Grid>
+                        <Grid item xs={12} lg={6}>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontFamily: inter.style.fontFamily,
+                                backgroundImage:
+                                  "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                width: "max-content",
+                                padding: 1,
+                                fontSize: "12px",
+                                mb: 1,
+                                padding: "8px 15px 8px 15px",
+                                cursor: "pointer",
+                                color: "#FFFFFF",
+                                textTransform: "uppercase",
                               }}
                             >
-                              <Box>
-                                <Typography
-                                  sx={{
-                                    fontFamily: inter.style.fontFamily,
-                                    fontSize: 14,
-                                    fontWeight: 600,
-                                    color: "13.01.2024",
-                                  }}
-                                >
-                                  {dayjs(ele?.startDate).format("DD.MM.YYYY")}
-                                </Typography>
-                              </Box>
+                              Actualité
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontFamily: inter.style.fontFamily,
+                                fontWeight: 600,
+                                fontSize: "18px",
+                                maxWidth: { lg: "230px", md: "100%" },
+                                color: "#222D55",
+                              }}
+                            >
+                              {title}
+                            </Typography>
+                            <Typography
+                              dangerouslySetInnerHTML={{ __html: data }}
+                              mt={1}
+                              sx={{
+                                fontFamily: inter.style.fontFamily,
+                                color: "#222D55",
+                                fontSize: "14px",
+                                maxWidth: "350px",
+                              }}
+                            >
+                              {/* {ele?.description} */}
+                            </Typography>
+                            <Box>
                               <Box
                                 sx={{
-                                  border: "1px solid #222D55",
-                                  width: "36px",
-                                  mr: 3,
-                                  height: "36px",
-                                  borderRadius: "50%",
                                   display: "flex",
-                                  justifyContent: "center",
-                                  alignItems: "center", // This centers the icon vertically
-                                }}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  navigator.share({
-                                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/event/${ele?._id}`,
-                                    title: ele?.pictureLink,
-                                  });
+                                  justifyContent: "space-between",
+                                  alignItems: "center",
+                                  mt: { md: 3, xs: 2 },
                                 }}
                               >
-                                <ShareIcon
+                                <Box>
+                                  <Typography
+                                    sx={{
+                                      fontFamily: inter.style.fontFamily,
+                                      fontSize: 14,
+                                      fontWeight: 600,
+                                      color: "13.01.2024",
+                                    }}
+                                  >
+                                    {dayjs(ele?.startDate).format("DD.MM.YYYY")}
+                                  </Typography>
+                                </Box>
+                                <Box
                                   sx={{
-                                    height: "16px",
-                                    width: "16px",
-                                    color: "#222D55",
-                                    cursor: "pointer",
+                                    border: "1px solid #222D55",
+                                    width: "36px",
+                                    mr: 3,
+                                    height: "36px",
+                                    borderRadius: "50%",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center", // This centers the icon vertically
                                   }}
-                                />
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    if (navigator.share) {
+                                      navigator.share({
+                                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/event/${ele?._id}`,
+                                        title: ele?.pictureLink,
+                                      });
+                                    } else {
+                                      navigator.clipboard
+                                        .writeText(
+                                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/event/${ele?._id}`
+                                        )
+                                        .then(() => {
+                                          toast.success(
+                                            "Link copied to clipboard"
+                                          );
+                                        });
+                                    }
+                                  }}
+                                >
+                                  <ShareIcon
+                                    sx={{
+                                      height: "16px",
+                                      width: "16px",
+                                      color: "#222D55",
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </Box>
                               </Box>
                             </Box>
                           </Box>
-                        </Box>
                         </Grid>
                       </Grid>
-                      
                     </Grid>
                   </>
                 );
               })}
             </>
           ) : (
-            <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+            <Grid
+              item
+              md={12}
+              sx={{
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <CircularProgress sx={{ color: "#007A47" }} />
             </Grid>
           )}
@@ -255,7 +299,8 @@ export default function OurEvents() {
       <Container disableGutters maxWidth={"xl"}>
         <Box
           sx={{
-            background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+            background:
+              "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
             borderRadius: "20px",
             overflow: "hidden",
             padding: "0 16px",
@@ -337,8 +382,8 @@ export default function OurEvents() {
                   maxWidth: { md: "450px", xs: "100%" },
                 }}
               >
-                Remplissez le formulaire d’adhésion. Durée maximale : 25 minutes. Aucune carte de crédit n’est requise.
-                Aucun engagement.
+                Remplissez le formulaire d’adhésion. Durée maximale : 25
+                minutes. Aucune carte de crédit n’est requise. Aucun engagement.
               </Typography>
             </Grid>
             <Grid
@@ -354,7 +399,8 @@ export default function OurEvents() {
                 endIcon={
                   <ArrowForwardIcon
                     sx={{
-                      background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                      background:
+                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                       borderRadius: "50%",
                       width: "50px",
                       height: "50px",
@@ -371,13 +417,15 @@ export default function OurEvents() {
                             rotate: "-35deg",
                           },
                         },
-                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation:
+                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
                 }
                 sx={{
-                  background: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  background:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   borderRadius: "61px",
                   padding: "8px 30px",
                   fontSize: { md: "12px", xs: "10px" },

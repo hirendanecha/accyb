@@ -1082,17 +1082,23 @@ export default function OurMission() {
                       }}
                       onClick={(e) => {
                         e.preventDefault();
-                        navigator.share({
-                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
-                          title: ele?.document,
-                        });
-                        navigator.clipboard
+                        if(navigator.share){
+                          navigator.share({
+                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
+                            title: ele?.document,
+                          });
+                        }
+                        else{
+                          navigator.clipboard
                           .writeText(
                             `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`
                           )
                           .then(() => {
                             toast.success("Link copied to clipboard");
                           });
+                        }
+                        
+                        
                       }}
                     >
                       <label htmlFor="pdf-upload-button">

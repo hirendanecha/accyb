@@ -1,12 +1,24 @@
 "use client";
 import React, { useEffect } from "react";
-import { Box, Container, Grid, Typography, Divider, styled, CircularProgress, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Divider,
+  styled,
+  CircularProgress,
+  Button,
+} from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllNews, getNewsById } from "../../../redux/action/newsActions/newsAction";
+import {
+  getAllNews,
+  getNewsById,
+} from "../../../redux/action/newsActions/newsAction";
 import ShareIcon from "@mui/icons-material/Share";
 import dayjs from "dayjs";
 import Image1 from "../../../../Icons/Image1.png";
@@ -44,42 +56,48 @@ const articles = [
     img: Image1,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image2,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image3,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image1,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image2,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
   {
     img: Image3,
     title: "Actualité",
     heading: "Calendrier de l’Avent Cyber 2023",
-    description: "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
+    description:
+      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
     time: "13.01.2024",
   },
 ];
@@ -120,7 +138,10 @@ export default function Page() {
       <Container
         disableGutters
         maxWidth={"xl"}
-        sx={{ mt: { md: "125px", sm: "50px", xs: "10px" }, padding: { md: "0 40px", xs: "0 10px" } }}
+        sx={{
+          mt: { md: "125px", sm: "50px", xs: "10px" },
+          padding: { md: "0 40px", xs: "0 10px" },
+        }}
       >
         <Box
           sx={{
@@ -134,11 +155,17 @@ export default function Page() {
           }}
         >
           <Grid container>
-            <Grid item xs={12} md={8} padding={{ md: "150px 50px", xs: "150px 10px" }}>
+            <Grid
+              item
+              xs={12}
+              md={8}
+              padding={{ md: "150px 50px", xs: "150px 10px" }}
+            >
               <Button
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                  backgroundImage:
+                    "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   textTransform: "uppercase",
                   padding: "15px 40px 15px 40px",
                   fontSize: { md: "14px", xs: "12px" },
@@ -147,7 +174,8 @@ export default function Page() {
                   textAlign: "start",
                   borderRadius: "50px",
                   "&:hover": {
-                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                    backgroundImage:
+                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                   },
                 }}
               >
@@ -231,7 +259,15 @@ export default function Page() {
               >
                 {dayjs(getNews?.publishedDate).format("DD MMM YYYY")}
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", gap: 3, mt: 3 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                  gap: 3,
+                  mt: 3,
+                }}
+              >
                 <Box
                   sx={{
                     border: "1px solid #FFFFFF",
@@ -244,10 +280,20 @@ export default function Page() {
                   }}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigator.share({
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
-                      title: getNews?.document,
-                    });
+                    if (navigator.share) {
+                      navigator.share({
+                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
+                        title: getNews?.document,
+                      });
+                    } else {
+                      navigator.clipboard
+                        .writeText(
+                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`
+                        )
+                        .then(() => {
+                          toast.success("Link copied to clipboard");
+                        });
+                    }
                   }}
                 >
                   <ShareIcon
@@ -261,7 +307,12 @@ export default function Page() {
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4} padding={{ md: "150px 0px", xs: "150px 5px" }}></Grid>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              padding={{ md: "150px 0px", xs: "150px 5px" }}
+            ></Grid>
           </Grid>
         </Box>
       </Container>
@@ -276,11 +327,11 @@ export default function Page() {
         <Container disableGutters maxWidth={"xl"}>
           <Grid container padding={"0 20px"}>
             <Grid item xs={12} md={3} sx={{ position: "relative" }}>
-              <Box sx={{ position: "fixed", bottom: 55,left:100 }}>
+              <Box sx={{ position: "fixed", bottom: 55, left: 100 }}>
                 <Box
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   sx={{
                     backgroundColor: "#222D55",
                     padding: 3,
@@ -349,11 +400,22 @@ export default function Page() {
                 </Box>
               </Box>
               <Box mt={5}>
-                <Img src={getNews?.attachment[0]} height={900} width={900} alt="img" />
+                <Img
+                  src={getNews?.attachment[0]}
+                  height={900}
+                  width={900}
+                  alt="img"
+                />
               </Box>
             </Grid>
             <Container disableGutters maxWidth={"xl"}>
-              <Typography sx={{ color: "#222D55", fontSize: { md: "39px", xs: "24px" }, mt: 10 }}>
+              <Typography
+                sx={{
+                  color: "#222D55",
+                  fontSize: { md: "39px", xs: "24px" },
+                  mt: 10,
+                }}
+              >
                 Découvrez nos autres articles
               </Typography>
             </Container>
@@ -369,7 +431,12 @@ export default function Page() {
               }}
             />
             <Container disableGutters maxWidth={"xl"}>
-              <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
+              <Grid
+                container
+                mt={3}
+                justifyContent={"space-between"}
+                rowSpacing={3}
+              >
                 {allNews?.length > 0 ? (
                   <>
                     {allNews?.map((ele, idx) => {
@@ -391,13 +458,19 @@ export default function Page() {
                             xs={12}
                             md={6}
                             sx={{ cursor: "pointer" }}
-                            onClick={() => router?.push(`/${locales}/news/${ele?._id}`)}
+                            onClick={() =>
+                              router?.push(`/${locales}/news/${ele?._id}`)
+                            }
                           >
                             <Box
                               sx={{
                                 display: "flex",
                                 gap: 3,
-                                flexDirection: { lg: "row", md: "column", xs: "column" },
+                                flexDirection: {
+                                  lg: "row",
+                                  md: "column",
+                                  xs: "column",
+                                },
                               }}
                             >
                               <Box>
@@ -418,7 +491,8 @@ export default function Page() {
                                 <Typography
                                   sx={{
                                     fontFamily: inter.style.fontFamily,
-                                    backgroundImage: "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
+                                    backgroundImage:
+                                      "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
                                     width: "max-content",
                                     padding: 1,
                                     fontSize: "12px",
@@ -480,7 +554,9 @@ export default function Page() {
                                           color: "13.01.2024",
                                         }}
                                       >
-                                        {dayjs(ele?.publishedDate).format("DD MMM YYYY")}
+                                        {dayjs(ele?.publishedDate).format(
+                                          "DD MMM YYYY"
+                                        )}
                                       </Typography>
                                     </Box>
                                     <Box
@@ -496,10 +572,22 @@ export default function Page() {
                                       }}
                                       onClick={(e) => {
                                         e.preventDefault();
-                                        navigator.share({
-                                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
-                                          title: getNews?.document,
-                                        });
+                                        if (navigator.share) {
+                                          navigator.share({
+                                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`,
+                                            title: getNews?.document,
+                                          });
+                                        } else {
+                                          navigator.clipboard
+                                            .writeText(
+                                              `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/news/${getNews?._id}`
+                                            )
+                                            .then(() => {
+                                              toast.success(
+                                                "Link copied to clipboard"
+                                              );
+                                            });
+                                        }
                                       }}
                                     >
                                       <ShareIcon
@@ -521,7 +609,15 @@ export default function Page() {
                     })}
                   </>
                 ) : (
-                  <Grid item md={12} sx={{ cursor: "pointer", display: "flex", justifyContent: "center" }}>
+                  <Grid
+                    item
+                    md={12}
+                    sx={{
+                      cursor: "pointer",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
                     <CircularProgress sx={{ color: "#007A47" }} />
                   </Grid>
                 )}

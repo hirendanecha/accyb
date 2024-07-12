@@ -170,10 +170,20 @@ export default function App(studyDetails) {
                   }}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigator.share({
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/study/${studyDetails?.studyDetails?._id}`,
-                      title: studyDetails?.studyDetails?.image,
-                    });
+                    if (navigator.share) {
+                      navigator.share({
+                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/study/${studyDetails?.studyDetails?._id}`,
+                        title: studyDetails?.studyDetails?.image,
+                      });
+                    } else {
+                      navigator.clipboard
+                        .writeText(
+                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/study/${studyDetails?.studyDetails?._id}`
+                        )
+                        .then(() => {
+                          toast.success("Link copied to clipboard");
+                        });
+                    }
                   }}
                 >
                   <ShareIcon
