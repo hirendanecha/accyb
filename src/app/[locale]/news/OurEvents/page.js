@@ -30,6 +30,9 @@ import { getAllNews } from "../../../redux/action/newsActions/newsAction";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import dayjs from "dayjs";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "500px !important",
@@ -120,56 +123,7 @@ export default function OurEvents() {
     dispatch(getAllEvents({ month: id }));
     setCurrentCategory(id);
   };
-  const articles = [
-    {
-      img: Image1,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image2,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image3,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image1,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image2,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-    {
-      img: Image3,
-      title: "Actualité",
-      heading: "Calendrier de l’Avent Cyber 2023",
-      description:
-        "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-      time: "13.01.2024",
-    },
-  ];
+
   return (
     <Box sx={{ padding: "0 16px", mt: 4 }}>
       <Container disableGutters maxWidth={"xl"}>
@@ -375,9 +329,9 @@ export default function OurEvents() {
                         md={6}
                         lg={6}
                         key={idx}
-                        onClick={() =>
-                          router?.push(`/${locales}/event/${ele?._id}`)
-                        }
+                        // onClick={() =>
+                        //   router?.push(`/${locales}/event/${ele?._id}`)
+                        // }
                         sx={{ cursor: "pointer" }}
                       >
                         <Img
@@ -388,6 +342,9 @@ export default function OurEvents() {
                           sx={{
                             borderRadius: "20px",
                           }}
+                          onClick={() =>
+                            router?.push(`/${locales}/event/${ele?._id}`)
+                          }
                         />
                         <Box>
                           <Typography
@@ -415,6 +372,9 @@ export default function OurEvents() {
                               color: "#222D55",
                               fontFamily: inter.style.fontFamily,
                             }}
+                            onClick={() =>
+                              router?.push(`/${locales}/event/${ele?._id}`)
+                            }
                           >
                             {ele?.title}
                           </Typography>
@@ -559,9 +519,9 @@ export default function OurEvents() {
                       xs={12}
                       md={6}
                       sx={{ cursor: "pointer" }}
-                      onClick={() =>
-                        router?.push(`/${locales}/news/${ele?._id}`)
-                      }
+                      // onClick={() =>
+                      //   router?.push(`/${locales}/news/${ele?._id}`)
+                      // }
                     >
                       <Box
                         sx={{
@@ -574,7 +534,11 @@ export default function OurEvents() {
                           },
                         }}
                       >
-                        <Box>
+                        <Box
+                          onClick={() =>
+                            router?.push(`/${locales}/news/${ele?._id}`)
+                          }
+                        >
                           <Imgs
                             src={ele?.attachment[0]}
                             width={295}
@@ -617,6 +581,9 @@ export default function OurEvents() {
                               maxWidth: { lg: "300px", md: "100%" },
                               color: "#222D55",
                             }}
+                            onClick={() =>
+                              router?.push(`/${locales}/news/${ele?._id}`)
+                            }
                           >
                             {title}
                           </Typography>
@@ -717,6 +684,7 @@ export default function OurEvents() {
           )}
         </Grid>
       </Container>
+      <ToastContainer />
     </Box>
   );
 }

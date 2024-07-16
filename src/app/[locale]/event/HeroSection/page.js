@@ -26,6 +26,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
 import { useLocale } from "next-intl";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ loading, getEvent }) {
   const router = useRouter();
@@ -483,6 +485,7 @@ export default function App({ loading, getEvent }) {
           </>
         )}
       </Container>
+      <ToastContainer />
     </>
   );
 }

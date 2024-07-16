@@ -29,6 +29,8 @@ import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -446,6 +448,7 @@ export default function OurEvents() {
           </Grid>
         </Box>
       </Container>
+      <ToastContainer />
     </Box>
   );
 }

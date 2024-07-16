@@ -37,6 +37,9 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Img = styled(Image)(({ theme }) => ({
   borderRadius: "10px",
   width: "100% !important",
@@ -458,9 +461,9 @@ export default function Page() {
                             xs={12}
                             md={6}
                             sx={{ cursor: "pointer" }}
-                            onClick={() =>
-                              router?.push(`/${locales}/news/${ele?._id}`)
-                            }
+                            // onClick={() =>
+                            //   router?.push(`/${locales}/news/${ele?._id}`)
+                            // }
                           >
                             <Box
                               sx={{
@@ -473,7 +476,11 @@ export default function Page() {
                                 },
                               }}
                             >
-                              <Box>
+                              <Box
+                                onClick={() =>
+                                  router?.push(`/${locales}/news/${ele?._id}`)
+                                }
+                              >
                                 <Imgs
                                   src={ele?.attachment[0]}
                                   width={295}
@@ -513,6 +520,9 @@ export default function Page() {
                                     maxWidth: { lg: "300px", md: "100%" },
                                     color: "#222D55",
                                   }}
+                                  onClick={() =>
+                                    router?.push(`/${locales}/news/${ele?._id}`)
+                                  }
                                 >
                                   {ele?.title
                                     .split("\n")
@@ -626,6 +636,7 @@ export default function Page() {
             <Grid item xs={12} md={3}></Grid>
           </Grid>
         </Container>
+        <ToastContainer />
       </Box>
     </>
   );
