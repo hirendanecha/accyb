@@ -141,9 +141,9 @@ export default function OurEvents() {
                       md={6}
                       key={idx}
                       sx={{ cursor: "pointer" }}
-                      onClick={() =>
-                        router.push(`/${locale}/event/${ele?._id}`)
-                      }
+                      // onClick={() =>
+                      //   router.push(`/${locale}/event/${ele?._id}`)
+                      // }
                     >
                       <Grid
                         container
@@ -153,7 +153,12 @@ export default function OurEvents() {
                         }}
                       >
                         <Grid item xs={12} lg={5}>
-                          <Box sx={{ width: "100%" }}>
+                          <Box
+                            sx={{ width: "100%" }}
+                            onClick={() =>
+                              router.push(`/${locale}/event/${ele?._id}`)
+                            }
+                          >
                             <Imgs
                               src={ele?.pictureLink}
                               width={295}
@@ -197,6 +202,9 @@ export default function OurEvents() {
                                 maxWidth: { lg: "230px", md: "100%" },
                                 color: "#222D55",
                               }}
+                              onClick={() =>
+                                router.push(`/${locale}/event/${ele?._id}`)
+                              }
                             >
                               {title}
                             </Typography>
