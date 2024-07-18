@@ -532,7 +532,7 @@ export default function OurNews() {
                                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
                                   title: ele?.pictureLink,
                                   data: {
-                                    "facebook:image_url": ele?.pictureLink,
+                                    "og:url": ele?.pictureLink,
                                     "og:image": ele?.pictureLink,
                                   },
                                 });
@@ -750,7 +750,7 @@ export default function OurNews() {
                                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                         title: ele?.attachment,
                                         data: {
-                                          "facebook:image_url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                          "og:url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                           "og:image": ele?.attachment,
                                         },
                                       });
@@ -874,7 +874,7 @@ export default function OurNews() {
                                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                           title: ele?.attachment,
                                           data: {
-                                            "facebook:image_url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                            "og:url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                             "og:image": ele?.attachment,
                                           },
                                         });

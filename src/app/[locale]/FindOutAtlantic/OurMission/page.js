@@ -1072,6 +1072,7 @@ export default function OurMission() {
                       type="file"
                       // onChange={handleFileUpload}
                     /> */}
+
                     <a
                       href={ele?.document}
                       target="_blank"
@@ -1082,23 +1083,24 @@ export default function OurMission() {
                       }}
                       onClick={(e) => {
                         e.preventDefault();
-                        if(navigator.share){
+                        if (navigator.share) {
                           navigator.share({
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
                             title: ele?.document,
+                            data: {
+                              "og:url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
+                              "og:image": ele?.document,
+                            },
                           });
-                        }
-                        else{
+                        } else {
                           navigator.clipboard
-                          .writeText(
-                            `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`
-                          )
-                          .then(() => {
-                            toast.success("Link copied to clipboard");
-                          });
+                            .writeText(
+                              `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`
+                            )
+                            .then(() => {
+                              toast.success("Link copied to clipboard");
+                            });
                         }
-                        
-                        
                       }}
                     >
                       <label htmlFor="pdf-upload-button">
@@ -1123,6 +1125,15 @@ export default function OurMission() {
                         </svg>
                       </label>
                     </a>
+                    <Head>
+                      <meta
+                        property="og:url"
+                        content={`${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`}
+                      />
+                      <meta property="og:image:width" content="300" />
+                      <meta property="og:image:height" content="300" />
+                      <meta property="og:image" content={ele?.document} />
+                    </Head>
 
                     <a href={ele?.document} download>
                       <svg
