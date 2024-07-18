@@ -718,8 +718,26 @@ export default function OurNews() {
                                   alignItems: "center", // This centers the icon vertically
                                 }}
                               >
+                                <Head>
+                                    <meta
+                                      property="og:url"
+                                      content={`${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`}
+                                    />
+                                    <meta
+                                      property="og:image:width"
+                                      content="300"
+                                    />
+                                    <meta
+                                      property="og:image:height"
+                                      content="300"
+                                    />
+                                    <meta
+                                      property="og:image"
+                                      content={ele?.attachment}
+                                    />
+                                  </Head>
                                 <a
-                                  href={ele?.document}
+                                  href={ele?.attachment}
                                   target="_blank"
                                   rel="noreferrer"
                                   style={{
@@ -731,6 +749,10 @@ export default function OurNews() {
                                       navigator.share({
                                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                         title: ele?.attachment,
+                                        data: {
+                                          "facebook:image_url": `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
+                                          "og:image": ele?.attachment,
+                                        },
                                       });
                                     } else {
                                       navigator.clipboard
@@ -838,7 +860,7 @@ export default function OurNews() {
                                     />
                                   </Head>
                                   <a
-                                    href={ele?.document}
+                                    href={ele?.attachment}
                                     target="_blank"
                                     rel="noreferrer"
                                     style={{
