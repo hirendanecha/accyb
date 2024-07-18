@@ -27,7 +27,7 @@ export default function FinalSubmitForm() {
                   maxWidth: "700px",
                 }}
               >
-                Votre demande d’adhésion <br />à bien été envoyée.
+                Votre déclaration d’incident a bien été envoyée
               </Typography>
             </Box>
           </Grid>

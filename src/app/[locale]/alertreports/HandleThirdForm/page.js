@@ -40,7 +40,7 @@ export default function HandleSecoundForm() {
           <Grid
             item
             xs={12}
-            md={6}
+            md={7}
             sx={{ marginTop: { xs: 5, sm: 0 }, padding: { xs: 2, sm:3,md: 0 } }}
           >
             <Box>
@@ -53,9 +53,9 @@ export default function HandleSecoundForm() {
                   color: "#222D55",
                 }}
               >
-                Déclarer un incident - CSIRT
+                Déclarer un incident – CSIRT-ATLANTIC
               </Typography>
-              <Typography
+              {/* <Typography
                 sx={{
                   mt: 3,
                   fontFamily: inter.style.fontFamily,
@@ -66,7 +66,7 @@ export default function HandleSecoundForm() {
                 }}
               >
                 Ce formulaire d’adhésion couvre la période du 01 janvier 2024 au 31 décembre 2025
-              </Typography>
+              </Typography> */}
             </Box>
             <ThirdAlertForm />
           </Grid>

@@ -366,7 +366,7 @@ export default function OurEvents() {
               transformOrigin: "-25px 50px",
             }}
           ></Box>
-          <Grid container padding={{ md: 8, xs: 3 }}>
+          {/* <Grid container padding={{ md: 8, xs: 3 }}>
             <Grid item xs={12} md={6}>
               {" "}
               <Typography
@@ -453,7 +453,7 @@ export default function OurEvents() {
                 remplir le formulaire
               </Button>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Box>
       </Container>
       <ToastContainer />

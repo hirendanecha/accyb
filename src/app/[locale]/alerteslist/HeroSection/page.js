@@ -204,7 +204,7 @@ export default function HeroSection() {
                 Alertes de sécurité
               </Box>
             </Grid>
-            {/* <Grid item xs={12} md={12}>
+            <Grid item xs={12} md={12}>
               <Box mt={{ md: 5, xs: 2 }}>
                 <Typography
                   sx={{
@@ -214,11 +214,10 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  Les alertes sont des documents destinés à prévenir d'un danger
-                  immédiat
+                  Retrouvez les alertes de sécurité du CSIRT-ATLANTIC prévenant d’un évènement de sécurité majeu
                 </Typography>
               </Box>
-            </Grid> */}
+            </Grid>
           </Grid>
           <Divider
             variant="middle"

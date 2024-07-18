@@ -629,7 +629,7 @@ export default function CategoryDetails() {
                 mt: 25,
               }}
             >
-              Alertes de securité
+              Nos autres alertes de sécurité
             </Typography>
             <Divider
               variant="middle"

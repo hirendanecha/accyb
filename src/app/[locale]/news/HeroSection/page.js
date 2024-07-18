@@ -96,9 +96,9 @@ export default function App({ allEvents }) {
                   <>
                   <SwiperSlide>
                     <Box
-                      onClick={() => {
-                        router.push(`/${locales}/event/${ele?._id}`);
-                      }}
+                      // onClick={() => {
+                      //   router.push(`/${locales}/event/${ele?._id}`);
+                      // }}
                       key={idx}
                       sx={{
                         cursor: "pointer",

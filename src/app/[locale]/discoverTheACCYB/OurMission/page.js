@@ -13,6 +13,15 @@ import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
 import { useSearchParams } from "next/navigation";
+import Logo1 from "../../../../Icons/Partners/Logo1.svg";
+import Logo2 from "../../../../Icons/Partners/Logo2.svg";
+import Logo3 from "../../../../Icons/Partners/Logo3.svg";
+import Logo4 from "../../../../Icons/Partners/Logo4.svg";
+import Logo5 from "../../../../Icons/Supported/Logo1.svg";
+import Logo6 from "../../../../Icons/Supported/Logo2.svg";
+import Logo7 from "../../../../Icons/Supported/Logo3.svg";
+import Logo8 from "../../../../Icons/Supported/Logo4.svg";
+import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
 const Img = styled(Image)(({ theme }) => ({
   width: "39px !important",
   height: "auto !important",
@@ -21,6 +30,49 @@ const Img = styled(Image)(({ theme }) => ({
     height: "auto !important",
   },
 }));
+const Imgg = styled(Image)(({ theme }) => ({
+  width: "100px !important",
+  height: "97px !important",
+}));
+const Imges = styled(Image)(({ theme }) => ({
+  width: "100px !important",
+  height: "120px !important",
+}));
+const Imgs = styled(Image)(({ theme }) => ({
+  width: "110px !important",
+  height: "97px !important",
+}));
+const partners = [
+  {
+    img: Logo1,
+  },
+  {
+    img: Logo2,
+  },
+  {
+    img: Logo3,
+  },
+  {
+    img: Logo4,
+  },
+];
+const supported = [
+  {
+    img: Logo7,
+  },
+  {
+    img: Logo8,
+  },
+  {
+    img: Logo9,
+  },
+  // {
+  //   img: Logo5,
+  // },
+  // {
+  //   img: Logo6,
+  // },
+];
 export default function OurMission() {
   const controls = useAnimation();
   const ref = useRef(null);
@@ -357,6 +409,114 @@ export default function OurMission() {
             );
           })}
         </Grid>
+      </Container>
+      <Container
+        disableGutters
+        maxWidth="xl"
+        sx={{
+          mb: 15,
+          mt: { md: 20, xs: 2 },
+          display: "flex",
+          overflowX: "scroll",
+          // gap: 1,
+          justifyContent: { md: "space-between", xs: "unset" },
+          "&::-webkit-scrollbar": {
+            width: "0.4em",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width:'45%',
+            display: "flex",
+            justifyContent: "space-between",
+            mt: 3,
+            gap: { md: 1, xs: 1 },
+            flexWrap: "nowrap",
+          }}
+        >
+          <Box sx={{ display: "flex", gap:2 }}>
+          <Typography
+            sx={{
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "14px", xs: "12px" },
+              maxWidth: "100px",
+              textAlign: "end",
+              mr: 1,
+            }}
+          >
+            Partenaires majeurs
+          </Typography>
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
+          </Box>
+          {partners?.map((ele, idx) => {
+            return (
+              <Box
+                key={idx}
+                sx={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: { md: "start", xs: "center" },
+                  mb: 2,
+                  mr: { md: 2, xs: 0 },
+                }}
+              >
+                <Imgg src={ele.img} width={900} height={900} alt="img" />
+              </Box>
+            );
+          })}
+        </Box>
+        <Box
+          sx={{
+            width:'45%',
+            display: "flex",
+            justifyContent: "space-between",
+            mt: 3,
+            gap: 1,
+            flexWrap: "nowrap",
+          }}
+        >
+          <Box sx={{ display: "flex",gap:2 }}>
+          <Typography
+            sx={{
+              color: "#222D55",
+              fontFamily: inter.style.fontFamily,
+              fontSize: { md: "14px", xs: "12px" },
+              maxWidth: "50px",
+              textAlign: "end",
+              mr: 1,
+            }}
+          >
+            Soutenu par
+          </Typography>
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            sx={{ bgcolor: "#000000", height: "90px" }}
+          />
+          </Box>
+          {supported?.map((ele, idx) => {
+            return (
+              <Box
+                key={idx}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: { md: "start", xs: "center" },
+                  mb: 2,
+                  mr: { md: 2, xs: 0 },
+                }}
+              >
+                <Imgs src={ele.img} width={1200} height={1200} alt="img" />
+              </Box>
+            );
+          })}
+        </Box>
       </Container>
     </Box>
   );

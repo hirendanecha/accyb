@@ -74,7 +74,7 @@ const schema = yup
       .string()
       .required("Category of activity is required"),
     // date: yup.string().required("Date is required"),
-    signature: yup.string().required("Signature is required"),
+    // signature: yup.string().required("Signature is required"),
   })
   .required();
 export default function HandleForm() {
@@ -111,7 +111,7 @@ export default function HandleForm() {
       // corporation: "",
       categoryOfActivity: "",
       // date: "",
-      signature: "",
+      // signature: "",
     },
   });
 
@@ -1979,7 +1979,7 @@ export default function HandleForm() {
               }}
             />
           </Grid> */}
-           <Grid item xs={12} md={6} mt={5}>
+           {/* <Grid item xs={12} md={6} mt={5}>
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
@@ -2013,7 +2013,7 @@ export default function HandleForm() {
                 mt: 2,
               }}
             />
-          </Grid>
+          </Grid> */}
          </Grid> 
         <Button
           // onClick={() => router.push(`/${locales}/joinAccyb/SecoundForm`)}

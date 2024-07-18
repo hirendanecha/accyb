@@ -32,7 +32,7 @@ export default function HandleSecoundForm() {
               <SecoundStepper activeStep={1} />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6} sx={{marginTop:{xs:5,sm:0},padding:{xs:2,sm:3,md:0}}}>
+          <Grid item xs={12} md={7} sx={{marginTop:{xs:5,sm:0},padding:{xs:2,sm:3,md:0}}}>
             <Box>
               <Typography
                 sx={{
@@ -43,7 +43,7 @@ export default function HandleSecoundForm() {
                   color: "#222D55",
                 }}
               >
-                Déclarer un incident - CSIRT
+                Déclarer un incident – CSIRT-ATLANTIC
               </Typography>
             </Box>
             <SecoundAlertForm />

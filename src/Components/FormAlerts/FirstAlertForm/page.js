@@ -478,6 +478,32 @@ export default function HandleForm() {
                         fontWeight: 600,
                       },
                     }}
+                    value="Guyana"
+                    control={<Radio />}
+                    label="Guyana"
+                  />
+                  <FormControlLabel
+                    sx={{
+                      "& .MuiFormControlLabel-label": {
+                        fontSize: "14px",
+                        fontFamily: inter.style.fontFamily,
+                        color: "#222D55",
+                        fontWeight: 600,
+                      },
+                    }}
+                    value="Martinique"
+                    control={<Radio />}
+                    label="Martinique"
+                  />
+                  <FormControlLabel
+                    sx={{
+                      "& .MuiFormControlLabel-label": {
+                        fontSize: "14px",
+                        fontFamily: inter.style.fontFamily,
+                        color: "#222D55",
+                        fontWeight: 600,
+                      },
+                    }}
                     value="Saint-Barthélemy"
                     control={<Radio />}
                     label="Saint-Barthélemy"
@@ -486,6 +512,19 @@ export default function HandleForm() {
                     value="Saint-Martin"
                     control={<Radio />}
                     label="Saint-Martin"
+                    sx={{
+                      "& .MuiFormControlLabel-label": {
+                        fontSize: "14px",
+                        fontFamily: inter.style.fontFamily,
+                        color: "#222D55",
+                        fontWeight: 600,
+                      },
+                    }}
+                  />
+                  <FormControlLabel
+                    value="Saint Pierre and Miquelon"
+                    control={<Radio />}
+                    label="Saint Pierre and Miquelon"
                     sx={{
                       "& .MuiFormControlLabel-label": {
                         fontSize: "14px",

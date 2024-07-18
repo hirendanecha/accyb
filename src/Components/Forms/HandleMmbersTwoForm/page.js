@@ -59,7 +59,7 @@ const schema = yup
     organization: yup.string().required("Organization is required"),
     function: yup.string().required("Function is required"),
     mobilePhone: yup.number().required("Mobile phone is required"),
-    phone: yup.number().required("Phone is required"),
+    // phone: yup.number().required("Phone is required"),
     email: yup.string().email("Invalid email").required("Email is required"),
     address: yup.string().required("Address is required"),
     interests: yup.string().required("Interests is required"),
@@ -70,7 +70,7 @@ const schema = yup
     substituteFirstname: yup.string().required("First name is required"),
     substituteFunction: yup.string().required("Function is required"),
     substituteMobilePhone: yup.number().required("Mobile phone is required"),
-    substitutePhone: yup.number().required("Phone is required"),
+    // substitutePhone: yup.number().required("Phone is required"),
     substituteEmail: yup
       .string()
       .email("Invalid email")
@@ -407,7 +407,6 @@ export default function HandleForm() {
                   }}
                   id="phone"
                   {...register("phone")}
-                  error={errors?.phone ? true : false}
                   type="number"
                   variant="standard"
                   sx={{
@@ -817,7 +816,6 @@ export default function HandleForm() {
                   }}
                   id="substitutePhone"
                   {...register("substitutePhone")}
-                  error={errors?.substitutePhone ? true : false}
                   type="number"
                   variant="standard"
                   sx={{
@@ -865,7 +863,7 @@ export default function HandleForm() {
               </Grid>
             </Grid>
           </Box>
-          <Box sx={{ mt: 5, padding: "0 16px" }}>
+          {/* <Box sx={{ mt: 5, padding: "0 16px" }}>
             <FormControl sx={{ mt: 1 }}>
               <RadioGroup
                 row
@@ -887,7 +885,7 @@ export default function HandleForm() {
                 />
               </RadioGroup>
             </FormControl>
-          </Box>
+          </Box> */}
           <Box sx={{ mt: 5, padding: "0 16px" }}>
             <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
           </Box>
@@ -970,7 +968,7 @@ export default function HandleForm() {
                 },
               }}
             >
-              Devenir Bénévole
+              Envoyer ma demande
             </Button>
           </Box>
         </Box>

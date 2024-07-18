@@ -293,7 +293,7 @@ export default function Footer() {
                   </Typography>
                 </Box>
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 lg={2}
                 md={2.4}
@@ -342,7 +342,7 @@ export default function Footer() {
                     {t("t5sub3")}
                   </Typography>
                 </Box>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
         </Grid>
@@ -405,7 +405,9 @@ export default function Footer() {
                 textTransform: "uppercase",
                 fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
+                cursor: "pointer",
               }}
+              onClick={() => router.push(`/${locales}/sitemap.xml`)}
             >
               {t("footerT4")}
             </Typography>

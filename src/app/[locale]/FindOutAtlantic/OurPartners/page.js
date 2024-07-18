@@ -78,12 +78,12 @@ export default function OurPartners() {
     {
       img: Logo9,
     },
-    // {
-    //   img: Logo5,
-    // },
-    // {
-    //   img: Logo6,
-    // },
+    {
+      img: Logo6,
+    },
+    {
+      img: Logo5,
+    },
   ];
   const data = [
     {
@@ -113,8 +113,8 @@ export default function OurPartners() {
       title: "CERT-FR",
       key: 3,
       item: [
-        "OPÉRATEURS RÉGULÉS",
-        " OPERATEURS REGULIERS",
+        "ORGANISME PUBLIC",
+        "OPÉRATEUR RÉGULÉ",
       ],
       button: "cyber.gouv.fr)",
       link: "https://www.cert.ssi.gouv.fr/",
@@ -588,7 +588,7 @@ export default function OurPartners() {
           display: "flex",
           overflowX: "scroll",
           gap: 1,
-          justifyContent: { md: "space-around", xs: "unset" },
+          justifyContent: { md: "space-between", xs: "unset" },
           "&::-webkit-scrollbar": {
             width: "0.4em",
           },

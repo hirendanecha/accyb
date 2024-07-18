@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -8,6 +8,8 @@ import {
   styled,
   Button,
   TextField,
+  FormGroup,
+  Checkbox,
 } from "@mui/material";
 import { inter } from "../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -59,7 +61,7 @@ const schema = yup
     // activityStatus: yup.string().required("Activity status is required"),
     // personsImpacted: yup.string().required("Person impacted is required"),
     // sitesImpacted: yup.string().required("Sites impacted is required"),
-    // categoriesImpacted: yup.string().required("Categories impacted is required"),
+    // categoriesImpacted: yup.array(yup.string()).required("Categories impacted is required"),
     // servicesImpacted: yup.string().required("Services impacted is required"),
     // impacted: yup.string().required("Impacted is required"),
     // time: yup.string().required("Time is required"),
@@ -79,6 +81,16 @@ export default function HandleForm() {
   const router = useRouter();
   const locales = useLocale();
   const dispatch = useDispatch();
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedNatureValues,setSelectedNatureValues] = useState([]);
+
+  useEffect(() => {
+    console.log(selectedValues, "selectedValues");
+    setValue("categoriesImpacted", selectedValues);
+    console.log(selectedNatureValues, "selectedNatureValues");
+    setValue("personImpact", selectedNatureValues);
+  }, [selectedValues,selectedNatureValues]);
+
   const {
     register,
     setValue,
@@ -104,7 +116,11 @@ export default function HandleForm() {
     },
   });
 
-  const sendEmail = async (generalInformation,registrantInformation,descriptionOfTheIncident) => {
+  const sendEmail = async (
+    generalInformation,
+    registrantInformation,
+    descriptionOfTheIncident
+  ) => {
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/web/send-email/`,
@@ -130,12 +146,12 @@ export default function HandleForm() {
       ...generalInformation,
       ...registrantInformation,
     };
-    sendEmail(generalInformation,registrantInformation,data);
+    sendEmail(generalInformation, registrantInformation, data);
     console.log(payload, "payload");
     toast.success("Votre déclaration d’incident a bien été envoyé.");
     setTimeout(() => {
       router.push(`/${locales}/alertreports/FinalSubmitForm`);
-    },[2000])
+    }, [2000]);
     // router.push(`/${locales}/alertreports/FinalSubmitForm`);
   };
   return (
@@ -320,80 +336,63 @@ export default function HandleForm() {
                 impactées ?
               </Typography>
               <FormControl sx={{ mt: 3 }}>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  onChange={(e) => {
-                    setValue("categoriesImpacted", e.target.value);
-                  }}
-                  name="categoriesImpacted"
-                >
-                  <FormControlLabel
-                    sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "14px",
-                        fontFamily: inter.style.fontFamily,
-                        color: "#222D55",
-                        fontWeight: 400,
-                      },
-                    }}
-                    value="Données métiers non confidentielles"
-                    control={<Radio />}
-                    label="Données métiers non confidentielles"
-                  />
-                  <FormControlLabel
-                    sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "14px",
-                        fontFamily: inter.style.fontFamily,
-                        color: "#222D55",
-                        fontWeight: 400,
-                      },
-                    }}
-                    value="Données métiers confidentielles"
-                    control={<Radio />}
-                    label="Données métiers confidentielles"
-                  />
-                  <FormControlLabel
-                    value="Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)"
-                    control={<Radio />}
-                    label="Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)"
-                    sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "14px",
-                        fontFamily: inter.style.fontFamily,
-                        color: "#222D55",
-                        fontWeight: 400,
-                      },
-                    }}
-                  />
-                  <FormControlLabel
-                    value="Données personnelles confidentielles (santé, information bancaire, opinion politique…)"
-                    control={<Radio />}
-                    label="Données personnelles confidentielles (santé, information bancaire, opinion politique…)"
-                    sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "14px",
-                        fontFamily: inter.style.fontFamily,
-                        color: "#222D55",
-                        fontWeight: 400,
-                      },
-                    }}
-                  />
-                  <FormControlLabel
-                    value="Autres (précisez) :"
-                    control={<Radio />}
-                    label="Autres (précisez) :"
-                    sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "14px",
-                        fontFamily: inter.style.fontFamily,
-                        color: "#222D55",
-                        fontWeight: 400,
-                      },
-                    }}
-                  />
-                </RadioGroup>
+                <FormGroup>
+                  {[
+                    {
+                      label: "Données métiers non confidentielles",
+                      value: "Données métiers non confidentielles",
+                    },
+                    {
+                      label: "Données métiers confidentielles",
+                      value: "Données métiers confidentielles",
+                    },
+                    {
+                      label:
+                        "Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)",
+                      value:
+                        "Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)",
+                    },
+                    {
+                      label:
+                        "Données personnelles confidentielles (santé, information bancaire, opinion politique…)",
+                      value:
+                        "Données personnelles confidentielles (santé, information bancaire, opinion politique…)",
+                    },
+                    {
+                      label: "Autres (précisez) :",
+                      value: "Autres (précisez) :",
+                    },
+                  ].map((item) => (
+                    <FormControlLabel
+                      key={item.value}
+                      sx={{
+                        "& .MuiFormControlLabel-label": {
+                          fontSize: "14px",
+                          fontFamily: inter.style.fontFamily,
+                          color: "#222D55",
+                          fontWeight: 400,
+                        },
+                      }}
+                      control={
+                        <Radio
+                          checked={selectedValues?.includes(item.value)}
+                          onChange={(e) => {
+                            const { value } = e.target;
+                            setSelectedValues((prev) =>
+                              prev.includes(value)
+                                ? prev.filter((val) => val !== value)
+                                : [...prev, value]
+                            );
+                            // console.log(selectedValues, "selectedValues");
+                            // setValue("categoriesImpacted", selectedValues);
+                          }}
+                          value={item.value}
+                        />
+                      }
+                      label={item.label}
+                    />
+                  ))}
+                </FormGroup>
               </FormControl>
             </Grid>
             <Grid item xs={12} md={12} mt={5}>
@@ -580,6 +579,57 @@ export default function HandleForm() {
                 Nature des personnes impactées par l’incident
               </Typography>
               <FormControl sx={{ mt: 3 }}>
+                <FormGroup>
+                  {[
+                    {
+                      label: "Patients",
+                      value: "Patients",
+                    },
+                    {
+                      label: "Clients",
+                      value: "Clients",
+                    },
+                    {
+                      label: "Prestataires",
+                      value: "Prestataires",
+                    },
+                    {
+                      label: "Partenaires",
+                      value: "Partenaires",
+                    },
+                  ].map((item) => (
+                    <FormControlLabel
+                      key={item.value}
+                      sx={{
+                        "& .MuiFormControlLabel-label": {
+                          fontSize: "14px",
+                          fontFamily: inter.style.fontFamily,
+                          color: "#222D55",
+                          fontWeight: 400,
+                        },
+                      }}
+                      control={
+                        <Radio
+                          checked={selectedNatureValues?.includes(item.value)}
+                          onChange={(e) => {
+                            const { value } = e.target;
+                            setSelectedNatureValues((prev) =>
+                              prev.includes(value)
+                                ? prev.filter((val) => val !== value)
+                                : [...prev, value]
+                            );
+                            // console.log(selectedValues, "selectedValues");
+                            // setValue("categoriesImpacted", selectedValues);
+                          }}
+                          value={item.value}
+                        />
+                      }
+                      label={item.label}
+                    />
+                  ))}
+                </FormGroup>
+              </FormControl>
+              {/* <FormControl sx={{ mt: 3 }}>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
@@ -652,12 +702,12 @@ export default function HandleForm() {
                     }}
                   />
                 </RadioGroup>
-              </FormControl>
+              </FormControl> */}
             </Grid>
           </Grid>
         </Box>
         <Box sx={{ mt: 5 }}>
-          <Typography
+          {/* <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
               fontSize: { md: "14px", xs: "12px" },
@@ -666,7 +716,7 @@ export default function HandleForm() {
           >
             **Les propositions de catégorisation du candidat seront soumises à
             la validation conseil d’administration.
-          </Typography>
+          </Typography> */}
         </Box>
         <Box
           sx={{
@@ -773,7 +823,7 @@ export default function HandleForm() {
             },
           }}
         >
-          Envoyer ma demande d’adhésion
+          Déclarer mon incident
         </Button>
       </form>
       <ToastContainer />

@@ -30,6 +30,7 @@ import { getAllNews } from "../../../app/redux/action/newsActions/newsAction";
 import dayjs from "dayjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
@@ -417,23 +418,21 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
-                              if(navigator.share){
+                              if (navigator.share) {
                                 navigator.share({
                                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
                                   text: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
                                   title: ele?.pictureLink,
                                 });
-                              }else{
+                              } else {
                                 navigator.clipboard
-                                .writeText(
-                                  `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
-                                )
-                                .then(() => {
-                                  toast.success("Link copied to clipboard");
-                                });
+                                  .writeText(
+                                    `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
+                                  )
+                                  .then(() => {
+                                    toast.success("Link copied to clipboard");
+                                  });
                               }
-                              
-                              
                             }}
                           >
                             <ShareIcon
@@ -506,6 +505,12 @@ export default function OurNews() {
                             alignItems: "center", // This centers the icon vertically
                           }}
                         >
+                          <Head>
+                            <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`} />
+                            <meta property="og:image:width" content="300" />
+                            <meta property="og:image:height" content="300" />
+                            <meta property="og:image" content={ele?.pictureLink} />
+                          </Head>
                           <a
                             href={ele?.document}
                             target="_blank"
@@ -516,22 +521,24 @@ export default function OurNews() {
                             }}
                             onClick={(e) => {
                               e.preventDefault();
-                              if(navigator.share){
+                              if (navigator.share) {
                                 navigator.share({
                                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`,
                                   title: ele?.pictureLink,
+                                  data: {
+                                    "facebook:image_url": ele?.pictureLink,
+                                    "og:image": ele?.pictureLink,
+                                  },
                                 });
-                              }else{
+                              } else {
                                 navigator.clipboard
-                                .writeText(
-                                  `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
-                                )
-                                .then(() => {
-                                  toast.success("Link copied to clipboard");
-                                });
+                                  .writeText(
+                                    `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/event/${ele?._id}`
+                                  )
+                                  .then(() => {
+                                    toast.success("Link copied to clipboard");
+                                  });
                               }
-                              
-                              
                             }}
                           >
                             <ShareIcon
@@ -714,24 +721,22 @@ export default function OurNews() {
                                   }}
                                   onClick={(e) => {
                                     e.preventDefault();
-                                    if(navigator.share){
+                                    if (navigator.share) {
                                       navigator.share({
                                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                         title: ele?.attachment,
                                       });
-                                    }else{
+                                    } else {
                                       navigator.clipboard
-                                      .writeText(
-                                        `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
-                                      )
-                                      .then(() => {
-                                        toast.success(
-                                          "Link copied to clipboard"
-                                        );
-                                      });
+                                        .writeText(
+                                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
+                                        )
+                                        .then(() => {
+                                          toast.success(
+                                            "Link copied to clipboard"
+                                          );
+                                        });
                                     }
-                                    
-                                    
                                   }}
                                 >
                                   <ShareIcon
@@ -818,25 +823,22 @@ export default function OurNews() {
                                     }}
                                     onClick={(e) => {
                                       e.preventDefault();
-                                      if(navigator.share){
+                                      if (navigator.share) {
                                         navigator.share({
                                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                           title: ele?.attachment,
-                                          
-                                        })
-                                      }else{
-                                        navigator.clipboard
-                                        .writeText(
-                                          `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
-                                        )
-                                        .then(() => {
-                                          toast.success(
-                                            "Link copied to clipboard"
-                                          );
                                         });
+                                      } else {
+                                        navigator.clipboard
+                                          .writeText(
+                                            `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`
+                                          )
+                                          .then(() => {
+                                            toast.success(
+                                              "Link copied to clipboard"
+                                            );
+                                          });
                                       }
-                                      
-                                      
                                     }}
                                   >
                                     <ShareIcon
