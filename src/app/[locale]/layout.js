@@ -9,14 +9,14 @@ import Cookie from "../[locale]/cookie";
 export const metadata = {
   title: "ACCYB",
   description: "Caribbean Cybersecurity Agency (CCYBA)",
-  imageurl : `https://accyb.vercel.app/Thumbnail.jpg`,
+  imageurl : `https://accyb.vercel.app/Thumbnail.png`,
   websiteurl : `https://accyb.vercel.app`
 };
 
 export default function RootLayout({ children, params: { locale } }) {
   const messages = useMessages();
 
-  const imageurl = `https://accyb.vercel.app/Thumbnail.jpg`
+  const imageurl = `https://accyb.vercel.app/Thumbnail.png`
   const websiteurl = `https://accyb.vercel.app`
 
   return (
