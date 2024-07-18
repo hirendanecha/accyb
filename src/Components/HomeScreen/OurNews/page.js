@@ -30,7 +30,6 @@ import { getAllNews } from "../../../app/redux/action/newsActions/newsAction";
 import dayjs from "dayjs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Head from "next/head";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",

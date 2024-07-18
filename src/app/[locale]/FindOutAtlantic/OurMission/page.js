@@ -1086,7 +1086,6 @@ export default function OurMission() {
                           navigator.share({
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locales}/secureOneself/Category/Categorydetails/${ele?._id}`,
                             title: ele?.document,
-                            
                           });
                         }
                         else{
