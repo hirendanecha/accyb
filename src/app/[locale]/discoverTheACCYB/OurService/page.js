@@ -1,6 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Container, Divider, Grid, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -16,8 +23,10 @@ import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function OurService() {
+  const t = useTranslations("OurMission");
   const searchParams = useSearchParams();
   const search = searchParams.get("mission");
   const router = useRouter();
@@ -25,33 +34,28 @@ export default function OurService() {
   const data = [
     {
       icon: Picto,
-      title: "Représentation",
-      description:
-        "Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
+      title: `${t("OurMissionSubTitle1")}`,
+      description:`${t("OurMissionSubDescription1")}`
     },
     {
       icon: Group1,
-      title: "Observatoire",
-      description:
-        " Identifier et analyser les réalités de nos territoires, consolider des données partageables au sein de la communauté pouvant enrichir la réflexion.",
+      title: `${t("OurMissionSubTitle2")}`,
+      description:`${t("OurMissionSubDescription2")}`
     },
     {
       icon: Group2,
-      title: "Acculturation",
-      description:
-        "Accompagner l’ensemble des acteurs vers la confiance numérique et promouvoir les actions de sensibilisation et de formation à la cybersécurité.",
+      title: `${t("OurMissionSubTitle3")}`,
+      description:`${t("OurMissionSubDescription3")}`
     },
     {
       icon: Group3,
-      title: "Souveraineté & résilience",
-      description:
-        "Contribuer à la réflexion stratégique des institutions publiques et privées sur les enjeux liés à la cybersécurité et à l’organisation d’un écosystème de proximité de confiance, répondant aux enjeux de nos territoires.",
+      title: `${t("OurMissionSubTitle4")}`,
+      description:`${t("OurMissionSubDescription4")}`
     },
     {
       icon: Group4,
-      title: "Réponse aux incidents",
-      description:
-        "Traiter les demandes d’assistance des acteurs de taille intermédiaire et mettre en relation avec des partenaires de proximité.",
+      title: `${t("OurMissionSubTitle5")}`,
+      description:`${t("OurMissionSubDescription4")}`,
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -69,7 +73,13 @@ export default function OurService() {
   }));
   useEffect(() => {
     if (search == "true") {
-      document.getElementById("mission").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+      document
+        .getElementById("mission")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
     }
   }, []);
   return (
@@ -94,7 +104,7 @@ export default function OurService() {
               },
             }}
           >
-            Nos missions
+            {`${t("OurMissionTitle")}`}
           </Box>
         </Container>
 
@@ -145,7 +155,8 @@ export default function OurService() {
                   >
                     <Box
                       sx={{
-                        background: "linear-gradient(133.47deg, #E0EFE9 -0.34%, rgba(0, 122, 71, 0) 98.52%)",
+                        background:
+                          "linear-gradient(133.47deg, #E0EFE9 -0.34%, rgba(0, 122, 71, 0) 98.52%)",
                         rotate: index === activeIndex + 1 ? "10deg" : "0deg",
                         borderRadius: "116px 0px 0px 0px",
                         height: {
@@ -182,7 +193,8 @@ export default function OurService() {
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
-                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
+                            rotate:
+                              index === activeIndex + 1 ? "-10deg" : "0deg",
                           }}
                         >
                           {ele?.title?.split(" ")[0]}
@@ -196,7 +208,8 @@ export default function OurService() {
                             lineHeight: { md: "42px", xs: "22px" },
                             fontFamily: inter.style.fontFamily,
                             marginLeft: { md: "-150px", xs: "-60px" },
-                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
+                            rotate:
+                              index === activeIndex + 1 ? "-10deg" : "0deg",
                           }}
                         >
                           {ele?.title?.split(" ").slice(1).join(" ")}
@@ -218,7 +231,8 @@ export default function OurService() {
                             fontFamily: inter.style.fontFamily,
                             maxWidth: "263px",
                             display: "flex",
-                            rotate: index === activeIndex + 1 ? "-10deg" : "0deg",
+                            rotate:
+                              index === activeIndex + 1 ? "-10deg" : "0deg",
                             justifyContent: "center",
                             mt: { md: 2, xs: 0 },
                           }}
@@ -235,7 +249,12 @@ export default function OurService() {
                           // display: index === activeIndex + 1 ? "block" : "none",
                         }}
                       >
-                        <Img src={ele.icon} height={68} width={68} alt="picto" />
+                        <Img
+                          src={ele.icon}
+                          height={68}
+                          width={68}
+                          alt="picto"
+                        />
                       </Box>
                     </Box>
                   </Grid>

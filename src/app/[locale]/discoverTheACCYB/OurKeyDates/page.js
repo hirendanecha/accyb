@@ -12,11 +12,13 @@ import Image from "next/image";
 import Timeline from "../../../../Icons/TimeLine.svg";
 import Timeline2 from "../../../../../public/Timeline2.svg";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
 }));
 export default function OurKeyDates() {
+  const t = useTranslations("OurKeyDates");
   const searchParams = useSearchParams();
   const search = searchParams.get("NosDatesCles");
   useEffect(() => {
@@ -59,7 +61,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
               color: "#222D55",
             }}
           >
-            Nos dates clés
+            {`${t("OurKeyDatesTitle")}`}
           </Typography>
         </Box>
       </Container>
@@ -102,7 +104,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    04 juin 2021
+                    {`${t("TimeLineDate1")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -117,7 +119,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Délibération
+                    {`${t("TimeLineTitle1a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -132,7 +134,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de la Région
+                    {`${t("TimeLineTitle1b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -147,7 +149,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Guadeloupe
+                    {`${t("TimeLineTitle1c")}`}
                   </Typography>
                   <Box mt={1}>
                     <Image src={Logo1} width={70} height={70} alt="logo1" />
@@ -181,7 +183,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    24 AVRIL 2022
+                    {`${t("TimeLineDate2")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -196,7 +198,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Délibération
+                    {`${t("TimeLineTitle2a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -211,7 +213,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de la Collectivité
+                    {`${t("TimeLineTitle2b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -226,7 +228,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    territoriale
+                    {`${t("TimeLineTitle2c")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -241,7 +243,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de Guyane
+                    {`${t("TimeLineTitle2d")}`}
                   </Typography>
                   <Box mt={1}>
                     <Image src={Logo2} width={70} height={70} alt="logo1" />
@@ -274,7 +276,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    26 septembre 2022
+                    {`${t("TimeLineDate3")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -289,7 +291,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Signature de la convention de
+                    {`${t("TimeLineTitle3a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -304,7 +306,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    création du centre de
+                    {`${t("TimeLineTitle3b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -319,7 +321,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    ressources cyber avec le SGDSN
+                    {`${t("TimeLineTitle3c")}`}
                   </Typography>
                   <Box mt={1}>
                     <Image src={Logo3} width={70} height={70} alt="logo1" />
@@ -384,7 +386,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    04 février 2022
+                    {`${t("TimeLineDate4")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -399,7 +401,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Délibération
+                    {`${t("TimeLineTitle4a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -414,7 +416,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de la Collectivité
+                    {`${t("TimeLineTitle4b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -429,7 +431,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    d’Outre-Mer
+                    {`${t("TimeLineTitle4c")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -444,7 +446,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de Saint-Barthélemy
+                    {`${t("TimeLineTitle4d")}`}
                   </Typography>
                 </Box>
               </Box>
@@ -484,7 +486,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    12 Juillet 2022
+                    {`${t("TimeLineDate5")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -499,7 +501,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Création de l'Agence
+                    {`${t("TimeLineTitle5a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -514,7 +516,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Caribéenne pour
+                    {`${t("TimeLineTitle5b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -529,7 +531,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    la Cybersécurité
+                    {`${t("TimeLineTitle5c")}`}
                   </Typography>
                 </Box>
               </Box>
@@ -569,7 +571,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    11 MAI 2023
+                    {`${t("TimeLineDate6")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -584,7 +586,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    Délibération
+                    {`${t("TimeLineTitle6a")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -599,7 +601,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de la Collectivité
+                    {`${t("TimeLineTitle6b")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -614,7 +616,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    d’Outre-Mer
+                    {`${t("TimeLineTitle6c")}`}
                   </Typography>
                   <Typography
                     sx={{
@@ -629,7 +631,7 @@ const getAnimationDelay = (index) => `${index * 0.2}s`;
                       textTransform: "uppercase",
                     }}
                   >
-                    de Saint-Martin
+                    {`${t("TimeLineTitle6d")}`}
                   </Typography>
                 </Box>
               </Box>

@@ -4,7 +4,9 @@ import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { useTranslations } from "next-intl";
 export default function HeroSection() {
+  const t = useTranslations("DiscoverTheACCYB");
   const handleContactUsClick = (event) => {
     event.preventDefault();
     const footerElement = document.getElementById("footer");
@@ -70,14 +72,14 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Découvrir{" "}
+                {`${t("HeroSectiontitle1")}`}{<br></br>}
                 <u
                   style={{
                     textDecorationThickness: "3px",
                     textUnderlineOffset: "10px",
                   }}
                 >
-                  l’ACCYB
+                  {`${t("HeroSectiontitle2")}`}
                 </u>{" "}
               </Box>
               <Box
@@ -96,7 +98,8 @@ export default function HeroSection() {
                     <ArrowForwardIcon
                       sx={{
                         backgroundColor: "#7DB1FF",
-                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        background:
+                          "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
@@ -112,7 +115,8 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation:
+                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -134,7 +138,7 @@ export default function HeroSection() {
                     // },
                   }}
                 >
-                  Découvrir nos missions
+                  {`${t("HeroSectionButton1")}`}
                 </Button>
                 <Button
                   onClick={handleServiceClick}
@@ -143,7 +147,8 @@ export default function HeroSection() {
                     <ArrowForwardIcon
                       sx={{
                         backgroundColor: "#7DB1FF",
-                        background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                        background:
+                          "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                         borderRadius: "50%",
                         width: { md: "50px", xs: "40px" },
                         height: { md: "50px", xs: "40px" },
@@ -159,7 +164,8 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation:
+                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -181,7 +187,7 @@ export default function HeroSection() {
                     // },
                   }}
                 >
-                  Découvrir nos services
+                  {`${t("HeroSectionButton2")}`}
                 </Button>
               </Box>
             </Grid>
@@ -206,11 +212,7 @@ export default function HeroSection() {
                     lineHeight: { md: "22px", xs: "20px" },
                   }}
                 >
-                  Face aux défis posés par la transformation numérique, l’Agence caribéenne pour la cybersécurité
-                  (ACCYB) a pour mission de favoriser, par tous moyens, les partages de connaissances entre les sphères
-                  scientifique, économique, privée et publique. L’agence vise ainsi à faire émerger des solutions de
-                  long terme relevant de la cybersécurité, la sûreté et la résilience des territoires français
-                  d’Amérique et de la zone Caraïbes.
+                  {`${t("HeroSectionDesciption")}`}
                 </Typography>
               </Box>
               <Box
@@ -256,7 +258,8 @@ export default function HeroSection() {
                 <ArrowForwardIcon
                   sx={{
                     backgroundColor: "#7DB1FF",
-                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    background:
+                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                     borderRadius: "50%",
                     width: { md: "50px", xs: "40px" },
                     height: { md: "50px", xs: "40px" },
@@ -272,7 +275,8 @@ export default function HeroSection() {
                           rotate: "-35deg",
                         },
                       },
-                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      animation:
+                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
                     },
                   }}
                 />
@@ -294,7 +298,7 @@ export default function HeroSection() {
                 // },
               }}
             >
-              Découvrir nos missions
+              {`${t("HeroSectionButton1")}`}
             </Button>
             <Button
               variant="outlined"
@@ -302,7 +306,8 @@ export default function HeroSection() {
                 <ArrowForwardIcon
                   sx={{
                     backgroundColor: "#7DB1FF",
-                    background: "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
+                    background:
+                      "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)",
                     borderRadius: "50%",
                     width: { md: "50px", xs: "40px" },
                     height: { md: "50px", xs: "40px" },
@@ -318,7 +323,8 @@ export default function HeroSection() {
                           rotate: "-35deg",
                         },
                       },
-                      animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                      animation:
+                        "move-left 0.3s ease-in-out 0s 1 normal forwards",
                     },
                   }}
                 />
@@ -340,7 +346,7 @@ export default function HeroSection() {
                 // },
               }}
             >
-              Découvrir nos missions
+              {`${t("HeroSectionButton2")}`}
             </Button>
           </Box>
         </Container>
