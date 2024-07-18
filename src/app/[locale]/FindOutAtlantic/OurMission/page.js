@@ -32,6 +32,7 @@ import { getAllSecurityAlerts } from "../../../redux/action/securityAlerts/secur
 import Link from "next/link";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
+import Head from "next/head";
 
 const Img = styled(Image)(({ theme }) => ({
   width: "45px !important",
