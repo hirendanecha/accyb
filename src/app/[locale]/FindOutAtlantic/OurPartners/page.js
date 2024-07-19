@@ -20,6 +20,7 @@ import Logo6 from "../../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
+import Logo10 from "../../../../Icons/Supported/Logo6.svg";
 import Findimg1 from "../../../../Icons/Findimg1.svg";
 import Findimg2 from "../../../../Icons/Findimg2.svg";
 import Findimg3 from "../../../../Icons/Findimg3.svg";
@@ -33,7 +34,7 @@ import "swiper/css/pagination";
 import AddIcon from "@mui/icons-material/Add";
 import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const Img = styled(Image)(({ theme }) => ({
@@ -50,6 +51,8 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurPartners() {
+  const t = useTranslations("DiscoverCSIRT_PreferedContacts");
+  const p = useTranslations("OurPartners");
   const locales = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -79,44 +82,41 @@ export default function OurPartners() {
       img: Logo9,
     },
     {
-      img: Logo6,
+      img: Logo10,
     },
     {
-      img: Logo5,
+      img: Logo6,
     },
   ];
   const data = [
     {
       count: Findimg1,
-      title: "cybermalveillance.gouv.fr",
+      title: `${t("title1")}`,
       key: 1,
-      item: ["particulier", "TPE", "ASSOCIATION"],
-      button: "Cybermalveillance.gouv.fr",
+      item: [`${t("item1")}`, `${t("item2")}`, `${t("item3")}`],
+      button: `${t("button1")}`,
       link: "https://www.cybermalveillance.gouv.fr/",
     },
     {
       count: Findimg2,
-      title: "CSIRT-ATLANTIC",
+      title: `${t("title2")}`,
       key: 2,
       item: [
-        "PME",
-        "ETI",
-        "Collectivité locale",
-        "Etablissement public",
-        "ASSOCIATION",
+        `${t("item4")}`,
+        `${t("item5")}`,
+        `${t("item6")}`,
+        `${t("item7")}`,
+        `${t("item8")}`,
       ],
-      button: "declarer un incident",
+      button: `${t("button2")}`,
       link: `/${locales}/alertreports/HandleFirstForm`,
     },
     {
       count: Findimg3,
-      title: "CERT-FR",
+      title: `${t("title3")}`,
       key: 3,
-      item: [
-        "ORGANISME PUBLIC",
-        "OPÉRATEUR RÉGULÉ",
-      ],
-      button: "cyber.gouv.fr)",
+      item: [`${t("item9")}`, `${t("item10")}`],
+      button: `${t("button3")}`,
       link: "https://www.cert.ssi.gouv.fr/",
     },
   ];
@@ -132,13 +132,11 @@ export default function OurPartners() {
 
   useEffect(() => {
     if (search == "true") {
-      document
-        .getElementById("vosinterlocuteurs")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
+      document.getElementById("vosinterlocuteurs").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   }, []);
 
@@ -157,7 +155,7 @@ export default function OurPartners() {
             fontSize: { lg: "75px", md: "65px", xs: "35px" },
           }}
         >
-          Vos interlocuteurs privilégiés
+          {`${t("Title")}`}
         </Typography>
       </Box>
       <Grid container mt={10} sx={{ display: { md: "flex", xs: "none" } }}>
@@ -177,7 +175,7 @@ export default function OurPartners() {
               fontWeight: 500,
             }}
           >
-            Vous êtes...
+            {`${t("title")}`}
           </Typography>
         </Grid>
         <Grid item md={9.5}>
@@ -416,7 +414,7 @@ export default function OurPartners() {
               pb: 3,
             }}
           >
-            Vous êtes...
+            {`${t("title")}`}
           </Typography>
         </Grid>
         <Grid item md={9.5}>
@@ -613,7 +611,7 @@ export default function OurPartners() {
               mr: 1,
             }}
           >
-            Partenaires majeurs
+            {`${p("Title1")}`}
           </Typography>
           <Divider
             orientation="vertical"
@@ -656,7 +654,7 @@ export default function OurPartners() {
               mr: 1,
             }}
           >
-            Soutenu par
+            {`${p("Title2")}`}
           </Typography>
           <Divider
             orientation="vertical"

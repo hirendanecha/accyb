@@ -4,7 +4,9 @@ import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { useTranslations } from "next-intl";
 export default function HeroSection() {
+  const t = useTranslations("DiscovertheObservatory");
   const handleContactUsClick = (event) => {
     event.preventDefault();
     const footerElement = document.getElementById("footer");
@@ -54,14 +56,14 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Découvrir{" "}
+                {`${t("Title")}`}{<br></br>}
                 <u
                   style={{
                     textDecorationThickness: "3px",
                     textUnderlineOffset: "10px",
                   }}
                 >
-                  l’Observatoire
+                  {`${t("Title1")}`}
                 </u>{" "}
               </Box>
             </Grid>
@@ -87,11 +89,9 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  L’Observatoire fournit aux pouvoirs publics, aux décideurs économiques et, plus généralement, au
-                  public une information régulière{" "}
+                  {`${t("Description")}`}{" "}
                   <span style={{ fontWeight: 600 }}>
-                    sur l’état et l’évolution de la confiance numérique, de la menace, de la maturité liées à la
-                    cybersécurité.
+                  {`${t("DescriptionSpan")}`}
                   </span>
                 </Typography>
               </Box>

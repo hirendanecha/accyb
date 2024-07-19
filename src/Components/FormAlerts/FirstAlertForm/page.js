@@ -478,9 +478,9 @@ export default function HandleForm() {
                         fontWeight: 600,
                       },
                     }}
-                    value="Guyana"
+                    value="Guyane"
                     control={<Radio />}
-                    label="Guyana"
+                    label="Guyane"
                   />
                   <FormControlLabel
                     sx={{
@@ -522,9 +522,9 @@ export default function HandleForm() {
                     }}
                   />
                   <FormControlLabel
-                    value="Saint Pierre and Miquelon"
+                    value="Saint-Pierre-et-Miquelon"
                     control={<Radio />}
-                    label="Saint Pierre and Miquelon"
+                    label="Saint-Pierre-et-Miquelon"
                     sx={{
                       "& .MuiFormControlLabel-label": {
                         fontSize: "14px",

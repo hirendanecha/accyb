@@ -489,7 +489,7 @@ export default function OurEvents() {
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
           {allNews?.length > 0 ? (
             <>
-              {allNews?.map((ele, idx) => {
+              {allNews?.slice(0,6)?.map((ele, idx) => {
                 const data = ele?.description
                   .split("\n")
                   .slice(0, 4)

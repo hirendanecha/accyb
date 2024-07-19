@@ -128,7 +128,7 @@
     "TimeLineTitle6c":"d’Outre-Mer",
     "TimeLineTitle6d":"de Saint-Martin"
   },
-  "OurMission":{
+  "DiscoverTheACCYBOurMission":{
     "OurMissionTitle": "Nos missions",
     "OurMissionSubTitle1":"Représentation",
     "OurMissionSubDescription1":"Organiser une gouvernance cyber sur nos territoires et promouvoir la règlementation en vigueur et partager les réalites de nos territoires.",
@@ -140,5 +140,104 @@
     "OurMissionSubDescription4":"Contribuer à la réflexion stratégique des institutions publiques et privées sur les enjeux liés à la cybersécurité et à l’organisation d’un écosystème de proximité de confiance, répondant aux enjeux de nos territoires.",
     "OurMissionSubTitle5":"Réponse aux incidents",
     "OurMissionSubDescription5":"Traiter les demandes d’assistance des acteurs de taille intermédiaire et mettre en relation avec des partenaires de proximité."
+  },
+  "DiscoverTheACCYBOurServices":{
+    "OurServicesTitle":"Nos services",
+    "OurServicesActivity1":"Diagnostic cybersécurité",
+    "OurServicesActivity2":"Consultation stratégique",
+    "OurServicesActivity3":"Sensibilisation des adhérents et du grand public",
+    "OurServicesActivity4":"Suivi de maturité Cyber",
+    "OurServicesActivity5":"Ambassadeur cyber",
+    "OurServicesActivity6":"Documentation de référence"
+  },
+  "OurPartners":{
+    "Title1":"Partenaires majeurs",
+    "Title2":"Soutenu par"
+  },
+  "DiscoverCSIRT":{
+    "Title1":"Découvrir le",
+    "Title2":"CSIRT-ATLANTIC",
+    "Button1":"voir nos alertes de sécurité",
+    "Button2":"RFC 2350",
+    "Description":"Le CSIRT-ATLANTIC est le centre d'assistance cyber unique pour les bénéficiaires de taille intermédiaire des territoires français d'Amérique. Il est au cœur du dispositif national de CSIRT régionaux soutenu par l'ANSSI, engagé dans des actions de prévention, protection et partage d'information communautaire cyber.",
+    "Description1":"Horaires d'ouverture :",
+    "Description2":"Lundi au vendredi (hors jours fériés)",
+    "Description3":"DE 9H00 À 12H30 - 13H30 À 17H00"
+  },
+  "DiscoverCSIRT_OurMissions":{
+    "Title":"Nos missions",
+    "title1":"Répondre",
+    "description1":"Réceptionner, qualifier et trier les déclaration d'incidents de cybersécurité",
+    "title2":"Protéger",
+    "description2":"Mettre en relation le bénéficiaire avec des prestataires de proximité labelisés et/ou qualifiés par les autorités compétentes nationales pour le traitement de l'incident de sécurité.",
+    "title3":"Coopérer",
+    "description3":"Collaborer au sein de la communauté de CSIRT régionaux et du CERT-FR. Consolider et partager les résultats de l’incidentologie avec le CERT-FR.",
+    "title4":"Répondre",
+    "description4":"Réceptionner, qualifier et trier les déclaration d'incidents de cybersécurité",
+    "title5":"Protéger",
+    "description5":"Mettre en relation le bénéficiaire avec des prestataires de proximité labelisés et/ou qualifiés par les autorités compétentes nationales pour le traitement de l'incident de sécurité.",
+    "title6":"Coopérer",
+    "description6":"Collaborer au sein de la communauté de CSIRT régionaux et du CERT-FR. Consolider et partager les résultats de l’incidentologie avec le CERT-FR."
+  },
+  "DiscoverCSIRT_OurServices":{
+    "Title":"Nos services",
+    "title1":"Exercice de cyber-crise",
+    "title2":"Réception des incidents",
+    "title3":"Évalutation des incidents",
+    "title4":"Traitement des incidents",
+    "title5":"Analyse des incidents",
+    "title6":"Appui à la réponse à incident",
+    "title7":"Coordination & coopération",
+    "title8":"Information des bénéficiaires",
+    "Title1":"Alertes de sécurité",
+    "Button1":"toutes les alertes",
+    "TableTitle1":"Date de publication",
+    "TableTitle2":"Référence",
+    "TableTitle3":"Descriptif",
+    "TableTitle4":"Type"
+  },
+  "DiscoverCSIRT_PreferedContacts":{
+    "Title":"Vos interlocuteurs privilégiés",
+    "title":"Vous êtes...",
+    "title1":"cybermalveillance.gouv.fr",
+    "item1":"particulier",
+    "item2":"TPE",
+    "item3":"ASSOCIATION",
+    "button1":"Cybermalveillance.gouv.fr",
+    "title2":"CSIRT-ATLANTIC",
+    "item4":"PME",
+    "item5":"ETI",
+    "item6":"Collectivité locale",
+    "item7":"Etablissement public",
+    "item8":"ASSOCIATION",
+    "button2":"declarer un incident",
+    "title3":"CERT-FR",
+    "item9":"ORGANISME PUBLIC",
+    "item10":"OPÉRATEUR RÉGULÉ",
+    "button3":"cyber.gouv.fr)"
+  },
+  "DiscovertheObservatory":{
+    "Title":"Découvrir",
+    "Title1":"l’Observatoire",
+    "Description":"L’Observatoire fournit aux pouvoirs publics, aux décideurs économiques et, plus généralement, au public une information régulière",
+    "DescriptionSpan":"sur l’état et l’évolution de la confiance numérique, de la menace, de la maturité liées à la cybersécurité.",
+    "Title2":"Nos études"
+  },
+  "DiscovertheObservatory_OurMissions":{
+    "Title":"Nos missions",
+    "title1":"Collecter",
+    "detail1":"Consolider à l'aide de divers moyens organisationnels et techniques, des informations clés utiles à la compréhension de nos territoires.",
+    "title2":"Analyser",
+    "detail2":"Etudier les tendances et les évolutions en matière de cybersécurité sur nos territoires.",
+    "title3":"Partager",
+    "detail3":"Outiller la communauté de CSIRT, les décideurs économiques et plus généralement le plus grand nombre, à la prise de décision par la mise à disposition d'études de nos territoires."
+  },
+  "DiscovertheObservatory_OurServices":{
+    "Title":"Nos services",
+    "title1":"Panorama de la maturité Cyber",
+    "title2":"Panorama de la e-confiance",
+    "title3":"Panorama de la formation",
+    "title4":"Météo de la menace",
+    "title5":"Cartographie de l’incidentologie"
   }
 }

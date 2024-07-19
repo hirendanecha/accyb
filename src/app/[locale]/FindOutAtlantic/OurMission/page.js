@@ -26,7 +26,7 @@ import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllSecurityAlerts } from "../../../redux/action/securityAlerts/securityAlertAction";
 import Link from "next/link";
@@ -42,6 +42,7 @@ const Img = styled(Image)(({ theme }) => ({
   },
 }));
 export default function OurMission() {
+  const t = useTranslations("DiscoverCSIRT_OurServices")
   const router = useRouter();
   const locales = useLocale();
   const controls = useAnimation();
@@ -111,70 +112,38 @@ export default function OurMission() {
   const activites = [
     {
       img: Img8,
-      title: "Exercice de cyber-crise",
+      title: `${t("title1")}`,
     },
     {
       img: Img1,
-      title: "Réception des incidents",
+      title: `${t("title2")}`,
     },
     {
       img: Img2,
-      title: "Évalutation des incidents",
+      title: `${t("title3")}`,
     },
     {
       img: Img3,
-      title: "Traitement des incidents",
+      title: `${t("title4")}`,
     },
     {
       img: Img4,
-      title: "Analyse des incidents",
+      title: `${t("title5")}`,
     },
     {
       img: Img5,
-      title: "Appui à la réponse à incident",
+      title: `${t("title6")}`,
     },
     {
       img: Img6,
-      title: "Coordination & coopération",
+      title: `${t("title7")}`,
     },
     {
       img: Img7,
-      title: "Information des bénéficiaires",
+      title: `${t("title8")}`,
     },
   ];
-  const SecurityAlertsData = [
-    {
-      time: "11/01/2024",
-      title: "CERTFR-2024-ALE-001",
-      description:
-        "[MàJ] Multiples vulnérabilités dans Ivanti Connect Secure et Policy Secure Gateways",
-      status: "Alerte en cours",
-    },
-    {
-      time: "09/02/2024",
-      title: "CERTFR-2024-ALE-004",
-      description: "[MàJ] Vulnérabilité dans Fortinet FortiOS",
-      status: "Alerte en cours",
-    },
-    {
-      time: "15/02/2024",
-      title: "CERTFR-2024-ALE-005",
-      description: "Vulnérabilité dans Microsoft Outlook",
-      status: "Alerte en cours",
-    },
-    {
-      time: "05/02/2024",
-      title: "CERTFR-2024-ALE-003",
-      description: "Incident affectant les solutions AnyDesk",
-      status: "Alerte en cours",
-    },
-    {
-      time: "12/01/2024",
-      title: "CERTFR-2024-ALE-002",
-      description: "[MàJ] Multiples Vulnérabilités dans GitLab",
-      status: "Alerte en cours",
-    },
-  ];
+  
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     // Handle the uploaded file, e.g., upload it to a server or process it.
@@ -198,7 +167,7 @@ export default function OurMission() {
               color: "#222D55",
             }}
           >
-            Nos services
+            {`${t("Title")}`}
           </Typography>
         </Box>
       </Container>
@@ -458,7 +427,7 @@ export default function OurMission() {
                 color: "#222D55",
               }}
             >
-              Alertes de sécurité
+              {`${t("Title1")}`}
             </Typography>
             {/* <Typography
               sx={{
@@ -527,7 +496,7 @@ export default function OurMission() {
                 },
               }}
             >
-              toutes les alertes
+              {`${t("Button1")}`}
             </Button>
           </Box>
         </Box>
@@ -570,7 +539,7 @@ export default function OurMission() {
                   color: "#222D55",
                 }}
               >
-                Date de publication
+                {`${t("TableTitle1")}`}
               </Typography>
               <Box
                 sx={{
@@ -662,7 +631,7 @@ export default function OurMission() {
                 color: "#222D55",
               }}
             >
-              Référence
+              {`${t("TableTitle2")}`}
             </Typography>
           </Grid>
           <Grid
@@ -683,15 +652,22 @@ export default function OurMission() {
               sx={{
                 fontFamily: inter.style.fontFamily,
                 fontSize: "12px",
-                color: "#BE0011",
+                color: "#222D55",
                 textTransform: "capitalize",
                 fontWeight: 600,
               }}
             >
-              Descriptif
+              {`${t("TableTitle3")}`}
             </Typography>
           </Grid>
-          <Grid item md={6} sm={4} xs={12}>
+          <Grid item md={6} sm={4} xs={12} sx={{
+              display: {
+                lg: "block",
+                md: "block",
+                sm: "block",
+                xs: "none",
+              },
+            }}>
             <Typography
               sx={{
                 fontSize: "12px",
@@ -702,7 +678,7 @@ export default function OurMission() {
                 fontWeight: 600,
               }}
             >
-              Descriptif
+              {`${t("TableTitle3")}`}
             </Typography>
           </Grid>
           <Grid
@@ -728,7 +704,7 @@ export default function OurMission() {
                 fontWeight: 600,
               }}
             >
-              Type
+              {`${t("TableTitle4")}`}
             </Typography>
           </Grid>
           <Grid

@@ -442,7 +442,7 @@ export default function Page() {
               >
                 {allNews?.length > 0 ? (
                   <>
-                    {allNews?.map((ele, idx) => {
+                    {allNews?.slice(0,6)?.map((ele, idx) => {
                       const data = getNews?.title
                         .split("\n")
                         .slice(0, 4)

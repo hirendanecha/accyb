@@ -292,197 +292,8 @@ export default function CategoryDetails() {
                   </Box>
                 </Box>
 
-                <Box sx={{display:'flex',flexDirection:'column',justifyContent:"start",alignItems:'start'}}>
-
-                <a target="_blank" href={getSecurityAlert?.url[0]}>
-                  <Button
-                    variant="outlined"
-                    endIcon={
-                      <ArrowForwardIcon
-                        sx={{
-                          background:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
-                          color: "#ffffff",
-                          padding: 1.7,
-                          marginRight: -2,
-                          ml: 3,
-                          ":hover": {
-                            "@keyframes move-left": {
-                              "0%": {
-                                rotate: "0deg",
-                              },
-                              "100%": {
-                                rotate: "-35deg",
-                              },
-                            },
-                            animation:
-                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                          },
-                        }}
-                      />
-                    }
-                    sx={{
-                      background:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      borderRadius: "61px",
-                      padding: "8px 30px",
-                      fontSize: { md: "12px", xs: "10px" },
-                      mt: { md: 3, xs: 5 },
-                      fontWeight: 600,
-                      background: "#ffffff",
-                      fontFamily: inter.style.fontFamily,
-                      border:
-                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
-                      "&:hover": {
-                        backgroundColor: "#FFFFFF",
-                        border: "none",
-                      },
-                    }}
-                    // onClick={() => {
-                    //   router.push(`${getSecurityAlert?.url[0]}`);
-                    // }}
-                  >
-                    CVE-2024-26198s
-                    {/* {getSecurityAlert?.url[0]} */}
-                  </Button>
-                </a>
-                <a target="_blank" href={getSecurityAlert?.url[1]}>
-                  <Button
-                    variant="outlined"
-                    endIcon={
-                      <ArrowForwardIcon
-                        sx={{
-                          background:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
-                          color: "#ffffff",
-                          padding: 1.7,
-                          marginRight: -2,
-                          ml: 3,
-                          ":hover": {
-                            "@keyframes move-left": {
-                              "0%": {
-                                rotate: "0deg",
-                              },
-                              "100%": {
-                                rotate: "-35deg",
-                              },
-                            },
-                            animation:
-                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                          },
-                        }}
-                      />
-                    }
-                    sx={{
-                      background:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      borderRadius: "61px",
-                      padding: "8px 30px",
-                      fontSize: { md: "12px", xs: "10px" },
-                      mt: { md: 3, xs: 5 },
-                      fontWeight: 600,
-                      background: "#ffffff",
-                      fontFamily: inter.style.fontFamily,
-                      border:
-                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
-                      "&:hover": {
-                        backgroundColor: "#FFFFFF",
-                        border: "none",
-                      },
-                    }}
-                    // onClick={() => {
-                    //   router.push(`${getSecurityAlert?.url[0]}`);
-                    // }}
-                  >
-                    Score CVSS v3.1: 8.8
-                    {/* {getSecurityAlert?.url[0]} */}
-                  </Button>
-                </a>
-
-                </Box>
-
-               
-                <Typography
-                  sx={{
-                    fontFamily: inter.style.fontFamily,
-                    fontWeight: 400,
-                    color: "#222D55",
-                    mt: 5,
-                    fontSize: {
-                      md: "20px",
-                      xs: "10px",
-                      lineHeight: "32px",
-                      textAlign: "start",
-                    },
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: getSecurityAlert?.description,
-                  }}
-                >
-                  {/* {getSecurityAlert.description} */}
-                </Typography>
                 <Box sx={{display:'flex',justifyContent:'center',gap:3}}>
-                <a target="_blank" href={getSecurityAlert?.url[2]}>
-                  <Button
-                    variant="outlined"
-                    endIcon={
-                      <ArrowForwardIcon
-                        sx={{
-                          background:
-                            "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                          borderRadius: "50%",
-                          width: "50px",
-                          height: "50px",
-                          color: "#ffffff",
-                          padding: 1.7,
-                          marginRight: -2,
-                          ml: 3,
-                          ":hover": {
-                            "@keyframes move-left": {
-                              "0%": {
-                                rotate: "0deg",
-                              },
-                              "100%": {
-                                rotate: "-35deg",
-                              },
-                            },
-                            animation:
-                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                          },
-                        }}
-                      />
-                    }
-                    sx={{
-                      background:
-                        "linear-gradient(90deg, #7DB1FF -7.37%, #97E6FF 68.51%)",
-                      borderRadius: "61px",
-                      padding: "8px 30px",
-                      fontSize: { md: "12px", xs: "10px" },
-                      mt: { md: 3, xs: 5 },
-                      fontWeight: 600,
-                      background: "#ffffff",
-                      fontFamily: inter.style.fontFamily,
-                      border:
-                        "1px solid var(--Blue-ACCYB, rgba(34, 45, 85, 0.2))",
-                      "&:hover": {
-                        backgroundColor: "#FFFFFF",
-                        border: "none",
-                      },
-                    }}
-                    // onClick={() => {
-                    //   router.push(`${getSecurityAlert?.url[0]}`);
-                    // }}
-                  >
-                    Mitre CVE-2024-26198
-                    {/* {getSecurityAlert?.url[0]} */}
-                  </Button>
-                </a>
+                
                 <a href={getSecurityAlert?.document}>
                   <Button
                     variant="outlined"
@@ -531,10 +342,33 @@ export default function CategoryDetails() {
                       },
                     }}
                   >
-                    BULLETIN MICROSOFT
+                    télécharger document
                   </Button>
                 </a>
                 </Box>
+
+
+               
+                <Typography
+                  sx={{
+                    fontFamily: inter.style.fontFamily,
+                    fontWeight: 400,
+                    color: "#222D55",
+                    mt: 5,
+                    fontSize: {
+                      md: "20px",
+                      xs: "10px",
+                      lineHeight: "32px",
+                      textAlign: "start",
+                    },
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: getSecurityAlert?.description,
+                  }}
+                >
+                  {/* {getSecurityAlert.description} */}
+                </Typography>
+                
                 {/* <Box>
                   <Typography
                     sx={{

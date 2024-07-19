@@ -39,7 +39,7 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCaseStudies } from "../../../redux/action/caseStudiesActions/caseStudiesAction";
@@ -108,6 +108,8 @@ const Img = styled(Image)(({ theme }) => ({
   height: "auto !important",
 }));
 export default function CaseStudies() {
+  const t = useTranslations("DiscovertheObservatory");
+  const p = useTranslations("OurPartners");
   const locales = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -220,7 +222,7 @@ export default function CaseStudies() {
                     fontSize: { lg: "64px", md: "50px", xs: "40px" },
                   }}
                 >
-                  Nos études
+                  {`${t("Title2")}`}
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
@@ -812,7 +814,7 @@ export default function CaseStudies() {
               mr: 1,
             }}
           >
-            Partenaires majeurs
+            {`${p("Title1")}`}
           </Typography>
           <Divider
             orientation="vertical"
@@ -856,7 +858,7 @@ export default function CaseStudies() {
               mr: 1,
             }}
           >
-            Soutenu par
+            {`${p("Title2")}`}
           </Typography>
           <Divider
             orientation="vertical"

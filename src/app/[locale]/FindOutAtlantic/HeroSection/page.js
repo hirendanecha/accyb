@@ -1,5 +1,12 @@
 "use client";
-import { Box, Button, Container, Grid, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Typography,
+  styled,
+} from "@mui/material";
 import React from "react";
 import { inter } from "../../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -7,7 +14,8 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Image from "next/image";
 import Logo from "../../../../Icons/Logo.svg";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+// import pdf from"../../../../../public/Documents/CSIRT-ATLANTIC-RFC-2350-v0.5.pdf";
 const Img = styled(Image)(({ theme }) => ({
   width: "151px !important",
   height: "151px !important",
@@ -18,6 +26,7 @@ const Img = styled(Image)(({ theme }) => ({
 }));
 
 export default function HeroSection() {
+  const t = useTranslations("DiscoverCSIRT");
   const router = useRouter();
   const locale = useLocale();
   const handleContactUsClick = (event) => {
@@ -69,14 +78,14 @@ export default function HeroSection() {
                   maxWidth: "650px !important",
                 }}
               >
-                Découvrir le{" "}
+                {`${t("Title1")}`}{" "}
                 <u
                   style={{
                     textDecorationThickness: "3px",
                     textUnderlineOffset: "10px",
                   }}
                 >
-                  CSIRT-ATLANTIC
+                  {`${t("Title2")}`}
                 </u>{" "}
               </Box>
               <Box
@@ -110,7 +119,8 @@ export default function HeroSection() {
                               rotate: "-35deg",
                             },
                           },
-                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          animation:
+                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
                         },
                       }}
                     />
@@ -134,51 +144,58 @@ export default function HeroSection() {
                     },
                   }}
                 >
-                  voir nos alertes de sécurité
+                  {`${t("Button1")}`}
                 </Button>
-                <Button
-                  variant="outlined"
-                  endIcon={
-                    <ArrowForwardIcon
-                      sx={{
-                        backgroundColor: "#FC0029",
-                        borderRadius: "50%",
-                        width: { md: "50px", xs: "40px" },
-                        height: { md: "50px", xs: "40px" },
-                        padding: 1.7,
-                        marginRight: -2,
-                        ":hover": {
-                          "@keyframes move-left": {
-                            "0%": {
-                              rotate: "0deg",
-                            },
-                            "100%": {
-                              rotate: "-35deg",
-                            },
-                          },
-                          animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                        },
-                      }}
-                    />
-                  }
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    color: "#FFFFFF",
-                    border: "1px solid #FFFFFF",
-                    borderRadius: "61px",
-                    fontSize: "12px",
-                    padding: "8px 30px",
-                    fontWeight: 600,
-                    fontFamily: inter.style.fontFamily,
-                    ":hover": {
-                      borderColor: "#8E9BBF",
-                      border: "1px solid rgba(255, 255, 255, 0.5)",
-                    },
-                  }}
+                <a
+                  href="/Documents/CSIRT-ATLANTIC.pdf"
+                  download='CSIRT-ATLANTIC-RFC-2350-v0.5.pdf'
+                  style={{ textDecoration: "none" }}
                 >
-                  RFC 2350
-                </Button>
+                  <Button
+                    variant="outlined"
+                    endIcon={
+                      <ArrowForwardIcon
+                        sx={{
+                          backgroundColor: "#FC0029",
+                          borderRadius: "50%",
+                          width: { md: "50px", xs: "40px" },
+                          height: { md: "50px", xs: "40px" },
+                          padding: 1.7,
+                          marginRight: -2,
+                          ":hover": {
+                            "@keyframes move-left": {
+                              "0%": {
+                                rotate: "0deg",
+                              },
+                              "100%": {
+                                rotate: "-35deg",
+                              },
+                            },
+                            animation:
+                              "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                          },
+                        }}
+                      />
+                    }
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      color: "#FFFFFF",
+                      border: "1px solid #FFFFFF",
+                      borderRadius: "61px",
+                      fontSize: "12px",
+                      padding: "8px 30px",
+                      fontWeight: 600,
+                      fontFamily: inter.style.fontFamily,
+                      ":hover": {
+                        borderColor: "#8E9BBF",
+                        border: "1px solid rgba(255, 255, 255, 0.5)",
+                      },
+                    }}
+                  >
+                    {`${t("Button2")}`}
+                  </Button>
+                </a>
               </Box>
             </Grid>
             <Grid item md={2}></Grid>
@@ -195,7 +212,12 @@ export default function HeroSection() {
               }}
             >
               <Box mt={{ md: -15, xs: 5 }}>
-                <Box sx={{ display: "flex", justifyContent: { lg: "flex-end", xs: "center" } }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: { lg: "flex-end", xs: "center" },
+                  }}
+                >
                   <Img src={Logo} alt="logo" />
                 </Box>
                 <Typography
@@ -207,10 +229,7 @@ export default function HeroSection() {
                     lineHeight: { md: "22px", xs: "20px" },
                   }}
                 >
-                  Le CSIRT-ATLANTIC est le centre d'assistance cyber unique pour les bénéficiaires de taille
-                  intermédiaire des territoires français d'Amérique. Il est au cœur du dispositif national de CSIRT
-                  régionaux soutenu par l'ANSSI, engagé dans des actions de prévention, protection et partage
-                  d'information communautaire cyber.
+                  {`${t("Description")}`}
                 </Typography>
                 <Typography
                   sx={{
@@ -222,11 +241,11 @@ export default function HeroSection() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Horaires d'ouverture :
+                  {`${t("Description1")}`}
                   <br />
-                  Lundi au vendredi (hors jours fériés)
+                  {`${t("Description2")}`}
                   <br />
-                  de 8h30 à 12h30 - 14h00 à 17h00
+                  {`${t("Description3")}`}
                 </Typography>
               </Box>
               <Box
@@ -288,7 +307,8 @@ export default function HeroSection() {
                             rotate: "-35deg",
                           },
                         },
-                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation:
+                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
@@ -312,7 +332,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                voir nos alertes de sécurité
+                {`${t("Button1")}`}
               </Button>
               <Button
                 variant="outlined"
@@ -334,7 +354,8 @@ export default function HeroSection() {
                             rotate: "-35deg",
                           },
                         },
-                        animation: "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        animation:
+                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
                       },
                     }}
                   />
@@ -356,7 +377,7 @@ export default function HeroSection() {
                   },
                 }}
               >
-                RFC 2350
+                {`${t("Button2")}`}
               </Button>
             </Box>
           </Grid>

@@ -374,7 +374,7 @@ export default function HandleForm() {
                         },
                       }}
                       control={
-                        <Radio
+                        <Checkbox
                           checked={selectedValues?.includes(item.value)}
                           onChange={(e) => {
                             const { value } = e.target;
@@ -609,7 +609,7 @@ export default function HandleForm() {
                         },
                       }}
                       control={
-                        <Radio
+                        <Checkbox
                           checked={selectedNatureValues?.includes(item.value)}
                           onChange={(e) => {
                             const { value } = e.target;

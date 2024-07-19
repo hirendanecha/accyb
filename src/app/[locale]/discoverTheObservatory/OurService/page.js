@@ -14,8 +14,10 @@ import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function OurService() {
+  const t = useTranslations("DiscovertheObservatory_OurMissions")
   const searchParams = useSearchParams();
   const search = searchParams.get("mission");
   useEffect(() => {
@@ -26,37 +28,33 @@ export default function OurService() {
   const data = [
     {
       icon: Discover3,
-      title: "Collecter",
-      description:
-        "Consolider à l'aide de divers moyens organisationnels et techniques, des informations clés utiles à la compréhension de nos territoires.",
+      title: `${t("title1")}`,
+      description:`${t("detail1")}`,
     },
     {
       icon: Picto3,
-      title: "Analyser",
-      description: "Etudier les tendances et les évolutions en matière de cybersécurité sur nos territoires.",
+      title: `${t("title2")}`,
+      description: `${t("detail2")}`,
     },
     {
       icon: Discover1,
-      title: "Partager",
-      description:
-        "Outiller la communauté de CSIRT, les décideurs économiques et plus généralement le plus grand nombre, à la prise de décision par la mise à disposition d'études de nos territoires.",
+      title: `${t("title3")}`,
+      description:`${t("detail3")}`,
     },
     {
       icon: Discover3,
-      title: "Collecter",
-      description:
-        "Consolider à l'aide de divers moyens organisationnels et techniques, des informations clés utiles à la compréhension de nos territoires.",
+      title: `${t("title1")}`,
+      description:`${t("detail1")}`,
     },
     {
       icon: Picto3,
-      title: "Analyser",
-      description: "Etudier les tendances et les évolutions en matière de cybersécurité sur nos territoires.",
+      title: `${t("title2")}`,
+      description: `${t("detail2")}`,
     },
     {
       icon: Discover1,
-      title: "Partager",
-      description:
-        "Outiller la communauté de CSIRT, les décideurs économiques et plus généralement le plus grand nombre, à la prise de décision par la mise à disposition d'études de nos territoires.",
+      title: `${t("title3")}`,
+      description:`${t("detail3")}`,
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -94,7 +92,7 @@ export default function OurService() {
               },
             }}
           >
-            Nos missions
+            {`${t("Title")}`}
           </Box>
         </Container>
 

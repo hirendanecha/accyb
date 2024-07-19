@@ -32,7 +32,7 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function Partenaires() {
-  const t = useTranslations("partners");
+  const t = useTranslations("OurPartners");
   const partners = [
     {
       img: Logo1,
@@ -103,7 +103,7 @@ export default function Partenaires() {
                   mr: 1,
                 }}
               >
-                Partenaires majeurs
+                {`${t("Title1")}`}
               </Typography>
               <Divider
                 orientation="vertical"
@@ -150,7 +150,7 @@ export default function Partenaires() {
                   mr: 1,
                 }}
               >
-                Soutenu par
+                {`${t("Title2")}`}
               </Typography>
               <Divider
                 orientation="vertical"

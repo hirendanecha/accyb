@@ -26,7 +26,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 export default function OurService() {
-  const t = useTranslations("OurMission");
+  const t = useTranslations("DiscoverTheACCYBOurMission");
   const searchParams = useSearchParams();
   const search = searchParams.get("mission");
   const router = useRouter();

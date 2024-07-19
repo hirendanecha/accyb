@@ -403,7 +403,7 @@ export default function App({ loading, getEvent }) {
                     </Button>
                   </Box>
                 </Grid>
-                <Grid
+                {getEvent?.registerLink && (<Grid
                   item
                   xs={12}
                   md={4}
@@ -479,7 +479,7 @@ export default function App({ loading, getEvent }) {
                       s’inscrire à l’événement
                     </Button>
                   </Box>
-                </Grid>
+                </Grid>)}
               </Grid>
             </Box>
           </>

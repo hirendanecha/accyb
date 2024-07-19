@@ -214,7 +214,7 @@ export default function HeroSection() {
                     lineHeight: { md: "25px", xs: "22px" },
                   }}
                 >
-                  Retrouvez les alertes de sécurité du CSIRT-ATLANTIC prévenant d’un évènement de sécurité majeu
+                  Retrouvez les alertes de sécurité du CSIRT-ATLANTIC prévenant d’un évènement de sécurité majeur.
                 </Typography>
               </Box>
             </Grid>

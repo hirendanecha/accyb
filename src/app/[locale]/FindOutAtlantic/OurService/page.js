@@ -14,45 +14,43 @@ import { Pagination } from "swiper/modules";
 import { inter } from "../../../../fonts/fonts";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function OurService() {
+  const t = useTranslations("DiscoverCSIRT_OurMissions");
   const searchParams = useSearchParams();
   const search = searchParams.get("mission");
   const data = [
     {
       icon: Picto3,
-      title: "Répondre",
-      description: "Réceptionner, qualifier et trier les déclaration d'incidents de cybersécurité",
+      title: `${t("title1")}`,
+      description: `${t("description1")}`,
     },
     {
       icon: Picto1,
-      title: "Protéger",
-      description:
-        "Mettre en relation le bénéficiaire avec des prestataires de proximité labelisés et/ou qualifiés par les autorités compétentes nationales pour le traitement de l'incident de sécurité.",
+      title: `${t("title2")}`,
+      description:`${t("description2")}`,
     },
     {
       icon: Picto2,
-      title: "Coopérer",
-      description:
-        "Collaborer au sein de la communauté de CSIRT régionaux et du CERT-FR. Consolider et partager les résultats de l’incidentologie avec le CERT-FR.",
+      title: `${t("title3")}`,
+      description:`${t("description3")}`,
     },
 
     {
       icon: Picto3,
-      title: "Répondre",
-      description: "Réceptionner, qualifier et trier les déclaration d'incidents de cybersécurité",
+      title: `${t("title1")}`,
+      description: `${t("description1")}`,
     },
     {
       icon: Picto1,
-      title: "Protéger",
-      description:
-        "Mettre en relation le bénéficiaire avec des prestataires de proximité labelisés et/ou qualifiés par les autorités compétentes nationales pour le traitement de l'incident de sécurité.",
+      title: `${t("title2")}`,
+      description:`${t("description2")}`,
     },
     {
       icon: Picto2,
-      title: "Coopérer",
-      description:
-        "Collaborer au sein de la communauté de CSIRT régionaux et du CERT-FR. Consolider et partager les résultats de l’incidentologie avec le CERT-FR.",
+      title: `${t("title3")}`,
+      description:`${t("description3")}`,
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);

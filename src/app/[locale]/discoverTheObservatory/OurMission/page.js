@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useAnimation } from "framer-motion";
 import { inter } from "../../../../fonts/fonts";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "63px !important",
   height: "auto !important",
@@ -19,6 +20,7 @@ const Img = styled(Image)(({ theme }) => ({
   },
 }));
 export default function OurMission() {
+  const t = useTranslations("DiscovertheObservatory_OurServices")
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -64,23 +66,23 @@ export default function OurMission() {
   const activites = [
     {
       img: Photo1,
-      title: "Panorama de la maturité Cyber",
+      title: `${t("title1")}`,
     },
     {
       img: Photo2,
-      title: "Panorama de la e-confiance",
+      title: `${t("title2")}`,
     },
     {
       img: Photo3,
-      title: "Panorama de la formation",
+      title: `${t("title3")}`,
     },
     {
       img: Photo4,
-      title: "Météo de la menace",
+      title: `${t("title4")}`,
     },
     {
       img: Photo5,
-      title: "Cartographie de l’incidentologie",
+      title: `${t("title5")}`,
     },
   ];
   return (
@@ -114,7 +116,7 @@ export default function OurMission() {
               maxWidth: "900px !important",
             }}
           >
-            Nos services
+            {`${t("Title")}`}
           </Box>
           {/* </motion.div> */}
         </Box>

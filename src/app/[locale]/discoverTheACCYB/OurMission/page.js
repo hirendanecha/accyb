@@ -22,6 +22,7 @@ import Logo6 from "../../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
+import { useTranslations } from "next-intl";
 const Img = styled(Image)(({ theme }) => ({
   width: "39px !important",
   height: "auto !important",
@@ -74,6 +75,8 @@ const supported = [
   // },
 ];
 export default function OurMission() {
+  const t = useTranslations("DiscoverTheACCYBOurServices");
+  const p =useTranslations("OurPartners");
   const controls = useAnimation();
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -119,27 +122,27 @@ export default function OurMission() {
   const activites = [
     {
       img: Image1,
-      title: "Diagnostic cybersécurité",
+      title: `${t("OurServicesActivity1")}`,
     },
     {
       img: Image5,
-      title: "Consultation stratégique",
+      title: `${t("OurServicesActivity2")}`,
     },
     {
       img: Image2,
-      title: "Sensibilisation des adhérents et du grand public",
+      title: `${t("OurServicesActivity3")}`,
     },
     {
       img: Image6,
-      title: "Suivi de maturité Cyber",
+      title: `${t("OurServicesActivity4")}`,
     },
     {
       img: Image3,
-      title: "Ambassadeur cyber",
+      title: `${t("OurServicesActivity5")}`,
     },
     {
       img: Image4,
-      title: "Documentation de référence",
+      title: `${t("OurServicesActivity6")}`,
     },
     // {
     //   img: Image7,
@@ -170,7 +173,7 @@ export default function OurMission() {
               fontFamily: inter.style.fontFamily,
             }}
           >
-            Nos services
+            {`${t("OurServicesTitle")}`}
           </Typography>
           {/* </motion.div> */}
         </Box>
@@ -446,7 +449,7 @@ export default function OurMission() {
               mr: 1,
             }}
           >
-            Partenaires majeurs
+            {`${p("Title1")}`}
           </Typography>
           <Divider
             orientation="vertical"
@@ -492,7 +495,7 @@ export default function OurMission() {
               mr: 1,
             }}
           >
-            Soutenu par
+            {`${p("Title2")}`}
           </Typography>
           <Divider
             orientation="vertical"
