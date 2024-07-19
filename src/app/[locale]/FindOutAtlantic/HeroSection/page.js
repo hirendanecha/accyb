@@ -148,7 +148,7 @@ export default function HeroSection() {
                 </Button>
                 <a
                   href="/Documents/CSIRT-ATLANTIC.pdf"
-                  download='CSIRT-ATLANTIC-RFC-2350-v0.5.pdf'
+                  download="CSIRT-ATLANTIC-RFC-2350-v0.5.pdf"
                   style={{ textDecoration: "none" }}
                 >
                   <Button
@@ -334,51 +334,57 @@ export default function HeroSection() {
               >
                 {`${t("Button1")}`}
               </Button>
-              <Button
-                variant="outlined"
-                endIcon={
-                  <ArrowForwardIcon
-                    sx={{
-                      backgroundColor: "#FC0029",
-                      borderRadius: "50%",
-                      width: { md: "50px", xs: "40px" },
-                      height: { md: "50px", xs: "40px" },
-                      padding: 1.7,
-                      marginRight: -2,
-                      ":hover": {
-                        "@keyframes move-left": {
-                          "0%": {
-                            rotate: "0deg",
-                          },
-                          "100%": {
-                            rotate: "-35deg",
-                          },
-                        },
-                        animation:
-                          "move-left 0.3s ease-in-out 0s 1 normal forwards",
-                      },
-                    }}
-                  />
-                }
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  color: "#FFFFFF",
-                  border: "1px solid #ffffff",
-                  borderRadius: "61px",
-                  fontSize: "12px",
-                  mt: 2,
-                  padding: "8px 30px",
-                  fontWeight: 600,
-                  fontFamily: inter.style.fontFamily,
-                  ":hover": {
-                    borderColor: "#8E9BBF",
-                    border: "1px solid rgba(255, 255, 255, 0.5)",
-                  },
-                }}
+              <a
+                href="/Documents/CSIRT-ATLANTIC.pdf"
+                download="CSIRT-ATLANTIC-RFC-2350-v0.5.pdf"
+                style={{ textDecoration: "none" }}
               >
-                {`${t("Button2")}`}
-              </Button>
+                <Button
+                  variant="outlined"
+                  endIcon={
+                    <ArrowForwardIcon
+                      sx={{
+                        backgroundColor: "#FC0029",
+                        borderRadius: "50%",
+                        width: { md: "50px", xs: "40px" },
+                        height: { md: "50px", xs: "40px" },
+                        padding: 1.7,
+                        marginRight: -2,
+                        ":hover": {
+                          "@keyframes move-left": {
+                            "0%": {
+                              rotate: "0deg",
+                            },
+                            "100%": {
+                              rotate: "-35deg",
+                            },
+                          },
+                          animation:
+                            "move-left 0.3s ease-in-out 0s 1 normal forwards",
+                        },
+                      }}
+                    />
+                  }
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    color: "#FFFFFF",
+                    border: "1px solid #ffffff",
+                    borderRadius: "61px",
+                    fontSize: "12px",
+                    mt: 2,
+                    padding: "8px 30px",
+                    fontWeight: 600,
+                    fontFamily: inter.style.fontFamily,
+                    ":hover": {
+                      borderColor: "#8E9BBF",
+                      border: "1px solid rgba(255, 255, 255, 0.5)",
+                    },
+                  }}
+                >
+                  {`${t("Button2")}`}
+                </Button>
+              </a>
             </Box>
           </Grid>
         </Container>
