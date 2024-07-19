@@ -87,7 +87,6 @@ export default function HeroSection() {
   const [loading, setLoading] = useState(true);
 
   const { allSecurityAlerts } = useSelector((state) => state.securityAlerts);
-  console.log(allSecurityAlerts, "allSecurityAlerts");
   useEffect(() => {
     dispathch(getAllSecurityAlerts())
       .unwrap()
