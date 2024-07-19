@@ -1,14 +1,20 @@
-
-
-export async function generateMetadata({ children }) {
-  return {
-    title: "ACCYB",
-    description: "Caribbean Cybersecurity Agency (CCYBA)",
-    imageurl: `https://accyb.vercel.app/Thumbnail1.png`,
-    websiteurl: `https://accyb.vercel.app`,
-  };
-}
-
+export const metadata = {
+  openGraph: {
+    title: 'ACCYB',
+    description: 'Caribbean Cybersecurity Agency (CCYBA)',
+    url: 'https://accyb.vercel.app',
+    // siteName: 'Next.js',
+    images: [
+      {
+        url: 'https://accyb.vercel.app/Thumbnail1.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+    ],
+    // locale: 'en_US',
+    type: 'website',
+  },
+};
   
 export default function RootLayout({ children }) {
   return children;

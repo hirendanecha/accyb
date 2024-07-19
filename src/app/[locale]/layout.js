@@ -7,10 +7,21 @@ import ThemeProviderWrapper from "../../fonts/ThemeProviderWrapper";
 import ProviderLayout from "../provider";
 import Cookie from "../[locale]/cookie";
 export const metadata = {
-  title: "ACCYB",
-  description: "Caribbean Cybersecurity Agency (CCYBA)",
-  imageurl : `https://accyb.vercel.app/Thumbnail.png`,
-  websiteurl : `https://accyb.vercel.app`
+  openGraph: {
+    title: 'ACCYB',
+    description: 'Caribbean Cybersecurity Agency (CCYBA)',
+    url: 'https://accyb.vercel.app',
+    // siteName: 'Next.js',
+    images: [
+      {
+        url: 'https://accyb.vercel.app/Thumbnail.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+    ],
+    // locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children, params: { locale } }) {
@@ -22,33 +33,7 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <ThemeProviderWrapper>
       <html lang={locale}>
-        <head>
-          <meta property="og:title" content="ACCYB" />
-          <meta
-            property="og:description"
-            content="Caribbean Cybersecurity Agency (CCYBA)"
-          />
-        {/* <!-- Google / Search Engine Tags --> */}
-        <meta itemprop="image" content={metadata.imageurl} />
-
-        {/* <!-- Facebook Meta Tags --> */}
-        <meta property="og:url" content={metadata.websiteurl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
-        <meta property="og:image" content={metadata.imageurl} />
-
-        {/* <!-- Twitter Meta Tags --> */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={metadata.imageurl} />
-        <meta name="twitter:url" content={metadata.websiteurl} />
-        <meta name="twitter:site" content={metadata.websiteurl} />
-
-          <meta name="skype_toolbox" content={metadata.imageurl} />
-          <meta name="skype_toolbox" content={metadata.description} />
-          <meta name="skype_toolbox" content={metadata.description} />
-          <meta name="skype_toolbox" content={metadata.websiteurl} />
-        </head>
+        
         <body className={inter.className}>
           <ProviderLayout>
             <NextIntlClientProvider locale={locale} messages={messages}>
