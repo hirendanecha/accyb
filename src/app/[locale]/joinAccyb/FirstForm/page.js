@@ -16,8 +16,10 @@ import {
 import Stepper from "../../../../Components/Common/Stepper/page";
 import HandleMemberForm from "../../../../Components/Forms/HandleMemberOneForm/page";
 import { inter } from "../../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 
 export default function JoinAccyb() {
+  const t = useTranslations("JoinACCYBFirstForm")
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -44,7 +46,7 @@ export default function JoinAccyb() {
                   color: "#222D55",
                 }}
               >
-                Bulletin d’adhésion 2024
+                {`${t("Title")}`}
               </Typography>
               <Typography
                 sx={{
@@ -55,7 +57,7 @@ export default function JoinAccyb() {
                   color: "#222D55",
                 }}
               >
-                Ce formulaire d’adhésion couvre la période du 01 janvier 2023 au 31 décembre 2024
+                {`${t("title")}`}
               </Typography>
             </Box>
             <HandleMemberForm />

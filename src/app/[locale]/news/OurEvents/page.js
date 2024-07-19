@@ -28,7 +28,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
 import { getAllNews } from "../../../redux/action/newsActions/newsAction";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import dayjs from "dayjs";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -51,6 +51,7 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
+  const t = useTranslations("News");
   const { monthEvents, eventLoading } = useSelector((state) => state.events);
   const { allNews } = useSelector((state) => state.news);
   const dispatch = useDispatch();
@@ -63,51 +64,51 @@ export default function OurEvents() {
   const category = [
     {
       id: 1,
-      name: "Janvier",
+      name: `${t("month1")}`,
     },
     {
       id: 2,
-      name: "février",
+      name: `${t("month2")}`,
     },
     {
       id: 3,
-      name: "mars",
+      name: `${t("month3")}`,
     },
     {
       id: 4,
-      name: "avril",
+      name: `${t("month4")}`,
     },
     {
       id: 5,
-      name: "mai",
+      name: `${t("month5")}`,
     },
     {
       id: 6,
-      name: "juin",
+      name: `${t("month6")}`,
     },
     {
       id: 7,
-      name: "juillet",
+      name: `${t("month7")}`,
     },
     {
       id: 8,
-      name: "août",
+      name: `${t("month8")}`,
     },
     {
       id: 9,
-      name: "septembre",
+      name: `${t("month9")}`,
     },
     {
       id: 10,
-      name: "Octobre",
+      name: `${t("month10")}`,
     },
     {
       id: 11,
-      name: "novembre",
+      name: `${t("month11")}`,
     },
     {
       id: 12,
-      name: "décembre",
+      name: `${t("month12")}`,
     },
   ];
 
@@ -141,7 +142,7 @@ export default function OurEvents() {
               mt: { md: 0, xs: 4 },
             }}
           >
-            Nos événements
+            {`${t("Title")}`}
           </Typography>
           <Box
             sx={{
@@ -361,7 +362,7 @@ export default function OurEvents() {
                               fontFamily: inter.style.fontFamily,
                             }}
                           >
-                            {month}
+                            {`${t("EventTitle")}`}
                           </Typography>
                           <Typography
                             sx={{
@@ -461,7 +462,7 @@ export default function OurEvents() {
                       fontSize: "18px",
                     }}
                   >
-                    No Event Found
+                    {`${t("NotFound")}`}
                   </Typography>
                 </Box>
               )}
@@ -571,7 +572,7 @@ export default function OurEvents() {
                               textTransform: "uppercase",
                             }}
                           >
-                            ACTUALITÉ
+                            {`${t("Title1")}`}
                           </Typography>
                           <Typography
                             sx={{

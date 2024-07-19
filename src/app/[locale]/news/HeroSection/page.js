@@ -14,10 +14,11 @@ import { inter } from "../../../../fonts/fonts";
 import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
 export default function App({ allEvents }) {
+  const t = useTranslations("News");
   const locales = useLocale();
   const router = useRouter();
 
@@ -128,7 +129,7 @@ export default function App({ allEvents }) {
                               },
                             }}
                           >
-                            événement
+                            {`${t("EventTitle")}`}
                           </Button>
                           <Box
                             mt={1}

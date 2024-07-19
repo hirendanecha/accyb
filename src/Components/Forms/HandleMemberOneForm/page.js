@@ -20,7 +20,7 @@ import Select from "@mui/material/Select";
 import DoneIcon from "@mui/icons-material/Done";
 import MenuItem from "@mui/material/MenuItem";
 import EuroIcon from "@mui/icons-material/Euro";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -78,6 +78,7 @@ const schema = yup
   })
   .required();
 export default function HandleForm() {
+  const t = useTranslations("JoinACCYBFirstForm")
   const locales = useLocale();
   const router = useRouter();
   const [name, setName] = React.useState("Cat in the Hat");
@@ -163,7 +164,7 @@ export default function HandleForm() {
               color: "#222D55",
             }}
           >
-            Raison sociale
+            {`${t("field1")}`}
           </Typography>
           <ValidationTextField
                 fullWidth
@@ -198,7 +199,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                SIREN
+                {`${t("field2")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -234,7 +235,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                SIRET
+                {`${t("field3")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -269,7 +270,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Nombre de salariés
+                {`${t("field4")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -304,7 +305,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Nombre de salariés du groupe
+                {`${t("field5")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -349,7 +350,7 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Nature
+            {`${t("title1")}`}
           </Typography>
           {/* <ValidationTextField
                 fullWidth
@@ -404,12 +405,12 @@ export default function HandleForm() {
                     }}
                     value="Administration"
                     control={<Radio />}
-                    label="Administration"
+                    label={`${t("radio1")}`}
                   />
                   <FormControlLabel
                     value="Collectivité"
                     control={<Radio />}
-                    label="Collectivité"
+                    label={`${t("radio2")}`}
                     sx={{
                       width: "170px",
                       "& .MuiFormControlLabel-label": {
@@ -421,7 +422,7 @@ export default function HandleForm() {
                   <FormControlLabel
                     value="Organisme public"
                     control={<Radio />}
-                    label="Organisme public"
+                    label={`${t("radio3")}`}
                     sx={{
                       width: "170px",
                       "& .MuiFormControlLabel-label": {
@@ -433,7 +434,7 @@ export default function HandleForm() {
                   <FormControlLabel
                     value="association"
                     control={<Radio />}
-                    label="Association"
+                    label={`${t("radio4")}`}
                     sx={{
                       width: "170px",
                       "& .MuiFormControlLabel-label": {
@@ -445,7 +446,7 @@ export default function HandleForm() {
                   <FormControlLabel
                     value="entreprise"
                     control={<Radio />}
-                    label="Entreprise"
+                    label={`${t("radio5")}`}
                     sx={{
                       width: "170px",
                       "& .MuiFormControlLabel-label": {
@@ -467,7 +468,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Domaine d’activité
+                {`${t("field6")}`}
               </Typography>
               <Box mt={3}>
                 <FormControl variant="standard" fullWidth>
@@ -483,37 +484,37 @@ export default function HandleForm() {
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Administration publique"}
                     >
-                      Administration publique
+                      {`${t("selectValue1")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Eau potable"}
                     >
-                      Eau potable
+                      {`${t("selectValue2")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Eaux usées"}
                     >
-                      Eaux usées
+                      {`${t("selectValue3")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Energie"}
                     >
-                      Energie
+                      {`${t("selectValue4")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Espace"}
                     >
-                      Espace
+                      {`${t("selectValue5")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Fabrication"}
                     >
-                      Fabrication
+                      {`${t("selectValue6")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -521,32 +522,31 @@ export default function HandleForm() {
                         "Fabrication, production et distribution de produits chimiques"
                       }
                     >
-                      Fabrication, production et distribution de produits
-                      chimiques
+                      {`${t("selectValue7")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Fournisseurs numériques"}
                     >
-                      Fournisseurs numériques
+                      {`${t("selectValue8")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Gestion des déchets"}
                     >
-                      Gestion des déchets
+                      {`${t("selectValue9")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Gestion des services TIC (interentreprises)"}
                     >
-                      Gestion des services TIC (interentreprises)
+                      {`${t("selectValue10")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Infrastructures des marchés financiers"}
                     >
-                      Infrastructures des marchés financiers
+                      {`${t("selectValue11")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -554,26 +554,25 @@ export default function HandleForm() {
                         "Production, transformation et distribution des denrées alimentaires"
                       }
                     >
-                      Production, transformation et distribution des denrées
-                      alimentaires
+                      {`${t("selectValue12")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Recherche"}
                     >
-                      Recherche
+                      {`${t("selectValue13")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Transport"}
                     >
-                      Transport
+                      {`${t("selectValue14")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Santé"}
                     >
-                      Santé
+                      {`${t("selectValue15")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -581,7 +580,7 @@ export default function HandleForm() {
                         "Secteur bancaire Services postaux et d’expédition"
                       }
                     >
-                      Secteur bancaire Services postaux et d’expédition
+                      {`${t("selectValue16")}`}
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -605,7 +604,7 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Facturation - contact comptabilité*
+            {`${t("title2")}`}
           </Typography>
           <Grid container columnSpacing={5} mt={7}>
             <Grid item xs={12} md={6}>
@@ -616,7 +615,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Prénom
+                {`${t("field7")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -650,7 +649,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Nom
+                {`${t("field8")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -684,7 +683,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Téléphone
+                {`${t("field9")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -718,7 +717,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Email
+                {`${t("field10")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -752,7 +751,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Adresse de facturation
+                {`${t("field11")}`}
               </Typography>
               <ValidationTextField
                 multiline
@@ -788,9 +787,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                *L’adhésion ne sera effective qu’après l’approbation du dossier
-                complet (y compris le bon de commande ou le règlement dès la
-                candidature) par le Conseil d’administration.
+                {`${t("text")}`}
               </Typography>
             </Grid>
           </Grid>

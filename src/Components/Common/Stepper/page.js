@@ -7,18 +7,20 @@ import StepLabel from "@mui/material/StepLabel";
 import { inter } from "../../../fonts/fonts";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    label: "Bulletin d’adhésion",
-  },
-  {
-    label: "référent de l’adhésion",
-  },
-];
 
 export default function VerticalLinearStepper({ activeStep }) {
+  const t = useTranslations("StepperOne")
   const router = useRouter();
+  const steps = [
+    {
+      label: `${t("title1")}`,
+    },
+    {
+      label: `${t("title2")}`,
+    },
+  ];
   return (
     <>
       {activeStep === 1 && (
