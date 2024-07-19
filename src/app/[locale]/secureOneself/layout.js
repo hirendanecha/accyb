@@ -6,7 +6,7 @@ export const metadata = {
     // siteName: 'Next.js',
     images: [
       {
-        url: 'https://accyb.vercel.app/Thumbnail1.png', // Must be an absolute URL
+        url: 'https://accyb.vercel.app/Thumbnail1.svg', // Must be an absolute URL
         width: 800,
         height: 600,
       },

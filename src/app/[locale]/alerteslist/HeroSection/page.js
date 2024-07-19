@@ -81,7 +81,7 @@ export default function HeroSection() {
   const [pagination, setPagination] = useState([]);
   // console.log(pagination, "pagination");
 
-  const itemsPerPage = 4; // Number of items per page
+  const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
 
   const [loading, setLoading] = useState(true);
