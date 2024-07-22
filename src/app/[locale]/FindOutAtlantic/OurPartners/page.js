@@ -20,7 +20,7 @@ import Logo6 from "../../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
-import Logo10 from "../../../../Icons/Supported/Logo6.svg";
+import Logo10 from "../../../../Icons/Supported/Logo6.png";
 import Findimg1 from "../../../../Icons/Findimg1.svg";
 import Findimg2 from "../../../../Icons/Findimg2.svg";
 import Findimg3 from "../../../../Icons/Findimg3.svg";
@@ -38,16 +38,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const Img = styled(Image)(({ theme }) => ({
-  width: "100px !important",
-  height: "97px !important",
+  // width: "100px !important",
+  // height: "97px !important",
 }));
 const Imges = styled(Image)(({ theme }) => ({
   width: "100px !important",
   height: "120px !important",
 }));
 const Imgs = styled(Image)(({ theme }) => ({
-  width: "110px !important",
-  height: "97px !important",
+  // width: "110px !important",
+  // height: "97px !important",
 }));
 
 export default function OurPartners() {
@@ -630,7 +630,7 @@ export default function OurPartners() {
                   mr: { md: 2, xs: 0 },
                 }}
               >
-                <Img src={ele.img} width={900} height={900} alt="img" />
+                <Img src={ele.img} width={80} height={100} alt="img" />
               </Box>
             );
           })}
@@ -673,7 +673,12 @@ export default function OurPartners() {
                   mr: { md: 2, xs: 0 },
                 }}
               >
-                <Imgs src={ele.img} width={1200} height={1200} alt="img" />
+                <Imgs
+                  src={ele.img}
+                  width={140}
+                  height={100}
+                  alt="img"
+                />
               </Box>
             );
           })}
