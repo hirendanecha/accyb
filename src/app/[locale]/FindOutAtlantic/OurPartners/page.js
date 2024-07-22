@@ -651,7 +651,7 @@ export default function OurPartners() {
               fontSize: { md: "14px", xs: "12px" },
               maxWidth: "50px",
               textAlign: "end",
-              mr: 1,
+              mr: 5,
             }}
           >
             {`${p("Title2")}`}

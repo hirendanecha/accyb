@@ -234,7 +234,7 @@ export default function Page({ getEvent }) {
             />
             <Box sx={{ textAlign: "center" }}>
               <Box>
-                <Typography
+                {/* <Typography
                   sx={{
                     mt: 10,
                     fontFamily: inter.style.fontFamily,
@@ -246,7 +246,7 @@ export default function Page({ getEvent }) {
                   }}
                 >
                   {getEvent?.access}
-                </Typography>
+                </Typography> */}
                 <Typography
                   dangerouslySetInnerHTML={{ __html: getEvent?.description }}
                   sx={{
