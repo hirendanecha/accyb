@@ -16,8 +16,10 @@ import {
 import Stepper from "../../../../Components/Common/Stepper/page";
 import HandleMemberForm from "../../../../Components/Forms/HandleMmbersTwoForm/page";
 import { inter } from "../../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 
 export default function JoinAccyb() {
+  const t = useTranslations('JoinACCYB_SecondForm');
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -44,7 +46,7 @@ export default function JoinAccyb() {
                   color: "#222D55",
                 }}
               >
-                Référent de l’adhésion
+                {`${t("Title")}`}
               </Typography>
               <Typography
                 sx={{
@@ -56,7 +58,7 @@ export default function JoinAccyb() {
                   color: "#222D55",
                 }}
               >
-                Seul le référent de l’adhésion peut exercer le droit de vote de l’organisation adhérente.
+                {`${t("text1")}`}
               </Typography>
               <Typography
                 sx={{
@@ -68,10 +70,7 @@ export default function JoinAccyb() {
                   color: "#222D55",
                 }}
               >
-                Cette adhésion vous permet notamment de représenter son organisme aux assemblées générales, participer
-                aux groupes de travail de l’ACCYB, assister à nos manifestations, avoir accès à l’annuaire des membres,
-                être informé de conférences ou salons dont l’ACCYB est partenaire et bénéficier de tarifs préférentiels
-                sur certaines manifestations et publications.
+                {`${t("text2")}`}
               </Typography>
             </Box>
             <HandleMemberForm />

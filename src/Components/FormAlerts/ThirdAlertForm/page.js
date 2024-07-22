@@ -14,7 +14,7 @@ import {
 import { inter } from "../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -70,6 +70,7 @@ const schema = yup
   .required();
 
 export default function HandleForm() {
+  const t = useTranslations("DeclareAnIncident_ThirdForm");
   const {
     generalInformation,
     registrantInformation,
@@ -82,14 +83,14 @@ export default function HandleForm() {
   const locales = useLocale();
   const dispatch = useDispatch();
   const [selectedValues, setSelectedValues] = useState([]);
-  const [selectedNatureValues,setSelectedNatureValues] = useState([]);
+  const [selectedNatureValues, setSelectedNatureValues] = useState([]);
 
   useEffect(() => {
     console.log(selectedValues, "selectedValues");
     setValue("categoriesImpacted", selectedValues);
     console.log(selectedNatureValues, "selectedNatureValues");
     setValue("personImpact", selectedNatureValues);
-  }, [selectedValues,selectedNatureValues]);
+  }, [selectedValues, selectedNatureValues]);
 
   const {
     register,
@@ -179,7 +180,7 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Description de l’incident
+            {`${t("title")}`}
           </Typography>
           <Grid container columnSpacing={5}>
             <Grid item xs={12} md={6} mt={5}>
@@ -225,7 +226,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Heure
+                {`${t("field2")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -260,7 +261,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Quel est le SI impacté ?
+                {`${t("field3")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -296,7 +297,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Quels sont vos principaux services impactés ?
+                {`${t("field4")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -332,34 +333,31 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Quelles sont les catégories de données potentiellement
-                impactées ?
+                {`${t("field5")}`}
               </Typography>
               <FormControl sx={{ mt: 3 }}>
                 <FormGroup>
                   {[
                     {
-                      label: "Données métiers non confidentielles",
+                      label: `${t("field5Item1")}`,
                       value: "Données métiers non confidentielles",
                     },
                     {
-                      label: "Données métiers confidentielles",
+                      label: `${t("field5Item2")}`,
                       value: "Données métiers confidentielles",
                     },
                     {
-                      label:
-                        "Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)",
+                      label: `${t("field5Item3")}`,
                       value:
                         "Données personnelles non confidentielles (Prénom, Nom, adresse, mail..)",
                     },
                     {
-                      label:
-                        "Données personnelles confidentielles (santé, information bancaire, opinion politique…)",
+                      label: `${t("field5Item4")}`,
                       value:
                         "Données personnelles confidentielles (santé, information bancaire, opinion politique…)",
                     },
                     {
-                      label: "Autres (précisez) :",
+                      label: `${t("field5Item5")}`,
                       value: "Autres (précisez) :",
                     },
                   ].map((item) => (
@@ -403,8 +401,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Y a-t-il plusieurs sites impactés ? (Si oui précisez les
-                communes et territoires)
+                {`${t("field6")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -440,7 +437,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Combien de personnes sont impactées ?
+                {`${t("field7")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -476,7 +473,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Quel est l’état de votre activité ?
+                {`${t("field8")}`}
               </Typography>
               <FormControl sx={{ mt: 3 }}>
                 <RadioGroup
@@ -496,7 +493,7 @@ export default function HandleForm() {
                     }}
                     value="Fonctionnelle"
                     control={<Radio />}
-                    label="Fonctionnelle"
+                    label={`${t("field8Option1")}`}
                   />
                   <FormControlLabel
                     sx={{
@@ -509,12 +506,12 @@ export default function HandleForm() {
                     }}
                     value="Perturbée"
                     control={<Radio />}
-                    label="Perturbée"
+                    label={`${t("field8Option2")}`}
                   />
                   <FormControlLabel
                     value="Bloquée"
                     control={<Radio />}
-                    label="Bloquée"
+                    label={`${t("field8Option3")}`}
                     sx={{
                       "& .MuiFormControlLabel-label": {
                         fontSize: "14px",
@@ -535,7 +532,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Description des événements observés 
+                {`${t("field9")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -552,10 +549,10 @@ export default function HandleForm() {
                   },
                 }}
                 id="standard-basic"
-                placeholder={`-    Comment avez-vous découvert l incident ? 
--     Avez-vous connaissance du vecteur de compromission ?
--     Avez-vous mis en place des mesures de protection ?
--     Quelles sont les conséquences sur vos métiers et sur vos services IT ?
+                placeholder={`-${t("field9Placeholder1")} 
+-${t("field9Placeholder2")}
+-${t("field9Placeholder3")}
+-${t("field9Placeholder4")}
               `}
                 {...register("eventDescription")}
                 name="eventDescription"
@@ -576,25 +573,25 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Nature des personnes impactées par l’incident
+                {`${t('field10')}`}
               </Typography>
               <FormControl sx={{ mt: 3 }}>
                 <FormGroup>
                   {[
                     {
-                      label: "Patients",
+                      label: `${t('field10Option1')}`,
                       value: "Patients",
                     },
                     {
-                      label: "Clients",
+                      label: `${t('field10Option2')}`,
                       value: "Clients",
                     },
                     {
-                      label: "Prestataires",
+                      label: `${t('field10Option3')}`,
                       value: "Prestataires",
                     },
                     {
-                      label: "Partenaires",
+                      label: `${t('field10Option4')}`,
                       value: "Partenaires",
                     },
                   ].map((item) => (

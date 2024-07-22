@@ -27,7 +27,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { getAllEvents } from "../../../redux/action/eventActions/eventAction";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -45,6 +45,7 @@ const Imgs = styled(Image)(({ theme }) => ({
 }));
 
 export default function OurEvents() {
+  const t =useTranslations('EventDetailPage')
   const { allEvents } = useSelector((state) => state.events);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -92,7 +93,7 @@ export default function OurEvents() {
             mt: 10,
           }}
         >
-          Découvrez nos autres événements
+          {`${t('title1')}`}
         </Typography>
       </Container>
 

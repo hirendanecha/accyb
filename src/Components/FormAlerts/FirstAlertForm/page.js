@@ -12,7 +12,7 @@ import Select from "@mui/material/Select";
 import DoneIcon from "@mui/icons-material/Done";
 import MenuItem from "@mui/material/MenuItem";
 import EuroIcon from "@mui/icons-material/Euro";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -55,6 +55,7 @@ const schema = yup
   })
   .required();
 export default function HandleForm() {
+  const t = useTranslations('DeclareAnIncident_FirstFrom')
   const dispatch = useDispatch();
   const locales = useLocale();
   const router = useRouter();
@@ -111,7 +112,7 @@ export default function HandleForm() {
               marginBottom: { md: 5, xs: 3 },
             }}
           >
-            Informations générales
+            {`${t("title1")}`}
           </Typography>
           {/* <Divider
             variant="middle"
@@ -144,7 +145,7 @@ export default function HandleForm() {
                     color: "#575F6E",
                   }}
                 >
-                  Date de la déclaration
+                  {`${t("text1")}`}
                 </Typography>
                 <Typography sx={{ fontFamily: inter.style.fontFamily,color: "#575F6E" }}>
                   {dayjs(Date.now()).format("DD.MM.YYYY")}
@@ -195,7 +196,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Êtes-vous adhérent à l’ACCYB ?
+                {`${t("field2")}`}
               </Typography>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
@@ -208,7 +209,7 @@ export default function HandleForm() {
                 <FormControlLabel
                   value="OUI"
                   control={<Radio />}
-                  label="OUI"
+                  label={`${t("field2Option1")}`}
                   sx={{
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
@@ -221,7 +222,7 @@ export default function HandleForm() {
                 <FormControlLabel
                   value="NON"
                   control={<Radio />}
-                  label="NON"
+                  label={`${t("field2Option2")}`}
                   sx={{
                     "& .MuiFormControlLabel-label": {
                       fontSize: "14px",
@@ -259,49 +260,49 @@ export default function HandleForm() {
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"PME"}
                     >
-                      PME
+                      {`${t("field3Option1")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"ETI"}
                     >
-                      ETI
+                      {`${t("field3Option2")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Commune"}
                     >
-                      Commune
+                      {`${t("field3Option3")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Communauté d’agglomération"}
                     >
-                      Communauté d’agglomération
+                      {`${t("field3Option4")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Collectivité territoriale"}
                     >
-                      Collectivité territoriale
+                      {`${t("field3Option5")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Collectivité d’Outre-Mer"}
                     >
-                      Collectivité d’Outre-Mer
+                      {`${t("field3Option6")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Établissements publics"}
                     >
-                      Établissements publics
+                      {`${t("field3Option7")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Associations nationales"}
                     >
-                      Associations nationales
+                      {`${t("field3Option8")}`}
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -333,37 +334,37 @@ export default function HandleForm() {
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Administration publique"}
                     >
-                      Administration publique
+                      {`${t("field4Option1")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Eau potable"}
                     >
-                      Eau potable
+                      {`${t("field4Option2")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Eaux usées"}
                     >
-                      Eaux usées
+                      {`${t("field4Option3")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Energie"}
                     >
-                      Energie
+                      {`${t("field4Option4")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Espace"}
                     >
-                      Espace
+                      {`${t("field4Option5")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Fabrication"}
                     >
-                      Fabrication
+                      {`${t("field4Option6")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -371,32 +372,31 @@ export default function HandleForm() {
                         "Fabrication, production et distribution de produits chimiques"
                       }
                     >
-                      Fabrication, production et distribution de produits
-                      chimiques
+                      {`${t("field4Option7")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Fournisseurs numériques"}
                     >
-                      Fournisseurs numériques
+                      {`${t("field4Option8")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Gestion des déchets"}
                     >
-                      Gestion des déchets
+                      {`${t("field4Option9")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Gestion des services TIC (interentreprises)"}
                     >
-                      Gestion des services TIC (interentreprises)
+                      {`${t("field4Option10")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Infrastructures des marchés financiers"}
                     >
-                      Infrastructures des marchés financiers
+                      {`${t("field4Option11")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -404,26 +404,25 @@ export default function HandleForm() {
                         "Production, transformation et distribution des denrées alimentaires"
                       }
                     >
-                      Production, transformation et distribution des denrées
-                      alimentaires
+                      {`${t("field4Option12")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Recherche"}
                     >
-                      Recherche
+                      {`${t("field4Option13")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Transport"}
                     >
-                      Transport
+                      {`${t("field4Option14")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Santé"}
                     >
-                      Santé
+                      {`${t("field4Option15")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
@@ -431,7 +430,7 @@ export default function HandleForm() {
                         "Secteur bancaire Services postaux et d’expédition"
                       }
                     >
-                      Secteur bancaire Services postaux et d’expédition
+                      {`${t("field4Option16")}`}
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -445,7 +444,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Territoire
+                {`${t("field5")}`}
               </Typography>
               <FormControl sx={{ mt: 3 }}>
                 <RadioGroup
@@ -467,7 +466,7 @@ export default function HandleForm() {
                     }}
                     value="Guadeloupe"
                     control={<Radio />}
-                    label="Guadeloupe"
+                    label={`${t("field5Item1")}`}
                   />
                   <FormControlLabel
                     sx={{
@@ -480,7 +479,7 @@ export default function HandleForm() {
                     }}
                     value="Guyane"
                     control={<Radio />}
-                    label="Guyane"
+                    label={`${t("field5Item2")}`}
                   />
                   <FormControlLabel
                     sx={{
@@ -493,7 +492,7 @@ export default function HandleForm() {
                     }}
                     value="Martinique"
                     control={<Radio />}
-                    label="Martinique"
+                    label={`${t("field5Item3")}`}
                   />
                   <FormControlLabel
                     sx={{
@@ -506,12 +505,12 @@ export default function HandleForm() {
                     }}
                     value="Saint-Barthélemy"
                     control={<Radio />}
-                    label="Saint-Barthélemy"
+                    label={`${t("field5Item4")}`}
                   />
                   <FormControlLabel
                     value="Saint-Martin"
                     control={<Radio />}
-                    label="Saint-Martin"
+                    label={`${t("field5Item5")}`}
                     sx={{
                       "& .MuiFormControlLabel-label": {
                         fontSize: "14px",
@@ -524,7 +523,7 @@ export default function HandleForm() {
                   <FormControlLabel
                     value="Saint-Pierre-et-Miquelon"
                     control={<Radio />}
-                    label="Saint-Pierre-et-Miquelon"
+                    label={`${t("field5Item6")}`}
                     sx={{
                       "& .MuiFormControlLabel-label": {
                         fontSize: "14px",
@@ -581,7 +580,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Commune
+                {`${t("field6")}`}
               </Typography>
               <Box mt={3}>
                 <ValidationTextField
@@ -655,7 +654,7 @@ export default function HandleForm() {
             },
           }}
         >
-          Suivant
+          {`${t("button")}`}
         </Button>
       </form>
     </Box>

@@ -16,7 +16,9 @@ import {
 import ThirdAlertForm from "../../../../Components/FormAlerts/ThirdAlertForm/page";
 import { inter } from "../../../../fonts/fonts";
 import SecoundStepper from "../../../../Components/Common/SecoundStepper/page";
+import { useTranslations } from "next-intl";
 export default function HandleSecoundForm() {
+  const t = useTranslations('DeclareAnIncident_FirstFrom');
   const [activeStep, setActiveStep] = useState(0);
   return (
     <Box
@@ -53,7 +55,7 @@ export default function HandleSecoundForm() {
                   color: "#222D55",
                 }}
               >
-                Déclarer un incident – CSIRT-ATLANTIC
+                {`${t("Title")}`}
               </Typography>
               {/* <Typography
                 sx={{

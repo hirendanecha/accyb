@@ -25,11 +25,12 @@ import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsById } from "../../../redux/action/eventActions/eventAction";
 import dayjs from "dayjs";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ loading, getEvent }) {
+  const t = useTranslations('EventDetailPage')
   const router = useRouter();
   const locales = useLocale();
   console.log(getEvent?.registerLink, "registerLink");
@@ -160,7 +161,7 @@ export default function App({ loading, getEvent }) {
                       },
                     }}
                   >
-                    événement
+                    {`${t('title')}`}
                   </Button>
                   <Box
                     mt={1}
@@ -330,7 +331,7 @@ export default function App({ loading, getEvent }) {
                         },
                       }}
                     >
-                      Ajouter au calendrier
+                      {`${t('button1')}`}
                     </Button>
                   </Box>
                   <Box
@@ -399,7 +400,7 @@ export default function App({ loading, getEvent }) {
                         },
                       }}
                     >
-                      s’inscrire à l’événement
+                      {`${t('button2')}`}
                     </Button>
                   </Box>
                 </Grid>
@@ -476,7 +477,7 @@ export default function App({ loading, getEvent }) {
                         },
                       }}
                     >
-                      s’inscrire à l’événement
+                      {`${t('button2')}`}
                     </Button>
                   </Box>
                 </Grid>)}

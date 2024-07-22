@@ -19,7 +19,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -81,6 +81,7 @@ const schema = yup
   .required();
 
 export default function HandleForm() {
+  const t = useTranslations('JoinACCYB_SecondForm')
   const [name, setName] = React.useState("Cat in the Hat");
   const locales = useLocale();
   const router = useRouter();
@@ -182,7 +183,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Civilité
+                  {`${t("field1")}`}
                 </Typography>
                 <FormControl variant="standard" fullWidth>
                   <Select
@@ -197,13 +198,13 @@ export default function HandleForm() {
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Mme."}
                     >
-                      Mme.
+                      {`${t("field1Option1")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"M."}
                     >
-                      M.
+                      {`${t("field1Option2")}`}
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -217,7 +218,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Nom
+                  {`${t("field2")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -251,7 +252,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Prénom
+                  {`${t("field3")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -285,7 +286,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Organisation adhérente
+                  {`${t("field4")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -321,7 +322,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Fonction
+                  {`${t("field5")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -357,7 +358,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Téléphone Mobile
+                  {`${t("field6")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -391,7 +392,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Téléphone Fixe
+                  {`${t("field7")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -424,7 +425,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  E-mail professionnel
+                  {`${t("field8")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -460,7 +461,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Adresse postale professionnelle
+                  {`${t("field9")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -496,7 +497,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Intérêts spécifiques en sécurité
+                  {`${t("field10")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -532,7 +533,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Comment avez-vous connu l’ACCYB ?
+                  {`${t("field11")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -568,8 +569,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Quelles sont vos motivations pour adhérer à l’ACCYB ?
-                  (obligatoire)
+                  {`${t("field12")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -616,7 +616,7 @@ export default function HandleForm() {
                 fontWeight: 600,
               }}
             >
-              Suppléant
+              {`${t("title1")}`}
             </Typography>
             <Grid container columnSpacing={5} mt={5}>
               <Grid item xs={12} md={2}>
@@ -627,7 +627,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Civilité
+                  {`${t("field1")}`}
                 </Typography>
                 <FormControl variant="standard" fullWidth>
                   <Select
@@ -642,13 +642,13 @@ export default function HandleForm() {
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"Mme."}
                     >
-                      Mme.
+                      {`${t("field1Option1")}`}
                     </MenuItem>
                     <MenuItem
                       sx={{ fontFamily: inter.style.fontFamily }}
                       value={"M."}
                     >
-                      M.
+                      {`${t("field1Option2")}`}
                     </MenuItem>
                   </Select>
                 </FormControl>
@@ -662,7 +662,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Nom
+                  {`${t("field2")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -696,7 +696,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Prénom
+                  {`${t("field3")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -730,7 +730,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Fonction
+                  {`${t("field5")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -766,7 +766,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Téléphone Mobile
+                  {`${t("field6")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -800,7 +800,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  Téléphone Fixe
+                  {`${t("field7")}`}
                 </Typography>
                 <ValidationTextField
                   fullWidth
@@ -833,7 +833,7 @@ export default function HandleForm() {
                     color: "#222D55",
                   }}
                 >
-                  E-mail professionnel
+                  {`${t("field8")}`}
                 </Typography>
                 <ValidationTextField
                   multiline
@@ -968,7 +968,7 @@ export default function HandleForm() {
                 },
               }}
             >
-              Envoyer ma demande
+              {`${t("button")}`}
             </Button>
           </Box>
         </Box>

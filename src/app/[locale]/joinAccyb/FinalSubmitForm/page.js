@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { Box, Card, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 export default function FinalSubmitForm() {
+  const t =useTranslations('JoinACCYB_SecondForm')
   return (
     <Box
       sx={{
@@ -27,7 +29,7 @@ export default function FinalSubmitForm() {
                   maxWidth: "700px",
                 }}
               >
-                Votre demande d’adhésion <br />à bien été envoyée.
+                {`${t("finaltext1")}`} <br />{`${t("finaltext2")}`}
               </Typography>
             </Box>
           </Grid>

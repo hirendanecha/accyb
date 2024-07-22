@@ -24,7 +24,7 @@ import dayjs from "dayjs";
 import Image1 from "../../../../Icons/Image1.png";
 import Image2 from "../../../../Icons/Image2.png";
 import Image3 from "../../../../Icons/Image3.png";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import HeroSection from "../HeroSection/page";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -105,6 +105,7 @@ const articles = [
   },
 ];
 export default function Page() {
+  const t = useTranslations('NewsDetailPage');
   const params = useParams();
   const { newsid } = params;
   const router = useRouter();
@@ -182,7 +183,7 @@ export default function Page() {
                   },
                 }}
               >
-                Actualité
+                {`${t('title')}`}
               </Button>
               <Box
                 mt={1}
@@ -419,7 +420,7 @@ export default function Page() {
                   mt: 10,
                 }}
               >
-                Découvrez nos autres articles
+                {`${t('title1')}`}
               </Typography>
             </Container>
 

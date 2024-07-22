@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { Box, Card, Container, Grid, Typography } from "@mui/material";
 import { inter } from "../../../../fonts/fonts";
+import { useTranslations } from "next-intl";
 export default function FinalSubmitForm() {
+  const t = useTranslations('DeclareAnIncident_ThirdForm')
   return (
     <Box
       sx={{
@@ -27,7 +29,7 @@ export default function FinalSubmitForm() {
                   maxWidth: "700px",
                 }}
               >
-                Votre déclaration d’incident a bien été envoyée
+                {`${t('finalText')}`}
               </Typography>
             </Box>
           </Grid>

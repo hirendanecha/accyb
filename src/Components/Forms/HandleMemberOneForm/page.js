@@ -808,7 +808,7 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Catégorisation du candidat**
+            {`${t("title3")}`}
           </Typography>
           <RadioGroup
             onChange={(e) => {
@@ -843,7 +843,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={`Collectivité Territoriale Chef de File<br>-> comptant plus de 200 000 habitants<br>-> Un référent et jusqu’à 3 participants<br>-> Cotisation annuelle : 15 000€`}
                         control={<Radio />}
-                        label="« Collectivité Territoriale Chef de File »"
+                        label={`${t("field12")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -892,10 +892,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant plus de 200 000 habitants
+                      {`${t("text1")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 3 participants
+                      {`${t("text2")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -913,7 +913,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 15 000€
+                      {`${t("text3")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -941,7 +941,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={`-> Collectivité Territoriale Chef de File<br>-> comptant plus de 200 000 habitants<br>-> Un référent et jusqu’à 3 participants`}
                         control={<Radio />}
-                        label="« Collectivité Territoriale Chef de File »"
+                        label={`${t("field13")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -990,10 +990,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant plus de 200 000 habitants
+                      {`${t("text4")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 3 participants
+                      {`${t("text5")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1011,7 +1011,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 7 500€
+                      {`${t("text6")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1044,7 +1044,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={` « Collectivité »<br>-> comptant plus de 40 000 habitants<br>-> Un référent et jusqu’à 2 participants<br>-> Cotisation annuelle : 4 000€`}
                         control={<Radio />}
-                        label=" « Collectivité »"
+                        label={`${t("field14")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -1093,10 +1093,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant plus de 40 000 habitants
+                      {`${t("text7")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 2 participants
+                      {`${t("text8")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1114,7 +1114,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 4 000€
+                      {`${t("text9")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1142,7 +1142,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={` « Collectivité »<br>-> comptant entre 10 000 et 40 000 habitants<br>-> Un référent et jusqu’à 1 participants<br>-> Cotisation annuelle : 2 000€`}
                         control={<Radio />}
-                        label=" « Collectivité »"
+                        label={`${t("field15")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -1191,10 +1191,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant entre 10 000 et 40 000 habitants
+                      {`${t("text10")}`}
                       </span>
                       <br />
-                      Un référent et jusqu’à 1 participants
+                      {`${t("text11")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1212,7 +1212,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 2 000€
+                      {`${t("text12")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1241,7 +1241,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={` « Collectivité »<br>-> comptant moins de 10 000 habitants<br>-> Un référent<br>-> Cotisation annuelle : 1 000€`}
                         control={<Radio />}
-                        label=" « Collectivité »"
+                        label={`${t("field16")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -1290,10 +1290,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant moins de 10 000 habitants
+                      {`${t("text13")}`}
                       </span>{" "}
                       <br />
-                      Un référent
+                      {`${t("text14")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1311,7 +1311,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 1 000€
+                      {`${t("text15")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1365,7 +1365,7 @@ export default function HandleForm() {
                       <FormControlLabel
                         value={` « Personne morale »<br>-> groupe national ou international<br>-> Un référent et jusqu’à 3 participants<br>-> Cotisation annuelle : 15 000€`}
                         control={<Radio />}
-                        label=" « Personne morale »"
+                        label={`${t("field17")}`}
                         sx={{
                           gap: 1,
                           paddingLeft: 2,
@@ -1414,10 +1414,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        groupe national ou international
+                      {`${t("text16")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 3 participants
+                      {`${t("text17")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1435,7 +1435,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 15 000€
+                      {`${t("text18")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1469,7 +1469,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                       « Personne morale »
+                      {`${t("field18")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1494,10 +1494,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        groupe inter-régional
+                      {`${t("text19")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 3 participants
+                      {`${t("text20")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1515,7 +1515,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 7 000€
+                      {`${t("text21")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1554,7 +1554,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                       « Personne morale »
+                      {`${t("field19")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1579,10 +1579,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant plus de 50 salariés
+                      {`${t("text22")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 2 participants
+                      {`${t("text23")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1600,7 +1600,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 4 500€
+                      {`${t("text24")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1634,7 +1634,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                       « Personne morale »
+                      {`${t("field20")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1659,10 +1659,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant entre 11 et 50 salariés
+                      {`${t("text25")}`}
                       </span>{" "}
                       <br />
-                      Un référent et jusqu’à 1 participants
+                      {`${t("text26")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1680,7 +1680,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 15 00€
+                      {`${t("text27")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1719,7 +1719,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                       « Personne morale »
+                      {`${t("field21")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1744,10 +1744,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant entre 4 et 10 salariés
+                      {`${t("text28")}`}
                       </span>{" "}
                       <br />
-                      Un référent
+                      {`${t("text29")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1765,7 +1765,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 5 00€
+                      {`${t("text30")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1799,7 +1799,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                       « Personne morale »
+                      {`${t("field22")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1824,10 +1824,10 @@ export default function HandleForm() {
                       }}
                     >
                       <span style={{ color: "#007A47" }}>
-                        comptant moins de 4 salariés
+                      {`${t("text31")}`}
                       </span>{" "}
                       <br />
-                      Un référent
+                      {`${t("text32")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1845,7 +1845,7 @@ export default function HandleForm() {
                         color: "#222D55",
                       }}
                     >
-                      Cotisation annuelle : 150€
+                      {`${t("text33")}`}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -1870,8 +1870,7 @@ export default function HandleForm() {
               maxWidth: "450px",
             }}
           >
-            Catégorisation de l’activité du candidat** (Affectation à un collège
-            d’adhérent)
+            {`${t("title4")}`}
           </Typography>
           <Grid item xs={12} md={6} sx={{ borderRadius: "10px", padding: {xs:0,sm:2} }}>
             <FormControl component="fieldset">
@@ -1879,7 +1878,7 @@ export default function HandleForm() {
                 component="legend"
                 sx={{ fontFamily: inter.style.fontFamily }}
               >
-                Catégorisation de l’activité du candidat
+                {`${t("text34")}`}
               </FormLabel>
               <RadioGroup
                 row
@@ -1900,8 +1899,7 @@ export default function HandleForm() {
                         fontWeight: 600,
                       }}
                     >
-                      <span style={{ color: "#007A47" }}>Offreur</span> de
-                      services cybersécurité
+                      <span style={{ color: "#007A47" }}>{`${t("text35")}`}</span>{`${t("text36")}`}
                     </Typography>
                   }
                 />
@@ -1918,8 +1916,7 @@ export default function HandleForm() {
                         textWrap: "nowrap",
                       }}
                     >
-                      <span style={{ color: "#007A47" }}>Utilisateur</span> de
-                      services de cybersécurité
+                      <span style={{ color: "#007A47" }}>{`${t("text37")}`}</span>{`${t("text38")}`}
                     </Typography>
                   }
                 />
@@ -1935,8 +1932,7 @@ export default function HandleForm() {
               color: "#222D55",
             }}
           >
-            **Les propositions de catégorisation du candidat seront soumises à
-            la validation conseil d’administration.
+            {`${t("text39")}`}
           </Typography>
         </Box>
 
@@ -2058,7 +2054,7 @@ export default function HandleForm() {
             },
           }}
         >
-          suivant
+          {`${t("button1")}`}
         </Button>
       </Box>
     </form>

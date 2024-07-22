@@ -30,7 +30,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCaseStudies } from "../../../redux/action/caseStudiesActions/caseStudiesAction";
 import dayjs from "dayjs";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 const data = [
   {
@@ -63,6 +63,7 @@ const Img = styled(Image)(({ theme }) => ({
   height: "auto !important",
 }));
 export default function OtherStudies() {
+  const t = useTranslations('StudyDetailPage')
   const dispatch = useDispatch();
   const locales = useLocale();
   const router = useRouter();
@@ -162,7 +163,7 @@ export default function OtherStudies() {
                   fontSize: { lg: "64px", md: "50px", xs: "40px" },
                 }}
               >
-                Nos autres études
+                {`${t('title')}`}
               </Typography>
             </Grid>
             <Grid item xs={12} md={6}>

@@ -7,21 +7,23 @@ import StepLabel from "@mui/material/StepLabel";
 import { inter } from "../../../fonts/fonts";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    label: "Informations générales",
-  },
-  {
-    label: "Informations sur le déclarant",
-  },
-  {
-    label: "Description de l’incident",
-  },
-];
 
 export default function VerticalLinearStepper({ activeStep }) {
+  const t = useTranslations("SecondStepper")
   const router = useRouter();
+  const steps = [
+    {
+      label: `${t('label1')}`,
+    },
+    {
+      label: `${t('label2')}`,
+    },
+    {
+      label: `${t('label3')}`,
+    },
+  ];
   return (
     <>
       {activeStep >= 1 && (

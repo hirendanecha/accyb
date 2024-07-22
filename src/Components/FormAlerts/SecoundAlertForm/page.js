@@ -4,7 +4,7 @@ import { Box, Typography, Divider, Grid, styled, Button, TextField } from "@mui/
 import { inter } from "../../../fonts/fonts";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { constrainedMemory } from "process";
@@ -45,6 +45,7 @@ const schema = yup
   .required();
 
 export default function HandleForm() {
+  const t = useTranslations('DeclareAnIncident_SecondFrom')
   const router = useRouter();
   const locales = useLocale();
   const dispatch = useDispatch();
@@ -92,14 +93,14 @@ export default function HandleForm() {
               fontWeight: 600,
             }}
           >
-            Informations sur le déclarant
+            {`${t("title")}`}
           </Typography>
           <Grid container columnSpacing={5}>
             <Grid item xs={12} md={6} mt={5}>
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Prénom
+                {`${t("field1")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -125,7 +126,7 @@ export default function HandleForm() {
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Nom
+                {`${t("field2")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -151,7 +152,7 @@ export default function HandleForm() {
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Service
+                {`${t("field3")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -177,7 +178,7 @@ export default function HandleForm() {
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Fonction
+                {`${t("field4")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -203,7 +204,7 @@ export default function HandleForm() {
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Téléphone
+                {`${t("field5")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -229,7 +230,7 @@ export default function HandleForm() {
               <Typography
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: { md: "14px", xs: "12px" }, color: "#222D55" }}
               >
-                Adresse e-mail
+                {`${t("field6")}`}
               </Typography>
               <ValidationTextField
                 fullWidth
@@ -297,7 +298,7 @@ export default function HandleForm() {
             },
           }}
         >
-          Suivant
+          {`${t("button")}`}
         </Button>
       </form>
     </>

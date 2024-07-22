@@ -21,11 +21,12 @@ import { useParams, useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { getAllNews } from "../../../../../redux/action/newsActions/newsAction";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function CategoryDetails() {
+  const t =useTranslations('CategoryDetails');
   const dispatch = useDispatch();
   const params = useParams();
   const locals = useLocale();
@@ -342,7 +343,7 @@ export default function CategoryDetails() {
                       },
                     }}
                   >
-                    télécharger document
+                    {`${t('button')}`}
                   </Button>
                 </a>
                 </Box>
@@ -463,7 +464,7 @@ export default function CategoryDetails() {
                 mt: 25,
               }}
             >
-              Nos autres alertes de sécurité
+              {`${t('title')}`}
             </Typography>
             <Divider
               variant="middle"

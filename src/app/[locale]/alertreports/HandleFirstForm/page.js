@@ -16,7 +16,9 @@ import {
 import FirstAlertForm from "../../../../Components/FormAlerts/FirstAlertForm/page";
 import { inter } from "../../../../fonts/fonts";
 import SecoundStepper from "../../../../Components/Common/SecoundStepper/page";
+import { useTranslations } from "next-intl";
 export default function HandleFirstForm() {
+  const t = useTranslations('DeclareAnIncident_FirstFrom')
   const [activeStep, setActiveStep] = useState(0);
   return (
     <Box
@@ -42,7 +44,7 @@ export default function HandleFirstForm() {
                   color: "#222D55",
                 }}
               >
-                Déclarer un incident – CSIRT-ATLANTIC
+                {`${t("Title")}`}
               </Typography>
             </Box>
             <FirstAlertForm />
