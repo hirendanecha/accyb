@@ -408,7 +408,7 @@ export default function OurNews() {
                             fontFamily: inter.style.fontFamily,
                           }}
                         >
-                          Événement
+                          {`${t("events1")}`}
                         </Typography>
                         <Box
                           sx={{
@@ -702,7 +702,7 @@ export default function OurNews() {
                                   fontFamily: inter.style.fontFamily,
                                 }}
                               >
-                                {ele?.source[0]}
+                                {`${t("event2")}`}
                               </Typography>
                               <Box
                                 sx={{
