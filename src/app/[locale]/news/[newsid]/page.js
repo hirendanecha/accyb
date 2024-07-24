@@ -124,6 +124,17 @@ export default function Page() {
   }, []);
   console.log(getNews, "getNews");
 
+  let News;
+
+  if(locales==='fr'){
+    News=allNews?.filter((news) => news.language === "french");
+    console.log(News, "frenchNews");
+  }
+  if(locales==='en'){
+    News=allNews?.filter((news) => news.language === "english");
+    console.log(News, "englishNews");
+  }
+
   const getFirstElementText = (htmlString) => {
     const tagMatch = htmlString?.match(/<(\w+)>/);
     if (!tagMatch) return "";
@@ -441,9 +452,9 @@ export default function Page() {
                 justifyContent={"space-between"}
                 rowSpacing={3}
               >
-                {allNews?.length > 0 ? (
+                {News?.length > 0 ? (
                   <>
-                    {allNews?.slice(0,6)?.map((ele, idx) => {
+                    {News?.slice(0,6)?.map((ele, idx) => {
                       const data = getNews?.title
                         .split("\n")
                         .slice(0, 4)

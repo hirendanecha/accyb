@@ -77,32 +77,6 @@ const supported = [
   // },
 ];
 
-const data = [
-  {
-    img: Image1,
-    title: "ACTUALITÉ",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image1,
-    title: "ACTUALITÉ",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image1,
-    title: "ACTUALITÉ",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-];
 const Img = styled(Image)(({ theme }) => ({
   width: "100% !important",
   height: "auto !important",
@@ -119,6 +93,16 @@ export default function CaseStudies() {
 
   const { allcaseStudies } = useSelector((state) => state.caseStudies);
   console.log(allcaseStudies, "allcaseStudies");
+
+  let NewCaseStudies;
+  if(locales==='fr'){
+    NewCaseStudies=allcaseStudies?.filter((study)=>study.language==='french');
+    console.log(NewCaseStudies, "FrenchCaseStudies");
+  }
+  if(locales==='en'){
+    NewCaseStudies=allcaseStudies?.filter((study)=>study.language==='english');
+    console.log(NewCaseStudies, "FrenchCaseStudies");
+  }
 
   useEffect(() => {
     if (search == "true") {
@@ -311,7 +295,7 @@ export default function CaseStudies() {
                 <CircularProgress color="inherit" sx={{color: "#FFFFFF"}} />
               </Stack>
               )}
-              {!loading && allcaseStudies?.map((studies, index) => {
+              {!loading && NewCaseStudies?.map((studies, index) => {
                 const DescriptionData = studies?.description
                 .split("\n")
                 .slice(0, 4)

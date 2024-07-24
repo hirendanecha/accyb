@@ -371,7 +371,9 @@ export default function Footer() {
                 textTransform: "uppercase",
                 fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
+                cursor:'pointer'
               }}
+              onClick={() => router.push(`/${locales}/legalPage`)}
             >
               {t("footerT1")}
             </Typography>

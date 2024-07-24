@@ -44,6 +44,16 @@ export default function CategoryDetails() {
 
   const locale = useLocale();
 
+  let ALerts;
+  if(locale==='fr'){
+    ALerts=allSecurityAlerts?.filter((alert)=>alert.language==='french');
+    console.log(ALerts, "frenchAlerts");
+  }
+  if(locale==='en'){
+    ALerts=allSecurityAlerts?.filter((alert)=>alert.language==='english');
+    console.log(ALerts, "englishAlerts");
+  }
+
   useEffect(() => {
     dispatch(getSecurityAlertsById(securityAlertID))
       .unwrap()
@@ -479,7 +489,7 @@ export default function CategoryDetails() {
             />
           </Box>
           <Grid container mt={5} columnSpacing={2} mb={15}>
-            {allSecurityAlerts?.slice(0, 6)?.map((data, idx) => {
+            {ALerts?.slice(0, 6)?.map((data, idx) => {
               const DescriptionData = data?.description
                 .split("\n")
                 .slice(0, 4)

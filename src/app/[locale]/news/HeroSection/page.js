@@ -22,6 +22,16 @@ export default function App({ allEvents }) {
   const locales = useLocale();
   const router = useRouter();
 
+  let News;
+  if(locales==='fr'){
+    News=allEvents?.events?.filter((news)=>news.language==='french');
+    console.log(News, "FrenchNews");
+  }
+  if(locales==='en'){
+    News=allEvents?.events?.filter((news)=>news.language==='english');
+    console.log(News, "EnglishNews");
+  }
+
   return (
     <>
       <Container
@@ -79,9 +89,9 @@ export default function App({ allEvents }) {
           //   "--swiper-pagination-bullet-horizontal-gap": "8px",
           // }}
         >
-          {allEvents?.events?.length > 0 ? (
+          {News?.length > 0 ? (
             <>
-              {allEvents?.events?.slice(0, 3)?.map((ele, idx) => {
+              {News?.slice(0, 3)?.map((ele, idx) => {
                 const data = ele?.description
                   .split("\n")
                   .slice(0, 4)

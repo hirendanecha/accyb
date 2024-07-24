@@ -77,6 +77,22 @@ export default function OurNews() {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  let eventData = [];
+  let newsData = [];
+
+  if (locals === "fr") {
+    eventData = allEvents?.events?.filter(
+      (event) => event.language === "french"
+    );
+    newsData = allNews?.filter((news) => news.language === "french");
+  }
+  if (locals === "en") {
+    eventData = allEvents?.events?.filter(
+      (event) => event.language === "english"
+    );
+    newsData = allNews?.filter((news) => news.language === "english");
+  }
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -337,7 +353,7 @@ export default function OurNews() {
         >
           {allEvents?.events?.length > 0 ? (
             <>
-              {allEvents?.events?.slice(0, 1).map((ele, idx) => {
+              {eventData?.slice(0, 1).map((ele, idx) => {
                 const data = ele?.description
                   .split("\n")
                   .slice(0, 4)
@@ -504,7 +520,6 @@ export default function OurNews() {
                             alignItems: "center", // This centers the icon vertically
                           }}
                         >
-                          
                           <a
                             href={ele?.document}
                             target="_blank"
@@ -619,7 +634,7 @@ export default function OurNews() {
           <Grid item xs={12} md={12} lg={6} mt={{ lg: "unset", xs: 10 }}>
             {allNews?.length > 0 ? (
               <>
-                {allNews?.slice(0, 2).map((ele, idx) => {
+                {newsData?.slice(0, 2).map((ele, idx) => {
                   const data = ele?.description
                     .split("\n")
                     .slice(0, 4)
@@ -702,7 +717,6 @@ export default function OurNews() {
                                   alignItems: "center", // This centers the icon vertically
                                 }}
                               >
-                                
                                 <a
                                   href={ele?.attachment}
                                   target="_blank"
@@ -716,7 +730,6 @@ export default function OurNews() {
                                       navigator.share({
                                         url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                         title: ele?.attachment,
-                                        
                                       });
                                     } else {
                                       navigator.clipboard
@@ -805,7 +818,6 @@ export default function OurNews() {
                                     alignItems: "center", // This centers the icon vertically
                                   }}
                                 >
-                                  
                                   <a
                                     href={ele?.attachment}
                                     target="_blank"
@@ -820,7 +832,6 @@ export default function OurNews() {
                                         navigator.share({
                                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${locals}/news/${ele?._id}`,
                                           title: ele?.attachment,
-                                          
                                         });
                                       } else {
                                         navigator.clipboard

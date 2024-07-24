@@ -112,6 +112,21 @@ export default function OurEvents() {
     },
   ];
 
+  let MonthlyEvent;
+  let News;
+
+  if(locales==='fr'){
+    MonthlyEvent=monthEvents?.events?.filter((event)=>event.language==='french');
+    News=allNews?.filter((news)=>news.language==='french');
+    console.log(MonthlyEvent,"frenchEvent");
+  }
+  if(locales==='en'){
+    MonthlyEvent=monthEvents?.events?.filter((event)=>event.language==='english');
+    console.log(MonthlyEvent,"englishEvent");
+    News=allNews?.filter((news)=>news.language==='english');
+    console.log(News,"englishNews");
+  }
+
   useEffect(() => {
     if (initialized.current) return;
 
@@ -306,8 +321,8 @@ export default function OurEvents() {
             </Grid>
           ) : (
             <>
-              {monthEvents?.events?.length > 0 ? (
-                monthEvents?.events?.map((ele, idx) => {
+              {MonthlyEvent?.length > 0 ? (
+                MonthlyEvent?.map((ele, idx) => {
                   const data = ele?.description
                     .split("\n")
                     .slice(0, 4)
@@ -488,9 +503,9 @@ export default function OurEvents() {
       />
       <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-          {allNews?.length > 0 ? (
+          {News?.length > 0 ? (
             <>
-              {allNews?.slice(0,6)?.map((ele, idx) => {
+              {News?.slice(0,6)?.map((ele, idx) => {
                 const data = ele?.description
                   .split("\n")
                   .slice(0, 4)

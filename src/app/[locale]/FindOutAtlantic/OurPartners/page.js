@@ -20,7 +20,7 @@ import Logo6 from "../../../../Icons/Supported/Logo2.svg";
 import Logo7 from "../../../../Icons/Supported/Logo3.svg";
 import Logo8 from "../../../../Icons/Supported/Logo4.svg";
 import Logo9 from "../../../../Icons/Supported/Logo1.jpg";
-import Logo10 from "../../../../Icons/Supported/Logo6.png";
+import Logo10 from "../../../../Icons/Supported/Logo6.svg";
 import Findimg1 from "../../../../Icons/Findimg1.svg";
 import Findimg2 from "../../../../Icons/Findimg2.svg";
 import Findimg3 from "../../../../Icons/Findimg3.svg";
@@ -640,10 +640,11 @@ export default function OurPartners() {
             display: "flex",
             justifyContent: "space-between",
             mt: 3,
-            gap: 1,
+            // gap: 1,
             flexWrap: "nowrap",
           }}
         >
+          <Box sx={{ display: "flex" }}>
           <Typography
             sx={{
               color: "#222D55",
@@ -651,7 +652,7 @@ export default function OurPartners() {
               fontSize: { md: "14px", xs: "12px" },
               maxWidth: "50px",
               textAlign: "end",
-              mr: 5,
+              mr: 2,
             }}
           >
             {`${p("Title2")}`}
@@ -661,6 +662,7 @@ export default function OurPartners() {
             variant="middle"
             sx={{ bgcolor: "#000000", height: "90px" }}
           />
+          </Box>
           {supported?.map((ele, idx) => {
             return (
               <Box
@@ -670,12 +672,12 @@ export default function OurPartners() {
                   alignItems: "center",
                   justifyContent: { md: "start", xs: "center" },
                   mb: 2,
-                  mr: { md: 2, xs: 0 },
+                  // mr: { md: 2, xs: 0 },
                 }}
               >
                 <Imgs
                   src={ele.img}
-                  width={140}
+                  width={idx===3?220:140}
                   height={100}
                   alt="img"
                 />

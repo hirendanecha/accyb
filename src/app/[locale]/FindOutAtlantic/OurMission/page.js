@@ -60,6 +60,17 @@ export default function OurMission() {
   console.log(loading, "loading");
   console.log(allSecurityAlerts, "allSecurityAlerts");
 
+  let Alerts;
+
+  if(locales==='fr'){
+    Alerts=allSecurityAlerts?.filter((alert) => alert.language === "french");
+    console.log(Alerts, "frenchAlerts");
+  }
+  if(locales==="en"){
+    Alerts=allSecurityAlerts?.filter((alert) => alert.language === "english");
+    console.log(Alerts, "englishAlerts");
+  }
+
   useEffect(() => {
     dispatch(getAllSecurityAlerts())
       .unwrap()
@@ -826,7 +837,7 @@ export default function OurMission() {
         )}
 
         {!loading &&
-          allSecurityAlerts?.slice(0, 5)?.map((ele, inx) => {
+          Alerts?.slice(0, 5)?.map((ele, inx) => {
             return (
               <>
                 <Grid

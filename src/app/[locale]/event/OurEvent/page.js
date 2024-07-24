@@ -79,6 +79,18 @@ export default function OurEvents() {
     }
   }, []);
 
+  let Events;
+
+  if(locale==='fr'){
+    Events = allEvents?.events?.filter((event) => event.language === "french");
+    console.log(Events, "frenchEvents");
+  }
+  if(locale==='en'){
+    Events = allEvents?.events?.filter((event) => event.language === "english");
+    console.log(Events, "englishEvents");
+
+  }
+
   useEffect(() => {}, []);
   useEffect(() => {
     setCurrentCategory(category[new Date().getMonth()]);
@@ -109,9 +121,9 @@ export default function OurEvents() {
       />
       <Container disableGutters maxWidth={"xl"}>
         <Grid container mt={3} justifyContent={"space-between"} rowSpacing={3}>
-          {allEvents?.events?.length > 0 ? (
+          {Events?.length > 0 ? (
             <>
-              {allEvents?.events?.map((ele, idx) => {
+              {Events?.map((ele, idx) => {
                 const title = ele?.title
                   .split("\n")
                   .slice(0, 4)
