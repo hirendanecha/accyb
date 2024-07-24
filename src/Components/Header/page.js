@@ -5,7 +5,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { Container, Divider, InputBase, Toolbar, alpha, styled } from "@mui/material";
+import {
+  Container,
+  Divider,
+  InputBase,
+  Toolbar,
+  alpha,
+  styled,
+} from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
@@ -169,7 +176,11 @@ export default function Header() {
               >
                 FR
               </Box>
-              <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "#646C88" }} />
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                sx={{ bgcolor: "#646C88" }}
+              />
               <Box
                 href="/en"
                 component={Link}
@@ -227,7 +238,9 @@ export default function Header() {
                 >
                   <PersonOutlineIcon />
                   <Typography
-                    onClick={() => router.push(`/${locale}/joinAccyb/FirstForm`)}
+                    onClick={() =>
+                      router.push(`/${locale}/joinAccyb/FirstForm`)
+                    }
                     variant="h7"
                     color="inherit"
                     component="div"
@@ -254,7 +267,9 @@ export default function Header() {
                 >
                   <NotificationsNoneIcon />
                   <Typography
-                    onClick={() => router.push(`/${locale}/alertreports/HandleFirstForm`)}
+                    onClick={() =>
+                      router.push(`/${locale}/alertreports/HandleFirstForm`)
+                    }
                     variant="h7"
                     color="inherit"
                     component="div"
@@ -351,7 +366,11 @@ export default function Header() {
                 }}
               >
                 <Box sx={{ display: "flex", justifyContent: "center", pb: 2 }}>
-                  <Image src={Logo2} alt="img" sx={{ display: { xs: "none", md: "flex" } }} />
+                  <Image
+                    src={Logo2}
+                    alt="img"
+                    sx={{ display: { xs: "none", md: "flex" } }}
+                  />
                 </Box>
                 <Search>
                   <SearchIconWrapper>
@@ -381,11 +400,18 @@ export default function Header() {
                       }}
                     >
                       {`${page?.name?.split(" ")?.[0]} `}
-                      <span style={{ color: "#7DB1FF" }}>{` ${page?.name?.split(" ")?.slice(1).join(" ")} `}</span>
+                      <span style={{ color: "#7DB1FF" }}>{` ${page?.name
+                        ?.split(" ")
+                        ?.slice(1)
+                        .join(" ")} `}</span>
                     </Typography>
                   </MenuItem>
                 ))}
-                <Divider orientation="horizontal" variant="middle" sx={{ bgcolor: "#8E9BBF" }} />
+                <Divider
+                  orientation="horizontal"
+                  variant="middle"
+                  sx={{ bgcolor: "#8E9BBF" }}
+                />
                 {/* {link.map((page, idx) => (
                   <MenuItem
                     key={idx}
@@ -411,14 +437,23 @@ export default function Header() {
                     </Typography>
                   </MenuItem>
                 ))} */}
-                <Divider orientation="horizontal" variant="middle" sx={{ bgcolor: "#8E9BBF" }} />
+                <Divider
+                  orientation="horizontal"
+                  variant="middle"
+                  sx={{ bgcolor: "#8E9BBF" }}
+                />
                 <MenuItem sx={{ gap: 1 }}>
                   <Avatar
+                  component={Link}
+                    href="/fr"
                     locale="fr"
                     onClick={() => setIsActive("fr")}
                     sx={{
+                      textDecoration: "none",
                       background:
-                        isActive == "fr" ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "transparent",
+                        isActive == "fr"
+                          ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)"
+                          : "transparent",
                       fontSize: "16px",
                       color: isActive == "fr" ? "#FFFFFF" : "#7DB1FF",
                       border: "1px solid #7DB1FF",
@@ -428,11 +463,16 @@ export default function Header() {
                     FR
                   </Avatar>
                   <Avatar
+                    component={Link}
+                    href="/en"
                     locale="en"
                     onClick={() => setIsActive("en")}
                     sx={{
+                      textDecoration: "none",
                       background:
-                        isActive == "en" ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)" : "transparent",
+                        isActive == "en"
+                          ? "linear-gradient(50.98deg, #7DB1FF 2.7%, #97E6FF 94.21%)"
+                          : "transparent",
                       border: "1px solid #7DB1FF",
                       fontSize: "16px",
                       color: isActive == "en" ? "#FFFFFF" : "#7DB1FF",
@@ -485,7 +525,9 @@ export default function Header() {
                 >
                   <NotificationsNoneIcon sx={{ color: "#fff" }} />
                   <Typography
-                  onClick={() => router.push(`/${locale}/alertreports/HandleFirstForm`)}
+                    onClick={() =>
+                      router.push(`/${locale}/alertreports/HandleFirstForm`)
+                    }
                     variant="h7"
                     color="inherit"
                     component="div"
@@ -510,7 +552,9 @@ export default function Header() {
                 >
                   <PersonOutlineIcon sx={{ color: "#fff" }} />
                   <Typography
-                    onClick={() => router.push(`/${locale}/joinAccyb/FirstForm`)}
+                    onClick={() =>
+                      router.push(`/${locale}/joinAccyb/FirstForm`)
+                    }
                     variant="h7"
                     color="inherit"
                     component="div"
@@ -577,7 +621,11 @@ export default function Header() {
                   {page.name}
                 </Button>
               ))} */}
-              <Divider orientation="vertical" variant="middle" sx={{ bgcolor: "red" }} />
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                sx={{ bgcolor: "red" }}
+              />
             </Box>
             <Divider
               orientation="vertical"
