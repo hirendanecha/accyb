@@ -483,6 +483,7 @@ export default function Header() {
                   </Avatar>
                 </MenuItem>
                 <MenuItem
+                onClick={() => router.push(`/${locale}/news`)}
                   sx={{
                     mt: 3,
                     display: "flex",
@@ -501,7 +502,7 @@ export default function Header() {
                       fontWeight: 600,
                     }}
                   >
-                    actualités
+                    {`${t("nav1")}`}
                   </Typography>
                   {/* <Typography
                     sx={{
@@ -538,7 +539,7 @@ export default function Header() {
                       color: "#fff",
                     }}
                   >
-                    Déclarer un incident
+                    {`${t('nav4')}`}
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -566,7 +567,7 @@ export default function Header() {
                       color: "#fff",
                     }}
                   >
-                    adhérer à l’ACCYB
+                    {`${t('nav3')}`}
                   </Typography>
                 </MenuItem>
               </Menu>
