@@ -177,7 +177,7 @@ export default function CategoryDetails() {
         }}
       >
         <Container disableGutters maxWidth={"xl"} sx={{ padding: "0 16px" }}>
-          <Box sx={{ position: "fixed", bottom: 55, left: 100 }}>
+          <Box sx={{ position: "fixed", bottom: 55, left: 100,display: { xs: "none", md: "block" } }}>
             <Box
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
