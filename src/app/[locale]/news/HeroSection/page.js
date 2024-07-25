@@ -107,9 +107,9 @@ export default function App({ allEvents }) {
                   <>
                   <SwiperSlide>
                     <Box
-                      // onClick={() => {
-                      //   router.push(`/${locales}/event/${ele?._id}`);
-                      // }}
+                      onClick={() => {
+                        router.push(`/${locales}/event/${ele?._id}`);
+                      }}
                       key={idx}
                       sx={{
                         cursor: "pointer",
@@ -122,7 +122,7 @@ export default function App({ allEvents }) {
                       }}
                     >
                       <Grid container>
-                        <Grid item xs={12} md={10} padding={{ md: "150px 50px", xs: "90px 10px" }}>
+                        <Grid item xs={12} md={10} padding={{ md: "150px 50px", xs: "90px 10px" }} >
                           <Button
                             sx={{
                               fontFamily: inter.style.fontFamily,

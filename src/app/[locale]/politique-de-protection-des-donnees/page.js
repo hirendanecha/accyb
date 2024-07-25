@@ -3,7 +3,7 @@ import React from "react";
 import { inter } from "../../../fonts/fonts";
 import { useTranslations } from "next-intl";
 
-const LegalPage = () => {
+const PolitiqueDeProtectionDesDonnées = () => {
   const t = useTranslations("LegalPage");
   return (
     <>
@@ -53,14 +53,14 @@ const LegalPage = () => {
             </defs>
           </svg>
         </div>
-        <Container maxWidth={"xl"} sx={{ pt: 30 }}>
+        <Container maxWidth={"xl"} sx={{ pt: {xs:20,md:30} }}>
           <Box>
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "75px",
+                fontSize: {xs:"42px",md:"75px"},
                 fontWeight: 400,
-                lineHeight: "90px",
+                lineHeight: {xs:'55px',md:"90px"},
                 color: "#222D55",
                 textAlign: "center",
               }}
@@ -83,7 +83,7 @@ const LegalPage = () => {
           variant="middle"
           sx={{
             bgcolor: "#222D55",
-            mt: 25,
+            mt: {xs:12,md:25},
             opacity: 0.2,
             marginLeft: 5,
             marginRight: 5,
@@ -91,13 +91,13 @@ const LegalPage = () => {
           }}
         ></Divider>
         <Container maxWidth={"lg"} sx={{ mt: 10 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 5 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: {xs:2,md:5} }}>
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "55px",
+                fontSize: {xs:"28px",md:"55px"},
                 fontWeight: 400,
-                lineHeight: "60px",
+                lineHeight: {xs:'45px',md:"60px"},
                 color: "#222D55",
               }}
             >
@@ -106,9 +106,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "24px",
+                fontSize: {xs:"16px",md:"24px"},
                 fontWeight: 500,
-                lineHeight: "36px",
+                lineHeight: {xs:"26px",md:"36px"},
                 color: "#222D55",
               }}
             >
@@ -123,9 +123,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "55px",
+                fontSize: {xs:'28px',md:"55px"},
                 fontWeight: 400,
-                lineHeight: "60px",
+                lineHeight: {xs:'36px',md:"60px"},
                 color: "#222D55",
               }}
             >
@@ -135,9 +135,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:'16px',md:'24px'},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -148,9 +148,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -162,9 +162,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -175,9 +175,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -189,9 +189,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -205,9 +205,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -222,9 +222,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "55px",
+                fontSize: {xs:"28px",md:"55px"},
                 fontWeight: 400,
-                lineHeight: "60px",
+                lineHeight: {xs:'36px',md:"60px"},
                 color: "#222D55",
               }}
             >
@@ -234,9 +234,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 600,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -245,9 +245,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -258,9 +258,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -271,9 +271,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -284,9 +284,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -299,9 +299,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 600,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -310,9 +310,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -323,9 +323,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 600,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -334,9 +334,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -346,9 +346,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "24px",
+                fontSize: {xs:"16px",md:"24px"},
                 fontWeight: 500,
-                lineHeight: "36px",
+                lineHeight: {xs:"26px",md:"36px"},
                 color: "#222D55",
               }}
             >
@@ -357,9 +357,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "24px",
+                fontSize: {xs:"16px",md:"24px"},
                 fontWeight: 500,
-                lineHeight: "36px",
+                lineHeight: {xs:"26px",md:"36px"},
                 color: "#222D55",
               }}
             >
@@ -368,9 +368,9 @@ const LegalPage = () => {
             <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
-                fontSize: "55px",
+                fontSize: {xs:"28px",md:"55px"},
                 fontWeight: 400,
-                lineHeight: "60px",
+                lineHeight: {xs:'36px',md:"60px"},
                 color: "#222D55",
               }}
             >
@@ -380,9 +380,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 600,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -391,9 +391,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -402,9 +402,9 @@ const LegalPage = () => {
               <Typography
                 sx={{
                   fontFamily: inter.style.fontFamily,
-                  fontSize: "24px",
+                  fontSize: {xs:"16px",md:"24px"},
                   fontWeight: 500,
-                  lineHeight: "36px",
+                  lineHeight: {xs:"26px",md:"36px"},
                   color: "#222D55",
                 }}
               >
@@ -415,9 +415,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -429,9 +429,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -444,9 +444,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -461,9 +461,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -476,9 +476,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -493,9 +493,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -510,9 +510,9 @@ const LegalPage = () => {
                   <Typography
                     sx={{
                       fontFamily: inter.style.fontFamily,
-                      fontSize: "24px",
+                      fontSize: {xs:"16px",md:"24px"},
                       fontWeight: 500,
-                      lineHeight: "36px",
+                      lineHeight: {xs:"26px",md:"36px"},
                       color: "#222D55",
                     }}
                   >
@@ -524,9 +524,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 500,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -535,9 +535,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 500,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -548,9 +548,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 600,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -559,9 +559,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 500,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -572,9 +572,9 @@ const LegalPage = () => {
                     <Typography
                       sx={{
                         fontFamily: inter.style.fontFamily,
-                        fontSize: "24px",
+                        fontSize: {xs:"16px",md:"24px"},
                         fontWeight: 500,
-                        lineHeight: "36px",
+                        lineHeight: {xs:"26px",md:"36px"},
                         color: "#222D55",
                       }}
                     >
@@ -585,9 +585,9 @@ const LegalPage = () => {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            fontSize: "24px",
+                            fontSize: {xs:"16px",md:"24px"},
                             fontWeight: 500,
-                            lineHeight: "36px",
+                            lineHeight: {xs:"26px",md:"36px"},
                             color: "#222D55",
                           }}
                         >
@@ -598,9 +598,9 @@ const LegalPage = () => {
                         <Typography
                           sx={{
                             fontFamily: inter.style.fontFamily,
-                            fontSize: "24px",
+                            fontSize: {xs:"16px",md:"24px"},
                             fontWeight: 500,
-                            lineHeight: "36px",
+                            lineHeight: {xs:"26px",md:"36px"},
                             color: "#222D55",
                           }}
                         >
@@ -615,9 +615,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 600,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -626,9 +626,9 @@ const LegalPage = () => {
                 <Typography
                   sx={{
                     fontFamily: inter.style.fontFamily,
-                    fontSize: "24px",
+                    fontSize: {xs:"16px",md:"24px"},
                     fontWeight: 500,
-                    lineHeight: "36px",
+                    lineHeight: {xs:"26px",md:"36px"},
                     color: "#222D55",
                   }}
                 >
@@ -643,4 +643,4 @@ const LegalPage = () => {
   );
 };
 
-export default LegalPage;
+export default PolitiqueDeProtectionDesDonnées;
