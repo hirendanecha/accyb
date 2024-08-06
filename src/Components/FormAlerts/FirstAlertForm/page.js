@@ -45,12 +45,12 @@ const ValidationTextField = styled(TextField)({
 const schema = yup
   .object({
     // dateOfDeclaration: yup.date().required("Date is required"),
-    // companyName: yup.string().required("Company name is required"),
-    // memberOfAccyb: yup.string().required("Member of ACCYB is required"),
-    // structureType: yup.string().required("Structure type is required"),
-    // activityArea: yup.string().required("Activity area is required"),
-    // territory: yup.string().required("Territory is required"),
-    // commune: yup.string().required("Commune is required"),
+    companyName: yup.string().required("Company name is required"),
+    memberOfAccyb: yup.string().required("Member of ACCYB is required"),
+    structureType: yup.string().required("Structure type is required"),
+    activityArea: yup.string().required("Activity area is required"),
+    territory: yup.string().required("Territory is required"),
+    commune: yup.string().required("Commune is required"),
     // communeOfTwo: yup.string().required("Commune is required"),
   })
   .required();
@@ -71,7 +71,7 @@ export default function HandleForm() {
     resolver: yupResolver(schema),
 
     defaultValues: {
-      dateOfDeclaration: new Date().toISOString().slice(0, 10),
+      // dateOfDeclaration: new Date().toISOString().slice(0, 10),
       companyName: "",
       memberOfAccyb: "",
       structureType: "",
@@ -135,7 +135,7 @@ export default function HandleForm() {
                   borderRadius: "10px",
                   display: "flex",
                   flexDirection: "column",
-                  gap:1
+                  gap: 1
                 }}
               >
                 <Typography
@@ -147,7 +147,7 @@ export default function HandleForm() {
                 >
                   {`${t("text1")}`}
                 </Typography>
-                <Typography sx={{ fontFamily: inter.style.fontFamily,color: "#575F6E" }}>
+                <Typography sx={{ fontFamily: inter.style.fontFamily, color: "#575F6E" }}>
                   {dayjs(Date.now()).format("DD.MM.YYYY")}
                 </Typography>
               </Box>
@@ -160,12 +160,13 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Dénomination de l’entreprise
+                {`${t("field1")}`}
               </Typography>
               <ValidationTextField
                 multiline
                 rows={2}
                 fullWidth
+                error={errors?.companyName}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -242,7 +243,7 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Type de structure
+                {`${t("field3")}`}
               </Typography>
               <Box mt={3}>
                 <FormControl variant="standard" fullWidth>
@@ -250,6 +251,7 @@ export default function HandleForm() {
                     labelId="demo-simple-select-standard-label"
                     id="demo-simple-select-standard"
                     name="structureType"
+                    error={errors?.structureType}
                     onChange={(e) => {
                       setValue("structureType", e.target.value);
                     }}
@@ -316,12 +318,13 @@ export default function HandleForm() {
                   color: "#222D55",
                 }}
               >
-                Secteur d’activité
+                {`${t("field4")}`}
               </Typography>
               <Box mt={3}>
                 <FormControl variant="standard" fullWidth>
                   <Select
                     name="activityArea"
+                    error={errors?.activityArea}
                     onChange={(e) => {
                       setValue("activityArea", e.target.value);
                     }}
@@ -454,6 +457,7 @@ export default function HandleForm() {
                   onChange={(e) => {
                     setValue("territory", e.target.value);
                   }}
+
                 >
                   <FormControlLabel
                     sx={{
@@ -596,6 +600,7 @@ export default function HandleForm() {
                     },
                   }}
                   {...register("commune")}
+                  error={errors?.commune}
                   id="standard-basic"
                   type="text"
                   name="commune"

@@ -371,12 +371,12 @@ export default function Footer() {
                 textTransform: "uppercase",
                 fontSize: { md: "12px", xs: "11px" },
                 fontWeight: 500,
-                cursor:'pointer'
+                cursor: 'pointer'
               }}
             >
               {t("footerT1")}
             </Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 fontFamily: inter.style.fontFamily,
 
@@ -387,7 +387,7 @@ export default function Footer() {
               }}
             >
               {t("footerT2")}
-            </Typography>
+            </Typography> */}
             <Typography
               sx={{
                 color: "#FFFFFF",

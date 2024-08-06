@@ -35,12 +35,12 @@ const ValidationTextField = styled(TextField)({
 
 const schema = yup
   .object({
-    // firstName: yup.string().required("First name is required"),
-    // name: yup.string().required("Last name is required"),
-    // email: yup.string().email("Invalid email").required("Email is required"),
-    // telephone: yup.string().required("Phone number is required"),
-    // service: yup.string().required("service is required"),
-    // fonction: yup.string().required("Fonction is required"),
+    firstName: yup.string().required("First name is required"),
+    name: yup.string().required("Last name is required"),
+    email: yup.string().email("Invalid email").required("Email is required"),
+    telephone: yup.string().required("Phone number is required"),
+    service: yup.string().required("service is required"),
+    fonction: yup.string().required("Fonction is required"),
   })
   .required();
 
@@ -84,7 +84,7 @@ export default function HandleForm() {
           // setLoader(true);
         }}
       >
-        <Box sx={{ marginTop: 5, border: {xs:'none',sm:"1px solid #E2E4E5"}, padding: {xs:'none',sm:"30px"}, borderRadius: "10px" }}>
+        <Box sx={{ marginTop: 5, border: { xs: 'none', sm: "1px solid #E2E4E5" }, padding: { xs: 'none', sm: "30px" }, borderRadius: "10px" }}>
           <Typography
             sx={{
               fontFamily: inter.style.fontFamily,
@@ -117,6 +117,7 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 {...register("firstName")}
+                error={errors?.firstName}
                 name="firstName"
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
@@ -143,6 +144,7 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 {...register("name")}
+                error={errors?.name}
                 name="name"
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
@@ -170,6 +172,7 @@ export default function HandleForm() {
                 type="text"
                 name="service"
                 {...register("service")}
+                error={errors?.service}
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
               />
@@ -195,6 +198,7 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 {...register("fonction")}
+                error={errors?.fonction}
                 name="fonction"
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
@@ -221,6 +225,7 @@ export default function HandleForm() {
                 name="telephone"
                 id="standard-basic"
                 {...register("telephone")}
+                error={errors?.telephone}
                 type="number"
                 variant="standard"
                 sx={{ fontFamily: inter.style.fontFamily, fontSize: "14px !important", fontWeight: 500 }}
@@ -246,6 +251,7 @@ export default function HandleForm() {
                 }}
                 name="email"
                 {...register("email")}
+                error={errors?.email}
                 id="standard-basic"
                 type="email"
                 variant="standard"

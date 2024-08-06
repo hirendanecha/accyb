@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
   Box,
@@ -86,6 +86,7 @@ export default function HandleForm() {
   const locales = useLocale();
   const router = useRouter();
   const dispatch = useDispatch();
+  const { captchaCompleted, setCaptchaCompleted } = useState(false);
 
   const {
     register,
@@ -149,6 +150,10 @@ export default function HandleForm() {
   console.log(memberOneInformation, "memberOneInformation");
   console.log(memberTwoInformation, "memberTwoInformation");
 
+  const onCaptchaChange = () => {
+    setCaptchaCompleted(true);
+  }
+
   const onSubmit = (data) => {
     console.log(data, "data");
     dispatch(setMemberTwoInformation(data));
@@ -208,7 +213,7 @@ export default function HandleForm() {
                     </MenuItem>
                   </Select>
                 </FormControl>
-                
+
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
@@ -652,7 +657,7 @@ export default function HandleForm() {
                     </MenuItem>
                   </Select>
                 </FormControl>
-               
+
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
@@ -887,35 +892,36 @@ export default function HandleForm() {
             </FormControl>
           </Box> */}
           <Box sx={{ mt: 5, padding: "0 16px" }}>
-            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} onChange={onCaptchaChange}
+            />
           </Box>
-         
-            <Grid
-              item
-              xs={12}
+
+          <Grid
+            item
+            xs={12}
+            sx={{
+              border: "1px solid #E2E4E5",
+              padding: '30px',
+              borderRadius: "10px",
+              display: "flex",
+              flexDirection: "column",
+              mt: 5
+            }}
+          >
+            <Typography
               sx={{
-                border: "1px solid #E2E4E5",
-                padding: '30px',
-                borderRadius: "10px",
-                display: "flex",
-                flexDirection: "column",
-                mt:5
+                fontFamily: inter.style.fontFamily,
+                fontSize: { md: "18px", xs: "12px" },
+                color: "#222D55",
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: inter.style.fontFamily,
-                  fontSize: { md: "18px", xs: "12px" },
-                  color: "#222D55",
-                }}
-              >
-                Date
-              </Typography>
-              <Typography sx={{ mt: 1 }}>
-                {dayjs(new Date()).format("DD/MM/YYYY")}
-              </Typography>
-            </Grid>
-            
+              Date
+            </Typography>
+            <Typography sx={{ mt: 1 }}>
+              {dayjs(new Date()).format("DD/MM/YYYY")}
+            </Typography>
+          </Grid>
+
 
           <Box
             sx={{
@@ -967,6 +973,7 @@ export default function HandleForm() {
                   backgroundColor: "transparent",
                 },
               }}
+              disabled={!captchaCompleted}
             >
               {`${t("button")}`}
             </Button>

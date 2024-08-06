@@ -57,15 +57,16 @@ const ValidationTextField = styled(TextField)({
 const schema = yup
   .object({
     // personImpact: yup.string().required("Person impact is required"),
-    // eventDescription: yup.string().required("Event description is required"),
+    eventDescription: yup.string().required("Event description is required"),
     // activityStatus: yup.string().required("Activity status is required"),
-    // personsImpacted: yup.string().required("Person impacted is required"),
-    // sitesImpacted: yup.string().required("Sites impacted is required"),
+    personsImpacted: yup.string().required("Person impacted is required"),
+    sitesImpacted: yup.string().required("Sites impacted is required"),
     // categoriesImpacted: yup.array(yup.string()).required("Categories impacted is required"),
-    // servicesImpacted: yup.string().required("Services impacted is required"),
-    // impacted: yup.string().required("Impacted is required"),
-    // time: yup.string().required("Time is required"),
-    // date: yup.string().required("Date is required"),
+    servicesImpacted: yup.string().required("Services impacted is required"),
+    impacted: yup.string().required("Impacted is required"),
+    time: yup.string().required("Time is required"),
+    date: yup.string().required("Date is required"),
+
   })
   .required();
 
@@ -114,8 +115,14 @@ export default function HandleForm() {
       impacted: "",
       time: "",
       date: "",
+      hasAcceptedCaptcha: false,
     },
   });
+
+  console.log(errors, "errors");
+
+
+  const captch = watch("hasAcceptedCaptcha");
 
   const sendEmail = async (
     generalInformation,
@@ -206,6 +213,7 @@ export default function HandleForm() {
                   },
                 }}
                 {...register("date")}
+                error={errors?.date}
                 name="date"
                 id="standard-basic"
                 type="date"
@@ -223,7 +231,7 @@ export default function HandleForm() {
                 sx={{
                   fontFamily: inter.style.fontFamily,
                   fontSize: { md: "14px", xs: "12px" },
-                  color: "#222D55",
+                  color: "#222D55"
                 }}
               >
                 {`${t("field2")}`}
@@ -241,6 +249,7 @@ export default function HandleForm() {
                   },
                 }}
                 {...register("time")}
+                error={errors?.time}
                 name="time"
                 id="standard-basic"
                 type="time"
@@ -280,6 +289,7 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 {...register("impacted")}
+                error={errors?.impacted}
                 name="impacted"
                 variant="standard"
                 sx={{
@@ -316,6 +326,7 @@ export default function HandleForm() {
                 id="standard-basic"
                 type="text"
                 {...register("servicesImpacted")}
+                error={errors?.servicesImpacted}
                 name="servicesImpacted"
                 variant="standard"
                 sx={{
@@ -385,6 +396,7 @@ export default function HandleForm() {
                             // setValue("categoriesImpacted", selectedValues);
                           }}
                           value={item.value}
+
                         />
                       }
                       label={item.label}
@@ -418,6 +430,7 @@ export default function HandleForm() {
                   },
                 }}
                 {...register("sitesImpacted")}
+                error={errors?.sitesImpacted}
                 name="sitesImpacted"
                 id="standard-basic"
                 type="text"
@@ -454,6 +467,7 @@ export default function HandleForm() {
                   },
                 }}
                 {...register("personsImpacted")}
+                // error={errors?.personsImpacted}
                 name="personsImpacted"
                 id="standard-basic"
                 type="text"
@@ -555,6 +569,7 @@ export default function HandleForm() {
 -${t("field9Placeholder4")}
               `}
                 {...register("eventDescription")}
+                error={errors?.eventDescription}
                 name="eventDescription"
                 type="text"
                 variant="standard"
@@ -723,7 +738,11 @@ export default function HandleForm() {
             alignItems: { xs: "center", sm: "none" },
           }}
         >
-          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} />
+          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} onChange={(val) => {
+            setValue("hasAcceptedCaptcha", true);
+          }}
+
+          />
         </Box>
 
         {/* <Grid container columnSpacing={5}>
@@ -806,7 +825,8 @@ export default function HandleForm() {
             />
           }
           sx={{
-            color: "#FFFFFF",
+            color: !captch ? "#FFFFFF !important" : "#FFFFFF",
+            opacity: !captch ? 0.5 : 1,
             border: "1px solid #222D55",
             borderRadius: "61px",
             padding: "8px 30px",
@@ -819,10 +839,11 @@ export default function HandleForm() {
               backgroundColor: "#BE0011",
             },
           }}
+          disabled={!captch}
         >
-          Déclarer mon incident
+          {`${t('button')}`}
         </Button>
-      </form>
+      </form >
       <ToastContainer />
     </>
   );
