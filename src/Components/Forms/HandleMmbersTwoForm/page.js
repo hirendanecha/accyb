@@ -119,9 +119,12 @@ export default function HandleForm() {
       substitutePhone: "",
       substituteEmail: "",
       date: new Date(),
+      hasAcceptedCaptcha: false,
       // signature: "",
     },
   });
+
+  const captcha = watch("hasAcceptedCaptcha");
 
   const sendEmail = async (memberOneInformation, memberTwoInformation) => {
     try {
@@ -892,7 +895,9 @@ export default function HandleForm() {
             </FormControl>
           </Box> */}
           <Box sx={{ mt: 5, padding: "0 16px" }}>
-            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} onChange={onCaptchaChange}
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY} onChange={(val) => {
+              setValue("hasAcceptedCaptcha", true);
+            }}
             />
           </Box>
 
@@ -973,7 +978,7 @@ export default function HandleForm() {
                   backgroundColor: "transparent",
                 },
               }}
-              disabled={!captchaCompleted}
+              disabled={!captcha}
             >
               {`${t("button")}`}
             </Button>
