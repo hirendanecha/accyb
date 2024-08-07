@@ -246,6 +246,9 @@ export default function HeroSection() {
                   {`${t("Description2")}`}
                   <br />
                   {`${t("Description3")}`}
+                  <br />
+                  <br />
+                  {`CONTACT: 0970 260 801`}
                 </Typography>
               </Box>
               <Box

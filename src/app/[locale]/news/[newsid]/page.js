@@ -54,56 +54,7 @@ const Imgs = styled(Image)(({ theme }) => ({
   },
 }));
 
-const articles = [
-  {
-    img: Image1,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image2,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image3,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image1,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image2,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-  {
-    img: Image3,
-    title: "Actualité",
-    heading: "Calendrier de l’Avent Cyber 2023",
-    description:
-      "Lorem ipsum dolor sit amet, conse, sed do eiusmod tempor incididunt ut labore et dolore ...",
-    time: "13.01.2024",
-  },
-];
+
 export default function Page() {
   const t = useTranslations('NewsDetailPage');
   const params = useParams();
@@ -126,12 +77,12 @@ export default function Page() {
 
   let News;
 
-  if(locales==='fr'){
-    News=allNews?.filter((news) => news.language === "french");
+  if (locales === 'fr') {
+    News = allNews?.filter((news) => news.language === "french");
     console.log(News, "frenchNews");
   }
-  if(locales==='en'){
-    News=allNews?.filter((news) => news.language === "english");
+  if (locales === 'en') {
+    News = allNews?.filter((news) => news.language === "english");
     console.log(News, "englishNews");
   }
 
@@ -454,7 +405,7 @@ export default function Page() {
               >
                 {News?.length > 0 ? (
                   <>
-                    {News?.slice(0,6)?.map((ele, idx) => {
+                    {News?.slice(0, 6)?.map((ele, idx) => {
                       const data = getNews?.title
                         .split("\n")
                         .slice(0, 4)
@@ -473,9 +424,9 @@ export default function Page() {
                             xs={12}
                             md={6}
                             sx={{ cursor: "pointer" }}
-                            // onClick={() =>
-                            //   router?.push(`/${locales}/news/${ele?._id}`)
-                            // }
+                          // onClick={() =>
+                          //   router?.push(`/${locales}/news/${ele?._id}`)
+                          // }
                           >
                             <Box
                               sx={{
