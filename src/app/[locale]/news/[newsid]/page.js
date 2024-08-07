@@ -173,7 +173,7 @@ export default function Page() {
                   .slice(0, 4)
                   .map((line, index) => {
                     if (index === 0) {
-                      return line.substring(0, 52) + "...";
+                      return line.substring(0, 45) + "...";
                     } else {
                       return line;
                     }
